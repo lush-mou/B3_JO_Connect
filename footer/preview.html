@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Footer — preview</title>
+
+<!-- base = racine jo_html/ pour que les "assets/..." du footer se résolvent -->
+<base href="../" />
+
+<style>
+  /* Polices + variables (déjà présentes dans les pages jo_html, ici pour la preview) */
+  @font-face { font-family:'NewBlack'; src:url('assets/fonts/NewBlackTypeface-Regular.ttf') format('truetype'); font-weight:400; font-display:swap; }
+  @font-face { font-family:'NewBlack'; src:url('assets/fonts/NewBlackTypeface-Medium.ttf') format('truetype'); font-weight:500; font-display:swap; }
+  @font-face { font-family:'NewBlack'; src:url('assets/fonts/NewBlackTypeface-SemiBold.ttf') format('truetype'); font-weight:600; font-display:swap; }
+  @font-face { font-family:'NewBlack'; src:url('assets/fonts/NewBlackTypeface-Bold.ttf') format('truetype'); font-weight:700; font-display:swap; }
+  @font-face { font-family:'NewBlack'; src:url('assets/fonts/NewBlackTypeface-ExtraBold.ttf') format('truetype'); font-weight:800; font-display:swap; }
+
+  :root{ --paper:#fbfbfb; --navy:#0b0f4d; --blue:#1874ff; }
+
+  *{ box-sizing:border-box; }
+  body{ margin:0; font-family:'NewBlack',-apple-system,Segoe UI,Roboto,sans-serif; background:#e9e9ef; }
+  a{ color:inherit; text-decoration:none; }
+
+  /* repère visuel : montre la limite 1400px du contenu */
+  body::before{ content:'⟵ contenu max 1400px • le fond navy grandit au-delà ⟶'; display:block; text-align:center; font-size:13px; color:#555; padding:14px; }
+</style>
+
+<!-- la CSS du footer, telle qu'elle sera collée dans les pages -->
+<link rel="stylesheet" href="footer/footer.css" />
+</head>
+<body>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <h2 class="footer-partners-title">Partenaires Olympiques et Paralympiques Mondiaux</h2>
+
+    <div class="sponsors">
+      <div class="sponsor-cell"><a href="https://www.airbnb.com" target="_blank" rel="noopener"><img class="sponsor" src="assets/logos/airbnb.svg" alt="Airbnb" /></a></div>
+      <div class="sponsor-cell"><a href="https://www.alibabagroup.com" target="_blank" rel="noopener"><img class="sponsor" src="assets/logos/alibaba.svg" alt="Alibaba" /></a></div>
+      <div class="sponsor-cell"><a href="https://www.allianz.com" target="_blank" rel="noopener"><img class="sponsor" src="assets/logos/allianz.svg" alt="Allianz" /></a></div>
+      <div class="sponsor-cell"><a href="https://www.coca-cola.com" target="_blank" rel="noopener"><img class="sponsor" src="assets/logos/cocacola.svg" alt="Coca-Cola" /></a></div>
+      <div class="sponsor-cell"><a href="https://www.deloitte.com" target="_blank" rel="noopener"><img class="sponsor" src="assets/logos/deloitte.svg" alt="Deloitte" /></a></div>
+      <div class="sponsor-cell"><a href="https://www.omegawatches.com" target="_blank" rel="noopener"><img class="sponsor" src="assets/logos/omega.svg" alt="Omega" /></a></div>
+      <div class="sponsor-cell"><a href="https://www.pg.com" target="_blank" rel="noopener"><img class="sponsor" src="assets/logos/pg.svg" alt="P&amp;G" /></a></div>
+      <div class="sponsor-cell"><a href="https://www.corona.com" target="_blank" rel="noopener"><img class="sponsor" src="assets/logos/logo-corona-cero.png" alt="Corona Cero" /></a></div>
+      <div class="sponsor-cell"><a href="https://www.visa.com" target="_blank" rel="noopener"><img class="sponsor" src="assets/logos/visa.svg" alt="Visa" /></a></div>
+      <div class="sponsor-cell"><a href="https://www.samsung.com" target="_blank" rel="noopener"><img class="sponsor" src="assets/logos/samsung.svg" alt="Samsung" /></a></div>
+      <div class="sponsor-cell"><a href="https://www.tcl.com" target="_blank" rel="noopener"><img class="sponsor" src="assets/logos/tcl.svg" alt="TCL" /></a></div>
+    </div>
+
+    <div class="footer-shortcuts">
+      <div class="footer-brand">
+        <img class="footer-logo" src="assets/logos/logo_olympic_cool.svg" alt="Olympic Connect" />
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook"><img src="assets/logos/facebook.svg" alt="" /></a>
+          <a href="#" aria-label="Instagram"><img src="assets/logos/instagram.svg" alt="" /></a>
+          <a href="#" aria-label="YouTube"><img src="assets/logos/youtube.svg" alt="" /></a>
+        </div>
+      </div>
+      <nav class="footer-nav">
+        <div class="footer-col">
+          <a class="footer-col-title">Découvrir</a>
+          <ul><li><a href="index.html">Accueil</a></li><li><a href="#">Replays et Temps forts</a></li><li><a href="#">Live</a></li><li><a href="#">Athletes Talks</a></li></ul>
+        </div>
+        <div class="footer-col">
+          <a class="footer-col-title">Social</a>
+          <ul><li><a href="#">Posts</a></li><li><a href="#">Communauté</a></li><li><a href="#">Athlètes</a></li><li><a href="#">Messages</a></li></ul>
+        </div>
+        <div class="footer-col footer-col--account">
+          <a class="footer-col-title">Compte &amp; aide</a>
+          <div class="footer-account-links">
+            <ul><li><a href="#">S'inscrire</a></li><li><a href="#">Se connecter</a></li></ul>
+            <ul><li><a href="#">SOS</a></li><li><a href="#">Engagement</a></li></ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <div class="footer-divider"></div>
+    <p class="footer-copyright">Copyright © 2026 | All Rights Reserved | <a href="#">Terms and Conditions</a> | <a href="#">Privacy Policy</a></p>
+  </div>
+  <img class="footer-deco" src="assets/img/footer-deco.png" alt="" />
+</footer>
+
+</body>
+</html>

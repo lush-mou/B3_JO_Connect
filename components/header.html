@@ -1,0 +1,113 @@
+<!-- ============================================================
+     HEADER — Olympic Connect 2026  (composant réutilisable)
+     ------------------------------------------------------------
+     UTILISATION (copier-coller) :
+       1. La page doit lier la feuille de style partagée :
+            <link rel="stylesheet" href="style.css" />
+          (le style du header y vit déjà — sélecteurs .site-header & co.)
+       2. Coller le bloc <header>…</header> juste après <body>.
+       3. Coller AUSSI le <script> du burger (en bas) avant </body>.
+       4. Chemins d'assets relatifs (assets/…) : garder la page au même
+          niveau que le dossier assets/, sinon ajuster les src.
+     COMPORTEMENT :
+       • Fond navy pleine largeur, contenu plafonné à 1400px.
+       • ≥1050px : nav complète.  <1050px : barre compacte + menu burger.
+       • Bannière dégradée optionnelle : supprimer le bloc .header-banner
+         si la page n'en a pas besoin.
+     ============================================================ -->
+
+<!-- Fond navy pleine largeur ; contenu plafonné à 1400px (cf. Figma node 398:3244 « oc ») -->
+<header class="site-header">
+  <div class="header-content">
+
+    <!-- Barre de navigation -->
+    <nav class="header-bar">
+      <div class="header-left">
+        <a class="header-logo-link" href="#" aria-label="Olympic Connect 2026 — accueil">
+          <img class="header-logo" src="assets/img/logo-oc-baniere.svg" alt="Olympic Connect 2026" />
+        </a>
+        <span class="header-badge">JO 2026</span>
+      </div>
+
+      <div class="header-nav">
+        <a href="#">Replays et Temps forts</a>
+        <a href="#">Athletes Talks</a>
+        <a href="#">Posts</a>
+        <a href="#">Canaux</a>
+      </div>
+
+      <div class="header-actions">
+        <button class="btn-sos" type="button">SOS</button>
+        <button class="btn-flag" type="button" aria-label="Choisir la langue — Français">
+          <svg viewBox="0 0 26 24" aria-hidden="true">
+            <rect width="8.667" height="24" fill="#002395" />
+            <rect x="8.667" width="8.667" height="24" fill="#ffffff" />
+            <rect x="17.333" width="8.667" height="24" fill="#ED2939" />
+          </svg>
+        </button>
+        <a class="btn-login" href="#">Se connecter</a>
+
+        <!-- Burger (visible < 1050px) -->
+        <button class="btn-burger" type="button" aria-label="Ouvrir le menu"
+                aria-expanded="false" aria-controls="headerMenu">
+          <svg class="icon-open" viewBox="0 0 40 28" aria-hidden="true">
+            <line x1="2" y1="4"  x2="38" y2="4" />
+            <line x1="2" y1="14" x2="38" y2="14" />
+            <line x1="2" y1="24" x2="38" y2="24" />
+          </svg>
+          <svg class="icon-close" viewBox="0 0 28 28" aria-hidden="true">
+            <line x1="5" y1="5"  x2="23" y2="23" />
+            <line x1="23" y1="5" x2="5"  y2="23" />
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Menu plein écran (visible < 1050px, ouvert via le burger) -->
+    <div class="header-menu" id="headerMenu">
+      <a href="#">Replays et Temps forts</a>
+      <a href="#">Athletes Talks</a>
+      <a href="#">Posts</a>
+      <a href="#">Canaux</a>
+      <div class="header-menu-actions">
+        <button class="btn-flag" type="button" aria-label="Choisir la langue — Français">
+          <svg viewBox="0 0 26 24" aria-hidden="true">
+            <rect width="8.667" height="24" fill="#002395" />
+            <rect x="8.667" width="8.667" height="24" fill="#ffffff" />
+            <rect x="17.333" width="8.667" height="24" fill="#ED2939" />
+          </svg>
+        </button>
+        <a class="btn-login" href="#">Se connecter</a>
+      </div>
+    </div>
+
+    <!-- Bannière dégradée (optionnelle) -->
+    <div class="header-banner">
+      <img src="assets/img/header-banner.png" alt="" />
+    </div>
+
+  </div>
+</header>
+
+<!-- ▼▼▼ À coller avant </body> ▼▼▼ -->
+<script>
+  // Toggle du menu burger plein écran (< 1050px)
+  (function () {
+    var burger = document.querySelector('.btn-burger');
+    var menu = document.getElementById('headerMenu');
+    if (!burger || !menu) return;
+    function setOpen(open) {
+      burger.setAttribute('aria-expanded', String(open));
+      burger.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+      menu.classList.toggle('is-open', open);
+      document.body.classList.toggle('menu-open', open);
+    }
+    burger.addEventListener('click', function () {
+      setOpen(burger.getAttribute('aria-expanded') !== 'true');
+    });
+    // Fermer le menu au clic sur un lien
+    menu.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () { setOpen(false); });
+    });
+  })();
+</script>

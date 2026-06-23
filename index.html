@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Olympic Connect 2026 — Accueil</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- ====================== HEADER ====================== -->
+  <!-- Fond navy pleine largeur ; contenu plafonné à 1400px (cf. Figma node 398:3244 « oc ») -->
+  <header class="site-header">
+    <div class="header-content">
+
+      <!-- Barre de navigation -->
+      <nav class="header-bar">
+        <div class="header-left">
+          <a class="header-logo-link" href="#" aria-label="Olympic Connect 2026 — accueil">
+            <img class="header-logo" src="assets/img/logo-oc-baniere.svg" alt="Olympic Connect 2026" />
+          </a>
+          <span class="header-badge">JO 2026</span>
+        </div>
+
+        <div class="header-nav">
+          <a href="#">Replays et Temps forts</a>
+          <a href="#">Athletes Talks</a>
+          <a href="#">Posts</a>
+          <a href="#">Canaux</a>
+        </div>
+
+        <div class="header-actions">
+          <button class="btn-sos" type="button">SOS</button>
+          <button class="btn-flag" type="button" aria-label="Choisir la langue — Français">
+            <svg viewBox="0 0 26 24" aria-hidden="true">
+              <rect width="8.667" height="24" fill="#002395" />
+              <rect x="8.667" width="8.667" height="24" fill="#ffffff" />
+              <rect x="17.333" width="8.667" height="24" fill="#ED2939" />
+            </svg>
+          </button>
+          <a class="btn-login" href="#">Se connecter</a>
+
+          <!-- Burger (visible < 1050px) -->
+          <button class="btn-burger" type="button" aria-label="Ouvrir le menu"
+                  aria-expanded="false" aria-controls="headerMenu">
+            <svg class="icon-open" viewBox="0 0 40 28" aria-hidden="true">
+              <line x1="2" y1="4"  x2="38" y2="4" />
+              <line x1="2" y1="14" x2="38" y2="14" />
+              <line x1="2" y1="24" x2="38" y2="24" />
+            </svg>
+            <svg class="icon-close" viewBox="0 0 28 28" aria-hidden="true">
+              <line x1="5" y1="5"  x2="23" y2="23" />
+              <line x1="23" y1="5" x2="5"  y2="23" />
+            </svg>
+          </button>
+        </div>
+      </nav>
+
+      <!-- Menu plein écran (visible < 1050px, ouvert via le burger) -->
+      <div class="header-menu" id="headerMenu">
+          <a href="#">Replays et Temps forts</a>
+          <a href="#">Athletes Talks</a>
+          <a href="#">Posts</a>
+          <a href="#">Canaux</a>
+          <div class="header-menu-actions">
+            <button class="btn-flag" type="button" aria-label="Choisir la langue — Français">
+              <svg viewBox="0 0 26 24" aria-hidden="true">
+                <rect width="8.667" height="24" fill="#002395" />
+                <rect x="8.667" width="8.667" height="24" fill="#ffffff" />
+                <rect x="17.333" width="8.667" height="24" fill="#ED2939" />
+              </svg>
+            </button>
+            <a class="btn-login" href="#">Se connecter</a>
+          </div>
+      </div>
+
+      <!-- Bannière dégradée -->
+      <div class="header-banner">
+        <img src="assets/img/header-banner.png" alt="" />
+      </div>
+
+    </div>
+          
+  </header>
+
+  <script>
+    // Toggle du menu burger plein écran (< 1050px)
+    (function () {
+      var burger = document.querySelector('.btn-burger');
+      var menu = document.getElementById('headerMenu');
+      if (!burger || !menu) return;
+      function setOpen(open) {
+        burger.setAttribute('aria-expanded', String(open));
+        burger.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+        menu.classList.toggle('is-open', open);
+        document.body.classList.toggle('menu-open', open);
+      }
+      burger.addEventListener('click', function () {
+        setOpen(burger.getAttribute('aria-expanded') !== 'true');
+      });
+      // Fermer le menu au clic sur un lien
+      menu.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () { setOpen(false); });
+      });
+    })();
+  </script>
+
+  <div class="page">
+
+    <main>
+
+      <!-- ====================== ACTUALITÉS ====================== -->
+      <section class="wrap section">
+        <h2 class="section-title">Actualités</h2>
+        <img class="full-img" src="assets/img/actu.png" alt="À la une" />
+        <img class="full-img" src="assets/img/carousel.png" alt="Carousel replays" />
+      </section>
+
+      <!-- ====================== PROMO OLYMPIC CONNECT ====================== -->
+      <section class="wrap section">
+        <img class="full-img promo-img" src="assets/img/promo.png" alt="Rejoignez les canaux — Olympic Connect" />
+      </section>
+
+      <!-- ====================== ATHLETE TALKS + REDIFF ====================== -->
+      <section class="wrap section">
+        <img class="full-img" src="assets/img/athlete-talks.png" alt="Athlete Talks" />
+
+        <div class="rediff">
+          <h2 class="section-title">Rediffusions Athlete Talks</h2>
+          <div class="card-row four">
+            <img class="rediff-card" src="assets/img/rediff1.png" alt="Rediffusion 1" />
+            <img class="rediff-card" src="assets/img/rediff2.png" alt="Rediffusion 2" />
+            <img class="rediff-card" src="assets/img/rediff3.png" alt="Rediffusion 3" />
+            <img class="rediff-card" src="assets/img/rediff4.png" alt="Rediffusion 4" />
+          </div>
+          <div class="btn-row">
+            <a class="link-btn" href="#">Voir tous les lives
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================== REPLAYS DU JOUR ====================== -->
+      <section class="wrap section">
+        <h2 class="section-title">Replays du jour</h2>
+
+        <div class="card-row two">
+          <article class="replay">
+            <div class="thumb"><img src="assets/img/replay1.png" alt="" /></div>
+            <h3 class="replay-title">SWE-ITA - Men's Preliminary Round - Ice Hockey | Milano Cortina 2026</h3>
+            <div class="replay-meta">
+              <span class="time-pill">il y a 2h</span>
+              <span class="sport-tag">Ice Hockey</span>
+              <span class="spacer"></span>
+              <button class="play" aria-label="Lire"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+            </div>
+          </article>
+          <article class="replay">
+            <div class="thumb"><img src="assets/img/replay2.png" alt="" /></div>
+            <h3 class="replay-title">GER-FRA - Men's Preliminary Round - Ice Hockey | Milano Cortina 2026</h3>
+            <div class="replay-meta">
+              <span class="time-pill">il y a 3h</span>
+              <span class="sport-tag">Ice Hockey</span>
+              <span class="spacer"></span>
+              <button class="play" aria-label="Lire"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+            </div>
+          </article>
+        </div>
+
+        <div class="card-row three">
+          <article class="replay">
+            <div class="thumb"><img src="assets/img/replay3.png" alt="" /></div>
+            <h3 class="replay-title">Figure Skating | Pairs Free Skate | Milano Cortina 2026 | Full Replays</h3>
+            <div class="replay-meta">
+              <span class="time-pill">il y a 4h</span>
+              <span class="sport-tag">Figure Skating</span>
+              <span class="spacer"></span>
+              <button class="play" aria-label="Lire"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+            </div>
+          </article>
+          <article class="replay">
+            <div class="thumb"><img src="assets/img/replay4.png" alt="" /></div>
+            <h3 class="replay-title">Men's 50km Mass Start Classic | Milano Cortina 2026 | Best Time</h3>
+            <div class="replay-meta">
+              <span class="time-pill">il y a 30mn</span>
+              <span class="sport-tag">Cross Country</span>
+              <span class="spacer"></span>
+              <button class="play" aria-label="Lire"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+            </div>
+          </article>
+          <article class="replay">
+            <div class="thumb"><img src="assets/img/replay5.png" alt="" /></div>
+            <h3 class="replay-title">Women's 50km Mass Start Classic | Milano Cortina 2026 | Best Time</h3>
+            <div class="replay-meta">
+              <span class="time-pill">il y a 2h</span>
+              <span class="sport-tag">Cross Country</span>
+              <span class="spacer"></span>
+              <button class="play" aria-label="Lire"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+            </div>
+          </article>
+        </div>
+
+        <div class="btn-row">
+          <a class="link-btn" href="#">Voir tous les replays
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </section>
+
+      <!-- ====================== POSTS ====================== -->
+      <section class="wrap section">
+        <div class="posts-head">
+          <h2 class="section-title" style="margin-bottom:0">Les posts de vos athlètes</h2>
+          <div class="search">
+            <span>Rechercher un(e) athlète</span>
+            <svg viewBox="0 0 24 24"><path d="M10 2a8 8 0 105.3 14l5.4 5.4 1.4-1.4-5.4-5.4A8 8 0 0010 2zm0 2a6 6 0 110 12 6 6 0 010-12z"/></svg>
+          </div>
+        </div>
+
+        <div class="posts-grid">
+          <div class="posts-left">
+            <img class="post post-wide" src="assets/img/post1.png" alt="Post" />
+            <div class="post-pair">
+              <img class="post" src="assets/img/post2.png" alt="Post" />
+              <img class="post" src="assets/img/post3.png" alt="Post" />
+            </div>
+          </div>
+          <div class="posts-right">
+            <div class="post-col">
+              <img class="post" src="assets/img/post4.png" alt="Post" />
+              <img class="post" src="assets/img/post5.png" alt="Post" />
+            </div>
+            <img class="post post-tall" src="assets/img/post6.png" alt="Post" />
+          </div>
+        </div>
+
+        <div class="btn-row">
+          <a class="link-btn" href="#">Voir tous les posts
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- ====================== FOOTER ====================== -->
+  <footer class="site-footer">
+      <div class="footer-inner">
+
+        <h2 class="footer-partners-title">Partenaires Olympiques et Paralympiques Mondiaux</h2>
+
+        <!-- Logos sponsors (grille fluide : 4/row desktop, 3/row mobile) -->
+        <div class="sponsors">
+          <div class="sponsor-cell"><a href="https://www.airbnb.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/airbnb.svg" alt="Airbnb" /></a></div>
+          <div class="sponsor-cell"><a href="https://www.alibabagroup.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/alibaba.svg" alt="Alibaba" /></a></div>
+          <div class="sponsor-cell"><a href="https://www.allianz.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/allianz.svg" alt="Allianz" /></a></div>
+          <div class="sponsor-cell"><a href="https://www.coca-cola.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/cocacola.svg" alt="Coca-Cola" /></a></div>
+          <div class="sponsor-cell"><a href="https://www.deloitte.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/deloitte.svg" alt="Deloitte" /></a></div>
+          <div class="sponsor-cell"><a href="https://www.omegawatches.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/omega.svg" alt="Omega" /></a></div>
+          <div class="sponsor-cell"><a href="https://www.pg.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/pg.svg" alt="P&amp;G" /></a></div>
+          <div class="sponsor-cell"><a href="https://www.corona.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/logo-corona-cero.png" alt="Corona Cero" /></a></div>
+          <div class="sponsor-cell"><a href="https://www.visa.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/visa.svg" alt="Visa" /></a></div>
+          <div class="sponsor-cell"><a href="https://www.samsung.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/samsung.svg" alt="Samsung" /></a></div>
+          <div class="sponsor-cell"><a href="https://www.tcl.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/tcl.svg" alt="TCL" /></a></div>
+        </div>
+
+        <!-- Raccourcis : marque + navigation -->
+        <div class="footer-shortcuts">
+          <div class="footer-brand">
+            <img class="footer-logo" src="assets/logos/logo_olympic_cool.svg" alt="Olympic Connect" />
+            <div class="footer-social">
+              <a href="#" aria-label="Facebook"><img src="assets/logos/facebook.svg" alt="" /></a>
+              <a href="#" aria-label="Instagram"><img src="assets/logos/instagram.svg" alt="" /></a>
+              <a href="#" aria-label="YouTube"><img src="assets/logos/youtube.svg" alt="" /></a>
+            </div>
+          </div>
+
+          <nav class="footer-nav">
+            <div class="footer-col">
+              <a class="footer-col-title">Découvrir</a>
+              <ul>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">Replays et Temps forts</a></li>
+                <li><a href="#">Live</a></li>
+                <li><a href="#">Athletes Talks</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <a class="footer-col-title">Social</a>
+              <ul>
+                <li><a href="#">Posts</a></li>
+                <li><a href="#">Communauté</a></li>
+                <li><a href="#">Athlètes</a></li>
+                <li><a href="#">Messages</a></li>
+              </ul>
+            </div>
+            <div class="footer-col footer-col--account">
+              <a class="footer-col-title">Compte &amp; aide</a>
+              <div class="footer-account-links">
+                <ul>
+                  <li><a href="#">S'inscrire</a></li>
+                  <li><a href="#">Se connecter</a></li>
+                </ul>
+                <ul>
+                  <li><a href="#">SOS</a></li>
+                  <li><a href="#">Engagement</a></li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
+
+        <div class="footer-divider"></div>
+
+        <p class="footer-copyright">
+          Copyright © 2026 | All Rights Reserved |
+          <a href="#">Terms and Conditions</a> |
+          <a href="#">Privacy Policy</a>
+        </p>
+      </div>
+
+      <img class="footer-deco" src="assets/img/footer-deco.png" alt="" />
+    </footer>
+
+</body>
+</html>

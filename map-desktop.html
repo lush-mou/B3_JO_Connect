@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Olympic Connect 2026 — Map &amp; Agenda</title>
+<style>
+/* ===========================================================
+   JO « goatesque » — Page « Map - desktop » (Figma node 647:4026)
+   Recréation HTML/CSS fidèle + responsive
+   =========================================================== */
+
+/* ---------- Fonts ---------- */
+@font-face { font-family:'NewBlack'; src:url('assets/fonts/NewBlackTypeface-Light.ttf') format('truetype'); font-weight:300; font-style:normal; font-display:swap; }
+@font-face { font-family:'NewBlack'; src:url('assets/fonts/NewBlackTypeface-Regular.ttf') format('truetype'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:'NewBlack'; src:url('assets/fonts/NewBlackTypeface-Medium.ttf') format('truetype'); font-weight:500; font-style:normal; font-display:swap; }
+@font-face { font-family:'NewBlack'; src:url('assets/fonts/NewBlackTypeface-SemiBold.ttf') format('truetype'); font-weight:600; font-style:normal; font-display:swap; }
+@font-face { font-family:'NewBlack'; src:url('assets/fonts/NewBlackTypeface-Bold.ttf') format('truetype'); font-weight:700; font-style:normal; font-display:swap; }
+@font-face { font-family:'NewBlack'; src:url('assets/fonts/NewBlackTypeface-ExtraBold.ttf') format('truetype'); font-weight:800; font-style:normal; font-display:swap; }
+@font-face { font-family:'Anton'; src:url('assets/fonts/Anton-Regular.ttf') format('truetype'); font-weight:400; font-style:normal; font-display:swap; }
+
+/* ---------- Tokens ---------- */
+:root{
+  --white:#ffffff;
+  --paper:#fbfbfb;
+  --navy:#0b0f4d;
+  --indigo:#41348a;
+  --blue:#1874ff;
+  --teal:#016381;        /* bleu-jo / bleu canard */
+  --teal-dark:#014e63;
+  --teal-deep:#0a4d60;
+  --header-bg:#2b6c7e;   /* bandeau header (teal désaturé) */
+  --red:#e5352b;
+  --ink:#121212;
+  --muted:#6b7280;
+  --pill:#eef0f4;
+  --radius-sm:8px;
+  --radius-md:16px;
+  --radius-lg:20px;
+  --wrap:1376px;
+}
+
+/* ---------- Reset ---------- */
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:#e8e8ee;
+  font-family:'NewBlack',-apple-system,Segoe UI,Roboto,sans-serif;
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%;}
+a{text-decoration:none;color:inherit;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;}
+
+/* ---------- Page shell ---------- */
+.page{
+  width:100%;
+  max-width:1440px;
+  margin:0 auto;
+  background:var(--paper);
+  overflow:hidden;
+}
+.wrap{ width:100%; max-width:var(--wrap); margin:0 auto; padding:0 32px; }
+
+/* ===========================================================
+   HEADER
+   =========================================================== */
+.site-header{ width:100%; background:var(--header-bg); }
+.header-inner{
+  max-width:var(--wrap); margin:0 auto;
+  display:flex; align-items:center; gap:24px;
+  padding:16px 32px;
+}
+.brand{ display:flex; align-items:center; gap:10px; color:var(--white); }
+.brand .brand-num{ font-family:'Anton',sans-serif; font-size:30px; line-height:.8; letter-spacing:-1px; }
+.brand .brand-sub{ font-size:8px; font-weight:600; letter-spacing:.5px; line-height:1.2; text-transform:uppercase; }
+.brand .rings{ width:34px; height:auto; }
+
+.main-nav{ display:flex; align-items:center; gap:28px; margin-left:18px; }
+.main-nav a{
+  color:var(--white); font-weight:500; font-size:16px; white-space:nowrap;
+  transition:opacity .2s ease;
+}
+.main-nav a:hover{ opacity:.75; }
+.main-nav a.active{
+  background:var(--indigo); color:var(--white);
+  padding:10px 18px; border-radius:999px; font-weight:600;
+}
+.main-nav a.active:hover{ opacity:1; filter:brightness(1.08); }
+
+.header-actions{ margin-left:auto; display:flex; align-items:center; gap:16px; }
+.sos-btn{
+  background:var(--red); color:var(--white);
+  font-weight:700; font-size:15px; letter-spacing:.5px;
+  padding:10px 18px; border-radius:999px;
+  transition:filter .2s ease;
+}
+.sos-btn:hover{ filter:brightness(1.08); }
+.flag{
+  width:46px; height:34px; border:2px solid var(--white); border-radius:6px;
+  overflow:hidden; display:flex;
+}
+.flag span{ flex:1; }
+.flag .fr-b{ background:#0055a4; } .flag .fr-w{ background:#fff; } .flag .fr-r{ background:#ef4135; }
+
+/* ===========================================================
+   HERO
+   =========================================================== */
+.hero{
+  position:relative; width:100%; min-height:560px;
+  display:flex; align-items:flex-end;
+  background:url('photo/montagnes_cortina.png') center/cover no-repeat, var(--teal);
+  border-radius:0;
+}
+.hero::after{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(2,40,55,.05) 30%, rgba(2,40,55,.78) 100%);
+}
+.hero-inner{ position:relative; z-index:1; width:100%; max-width:var(--wrap); margin:0 auto; padding:0 48px 56px; }
+.hero h1{
+  font-family:'Anton',sans-serif; font-weight:400;
+  font-size:clamp(34px,5vw,64px); line-height:1; letter-spacing:-.64px;
+  color:var(--paper);
+}
+.hero .rings-badge{ width:90px; margin-bottom:18px; opacity:.95; }
+
+/* ===========================================================
+   SECTIONS / TITRES
+   =========================================================== */
+main{ padding-bottom:8px; }
+.section{ margin-top:64px; }
+.section-title{
+  font-family:'Anton',sans-serif; font-weight:400;
+  font-size:clamp(30px,3.6vw,48px); line-height:1; letter-spacing:-.48px;
+  color:var(--teal); margin-bottom:28px;
+}
+
+/* ---------- Filtres ---------- */
+.filters{ display:flex; gap:14px; flex-wrap:wrap; margin-bottom:22px; }
+.chip{
+  display:inline-flex; align-items:center; gap:10px;
+  padding:11px 18px; border-radius:999px; font-weight:600; font-size:15px;
+  white-space:nowrap;
+}
+.chip svg{ width:16px; height:16px; }
+.chip--ville{ background:var(--teal); color:#fff; }
+.chip--sport{ background:var(--blue); color:#fff; }
+.chip--search{ background:#fff; color:#6b7c83; border:1.5px solid #cdd9dd; flex:1; min-width:160px; justify-content:space-between; }
+.chip--search svg{ stroke:var(--teal); }
+
+/* ===========================================================
+   CARTE DES DISCIPLINES (carte + grille de cartes)
+   =========================================================== */
+.map-section{ display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.04fr); gap:28px; align-items:stretch; }
+.map-panel{
+  position:relative; border-radius:var(--radius-md); overflow:hidden;
+  background:linear-gradient(160deg,#cfe6ea,#a9d4dc);
+  min-height:560px;
+}
+.map-panel svg{ width:100%; height:100%; display:block; }
+
+.disc-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.disc-card{
+  display:flex; flex-direction:column;
+  background:var(--teal); border-radius:var(--radius-md); overflow:hidden;
+  color:var(--paper);
+}
+.disc-card .ph{ width:100%; height:118px; object-fit:cover; }
+.disc-card .body{ padding:12px 14px 14px; display:flex; flex-direction:column; gap:8px; flex:1; }
+.disc-card .row1{ display:flex; align-items:baseline; justify-content:space-between; gap:8px; }
+.disc-card .title{ font-weight:700; font-size:14px; line-height:1.15; }
+.disc-card .title small{ display:block; font-weight:500; font-size:13px; opacity:.92; margin-top:2px; }
+.disc-card .date{ font-weight:700; font-size:13px; white-space:nowrap; }
+.disc-card .meta{ display:flex; align-items:center; gap:6px; font-size:12.5px; font-weight:500; }
+.disc-card .meta svg{ width:13px; height:13px; flex:none; }
+.ticket-btn{
+  align-self:flex-end; margin-top:auto;
+  display:inline-flex; align-items:center; gap:6px;
+  background:#fff; color:var(--teal);
+  font-weight:600; font-size:12.5px;
+  padding:7px 12px; border-radius:999px;
+  transition:transform .15s ease;
+}
+.ticket-btn svg{ width:13px; height:13px; stroke:var(--teal); }
+.ticket-btn:hover{ transform:translateX(2px); }
+
+/* ===========================================================
+   AGENDA DES ÉPREUVES
+   =========================================================== */
+.date-bar{ display:flex; align-items:center; gap:12px; margin-bottom:22px; }
+.date-bar .nav-arrow{
+  width:40px; height:40px; border-radius:50%; flex:none;
+  border:1.5px solid #cdd9dd; background:#fff; color:var(--teal);
+  display:flex; align-items:center; justify-content:center;
+}
+.date-bar .nav-arrow svg{ width:18px; height:18px; stroke:var(--teal); }
+.date-track{ display:flex; gap:12px; overflow:hidden; flex:1; }
+.date-pill{
+  flex:1; min-width:96px; text-align:center;
+  padding:12px 6px; border-radius:12px;
+  border:1.5px solid #bcd3d9; color:var(--teal);
+  font-weight:600; font-size:15px;
+}
+.date-pill.active{ background:var(--teal); border-color:var(--teal); color:#fff; }
+.date-pill small{ font-weight:500; opacity:.8; }
+
+.sport-search{
+  display:inline-flex; align-items:center; gap:10px;
+  background:#fff; border:1.5px solid #cdd9dd; border-radius:999px;
+  padding:11px 18px; color:#6b7c83; font-weight:500; font-size:14px;
+  min-width:240px; margin-bottom:24px;
+}
+.sport-search svg{ width:16px; height:16px; stroke:var(--teal); margin-left:auto; }
+
+.agenda-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:18px; }
+.agenda-card{
+  display:flex; gap:16px; align-items:stretch;
+  background:var(--teal); color:var(--paper);
+  border-radius:var(--radius-md); padding:16px; overflow:hidden;
+}
+.agenda-card .daybox{
+  flex:none; width:74px; border-radius:12px; background:rgba(255,255,255,.14);
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  padding:10px 6px; line-height:1;
+}
+.agenda-card .daybox .d{ font-family:'Anton',sans-serif; font-size:28px; }
+.agenda-card .daybox .m{ font-size:13px; font-weight:600; margin-top:4px; text-transform:uppercase; }
+.agenda-card .info{ display:flex; flex-direction:column; gap:7px; flex:1; }
+.agenda-card .info .title{ font-weight:700; font-size:16px; }
+.agenda-card .info .meta{ display:flex; align-items:center; gap:6px; font-size:13px; font-weight:500; }
+.agenda-card .info .meta svg{ width:14px; height:14px; flex:none; }
+.agenda-card .ticket-btn{ margin-top:auto; }
+
+/* ===========================================================
+   DÉCOUVRIR LES DISCIPLINES (carrousel d'icônes)
+   =========================================================== */
+.sports-row{ display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
+.sport-card{
+  position:relative; border-radius:var(--radius-md); overflow:hidden;
+  aspect-ratio:1/.78; color:#fff;
+  background:linear-gradient(160deg,#0a647f,#053a4b);
+  display:flex; align-items:flex-end; padding:16px;
+}
+.sport-card .heart{
+  position:absolute; top:12px; right:12px; width:30px; height:30px;
+  background:rgba(255,255,255,.18); border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+}
+.sport-card .heart svg{ width:16px; height:16px; stroke:#fff; }
+.sport-card .pic{
+  position:absolute; top:50%; left:50%; transform:translate(-50%,-58%);
+  width:64px; height:64px; opacity:.9;
+}
+.sport-card .pic svg{ width:100%; height:100%; stroke:#fff; fill:none; stroke-width:1.6; }
+.sport-card .name{ position:relative; font-weight:700; font-size:18px; }
+
+.disc-cta{ display:flex; align-items:center; justify-content:center; gap:18px; margin-top:26px; }
+.pill-btn{
+  display:inline-flex; align-items:center; gap:10px;
+  border:1.5px solid var(--teal); color:var(--teal); background:#fff;
+  font-weight:600; font-size:16px; padding:13px 26px; border-radius:999px;
+  transition:background .2s ease,color .2s ease;
+}
+.pill-btn:hover{ background:var(--teal); color:#fff; }
+.dots{ display:flex; gap:8px; }
+.dots i{ width:9px; height:9px; border-radius:50%; background:#c4d4d9; display:block; }
+.dots i.on{ background:var(--teal); width:22px; border-radius:6px; }
+.carousel-arrows{ display:flex; gap:10px; }
+.carousel-arrows button{
+  width:42px;height:42px;border-radius:50%;border:1.5px solid #cdd9dd;background:#fff;
+  display:flex;align-items:center;justify-content:center;
+}
+.carousel-arrows svg{ width:18px;height:18px;stroke:var(--teal); }
+
+/* ===========================================================
+   REPLAYS
+   =========================================================== */
+.replay-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+.replay{ display:flex; flex-direction:column; }
+.replay .thumb{ position:relative; }
+.replay .thumb img{ width:100%; height:200px; object-fit:cover; border-radius:var(--radius-md); }
+.badge{
+  position:absolute; top:12px; right:12px;
+  background:rgba(11,15,77,.82); color:#fff;
+  font-size:10px; font-weight:700; letter-spacing:.6px; text-transform:uppercase;
+  padding:5px 9px; border-radius:6px;
+}
+.replay-title{ font-weight:600; font-size:15px; line-height:1.3; color:var(--ink); margin:13px 0 10px; min-height:40px; }
+.replay-meta{ display:flex; align-items:center; gap:8px; }
+.time-pill{ background:var(--pill); color:#4a4a55; font-weight:500; font-size:12px; padding:6px 12px; border-radius:var(--radius-sm); white-space:nowrap; }
+.sport-tag{ background:var(--blue); color:#fff; font-weight:600; font-size:12px; padding:6px 12px; border-radius:var(--radius-sm); white-space:nowrap; }
+.replay-meta .spacer{ flex:1; }
+.play{ flex:none; width:42px; height:42px; border-radius:50%; background:var(--blue); display:flex; align-items:center; justify-content:center; }
+.play svg{ width:15px; height:15px; fill:#fff; margin-left:2px; }
+.btn-row{ display:flex; justify-content:flex-end; margin-top:26px; }
+.link-btn{ font-weight:600; font-size:16px; color:var(--blue); text-transform:uppercase; letter-spacing:.5px; display:inline-flex; align-items:center; gap:8px; }
+.link-btn svg{ width:18px; height:18px; stroke:var(--blue); }
+
+/* ===========================================================
+   FOOTER (repris de la home Olympic Connect)
+   =========================================================== */
+.site-footer{ position:relative; width:100%; background:var(--navy); color:var(--paper); overflow:hidden; margin-top:72px; }
+.footer-inner{ display:flex; flex-direction:column; align-items:center; gap:56px; width:100%; max-width:1400px; margin:0 auto; padding:56px 80px; box-sizing:border-box; }
+.footer-partners-title{ font-weight:600; font-size:36px; line-height:1; text-align:center; }
+.sponsors{ display:flex; flex-wrap:wrap; justify-content:center; align-items:center; row-gap:36px; width:100%; max-width:920px; }
+.sponsor-cell{ flex:0 0 25%; display:flex; align-items:center; justify-content:center; padding:0 12px; }
+.sponsor-cell a{ display:flex; align-items:center; justify-content:center; width:100%; transition:opacity .2s ease; }
+.sponsor-cell a:hover{ opacity:.7; }
+.sponsor{ height:38px; max-width:100%; object-fit:contain; filter:brightness(0) invert(1); }
+.footer-shortcuts{ display:flex; align-items:flex-start; gap:120px; }
+.footer-brand{ display:flex; flex-direction:column; align-items:flex-start; gap:22px; width:300px; }
+.footer-logo{ width:210px; height:auto; }
+.footer-social{ display:flex; gap:16px; }
+.footer-social img{ width:34px; height:34px; }
+.footer-social a{ transition:opacity .2s ease; } .footer-social a:hover{ opacity:.7; }
+.footer-nav{ display:flex; gap:64px; }
+.footer-col-title{ display:block; font-weight:700; font-size:20px; margin-bottom:20px; }
+.footer-col ul{ list-style:none; display:flex; flex-direction:column; gap:18px; }
+.footer-col ul a{ font-weight:600; font-size:14px; transition:opacity .25s ease; }
+.footer-col ul a:hover{ opacity:.45; }
+.footer-account-links{ display:flex; flex-direction:column; gap:18px; }
+.footer-divider{ width:100%; height:1px; background:linear-gradient(90deg,transparent,rgba(251,251,251,.25) 50%,transparent); }
+.footer-copyright{ font-weight:400; font-size:17px; line-height:1.6; text-align:center; }
+.footer-copyright a{ text-decoration:underline; text-underline-offset:3px; }
+.footer-deco{ display:block; width:100%; max-width:1400px; height:auto; margin:0 auto; }
+
+/* ===========================================================
+   RESPONSIVE
+   =========================================================== */
+@media (max-width:1040px){
+  .map-section{ grid-template-columns:1fr; }
+  .map-panel{ min-height:360px; }
+  .disc-grid{ grid-template-columns:repeat(3,1fr); }
+  .replay-grid{ grid-template-columns:repeat(2,1fr); }
+  .sports-row{ grid-template-columns:repeat(2,1fr); }
+  .main-nav{ gap:18px; }
+}
+@media (max-width:760px){
+  .wrap{ padding:0 20px; }
+  .section{ margin-top:44px; }
+  .header-inner{ flex-wrap:wrap; gap:14px; padding:14px 20px; }
+  .main-nav{ order:3; width:100%; flex-wrap:wrap; gap:12px; margin-left:0; }
+  .header-actions{ margin-left:auto; }
+  .hero{ min-height:380px; }
+  .hero-inner{ padding:0 24px 36px; }
+  .filters{ flex-direction:column; align-items:stretch; }
+  .chip{ justify-content:center; }
+  .disc-grid{ grid-template-columns:repeat(2,1fr); }
+  .agenda-grid{ grid-template-columns:1fr; }
+  .replay-grid{ grid-template-columns:1fr; }
+  .sports-row{ grid-template-columns:repeat(2,1fr); }
+  .date-pill:nth-child(n+4){ display:none; }
+  .disc-cta{ flex-direction:column; gap:16px; }
+}
+/* FOOTER : version desktop active dès 800px ; en dessous, layout empilé */
+@media (max-width:799px){
+  .footer-inner{ align-items:stretch; gap:40px; padding:40px 20px; }
+  .footer-partners-title{ font-size:24px; }
+  .sponsor-cell{ flex-basis:33.333%; }
+  .footer-shortcuts{ flex-direction:column; align-items:stretch; gap:36px; }
+  .footer-brand{ width:auto; align-items:center; }
+  .footer-nav{ display:grid; grid-template-columns:1fr 1fr; gap:32px 20px; }
+  .footer-copyright{ text-align:left; font-size:15px; }
+}
+@media (max-width:480px){
+  .disc-grid{ grid-template-columns:1fr; }
+  .disc-card .ph{ height:150px; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ====================== HEADER ====================== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-num">26</span>
+        <span>
+          <span class="brand-sub">Milano<br>Cortina<br>2026</span>
+        </span>
+        <svg class="rings" viewBox="0 0 100 44" fill="none" stroke="#fff" stroke-width="3">
+          <circle cx="16" cy="16" r="13"/><circle cx="50" cy="16" r="13"/><circle cx="84" cy="16" r="13"/>
+          <circle cx="33" cy="28" r="13"/><circle cx="67" cy="28" r="13"/>
+        </svg>
+      </a>
+
+      <nav class="main-nav">
+        <a class="active" href="index.html">Olympic Connect</a>
+        <a href="#">Résultats</a>
+        <a href="#">Map et Agenda</a>
+        <a href="#">Billeterie</a>
+        <a href="#">Shop</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="sos-btn" href="#">SOS</a>
+        <span class="flag" aria-label="Français"><span class="fr-b"></span><span class="fr-w"></span><span class="fr-r"></span></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ====================== HERO ====================== -->
+  <section class="hero">
+    <div class="hero-inner">
+      <svg class="rings-badge" viewBox="0 0 100 44" fill="none" stroke="#fff" stroke-width="3">
+        <circle cx="16" cy="16" r="13"/><circle cx="50" cy="16" r="13"/><circle cx="84" cy="16" r="13"/>
+        <circle cx="33" cy="28" r="13"/><circle cx="67" cy="28" r="13"/>
+      </svg>
+      <h1>Discover Milano-Cortina 2026</h1>
+    </div>
+  </section>
+
+  <main>
+
+    <!-- ============ CARTE DES DISCIPLINES ============ -->
+    <section class="wrap section">
+      <h2 class="section-title">Carte des disciplines</h2>
+
+      <div class="map-section">
+        <!-- Carte stylisée des Alpes (Milano-Cortina) -->
+        <div class="map-panel" aria-label="Carte des sites olympiques">
+          <svg viewBox="0 0 520 560" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="land" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#4f9aa6"/><stop offset="1" stop-color="#2e7d8c"/>
+              </linearGradient>
+            </defs>
+            <rect width="520" height="560" fill="#bfe0e6"/>
+            <path d="M40 120 C120 70 220 60 300 90 C380 120 470 110 500 170 C520 230 470 300 430 360 C400 410 420 470 360 510 C300 545 220 520 170 470 C120 420 60 410 45 340 C30 270 -10 180 40 120 Z" fill="url(#land)" opacity=".95"/>
+            <path d="M120 200 q60 -30 130 -10 M150 260 q80 -20 160 10 M200 330 q60 10 140 -10" stroke="#e7f4f6" stroke-width="2" fill="none" opacity=".5"/>
+            <!-- pins -->
+            <g font-family="NewBlack, sans-serif" font-size="13" fill="#0a3a44" font-weight="600">
+              <g><circle cx="170" cy="190" r="5" fill="#e5352b"/><text x="180" y="194">Livigno</text></g>
+              <g><circle cx="150" cy="240" r="5" fill="#e5352b"/><text x="160" y="244">Bormio</text></g>
+              <g><circle cx="330" cy="205" r="5" fill="#e5352b"/><text x="240" y="200">Anterselva</text></g>
+              <g><circle cx="330" cy="250" r="5" fill="#e5352b"/><text x="300" y="246">Cortina</text></g>
+              <g><circle cx="270" cy="300" r="5" fill="#e5352b"/><text x="222" y="320">Tesero</text></g>
+              <g><circle cx="320" cy="300" r="5" fill="#e5352b"/><text x="330" y="304">Predazzo</text></g>
+              <g><circle cx="170" cy="400" r="6" fill="#0b0f4d"/><text x="182" y="404">Milano</text></g>
+              <g><circle cx="320" cy="390" r="5" fill="#e5352b"/><text x="330" y="394">Verona</text></g>
+            </g>
+            <text x="250" y="60" font-family="NewBlack, sans-serif" font-size="14" fill="#3a6b73" font-weight="600" opacity=".6">Germany</text>
+          </svg>
+        </div>
+
+        <!-- Filtres + grille d'épreuves -->
+        <div class="map-right">
+          <div class="filters">
+            <span class="chip chip--ville">Ville
+              <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span class="chip chip--sport">Sport
+              <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span class="chip chip--search">Rechercher
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3" stroke-linecap="round"/></svg>
+            </span>
+          </div>
+
+          <div class="disc-grid">
+            <!-- 1 -->
+            <article class="disc-card">
+              <img class="ph" src="photo/ski_freestyle_big_air.avif" alt="" />
+              <div class="body">
+                <div class="row1"><div class="title">Ski Alpin<small>Super-G femmes</small></div><div class="date">7 février</div></div>
+                <div class="meta"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 21s7-6 7-11a7 7 0 10-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Valtellina</div>
+                <div class="meta"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2" stroke-linecap="round"/></svg>11h30</div>
+                <a class="ticket-btn" href="#">Billeterie <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+              </div>
+            </article>
+            <!-- 2 -->
+            <article class="disc-card">
+              <img class="ph" src="photo/biathlon_course.avif" alt="" />
+              <div class="body">
+                <div class="row1"><div class="title">Biathlon<small>Sprint 10km</small></div><div class="date">8 février</div></div>
+                <div class="meta"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 21s7-6 7-11a7 7 0 10-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Cortina</div>
+                <div class="meta"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2" stroke-linecap="round"/></svg>14h05</div>
+                <a class="ticket-btn" href="#">Billeterie <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+              </div>
+            </article>
+            <!-- 3 -->
+            <article class="disc-card">
+              <img class="ph" src="photo/patinage_vitesse_pays_bas.jpg" alt="" />
+              <div class="body">
+                <div class="row1"><div class="title">Patinage de V.<small>500m hommes</small></div><div class="date">9 février</div></div>
+                <div class="meta"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 21s7-6 7-11a7 7 0 10-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Milan</div>
+                <div class="meta"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2" stroke-linecap="round"/></svg>16h</div>
+                <a class="ticket-btn" href="#">Billeterie <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+              </div>
+            </article>
+            <!-- 4 -->
+            <article class="disc-card">
+              <img class="ph" src="photo/snowboard_big_air_romain_allemand.jpg" alt="" />
+              <div class="body">
+                <div class="row1"><div class="title">Snowboard<small>Big Air hommes</small></div><div class="date">10 février</div></div>
+                <div class="meta"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 21s7-6 7-11a7 7 0 10-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Livigno</div>
+                <div class="meta"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2" stroke-linecap="round"/></svg>19h30</div>
+                <a class="ticket-btn" href="#">Billeterie <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+              </div>
+            </article>
+            <!-- 5 -->
+            <article class="disc-card">
+              <img class="ph" src="photo/luge_italie_descente.avif" alt="" />
+              <div class="body">
+                <div class="row1"><div class="title">Luge<small>Simple femmes</small></div><div class="date">10 février</div></div>
+                <div class="meta"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 21s7-6 7-11a7 7 0 10-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Cortina</div>
+                <div class="meta"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2" stroke-linecap="round"/></svg>19h30</div>
+                <a class="ticket-btn" href="#">Billeterie <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+              </div>
+            </article>
+            <!-- 6 -->
+            <article class="disc-card">
+              <img class="ph" src="photo/patinage_artistique_couple.avif" alt="" />
+              <div class="body">
+                <div class="row1"><div class="title">Patinage Art.<small>Finale couple libre</small></div><div class="date">11 février</div></div>
+                <div class="meta"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 21s7-6 7-11a7 7 0 10-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Milan</div>
+                <div class="meta"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2" stroke-linecap="round"/></svg>14h</div>
+                <a class="ticket-btn" href="#">Billeterie <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ AGENDA DES ÉPREUVES ============ -->
+    <section class="wrap section">
+      <h2 class="section-title">Agenda des épreuves</h2>
+
+      <div class="date-bar">
+        <button class="nav-arrow" aria-label="Précédent"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M15 6l-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="date-track">
+          <div class="date-pill">04 <small>Fev</small></div>
+          <div class="date-pill">05 <small>Fev</small></div>
+          <div class="date-pill">06 <small>Fev</small></div>
+          <div class="date-pill active">07 <small>Fev</small></div>
+          <div class="date-pill">08 <small>Fev</small></div>
+          <div class="date-pill">09 <small>Fev</small></div>
+        </div>
+        <button class="nav-arrow" aria-label="Suivant"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      </div>
+
+      <div class="sport-search">Rechercher un sport
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3" stroke-linecap="round"/></svg>
+      </div>
+
+      <div class="agenda-grid">
+        <article class="agenda-card">
+          <div class="daybox"><span class="d">07</span><span class="m">Fev</span></div>
+          <div class="info">
+            <div class="title">Ski Alpin · Super-G femmes</div>
+            <div class="meta"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 21s7-6 7-11a7 7 0 10-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Valtellina</div>
+            <div class="meta"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2" stroke-linecap="round"/></svg>11h30</div>
+          </div>
+          <a class="ticket-btn" href="#">Billeterie <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </article>
+        <article class="agenda-card">
+          <div class="daybox"><span class="d">10</span><span class="m">Fev</span></div>
+          <div class="info">
+            <div class="title">Snowboard · Big Air hommes</div>
+            <div class="meta"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 21s7-6 7-11a7 7 0 10-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Livigno</div>
+            <div class="meta"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2" stroke-linecap="round"/></svg>19h30</div>
+          </div>
+          <a class="ticket-btn" href="#">Billeterie <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </article>
+        <article class="agenda-card">
+          <div class="daybox"><span class="d">08</span><span class="m">Fev</span></div>
+          <div class="info">
+            <div class="title">Biathlon · Sprint 10km</div>
+            <div class="meta"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 21s7-6 7-11a7 7 0 10-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Cortina</div>
+            <div class="meta"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2" stroke-linecap="round"/></svg>14h05</div>
+          </div>
+          <a class="ticket-btn" href="#">Billeterie <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </article>
+        <article class="agenda-card">
+          <div class="daybox"><span class="d">10</span><span class="m">Fev</span></div>
+          <div class="info">
+            <div class="title">Luge · Simple femmes</div>
+            <div class="meta"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 21s7-6 7-11a7 7 0 10-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Cortina</div>
+            <div class="meta"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2" stroke-linecap="round"/></svg>19h30</div>
+          </div>
+          <a class="ticket-btn" href="#">Billeterie <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </article>
+        <article class="agenda-card">
+          <div class="daybox"><span class="d">09</span><span class="m">Fev</span></div>
+          <div class="info">
+            <div class="title">Patinage de V. · 500m hommes</div>
+            <div class="meta"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 21s7-6 7-11a7 7 0 10-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Milan</div>
+            <div class="meta"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2" stroke-linecap="round"/></svg>16h</div>
+          </div>
+          <a class="ticket-btn" href="#">Billeterie <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </article>
+        <article class="agenda-card">
+          <div class="daybox"><span class="d">11</span><span class="m">Fev</span></div>
+          <div class="info">
+            <div class="title">Patinage Art. · Finale couple libre</div>
+            <div class="meta"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 21s7-6 7-11a7 7 0 10-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Milan</div>
+            <div class="meta"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2" stroke-linecap="round"/></svg>14h</div>
+          </div>
+          <a class="ticket-btn" href="#">Billeterie <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ DÉCOUVRIR LES DISCIPLINES ============ -->
+    <section class="wrap section">
+      <h2 class="section-title">Découvrez les disciplines</h2>
+      <div class="sports-row">
+        <article class="sport-card">
+          <span class="heart"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 21s-7-4.6-7-10a4 4 0 017-2.6A4 4 0 0119 11c0 5.4-7 10-7 10z"/></svg></span>
+          <span class="pic"><svg viewBox="0 0 64 64"><circle cx="20" cy="14" r="5"/><path d="M20 20v14l-8 14M20 28l10 4 8 10M44 12h6M50 12v34" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50" cy="50" r="5"/></svg></span>
+          <span class="name">Biathlon</span>
+        </article>
+        <article class="sport-card">
+          <span class="heart"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 21s-7-4.6-7-10a4 4 0 017-2.6A4 4 0 0119 11c0 5.4-7 10-7 10z"/></svg></span>
+          <span class="pic"><svg viewBox="0 0 64 64"><circle cx="22" cy="16" r="5"/><circle cx="38" cy="16" r="5"/><path d="M14 30h36l-4 14H18z" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 50h44" stroke-linecap="round"/></svg></span>
+          <span class="name">Bobsleigh</span>
+        </article>
+        <article class="sport-card">
+          <span class="heart"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 21s-7-4.6-7-10a4 4 0 017-2.6A4 4 0 0119 11c0 5.4-7 10-7 10z"/></svg></span>
+          <span class="pic"><svg viewBox="0 0 64 64"><circle cx="32" cy="14" r="5"/><path d="M32 20v16M32 24l-12 8M32 28l12 10M16 52l32-12" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span class="name">Combiné nordique</span>
+        </article>
+        <article class="sport-card">
+          <span class="heart"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 21s-7-4.6-7-10a4 4 0 017-2.6A4 4 0 0119 11c0 5.4-7 10-7 10z"/></svg></span>
+          <span class="pic"><svg viewBox="0 0 64 64"><ellipse cx="32" cy="40" rx="16" ry="7"/><path d="M32 33v-6M32 27h8" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 50h44" stroke-linecap="round"/></svg></span>
+          <span class="name">Curling</span>
+        </article>
+      </div>
+      <div class="disc-cta">
+        <div class="carousel-arrows"><button aria-label="Précédent"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M15 6l-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
+        <a class="pill-btn" href="#">Découvrir les disciplines</a>
+        <div class="dots"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="carousel-arrows"><button aria-label="Suivant"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
+      </div>
+    </section>
+
+    <!-- ============ REPLAYS ============ -->
+    <section class="wrap section">
+      <h2 class="section-title">Replays</h2>
+      <div class="replay-grid">
+        <article class="replay">
+          <div class="thumb"><img src="assets/img/replay1.png" alt="" /><span class="badge">Temps fort</span></div>
+          <h3 class="replay-title">SWE-ITA · Men's Preliminary Round · Ice Hockey | Milano Cortina 2026</h3>
+          <div class="replay-meta"><span class="time-pill">il y a 2h</span><span class="sport-tag">Ice Hockey</span><span class="spacer"></span><button class="play" aria-label="Lire"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></div>
+        </article>
+        <article class="replay">
+          <div class="thumb"><img src="assets/img/replay2.png" alt="" /><span class="badge">Épreuve entière</span></div>
+          <h3 class="replay-title">GER-FRA · Men's Preliminary Round · Ice Hockey | Milano Cortina 2026</h3>
+          <div class="replay-meta"><span class="time-pill">il y a 3h</span><span class="sport-tag">Ice Hockey</span><span class="spacer"></span><button class="play" aria-label="Lire"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></div>
+        </article>
+        <article class="replay">
+          <div class="thumb"><img src="assets/img/replay3.png" alt="" /><span class="badge">Temps fort</span></div>
+          <h3 class="replay-title">Figure Skating | Pairs Free Skate | Milano Cortina 2026 | Full Replay</h3>
+          <div class="replay-meta"><span class="time-pill">il y a 4h</span><span class="sport-tag">Figure Skating</span><span class="spacer"></span><button class="play" aria-label="Lire"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></div>
+        </article>
+        <article class="replay">
+          <div class="thumb"><img src="assets/img/replay4.png" alt="" /><span class="badge">Temps fort</span></div>
+          <h3 class="replay-title">Men's 50km Mass Start Classic | Milano Cortina 2026 | Best Time</h3>
+          <div class="replay-meta"><span class="time-pill">il y a 30mn</span><span class="sport-tag">Cross Country</span><span class="spacer"></span><button class="play" aria-label="Lire"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></div>
+        </article>
+        <article class="replay">
+          <div class="thumb"><img src="assets/img/replay5.png" alt="" /><span class="badge">Temps fort</span></div>
+          <h3 class="replay-title">Women's 50km Mass Start Classic | Milano Cortina 2026 | Best Time</h3>
+          <div class="replay-meta"><span class="time-pill">il y a 2h</span><span class="sport-tag">Cross Country</span><span class="spacer"></span><button class="play" aria-label="Lire"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></div>
+        </article>
+        <article class="replay">
+          <div class="thumb"><img src="photo/hockey_sur_glace_allemagne.jpg" alt="" /><span class="badge">Épreuve entière</span></div>
+          <h3 class="replay-title">GER-SWE · Quarter Final · Ice Hockey | Milano Cortina 2026 | Replay</h3>
+          <div class="replay-meta"><span class="time-pill">il y a 5h</span><span class="sport-tag">Ice Hockey</span><span class="spacer"></span><button class="play" aria-label="Lire"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></div>
+        </article>
+      </div>
+      <div class="btn-row">
+        <a class="link-btn" href="#">Voir tous les replays
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ====================== FOOTER ====================== -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <h2 class="footer-partners-title">Partenaires Olympiques et Paralympiques Mondiaux</h2>
+
+      <div class="sponsors">
+        <div class="sponsor-cell"><a href="https://www.airbnb.com" target="_blank" rel="noopener"><img class="sponsor" src="assets/logos/airbnb.svg" alt="Airbnb" /></a></div>
+        <div class="sponsor-cell"><a href="https://www.alibabagroup.com" target="_blank" rel="noopener"><img class="sponsor" src="assets/logos/alibaba.svg" alt="Alibaba" /></a></div>
+        <div class="sponsor-cell"><a href="https://www.allianz.com" target="_blank" rel="noopener"><img class="sponsor" src="assets/logos/allianz.svg" alt="Allianz" /></a></div>
+        <div class="sponsor-cell"><a href="https://www.coca-cola.com" target="_blank" rel="noopener"><img class="sponsor" src="assets/logos/cocacola.svg" alt="Coca-Cola" /></a></div>
+        <div class="sponsor-cell"><a href="https://www.deloitte.com" target="_blank" rel="noopener"><img class="sponsor" src="assets/logos/deloitte.svg" alt="Deloitte" /></a></div>
+        <div class="sponsor-cell"><a href="https://www.omegawatches.com" target="_blank" rel="noopener"><img class="sponsor" src="assets/logos/omega.svg" alt="Omega" /></a></div>
+        <div class="sponsor-cell"><a href="https://www.pg.com" target="_blank" rel="noopener"><img class="sponsor" src="assets/logos/pg.svg" alt="P&amp;G" /></a></div>
+        <div class="sponsor-cell"><a href="https://www.corona.com" target="_blank" rel="noopener"><img class="sponsor" src="assets/logos/logo-corona-cero.png" alt="Corona Cero" /></a></div>
+        <div class="sponsor-cell"><a href="https://www.visa.com" target="_blank" rel="noopener"><img class="sponsor" src="assets/logos/visa.svg" alt="Visa" /></a></div>
+        <div class="sponsor-cell"><a href="https://www.samsung.com" target="_blank" rel="noopener"><img class="sponsor" src="assets/logos/samsung.svg" alt="Samsung" /></a></div>
+        <div class="sponsor-cell"><a href="https://www.tcl.com" target="_blank" rel="noopener"><img class="sponsor" src="assets/logos/tcl.svg" alt="TCL" /></a></div>
+      </div>
+
+      <div class="footer-shortcuts">
+        <div class="footer-brand">
+          <img class="footer-logo" src="assets/logos/logo_olympic_cool.svg" alt="Olympic Connect" />
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook"><img src="assets/logos/facebook.svg" alt="" /></a>
+            <a href="#" aria-label="Instagram"><img src="assets/logos/instagram.svg" alt="" /></a>
+            <a href="#" aria-label="YouTube"><img src="assets/logos/youtube.svg" alt="" /></a>
+          </div>
+        </div>
+        <nav class="footer-nav">
+          <div class="footer-col">
+            <a class="footer-col-title">Découvrir</a>
+            <ul><li><a href="index.html">Accueil</a></li><li><a href="#">Replays et Temps forts</a></li><li><a href="#">Live</a></li><li><a href="#">Athletes Talks</a></li></ul>
+          </div>
+          <div class="footer-col">
+            <a class="footer-col-title">Social</a>
+            <ul><li><a href="#">Posts</a></li><li><a href="#">Communauté</a></li><li><a href="#">Athlètes</a></li><li><a href="#">Messages</a></li></ul>
+          </div>
+          <div class="footer-col footer-col--account">
+            <a class="footer-col-title">Compte &amp; aide</a>
+            <div class="footer-account-links">
+              <ul><li><a href="#">S'inscrire</a></li><li><a href="#">Se connecter</a></li></ul>
+              <ul><li><a href="#">SOS</a></li><li><a href="#">Engagement</a></li></ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+
+      <div class="footer-divider"></div>
+      <p class="footer-copyright">Copyright © 2026 | All Rights Reserved | <a href="#">Terms and Conditions</a> | <a href="#">Privacy Policy</a></p>
+    </div>
+    <img class="footer-deco" src="assets/img/footer-deco.png" alt="" />
+  </footer>
+
+</div>
+</body>
+</html>

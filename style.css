@@ -1,0 +1,545 @@
+/* ===========================================================
+   JO « goatesque » — Home Olympic Connect
+   Recréation HTML/CSS du design Figma (node 1079:7906)
+   =========================================================== */
+
+/* ---------- Fonts ---------- */
+@font-face { font-family:'NewBlack'; src:url('assets/fonts/NewBlackTypeface-UltraLight.ttf') format('truetype'); font-weight:100; font-style:normal; font-display:swap; }
+@font-face { font-family:'NewBlack'; src:url('assets/fonts/NewBlackTypeface-Light.ttf') format('truetype'); font-weight:300; font-style:normal; font-display:swap; }
+@font-face { font-family:'NewBlack'; src:url('assets/fonts/NewBlackTypeface-Regular.ttf') format('truetype'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:'NewBlack'; src:url('assets/fonts/NewBlackTypeface-Medium.ttf') format('truetype'); font-weight:500; font-style:normal; font-display:swap; }
+@font-face { font-family:'NewBlack'; src:url('assets/fonts/NewBlackTypeface-SemiBold.ttf') format('truetype'); font-weight:600; font-style:normal; font-display:swap; }
+@font-face { font-family:'NewBlack'; src:url('assets/fonts/NewBlackTypeface-Bold.ttf') format('truetype'); font-weight:700; font-style:normal; font-display:swap; }
+@font-face { font-family:'NewBlack'; src:url('assets/fonts/NewBlackTypeface-ExtraBold.ttf') format('truetype'); font-weight:800; font-style:normal; font-display:swap; }
+@font-face { font-family:'Anton'; src:url('assets/fonts/Anton-Regular.ttf') format('truetype'); font-weight:400; font-style:normal; font-display:swap; }
+
+/* ---------- Tokens ---------- */
+:root{
+  --white:#ffffff;
+  --paper:#fbfbfb;
+  --navy:#0b0f4d;
+  --indigo:#41348a;
+  --blue:#1874ff;
+  --bleu-jo:#016381;
+  --sos:#ff0000;
+  --ink:#121212;
+  --muted:#6b7280;
+  --pill:#eef0f4;
+  --radius-sm:8px;
+  --radius-md:16px;
+  --wrap:1376px;
+}
+
+/* ---------- Reset ---------- */
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:#fff;
+  font-family:'NewBlack',-apple-system,Segoe UI,Roboto,sans-serif;
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%;}
+a{text-decoration:none;color:inherit;}
+
+/* ---------- Page shell ---------- */
+.page{
+  width:100%;
+  max-width:1440px;
+  margin:0 auto;
+  background:var(--white);
+  overflow:hidden;
+}
+.wrap{ width:100%; max-width:var(--wrap); margin:0 auto; padding:0 32px; }
+
+/* ---------- Header (fond navy pleine largeur, contenu ≤ 1400px) ----------
+   L'écran s'agrandit → seul le fond navy s'étire, le contenu reste figé à 1400px. */
+.site-header{ width:100%; background:var(--navy); }
+.header-content{ margin:0 auto;}
+
+/* Barre de navigation (desktop par défaut, actif dès 800px) */
+.header-bar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  padding:24px 34px;
+  max-width: 1400px; margin: auto; 
+}
+.header-left{ display:flex; align-items:center; gap:16px; }
+.header-logo{ height:56px; width:auto; display:block; }
+
+/* Badge « JO 2026 » (NewBlack Bold 18 — token H6/Bold) */
+.header-badge{
+  display:inline-flex; align-items:center;
+  height:38px; padding:0 8px;
+  background:var(--bleu-jo);
+  border-radius:4px;
+  font-family:'NewBlack',sans-serif; font-weight:700; font-size:18px; line-height:1;
+  color:var(--paper);
+  white-space:nowrap;
+}
+
+/* Liens de navigation */
+.header-nav{ display:flex; align-items:center; gap:32px; }
+.header-nav a{
+  font-family:'NewBlack',sans-serif; font-weight:700; font-size:18px; line-height:1;
+  color:var(--paper);
+  white-space:nowrap;
+  transition:opacity .2s ease;
+}
+.header-nav a:hover{ opacity:.7; }
+
+/* Boutons d'action */
+.header-actions{ display:flex; align-items:center; gap:24px; }
+.btn-sos{
+  display:inline-flex; align-items:center;
+  height:47px; padding:0 16px;
+  background:var(--sos); border:none; border-radius:6px; cursor:pointer;
+  font-family:'NewBlack',sans-serif; font-weight:700; font-size:18px; line-height:1;
+  color:var(--paper);
+}
+.btn-sos:hover{ filter:brightness(.92); }
+.btn-flag{
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:12px 20px;
+  background:transparent;
+  border:2px solid var(--paper); border-radius:6px; cursor:pointer;
+}
+.btn-flag svg{ width:26px; height:24px; display:block; border-radius:2px; overflow:hidden; }
+.btn-login{
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:12px 20px;
+  background:var(--paper); border-radius:6px;
+  font-family:'NewBlack',sans-serif; font-weight:700; font-size:16px; line-height:24px;
+  color:var(--navy);
+  white-space:nowrap;
+  transition:opacity .2s ease;
+}
+.btn-login:hover{ opacity:.85; }
+
+/* Bannière dégradée (plafonnée à 1400px comme le reste du contenu) */
+.header-banner{ width:100%; }
+.header-banner img{ width:100%; height:auto; display:block; }
+
+/* Burger : caché en desktop, affiché sous 1050px */
+.btn-burger{
+  display:none; align-items:center; justify-content:center;
+  width:52px; height:40px; padding:0;
+  background:transparent; border:none; cursor:pointer;
+}
+.btn-burger svg{ width:40px; height:auto; }
+.btn-burger line{ stroke:var(--paper); stroke-width:3; stroke-linecap:round; }
+.btn-burger .icon-close{ display:none; }
+.btn-burger[aria-expanded="true"] .icon-open{ display:none; }
+.btn-burger[aria-expanded="true"] .icon-close{ display:block; }
+
+/* Menu plein écran (mobile/tablette) — overlay animé en ease-in-out */
+.header-menu{
+  position:fixed;
+  inset:0;
+  z-index:50;
+  height:100dvh;
+  display:flex; flex-direction:column;
+  padding:104px 34px 40px;          /* haut = sous la barre */
+  background:var(--navy);
+  overflow-y:auto;
+  /* état fermé (animable) */
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(-16px);
+  transition:opacity .35s ease-in-out, transform .35s ease-in-out, visibility 0s linear .35s;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.header-menu.is-open{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+  transition:opacity .35s ease-in-out, transform .35s ease-in-out;
+}
+/* Verrou du scroll de fond quand le menu plein écran est ouvert */
+body.menu-open{ overflow:hidden; }
+.header-menu > a{
+  font-family:'NewBlack',sans-serif; font-weight:700; font-size:24px; line-height:1;
+  color:var(--paper);
+  padding:12px 0;
+  transition:opacity .2s ease;
+}
+.header-menu > a:hover{ opacity:.7; }
+.header-menu-actions{ display:flex; align-items:center; gap:16px; margin-top:16px; }
+
+/* ---------- Header : seuil burger à 1050px ---------- */
+/* ≥1050px : nav complète, jamais de menu déroulant */
+@media (min-width:1050px){
+  .header-menu{ display:none !important; }
+}
+
+/* <1050px : barre compacte (logo + SOS + burger), nav et boutons dans le menu */
+@media (max-width:1049px){
+  .header-badge,
+  .header-bar .header-nav,
+  .header-bar .btn-flag,
+  .header-bar .btn-login{ display:none; }
+  .btn-burger{ display:inline-flex; }
+  /* barre au-dessus de l'overlay → le X reste cliquable pour fermer */
+  .header-bar{ position:relative; z-index:60; background:var(--navy); }
+}
+
+/* <800px : barre resserrée */
+@media (max-width:799px){
+  .header-bar{ padding:16px 20px; gap:12px; }
+  .header-logo{ height:40px; }
+  .btn-sos{ height:40px; font-size:16px; }
+  .header-menu{ padding:88px 20px 40px; }
+}
+
+main{ padding-bottom:64px; }
+.section{ margin-top:64px; }
+
+/* ---------- Titres de section (Anton) ---------- */
+.section-title{
+  font-family:'Anton',sans-serif;
+  font-weight:400;
+  font-size:44px;
+  line-height:1;
+  color:var(--navy);
+  letter-spacing:.4px;
+  margin-bottom:24px;
+}
+
+/* ---------- Images pleine largeur (hero / carousel / promo / talks) ---------- */
+.full-img{
+  width:100%;
+  border-radius:var(--radius-md);
+  object-fit:cover;
+}
+.full-img + .full-img{ margin-top:24px; }
+.promo-img{ border-radius:var(--radius-sm); }
+
+/* ---------- Boutons "voir plus" ---------- */
+.btn-row{ display:flex; justify-content:flex-end; margin-top:28px; }
+.link-btn{
+  font-family:'NewBlack',sans-serif;
+  font-weight:600;
+  font-size:16px;
+  color:var(--blue);
+  text-transform:uppercase;
+  letter-spacing:.5px;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+}
+.link-btn svg{ width:18px;height:18px;stroke:var(--blue); }
+
+/* ---------- Rangées de cartes ---------- */
+.card-row{ display:flex; gap:20px; }
+.card-row + .card-row{ margin-top:20px; }
+.card-row.four > *{ flex:1 1 0; }
+.card-row.two  > *{ flex:1 1 0; }
+.card-row.three> *{ flex:1 1 0; }
+
+/* Rediff (cartes images) */
+.rediff{ margin-top:48px; }
+.rediff-card{ width:100%; border-radius:var(--radius-md); }
+
+/* ---------- Cartes Replay ---------- */
+.replay{ display:flex; flex-direction:column; }
+.replay .thumb{ position:relative; }
+.replay .thumb img{
+  width:100%;
+  height:232px;
+  object-fit:cover;
+  border-radius:var(--radius-md);
+}
+.replay-title{
+  font-family:'NewBlack',sans-serif;
+  font-weight:600;
+  font-size:16px;
+  line-height:1.3;
+  color:var(--ink);
+  margin:14px 0 10px;
+  min-height:42px;
+}
+.replay-meta{ display:flex; align-items:center; gap:8px; }
+.time-pill{
+  background:var(--pill);
+  color:#4a4a55;
+  font-family:'NewBlack',sans-serif;
+  font-weight:500;
+  font-size:12px;
+  padding:6px 12px;
+  border-radius:var(--radius-sm);
+  white-space:nowrap;
+}
+.sport-tag{
+  background:var(--blue);
+  color:#fff;
+  font-family:'NewBlack',sans-serif;
+  font-weight:600;
+  font-size:12px;
+  padding:6px 12px;
+  border-radius:var(--radius-sm);
+  white-space:nowrap;
+}
+.replay-meta .spacer{ flex:1; }
+.play{
+  flex:none;
+  width:44px;height:44px;
+  border:none;
+  border-radius:50%;
+  background:var(--blue);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;
+}
+.play svg{ width:16px;height:16px;fill:#fff;margin-left:2px; }
+
+/* ---------- Section Posts ---------- */
+.posts-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:28px;
+}
+.search{
+  display:flex;align-items:center;gap:10px;
+  border:1px solid #d8d8e0;
+  border-radius:999px;
+  padding:12px 20px;
+  background:#fff;
+  color:#8a8a96;
+  font-family:'NewBlack',sans-serif;
+  font-weight:400;
+  font-size:14px;
+  min-width:320px;
+}
+.search svg{ width:20px;height:20px;fill:var(--navy);margin-left:auto; }
+
+.posts-grid{ display:flex; gap:27px; }
+.posts-left{ width:673px; display:flex; flex-direction:column; gap:23px; }
+.posts-left .post-wide{ width:673px; height:290px; }
+.post-pair{ display:flex; gap:17px; }
+.post-pair img{ width:328px; height:290px; }
+.posts-right{ flex:1; display:flex; gap:27px; }
+.post-col{ display:flex; flex-direction:column; gap:17px; }
+.post-col img{ width:328px; height:290px; }
+.post-tall{ width:328px; height:597px; }
+.post{ object-fit:cover; border-radius:var(--radius-md); }
+
+/* ===========================================================
+   FOOTER (recréation Figma « footer olympic » node 790:2924)
+   =========================================================== */
+.site-footer{
+  position:relative;
+  width:100%;
+  background:var(--navy);
+  color:var(--paper);
+  overflow:hidden;
+}
+.footer-inner{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:64px;
+  max-width:1280px;       /* contenu/texte plafonné, fond reste pleine largeur */
+  margin:0 auto;
+  padding:48px 80px;
+}
+
+/* Titre partenaires (NewBlack SemiBold 40 — token H2/SemiBold) */
+.footer-partners-title{
+  font-family:'NewBlack',sans-serif;
+  font-weight:600;
+  font-size:40px;
+  line-height:1;
+  text-align:center;
+  color:var(--paper);
+}
+
+/* ---------- Logos sponsors (blancs sur navy, cf. DS) ---------- */
+/* Grille fluide : cellules à 25 % → 4 logos/ligne (4/4/3) ; 33 % en mobile (3/3/3/2) */
+.sponsors{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:center;
+  row-gap:36px;
+  width:100%;
+  max-width:920px;
+}
+.sponsor-cell{
+  flex:0 0 25%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:0 12px;
+}
+.sponsor-cell a{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;                /* largeur définie → référence pour le max-width de l'image */
+  transition:opacity .2s ease;
+}
+.sponsor-cell a:hover{ opacity:.7; }
+.sponsor{
+  height:40px;             /* hauteur définie : indispensable pour les SVG sans dimensions intrinsèques */
+  max-width:100%;
+  object-fit:contain;      /* préserve le ratio quand la largeur est contrainte (pas d'écrasement) */
+  /* SVG de marque en couleurs → forcés en blanc pour coller au design Figma */
+  filter:brightness(0) invert(1);
+}
+
+/* ---------- Raccourcis : marque + navigation ---------- */
+.footer-shortcuts{
+  display:flex;
+  align-items:flex-start;
+  gap:123px;
+}
+.footer-brand{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;       /* logo + réseaux alignés à gauche */
+  gap:22px;
+  width:340px;
+}
+.footer-logo{ width:220px; height:auto; display:block; }   /* dimensionné par la largeur, dégradés préservés (pas de filtre) */
+.footer-social{ display:flex; gap:16px; }
+.footer-social a{ display:block; line-height:0; transition:opacity .2s ease; }
+.footer-social img{ width:36px; height:36px; }
+.footer-social a:hover{ opacity:.7; }
+
+/* ---------- Colonnes de liens ---------- */
+.footer-nav{ display:flex; gap:72px; }
+.footer-col-title{
+  display:block;
+  font-family:'NewBlack',sans-serif;   /* DS = DM Sans Bold 20 ; mappé sur NewBlack (police du site) */
+  font-weight:700;
+  font-size:20px;
+  line-height:1.1;
+  color:var(--paper);
+  margin-bottom:21px;
+  cursor:default;          /* lien non cliquable */
+  pointer-events:none;
+  text-decoration:none;
+}
+.footer-col ul{ list-style:none; display:flex; flex-direction:column; gap:20px; }
+.footer-col ul a{
+  font-family:'NewBlack',sans-serif;   /* token Small/Semibold */
+  font-weight:600;
+  font-size:14px;
+  line-height:1;
+  color:var(--paper);
+  transition:opacity .25s ease;
+}
+/* Bouton White : hover = état "disabled" (blanc 40 %) */
+.footer-col ul a:hover{ opacity:.4; }
+
+/* Compte & aide : par défaut (tablette/desktop) les 2 sous-listes s'empilent = 1 colonne de 4 liens */
+.footer-account-links{ display:flex; flex-direction:column; gap:20px; }
+
+/* ---------- Divider ---------- */
+.footer-divider{
+  width:100%;
+  height:1px;
+  background:linear-gradient(90deg,
+    transparent 0%,
+    rgba(251,251,251,.25) 50%,
+    transparent 100%);
+}
+
+/* ---------- Copyright ---------- */
+.footer-copyright{
+  font-family:'NewBlack',sans-serif;   /* DS = DM Sans Regular 18 */
+  font-weight:400;
+  font-size:18px;
+  line-height:1.6;
+  text-align:center;
+  color:var(--paper);
+}
+.footer-copyright a{
+  text-decoration:underline;
+  text-underline-offset:3px;
+  transition:opacity .25s ease;
+}
+.footer-copyright a:hover{ opacity:.6; }
+
+/* ---------- Image décorative (aurora) ---------- */
+.footer-deco{
+  display:block;
+  width:100%;
+  height:auto;
+}
+
+/* ===========================================================
+   RESPONSIVE
+   =========================================================== */
+
+/* ---------- Tablette (≤ 1040px) ---------- */
+@media (max-width:1040px){
+  .section-title{ font-size:36px; }
+
+  /* rangées 4-up et 3-up → 2 par ligne */
+  .card-row.four,
+  .card-row.three{ flex-wrap:wrap; }
+  .card-row.four > *,
+  .card-row.three > *{ flex:1 1 calc(50% - 10px); }
+
+  /* Posts : bento en cellules fluides */
+  .posts-left{ width:auto; flex:1; }
+  .posts-left .post-wide,
+  .post-pair img,
+  .post-col img,
+  .post-tall{ width:100%; height:auto; }
+}
+
+/* ---------- Mobile (≤ 680px) ---------- */
+@media (max-width:680px){
+  .wrap{ padding:0 20px; }
+  main{ padding-bottom:40px; }
+  .section{ margin-top:40px; }
+  .section-title{ font-size:28px; margin-bottom:16px; }
+  .btn-row{ justify-content:center; }
+
+  /* toutes les rangées de cartes en colonne */
+  .card-row{ flex-direction:column; gap:16px; }
+  .card-row + .card-row{ margin-top:16px; }
+  .card-row.four > *,
+  .card-row.three > *,
+  .card-row.two  > *{ flex:1 1 auto; }
+
+  /* en-tête posts empilé + recherche pleine largeur */
+  .posts-head{ flex-direction:column; align-items:flex-start; gap:14px; }
+  .search{ min-width:0; width:100%; }
+
+  /* posts en pile simple */
+  .posts-grid{ flex-direction:column; gap:16px; }
+  .posts-left, .posts-right{ width:100%; flex:none; gap:16px; }
+  .post-pair{ gap:16px; }
+
+  /* ---------- FOOTER mobile (cf. Figma « footer phone » 790:2923) ---------- */
+  .footer-inner{ align-items:stretch; gap:40px; padding:40px 20px; }
+  .footer-partners-title{ font-size:24px; }
+
+  /* sponsors : 3 par ligne → 3/3/3/2 */
+  .sponsors{ row-gap:28px; }
+  .sponsor-cell{ flex-basis:33.333%; padding:0 8px; }
+
+  /* marque + navigation empilées */
+  .footer-shortcuts{ flex-direction:column; align-items:stretch; gap:40px; }
+  .footer-brand{ width:auto; align-items:center; }   /* logo + réseaux centrés */
+
+  /* nav mobile (cf. Figma 1996:12732) : Découvrir | Social, puis Compte & aide pleine largeur */
+  .footer-nav{ display:grid; grid-template-columns:1fr 1fr; gap:40px 24px; width:100%; }
+  .footer-col--account{ grid-column:1 / -1; }            /* Compte & aide sur toute la largeur */
+  .footer-col--account .footer-account-links{
+    flex-direction:row;                                  /* MOBILE uniquement : 2 sous-divs côte à côte */
+    justify-content:space-between;                       /* écartées sur toute la largeur */
+    gap:24px;
+  }
+
+  /* copyright aligné à gauche */
+  .footer-copyright{ text-align:left; font-size:16px; }
+}
