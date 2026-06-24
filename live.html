@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Olympic Connect 2026 — Live</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="pages.css" />
+  <link rel="stylesheet" href="live.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-content">
+
+    <!-- Barre de navigation -->
+    <nav class="header-bar">
+      <div class="header-left">
+        <a class="header-logo-link" href="index.html" aria-label="Olympic Connect 2026 — accueil">
+          <img class="header-logo" src="assets/img/logo-oc-baniere.svg" alt="Olympic Connect 2026" />
+        </a>
+        <span class="header-badge">JO 2026</span>
+      </div>
+
+      <div class="header-nav">
+        <a href="replays.html">Replays et Temps forts</a>
+        <a href="athlete-talks.html">Athletes Talks</a>
+        <a href="posts.html">Posts</a>
+        <a href="canaux.html">Canaux</a>
+      </div>
+
+      <div class="header-actions">
+        <a class="btn-sos" href="sos.html">SOS</a>
+        <button class="btn-flag" type="button" aria-label="Choisir la langue — Français">
+          <svg viewBox="0 0 26 24" aria-hidden="true">
+            <rect width="8.667" height="24" fill="#002395" />
+            <rect x="8.667" width="8.667" height="24" fill="#ffffff" />
+            <rect x="17.333" width="8.667" height="24" fill="#ED2939" />
+          </svg>
+        </button>
+        <a class="btn-login" href="connexion.html">Se connecter</a>
+
+        <!-- Burger (visible < 1050px) -->
+        <button class="btn-burger" type="button" aria-label="Ouvrir le menu"
+                aria-expanded="false" aria-controls="headerMenu">
+          <svg class="icon-open" viewBox="0 0 40 28" aria-hidden="true">
+            <line x1="2" y1="4"  x2="38" y2="4" />
+            <line x1="2" y1="14" x2="38" y2="14" />
+            <line x1="2" y1="24" x2="38" y2="24" />
+          </svg>
+          <svg class="icon-close" viewBox="0 0 28 28" aria-hidden="true">
+            <line x1="5" y1="5"  x2="23" y2="23" />
+            <line x1="23" y1="5" x2="5"  y2="23" />
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Menu plein écran (visible < 1050px, ouvert via le burger) -->
+    <div class="header-menu" id="headerMenu">
+      <a href="replays.html">Replays et Temps forts</a>
+      <a href="athlete-talks.html">Athletes Talks</a>
+      <a href="posts.html">Posts</a>
+      <a href="canaux.html">Canaux</a>
+      <div class="header-menu-actions">
+        <button class="btn-flag" type="button" aria-label="Choisir la langue — Français">
+          <svg viewBox="0 0 26 24" aria-hidden="true">
+            <rect width="8.667" height="24" fill="#002395" />
+            <rect x="8.667" width="8.667" height="24" fill="#ffffff" />
+            <rect x="17.333" width="8.667" height="24" fill="#ED2939" />
+          </svg>
+        </button>
+        <a class="btn-login" href="connexion.html">Se connecter</a>
+      </div>
+    </div>
+
+    <!-- Bannière dégradée (image de fond, optionnelle) -->
+    <div class="header-banner" aria-hidden="true"></div>
+
+  </div>
+</header>
+
+<!-- ====================== CONTENU LIVE ====================== -->
+<main class="live-main">
+
+  <!-- ---------- Section 1 : En live (lecteur + chat) ---------- -->
+  <section class="live-section">
+    <div class="section-head">
+      <h2 class="section-title">En live</h2>
+    </div>
+
+    <div class="live-stage">
+
+      <!-- Lecteur -->
+      <div class="live-player">
+        <div class="live-player__media" style="background-image:url('photo/athlete_france_interview.png')"></div>
+        </div>
+
+        <!-- Chat (2e : sous le lecteur en mobile, à droite en desktop) -->
+        <aside class="live-chat" aria-label="Chat du live">
+        <div class="live-chat__head">
+          <span class="live-chat__title">Chat du live - Bienvenue</span>
+          <span class="live-chat__count">
+            <svg class="ic-eye" viewBox="0 0 26 17" aria-hidden="true"><path d="M13 0C7 0 2.1 3.4 0 8.5 2.1 13.6 7 17 13 17s10.9-3.4 13-8.5C23.9 3.4 19 0 13 0Zm0 14a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11Zm0-9a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z"/></svg>
+            5 253
+          </span>
+        </div>
+
+        <div class="live-chat__messages">
+          <p><b style="color:#7037dd">@Ludivine_Jamson :</b> Quand est-ce qu’on commence les entrainements ?</p>
+          <p><b style="color:#1e285f">@Joann_adf :</b> Courage Justine, la prochaine sera la bonne !</p>
+          <p><b style="color:#1874ff">@Yury_azerty :</b> Non pleure pas, tu nous as épatés</p>
+          <p><b style="color:#d713a1">@Prune2312 :</b> On est tous fiers de toiii &lt;3</p>
+          <p><b style="color:#7037dd">@Ludivine_Jamson :</b> Aller t’es la meilleure 🔥🔥🔥</p>
+          <p><b style="color:#1e285f">@Nathalie_Pull :</b> Est-ce que tu penses revenir pour les JO dans 4 ans ?</p>
+          <p><b style="color:#d713a1">@Sarthy_mlps :</b> Aller sois pas déçue nous on l’est pas !</p>
+          <p><b style="color:#1874ff">@Prune2312 :</b> Est-ce que tu penses changer tes entrainements à l’avenir ?</p>
+        </div>
+
+        <p class="live-chat__mod">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="9" fill="none"/>
+            <line x1="12" y1="11" x2="12" y2="16.5"/>
+            <circle cx="12" cy="7.6" r="0.9" fill="currentColor" stroke="none"/>
+          </svg>
+          Modération - Vous pouvez envoyer un message toutes les 2 minutes.
+        </p>
+
+        <form class="live-chat__form" onsubmit="return false">
+          <input type="text" placeholder="Ajouter un commentaire..." aria-label="Ajouter un commentaire" />
+          <div class="live-chat__emojis">
+            <button type="button" aria-label="Réagir avec 🔥">🔥</button>
+            <button type="button" aria-label="Réagir avec 👏">👏</button>
+            <button type="button" aria-label="Plus de réactions">＋</button>
+          </div>
+        </form>
+      </aside>
+
+      <!-- Méta sous le lecteur (3e en mobile) -->
+      <div class="live-meta">
+        <div class="live-meta__tags">
+          <span class="chip">Ski de fond</span>
+          <span class="chip">@Justine_GAILLARD</span>
+        </div>
+        <div class="live-meta__row">
+          <img class="live-meta__thumb" src="photo/PP_Justine_GAILLARD.png" alt="Justine Gaillard" />
+          <div class="live-meta__text">
+            <span class="live-meta__handle">@Justine_GAILLARD</span>
+            <span class="live-meta__title">Justine Gaillard éliminée | Qualification du sprint classique. Elle répond à vos questions.</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ---------- Section 2 : Ils sont aussi en live (carrousel, lives) ---------- -->
+  <section class="live-section">
+    <div class="section-head">
+      <h2 class="section-title">Ils sont aussi en live</h2>
+    </div>
+
+    <!-- DESKTOP : carrousel (masqué ≤680px) -->
+    <div class="live-desktop">
+    <div class="carousel carousel--end vid-rail vid-rail--talks" data-carousel>
+      <div class="carousel-track">
+
+        <article class="vid-card vid-card--live">
+          <div class="vid-card__media" style="background-image:url('photo/patineur_interview_cortina.png')"></div>
+          <div class="vid-card__badges">
+            <span class="vid-card__live">En direct</span>
+            <span class="vid-card__views"><svg class="ic-eye" viewBox="0 0 26 17" aria-hidden="true"><path d="M13 0C7 0 2.1 3.4 0 8.5 2.1 13.6 7 17 13 17s10.9-3.4 13-8.5C23.9 3.4 19 0 13 0Zm0 14a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11Zm0-9a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z"/></svg>2 572</span>
+          </div>
+          <button class="vid-card__play" type="button" aria-label="Lire"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+          <div class="vid-card__info">
+            <p class="vid-card__desc">Yuma Kagiyama décrypte les figures les plus impressionnantes du patinage.</p>
+            <div class="vid-card__foot">
+              <div class="vid-card__tags">
+                <span class="chip chip--solid">Patinage Artistique</span>
+                <span class="chip chip--solid">@Yuma_KAGIYAMA</span>
+              </div>
+              <span class="vid-card__time">00:09:56</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="vid-card vid-card--live">
+          <div class="vid-card__media" style="background-image:url('photo/patinage_artistique_homme.avif')"></div>
+          <div class="vid-card__badges">
+            <span class="vid-card__live">En direct</span>
+            <span class="vid-card__views"><svg class="ic-eye" viewBox="0 0 26 17" aria-hidden="true"><path d="M13 0C7 0 2.1 3.4 0 8.5 2.1 13.6 7 17 13 17s10.9-3.4 13-8.5C23.9 3.4 19 0 13 0Zm0 14a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11Zm0-9a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z"/></svg>4 328</span>
+          </div>
+          <button class="vid-card__play" type="button" aria-label="Lire"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+          <div class="vid-card__info">
+            <p class="vid-card__desc">Ilia Malinin décrypte le programme libre qui a conquis les juges.</p>
+            <div class="vid-card__foot">
+              <div class="vid-card__tags">
+                <span class="chip chip--solid">Patinage Artistique</span>
+                <span class="chip chip--solid">@Ilias_MALINI</span>
+              </div>
+              <span class="vid-card__time">00:11:20</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="vid-card vid-card--live">
+          <div class="vid-card__media" style="background-image:url('photo/chloe_kim_conference_presse.jpg')"></div>
+          <div class="vid-card__badges">
+            <span class="vid-card__live">En direct</span>
+            <span class="vid-card__views"><svg class="ic-eye" viewBox="0 0 26 17" aria-hidden="true"><path d="M13 0C7 0 2.1 3.4 0 8.5 2.1 13.6 7 17 13 17s10.9-3.4 13-8.5C23.9 3.4 19 0 13 0Zm0 14a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11Zm0-9a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z"/></svg>17 634</span>
+          </div>
+          <button class="vid-card__play" type="button" aria-label="Lire"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+          <div class="vid-card__info">
+            <p class="vid-card__desc">Chloe Kim réagit aux figures les plus impressionnantes en halfpipe.</p>
+            <div class="vid-card__foot">
+              <div class="vid-card__tags">
+                <span class="chip chip--solid">Snowboard</span>
+                <span class="chip chip--solid">@Chloe_KIM</span>
+              </div>
+              <span class="vid-card__time">00:14:05</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="vid-card vid-card--live">
+          <div class="vid-card__media" style="background-image:url('photo/athlete_redbull_interview.png')"></div>
+          <div class="vid-card__badges">
+            <span class="vid-card__live">En direct</span>
+            <span class="vid-card__views"><svg class="ic-eye" viewBox="0 0 26 17" aria-hidden="true"><path d="M13 0C7 0 2.1 3.4 0 8.5 2.1 13.6 7 17 13 17s10.9-3.4 13-8.5C23.9 3.4 19 0 13 0Zm0 14a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11Zm0-9a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z"/></svg>24 454</span>
+          </div>
+          <button class="vid-card__play" type="button" aria-label="Lire"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+          <div class="vid-card__info">
+            <p class="vid-card__desc">Marco Odermatt réagit aux plus grosses prises de risque en descente.</p>
+            <div class="vid-card__foot">
+              <div class="vid-card__tags">
+                <span class="chip chip--solid">Ski Alpin</span>
+                <span class="chip chip--solid">@Marco_ODERMATT</span>
+              </div>
+              <span class="vid-card__time">00:16:48</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="carousel-nav">
+        <button class="carousel-arrow" type="button" data-dir="prev" aria-label="Talks précédents">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <span class="carousel-dots" aria-hidden="true"><i class="is-active"></i><i></i></span>
+        <button class="carousel-arrow" type="button" data-dir="next" aria-label="Talks suivants">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+    </div><!-- /.live-desktop -->
+
+    <!-- MOBILE : 1 grande carte + lignes compactes + voir plus (≤680px) -->
+    <div class="live-mobile">
+      <article class="vid-card vid-card--live">
+        <div class="vid-card__media" style="background-image:url('photo/patineur_interview_cortina.png')"></div>
+        <div class="vid-card__badges">
+          <span class="vid-card__live">En direct</span>
+          <span class="vid-card__views"><svg class="ic-eye" viewBox="0 0 26 17" aria-hidden="true"><path d="M13 0C7 0 2.1 3.4 0 8.5 2.1 13.6 7 17 13 17s10.9-3.4 13-8.5C23.9 3.4 19 0 13 0Zm0 14a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11Zm0-9a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z"/></svg>2 572</span>
+        </div>
+        <button class="vid-card__play" type="button" aria-label="Lire"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+        <div class="vid-card__info">
+          <p class="vid-card__desc">Yuma Kagiyama décrypte les figures les plus impressionnantes du patinage.</p>
+          <div class="vid-card__foot">
+            <div class="vid-card__tags">
+              <span class="chip chip--solid">Patinage Artistique</span>
+              <span class="chip chip--solid">@Yuma_KAGIYAMA</span>
+            </div>
+            <span class="vid-card__time">00:09:56</span>
+          </div>
+        </div>
+      </article>
+
+      <div class="live-mobile-list">
+        <article class="live-row">
+          <a class="live-row__thumb" href="#" aria-label="Ilia Malinin" style="background-image:url('photo/patinage_artistique_homme.avif')">
+            <span class="live-row__live"><span class="dot"></span>4 328</span>
+          </a>
+          <div class="live-row__text">
+            <span class="live-row__name">Ilia Malinin</span>
+            <span class="live-row__desc">Ilia Malinin décrypte le programme libre qui a conquis les juges.</span>
+            <span class="live-row__time">00:11:20</span>
+          </div>
+        </article>
+        <article class="live-row">
+          <a class="live-row__thumb" href="#" aria-label="Chloe Kim" style="background-image:url('photo/chloe_kim_conference_presse.jpg')">
+            <span class="live-row__live"><span class="dot"></span>17 634</span>
+          </a>
+          <div class="live-row__text">
+            <span class="live-row__name">Chloe Kim</span>
+            <span class="live-row__desc">Chloe Kim réagit aux figures les plus impressionnantes en halfpipe.</span>
+            <span class="live-row__time">00:14:05</span>
+          </div>
+        </article>
+      </div>
+
+      <div class="live-more">
+        <a class="btn-fill" href="#">voir plus
+          <svg class="ic-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- Section 3 : Lives à venir ---------- -->
+  <section class="live-section">
+    <div class="section-head">
+      <h2 class="section-title">Lives à venir</h2>
+    </div>
+
+    <!-- DESKTOP : carrousel (masqué ≤680px) -->
+    <div class="live-desktop">
+    <div class="carousel carousel--end vid-rail vid-rail--talks" data-carousel>
+      <div class="carousel-track">
+
+        <article class="vid-card">
+          <div class="vid-card__media" style="background-image:url('photo/athlete_france_interview.png')"></div>
+          <div class="vid-card__badges">
+            <span class="vid-card__soon">Prochain live<small>10 fév - 12h</small></span>
+          </div>
+          <div class="vid-card__info">
+            <p class="vid-card__desc">Justine Gaillard | Qualification du sprint classique, posez vos questions en direct.</p>
+            <div class="vid-card__foot">
+              <div class="vid-card__tags">
+                <span class="chip chip--solid">Ski de fond</span>
+                <span class="chip chip--solid">@Justine_GAILLARD</span>
+              </div>
+              <span class="vid-card__time">10 fév · 12h00</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="vid-card">
+          <div class="vid-card__media" style="background-image:url('photo/couple_athletes_interview.png')"></div>
+          <div class="vid-card__badges">
+            <span class="vid-card__soon">Prochain live<small>Dans 3h</small></span>
+          </div>
+          <div class="vid-card__info">
+            <p class="vid-card__desc">Loan Bozolla &amp; Léa Casta reviennent en direct sur leur épreuve de snowboard.</p>
+            <div class="vid-card__foot">
+              <div class="vid-card__tags">
+                <span class="chip chip--solid">Snowboard</span>
+                <span class="chip chip--solid">@Loan_BOZOLLA</span>
+              </div>
+              <span class="vid-card__time">Aujourd'hui · 17h00</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="vid-card">
+          <div class="vid-card__media" style="background-image:url('photo/biathlete_femme_interview.png')"></div>
+          <div class="vid-card__badges">
+            <span class="vid-card__soon">Prochain live<small>Dans 5h</small></span>
+          </div>
+          <div class="vid-card__info">
+            <p class="vid-card__desc">Franziska Preuss débriefe en direct sa course de mass start.</p>
+            <div class="vid-card__foot">
+              <div class="vid-card__tags">
+                <span class="chip chip--solid">Biathlon</span>
+                <span class="chip chip--solid">@Franziska_PREUSS</span>
+              </div>
+              <span class="vid-card__time">Aujourd'hui · 19h00</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="vid-card">
+          <div class="vid-card__media" style="background-image:url('photo/snowboard_cross.png')"></div>
+          <div class="vid-card__badges">
+            <span class="vid-card__soon">Prochain live<small>11 fév - 10h</small></span>
+          </div>
+          <div class="vid-card__info">
+            <p class="vid-card__desc">Avant-première du snowboard cross : les favoris répondent à vos questions.</p>
+            <div class="vid-card__foot">
+              <div class="vid-card__tags">
+                <span class="chip chip--solid">Snowboard</span>
+              </div>
+              <span class="vid-card__time">11 fév · 10h00</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="carousel-nav">
+        <button class="carousel-arrow" type="button" data-dir="prev" aria-label="Lives précédents">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <span class="carousel-dots" aria-hidden="true"><i class="is-active"></i><i></i></span>
+        <button class="carousel-arrow" type="button" data-dir="next" aria-label="Lives suivants">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+    </div><!-- /.live-desktop -->
+
+    <!-- MOBILE : 1 grande carte + lignes compactes + voir plus (≤680px) -->
+    <div class="live-mobile">
+      <article class="vid-card">
+        <div class="vid-card__media" style="background-image:url('photo/athlete_france_interview.png')"></div>
+        <div class="vid-card__badges">
+          <span class="vid-card__soon">Prochain live<small>10 fév - 12h</small></span>
+        </div>
+        <div class="vid-card__info">
+          <p class="vid-card__desc">Justine Gaillard | Qualification du sprint classique, posez vos questions en direct.</p>
+          <div class="vid-card__foot">
+            <div class="vid-card__tags">
+              <span class="chip chip--solid">Ski de fond</span>
+              <span class="chip chip--solid">@Justine_GAILLARD</span>
+            </div>
+            <span class="vid-card__time">10 fév · 12h00</span>
+          </div>
+        </div>
+      </article>
+
+      <div class="live-mobile-list">
+        <article class="live-row">
+          <a class="live-row__thumb" href="#" aria-label="Loan Bozolla et Léa Casta" style="background-image:url('photo/couple_athletes_interview.png')"></a>
+          <div class="live-row__text">
+            <span class="live-row__name">Loan Bozolla &amp; Léa Casta</span>
+            <span class="live-row__desc">Reviennent en direct sur leur épreuve de snowboard.</span>
+            <span class="live-row__time">Dans 3h</span>
+          </div>
+        </article>
+        <article class="live-row">
+          <a class="live-row__thumb" href="#" aria-label="Franziska Preuss" style="background-image:url('photo/biathlete_femme_interview.png')"></a>
+          <div class="live-row__text">
+            <span class="live-row__name">Franziska Preuss</span>
+            <span class="live-row__desc">Débriefe en direct sa course de mass start.</span>
+            <span class="live-row__time">Dans 5h</span>
+          </div>
+        </article>
+      </div>
+
+      <div class="live-more">
+        <a class="btn-fill" href="#">voir plus
+          <svg class="ic-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- Section 4 : Ces replays de lives peuvent vous intéresser ---------- -->
+  <section class="live-section">
+    <div class="section-head">
+      <h2 class="section-title">Ces replays de lives peuvent vous intéresser</h2>
+    </div>
+
+    <!-- DESKTOP : 2 grandes cartes + rail de petites (masqué ≤680px) -->
+    <div class="live-desktop">
+    <!-- 2 grandes cartes (grille responsive) -->
+    <div class="vid-grid">
+      <article class="vid-card">
+        <div class="vid-card__media" style="background-image:url('photo/athlete_blonde_interview.png')"></div>
+        <div class="vid-card__badges">
+          <span class="vid-card__views"><svg class="ic-eye" viewBox="0 0 26 17" aria-hidden="true"><path d="M13 0C7 0 2.1 3.4 0 8.5 2.1 13.6 7 17 13 17s10.9-3.4 13-8.5C23.9 3.4 19 0 13 0Zm0 14a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11Zm0-9a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z"/></svg>92 549</span>
+        </div>
+        <button class="vid-card__play" type="button" aria-label="Lire"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+        <div class="vid-card__info">
+          <p class="vid-card__desc">Mikaela Shiffrin explique comment elle anticipe ses descentes en Ski Alpin</p>
+          <div class="vid-card__foot">
+            <div class="vid-card__tags">
+              <span class="chip chip--solid">Ski Alpin</span>
+              <span class="chip chip--solid">@Mikaela_SHIFFRIN</span>
+            </div>
+            <span class="vid-card__time">00:21:30</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="vid-card">
+        <div class="vid-card__media" style="background-image:url('photo/couple_athletes_interview.png')"></div>
+        <div class="vid-card__badges">
+          <span class="vid-card__views"><svg class="ic-eye" viewBox="0 0 26 17" aria-hidden="true"><path d="M13 0C7 0 2.1 3.4 0 8.5 2.1 13.6 7 17 13 17s10.9-3.4 13-8.5C23.9 3.4 19 0 13 0Zm0 14a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11Zm0-9a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z"/></svg>52 637</span>
+        </div>
+        <button class="vid-card__play" type="button" aria-label="Lire"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+        <div class="vid-card__info">
+          <p class="vid-card__desc">Loan Bozolla et Léa Casta reviennent sur leur performance et répondent à vos questions !</p>
+          <div class="vid-card__foot">
+            <div class="vid-card__tags">
+              <span class="chip chip--solid">Snowboard</span>
+              <span class="chip chip--solid">@Loan_BOZOLLA</span>
+            </div>
+            <span class="vid-card__time">00:18:02</span>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- Rangée de petites cartes (carrousel 4 → 2 → 1) -->
+    <div class="carousel carousel--end vid-rail vid-rail--small" data-carousel style="margin-top:clamp(16px,2vw,20px)">
+      <div class="carousel-track">
+
+        <article class="vid-card">
+          <div class="vid-card__media" style="background-image:url('photo/luge_descente_milano_cortina.jpg')"></div>
+          <div class="vid-card__badges"><span class="vid-card__views"><svg class="ic-eye" viewBox="0 0 26 17" aria-hidden="true"><path d="M13 0C7 0 2.1 3.4 0 8.5 2.1 13.6 7 17 13 17s10.9-3.4 13-8.5C23.9 3.4 19 0 13 0Zm0 14a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11Zm0-9a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z"/></svg>12 413</span></div>
+          <button class="vid-card__play" type="button" aria-label="Lire"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+          <div class="vid-card__info"><p class="vid-card__desc">Natalie Geisenberger revient sur les écarts les plus serrés en luge.</p><div class="vid-card__foot"><div class="vid-card__tags"><span class="chip chip--solid">Luge</span></div><span class="vid-card__time">09:42</span></div></div>
+        </article>
+
+        <article class="vid-card">
+          <div class="vid-card__media" style="background-image:url('photo/patinage_vitesse_short_track_chine.jpg')"></div>
+          <div class="vid-card__badges"><span class="vid-card__views"><svg class="ic-eye" viewBox="0 0 26 17" aria-hidden="true"><path d="M13 0C7 0 2.1 3.4 0 8.5 2.1 13.6 7 17 13 17s10.9-3.4 13-8.5C23.9 3.4 19 0 13 0Zm0 14a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11Zm0-9a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z"/></svg>11 935</span></div>
+          <button class="vid-card__play" type="button" aria-label="Lire"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+          <div class="vid-card__info"><p class="vid-card__desc">Steven Dubois explique la pression ressentie pendant la compétition.</p><div class="vid-card__foot"><div class="vid-card__tags"><span class="chip chip--solid">Short Track</span></div><span class="vid-card__time">12:18</span></div></div>
+        </article>
+
+        <article class="vid-card">
+          <div class="vid-card__media" style="background-image:url('photo/athlete_veste_rouge_homme_interview.png')"></div>
+          <div class="vid-card__badges"><span class="vid-card__views"><svg class="ic-eye" viewBox="0 0 26 17" aria-hidden="true"><path d="M13 0C7 0 2.1 3.4 0 8.5 2.1 13.6 7 17 13 17s10.9-3.4 13-8.5C23.9 3.4 19 0 13 0Zm0 14a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11Zm0-9a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z"/></svg>21 598</span></div>
+          <button class="vid-card__play" type="button" aria-label="Lire"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+          <div class="vid-card__info"><p class="vid-card__desc">Loïc Meillard répond à vos questions sur la dernière épreuve de slalom.</p><div class="vid-card__foot"><div class="vid-card__tags"><span class="chip chip--solid">Ski Alpin</span></div><span class="vid-card__time">15:07</span></div></div>
+        </article>
+
+        <article class="vid-card">
+          <div class="vid-card__media" style="background-image:url('photo/philipp_nawrath_interview.jpg')"></div>
+          <div class="vid-card__badges"><span class="vid-card__views"><svg class="ic-eye" viewBox="0 0 26 17" aria-hidden="true"><path d="M13 0C7 0 2.1 3.4 0 8.5 2.1 13.6 7 17 13 17s10.9-3.4 13-8.5C23.9 3.4 19 0 13 0Zm0 14a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11Zm0-9a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z"/></svg>1 253</span></div>
+          <button class="vid-card__play" type="button" aria-label="Lire"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+          <div class="vid-card__info"><p class="vid-card__desc">Philipp Nawrath déçu par sa performance | Tour session 4</p><div class="vid-card__foot"><div class="vid-card__tags"><span class="chip chip--solid">Biathlon</span></div><span class="vid-card__time">17:33</span></div></div>
+        </article>
+
+        <article class="vid-card">
+          <div class="vid-card__media" style="background-image:url('photo/biathlete_france_interview.png')"></div>
+          <div class="vid-card__badges"><span class="vid-card__views"><svg class="ic-eye" viewBox="0 0 26 17" aria-hidden="true"><path d="M13 0C7 0 2.1 3.4 0 8.5 2.1 13.6 7 17 13 17s10.9-3.4 13-8.5C23.9 3.4 19 0 13 0Zm0 14a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11Zm0-9a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z"/></svg>76 126</span></div>
+          <button class="vid-card__play" type="button" aria-label="Lire"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+          <div class="vid-card__info"><p class="vid-card__desc">Les Moments Clés du Sprint avec Fabien Claude | Milano Cortina 2026</p><div class="vid-card__foot"><div class="vid-card__tags"><span class="chip chip--solid">Biathlon</span></div><span class="vid-card__time">10:09</span></div></div>
+        </article>
+
+        <article class="vid-card">
+          <div class="vid-card__media" style="background-image:url('photo/athlete_france_combinaison_rouge.png')"></div>
+          <div class="vid-card__badges"><span class="vid-card__views"><svg class="ic-eye" viewBox="0 0 26 17" aria-hidden="true"><path d="M13 0C7 0 2.1 3.4 0 8.5 2.1 13.6 7 17 13 17s10.9-3.4 13-8.5C23.9 3.4 19 0 13 0Zm0 14a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11Zm0-9a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z"/></svg>3 644</span></div>
+          <button class="vid-card__play" type="button" aria-label="Lire"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+          <div class="vid-card__info"><p class="vid-card__desc">Bléssée 10 mois avant les JO, Frédérica explique sa rééducation.</p><div class="vid-card__foot"><div class="vid-card__tags"><span class="chip chip--solid">Ski Alpin</span></div><span class="vid-card__time">13:24</span></div></div>
+        </article>
+
+      </div>
+
+      <div class="carousel-nav">
+        <button class="carousel-arrow" type="button" data-dir="prev" aria-label="Replays précédents">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <span class="carousel-dots" aria-hidden="true"><i class="is-active"></i><i></i><i></i></span>
+        <button class="carousel-arrow" type="button" data-dir="next" aria-label="Replays suivants">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+    </div><!-- /.live-desktop -->
+
+    <!-- MOBILE : 1 grande carte + lignes compactes + voir plus (≤680px) -->
+    <div class="live-mobile">
+      <article class="vid-card">
+        <div class="vid-card__media" style="background-image:url('photo/athlete_blonde_interview.png')"></div>
+        <div class="vid-card__badges">
+          <span class="vid-card__views"><svg class="ic-eye" viewBox="0 0 26 17" aria-hidden="true"><path d="M13 0C7 0 2.1 3.4 0 8.5 2.1 13.6 7 17 13 17s10.9-3.4 13-8.5C23.9 3.4 19 0 13 0Zm0 14a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11Zm0-9a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z"/></svg>92 549</span>
+        </div>
+        <button class="vid-card__play" type="button" aria-label="Lire"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+        <div class="vid-card__info">
+          <p class="vid-card__desc">Mikaela Shiffrin explique comment elle anticipe ses descentes en Ski Alpin</p>
+          <div class="vid-card__foot">
+            <div class="vid-card__tags">
+              <span class="chip chip--solid">Ski Alpin</span>
+              <span class="chip chip--solid">@Mikaela_SHIFFRIN</span>
+            </div>
+            <span class="vid-card__time">00:21:30</span>
+          </div>
+        </div>
+      </article>
+
+      <div class="live-mobile-list">
+        <article class="live-row">
+          <a class="live-row__thumb" href="#" aria-label="Loan Bozolla et Léa Casta" style="background-image:url('photo/couple_athletes_interview.png')">
+            <span class="live-row__live"><span class="dot"></span>52 637</span>
+          </a>
+          <div class="live-row__text">
+            <span class="live-row__name">Loan Bozolla &amp; Léa Casta</span>
+            <span class="live-row__desc">Reviennent sur leur performance et répondent à vos questions !</span>
+            <span class="live-row__time">00:18:02</span>
+          </div>
+        </article>
+        <article class="live-row">
+          <a class="live-row__thumb" href="#" aria-label="Natalie Geisenberger" style="background-image:url('photo/luge_descente_milano_cortina.jpg')">
+            <span class="live-row__live"><span class="dot"></span>12 413</span>
+          </a>
+          <div class="live-row__text">
+            <span class="live-row__name">Natalie Geisenberger</span>
+            <span class="live-row__desc">Revient sur les écarts les plus serrés en luge.</span>
+            <span class="live-row__time">09:42</span>
+          </div>
+        </article>
+        <article class="live-row">
+          <a class="live-row__thumb" href="#" aria-label="Steven Dubois" style="background-image:url('photo/patinage_vitesse_short_track_chine.jpg')">
+            <span class="live-row__live"><span class="dot"></span>11 935</span>
+          </a>
+          <div class="live-row__text">
+            <span class="live-row__name">Steven Dubois</span>
+            <span class="live-row__desc">Explique la pression ressentie pendant la compétition.</span>
+            <span class="live-row__time">12:18</span>
+          </div>
+        </article>
+      </div>
+
+      <div class="live-more">
+        <a class="btn-fill" href="#">voir plus
+          <svg class="ic-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+
+    <h2 class="footer-partners-title">Partenaires Olympiques et Paralympiques Mondiaux</h2>
+
+    <!-- Logos sponsors (grille fluide : 4/row desktop, 3/row mobile) -->
+    <div class="sponsors">
+      <div class="sponsor-cell"><a href="https://www.airbnb.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/airbnb.svg" alt="Airbnb" /></a></div>
+      <div class="sponsor-cell"><a href="https://www.alibabagroup.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/alibaba.svg" alt="Alibaba" /></a></div>
+      <div class="sponsor-cell"><a href="https://www.allianz.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/allianz.svg" alt="Allianz" /></a></div>
+      <div class="sponsor-cell"><a href="https://www.coca-cola.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/cocacola.svg" alt="Coca-Cola" /></a></div>
+      <div class="sponsor-cell"><a href="https://www.deloitte.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/deloitte.svg" alt="Deloitte" /></a></div>
+      <div class="sponsor-cell"><a href="https://www.omegawatches.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/omega.svg" alt="Omega" /></a></div>
+      <div class="sponsor-cell"><a href="https://www.pg.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/pg.svg" alt="P&amp;G" /></a></div>
+      <div class="sponsor-cell"><a href="https://www.corona.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/logo-corona-cero.png" alt="Corona Cero" /></a></div>
+      <div class="sponsor-cell"><a href="https://www.visa.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/visa.svg" alt="Visa" /></a></div>
+      <div class="sponsor-cell"><a href="https://www.samsung.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/samsung.svg" alt="Samsung" /></a></div>
+      <div class="sponsor-cell"><a href="https://www.tcl.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/tcl.svg" alt="TCL" /></a></div>
+    </div>
+
+    <!-- Raccourcis : marque + navigation -->
+    <div class="footer-shortcuts">
+      <div class="footer-brand">
+        <img class="footer-logo" src="assets/logos/logo_olympic_cool.svg" alt="Olympic Connect" />
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook"><img src="assets/logos/facebook.svg" alt="" /></a>
+          <a href="#" aria-label="Instagram"><img src="assets/logos/instagram.svg" alt="" /></a>
+          <a href="#" aria-label="YouTube"><img src="assets/logos/youtube.svg" alt="" /></a>
+        </div>
+      </div>
+
+      <nav class="footer-nav">
+        <div class="footer-col">
+          <a class="footer-col-title">Découvrir</a>
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="replays.html">Replays et Temps forts</a></li>
+            <li><a href="live.html">Live</a></li>
+            <li><a href="athlete-talks.html">Athletes Talks</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <a class="footer-col-title">Social</a>
+          <ul>
+            <li><a href="posts.html">Posts</a></li>
+            <li><a href="communaute.html">Communauté</a></li>
+            <li><a href="athletes.html">Athlètes</a></li>
+            <li><a href="messages.html">Messages</a></li>
+          </ul>
+        </div>
+        <div class="footer-col footer-col--account">
+          <a class="footer-col-title">Compte &amp; aide</a>
+          <div class="footer-account-links">
+            <ul>
+              <li><a href="inscription.html">S'inscrire</a></li>
+              <li><a href="connexion.html">Se connecter</a></li>
+            </ul>
+            <ul>
+              <li><a href="sos.html">SOS</a></li>
+              <li><a href="engagement.html">Engagement</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <div class="footer-divider"></div>
+
+    <p class="footer-copyright">
+      Copyright © 2026 | All Rights Reserved |
+      <a href="#">Terms and Conditions</a> |
+      <a href="#">Privacy Policy</a>
+    </p>
+  </div>
+
+  <img class="footer-deco" src="assets/img/footer-deco.png" alt="" />
+</footer>
+
+<script>
+  // Toggle du menu burger plein écran (< 1050px)
+  (function () {
+    var burger = document.querySelector('.btn-burger');
+    var menu = document.getElementById('headerMenu');
+    if (!burger || !menu) return;
+    function setOpen(open) {
+      burger.setAttribute('aria-expanded', String(open));
+      burger.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+      menu.classList.toggle('is-open', open);
+      document.body.classList.toggle('menu-open', open);
+    }
+    burger.addEventListener('click', function () {
+      setOpen(burger.getAttribute('aria-expanded') !== 'true');
+    });
+    menu.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () { setOpen(false); });
+    });
+  })();
+
+  // Carrousels génériques : flèches qui défilent d'une "page" + puces synchronisées.
+  (function () {
+    document.querySelectorAll('[data-carousel]').forEach(function (carousel) {
+      var track = carousel.querySelector('.carousel-track');
+      var dots  = Array.prototype.slice.call(carousel.querySelectorAll('.carousel-dots i'));
+      if (!track) return;
+
+      function page() {
+        var card = track.firstElementChild;
+        if (!card) return track.clientWidth;
+        var gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+        var per = Math.max(1, Math.round(track.clientWidth / (card.offsetWidth + gap)));
+        return per * (card.offsetWidth + gap);
+      }
+
+      carousel.querySelectorAll('.carousel-arrow').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          track.scrollBy({ left: (btn.dataset.dir === 'next' ? 1 : -1) * page(), behavior: 'smooth' });
+        });
+      });
+
+      if (dots.length) {
+        track.addEventListener('scroll', function () {
+          var max = track.scrollWidth - track.clientWidth;
+          var ratio = max > 0 ? track.scrollLeft / max : 0;
+          var idx = Math.round(ratio * (dots.length - 1));
+          dots.forEach(function (d, i) { d.classList.toggle('is-active', i === idx); });
+        }, { passive: true });
+      }
+    });
+  })();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Olympic Connect 2026 — Mon profil</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="profil.css" />
+</head>
+<body class="profil-page">
+
+  <!-- ====================== HEADER ====================== -->
+  <header class="site-header">
+    <div class="header-content">
+
+      <nav class="header-bar">
+        <div class="header-left">
+          <a class="header-logo-link" href="index.html" aria-label="Olympic Connect 2026 — accueil">
+            <img class="header-logo" src="assets/img/logo-oc-baniere.svg" alt="Olympic Connect 2026" />
+          </a>
+          <span class="header-badge">JO 2026</span>
+        </div>
+
+        <div class="header-nav">
+          <a href="#">Replays et Temps forts</a>
+          <a href="#">Athletes Talks</a>
+          <a href="#">Posts</a>
+          <a href="#">Canaux</a>
+        </div>
+
+        <div class="header-actions">
+          <a class="btn-sos" href="sos.html">SOS</a>
+          <button class="btn-flag" type="button" aria-label="Choisir la langue — Français">
+            <svg viewBox="0 0 26 24" aria-hidden="true">
+              <rect width="8.667" height="24" fill="#002395" />
+              <rect x="8.667" width="8.667" height="24" fill="#ffffff" />
+              <rect x="17.333" width="8.667" height="24" fill="#ED2939" />
+            </svg>
+          </button>
+          <a class="btn-login" href="#">Se connecter</a>
+
+          <button class="btn-burger" type="button" aria-label="Ouvrir le menu"
+                  aria-expanded="false" aria-controls="headerMenu">
+            <svg class="icon-open" viewBox="0 0 40 28" aria-hidden="true">
+              <line x1="2" y1="4"  x2="38" y2="4" />
+              <line x1="2" y1="14" x2="38" y2="14" />
+              <line x1="2" y1="24" x2="38" y2="24" />
+            </svg>
+            <svg class="icon-close" viewBox="0 0 28 28" aria-hidden="true">
+              <line x1="5" y1="5"  x2="23" y2="23" />
+              <line x1="23" y1="5" x2="5"  y2="23" />
+            </svg>
+          </button>
+        </div>
+      </nav>
+
+      <div class="header-menu" id="headerMenu">
+        <a href="#">Replays et Temps forts</a>
+        <a href="#">Athletes Talks</a>
+        <a href="#">Posts</a>
+        <a href="#">Canaux</a>
+        <div class="header-menu-actions">
+          <button class="btn-flag" type="button" aria-label="Choisir la langue — Français">
+            <svg viewBox="0 0 26 24" aria-hidden="true">
+              <rect width="8.667" height="24" fill="#002395" />
+              <rect x="8.667" width="8.667" height="24" fill="#ffffff" />
+              <rect x="17.333" width="8.667" height="24" fill="#ED2939" />
+            </svg>
+          </button>
+          <a class="btn-login" href="#">Se connecter</a>
+        </div>
+      </div>
+
+      <div class="header-banner" aria-hidden="true"></div>
+
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+
+      <!-- ============ MES FAVORIS ============ -->
+      <section class="section">
+        <h1 class="profil-hero-title">Mes favoris</h1>
+
+        <div class="pseudo-row">
+          <span class="pseudo">Pseudo : <strong>@Martin_kllm</strong></span>
+          <a class="link-edit" href="#">Modifier</a>
+        </div>
+
+        <!-- Disciplines -->
+        <h2 class="profil-subtitle">Mes disciplines favoris</h2>
+        <div class="fav-row">
+          <button class="add-card">
+            <svg viewBox="0 0 60 60" aria-hidden="true"><line x1="30" y1="10" x2="30" y2="50"/><line x1="10" y1="30" x2="50" y2="30"/></svg>
+            <span>Ajouter une discipline</span>
+          </button>
+
+          <article class="disc-card">
+            <img class="disc-card__media" src="photo/sport/biathlon.png" alt="Biathlon" />
+            <button class="heart-btn is-liked" type="button" aria-pressed="true" aria-label="Retirer des favoris"><svg viewBox="-1.5 -1.5 36 31" aria-hidden="true"><path class="heart-shape" d="M16.5936 4.80149L18.8021 2.51767C18.8283 2.49062 18.8546 2.46379 18.881 2.43717C22.046 -0.748968 27.2094 -0.82419 30.4671 2.28828C33.752 5.42675 33.8553 10.6179 30.6979 13.8831L17.0466 28L2.52843 14.1082C-0.754111 10.9673 -0.853503 5.77602 2.30643 2.51322C5.46637 -0.749574 10.689 -0.848368 13.9716 2.29256L16.5936 4.80149Z"/></svg></button>
+            <span class="disc-card__label">Biathlon</span>
+          </article>
+
+          <article class="disc-card">
+            <img class="disc-card__media" src="photo/sport/ski_de_fond.png" alt="Ski de fond" />
+            <button class="heart-btn is-liked" type="button" aria-pressed="true" aria-label="Retirer des favoris"><svg viewBox="-1.5 -1.5 36 31" aria-hidden="true"><path class="heart-shape" d="M16.5936 4.80149L18.8021 2.51767C18.8283 2.49062 18.8546 2.46379 18.881 2.43717C22.046 -0.748968 27.2094 -0.82419 30.4671 2.28828C33.752 5.42675 33.8553 10.6179 30.6979 13.8831L17.0466 28L2.52843 14.1082C-0.754111 10.9673 -0.853503 5.77602 2.30643 2.51322C5.46637 -0.749574 10.689 -0.848368 13.9716 2.29256L16.5936 4.80149Z"/></svg></button>
+            <span class="disc-card__label">Ski de fond</span>
+          </article>
+
+          <article class="disc-card">
+            <img class="disc-card__media" src="photo/sport/snowboard.png" alt="Snowboard" />
+            <button class="heart-btn is-liked" type="button" aria-pressed="true" aria-label="Retirer des favoris"><svg viewBox="-1.5 -1.5 36 31" aria-hidden="true"><path class="heart-shape" d="M16.5936 4.80149L18.8021 2.51767C18.8283 2.49062 18.8546 2.46379 18.881 2.43717C22.046 -0.748968 27.2094 -0.82419 30.4671 2.28828C33.752 5.42675 33.8553 10.6179 30.6979 13.8831L17.0466 28L2.52843 14.1082C-0.754111 10.9673 -0.853503 5.77602 2.30643 2.51322C5.46637 -0.749574 10.689 -0.848368 13.9716 2.29256L16.5936 4.80149Z"/></svg></button>
+            <span class="disc-card__label">Snowboard</span>
+          </article>
+        </div>
+
+        <!-- Athlètes -->
+        <h2 class="profil-subtitle">Mes athlètes favoris</h2>
+        <div class="fav-row">
+          <button class="add-card">
+            <svg viewBox="0 0 60 60" aria-hidden="true"><line x1="30" y1="10" x2="30" y2="50"/><line x1="10" y1="30" x2="50" y2="30"/></svg>
+            <span>Ajouter un athlète</span>
+          </button>
+
+          <article class="ath-card">
+            <img class="ath-card__media" src="photo/biathlete_france_interview.png" alt="Fabien Claude" />
+            <button class="heart-btn is-liked" type="button" aria-pressed="true" aria-label="Retirer des favoris"><svg viewBox="-1.5 -1.5 36 31" aria-hidden="true"><path class="heart-shape" d="M16.5936 4.80149L18.8021 2.51767C18.8283 2.49062 18.8546 2.46379 18.881 2.43717C22.046 -0.748968 27.2094 -0.82419 30.4671 2.28828C33.752 5.42675 33.8553 10.6179 30.6979 13.8831L17.0466 28L2.52843 14.1082C-0.754111 10.9673 -0.853503 5.77602 2.30643 2.51322C5.46637 -0.749574 10.689 -0.848368 13.9716 2.29256L16.5936 4.80149Z"/></svg></button>
+            <span class="ath-card__name">@Fabien_CLAUDE</span>
+          </article>
+
+          <article class="ath-card">
+            <img class="ath-card__media" src="photo/athlete_femme_bonnet_interview.png" alt="Justine Gaillard" />
+            <button class="heart-btn is-liked" type="button" aria-pressed="true" aria-label="Retirer des favoris"><svg viewBox="-1.5 -1.5 36 31" aria-hidden="true"><path class="heart-shape" d="M16.5936 4.80149L18.8021 2.51767C18.8283 2.49062 18.8546 2.46379 18.881 2.43717C22.046 -0.748968 27.2094 -0.82419 30.4671 2.28828C33.752 5.42675 33.8553 10.6179 30.6979 13.8831L17.0466 28L2.52843 14.1082C-0.754111 10.9673 -0.853503 5.77602 2.30643 2.51322C5.46637 -0.749574 10.689 -0.848368 13.9716 2.29256L16.5936 4.80149Z"/></svg></button>
+            <span class="ath-card__name">@Justine_GAILLARD</span>
+          </article>
+
+          <article class="ath-card">
+            <img class="ath-card__media" src="photo/athlete_redbull_interview.png" alt="Loan Bozzolo" />
+            <button class="heart-btn is-liked" type="button" aria-pressed="true" aria-label="Retirer des favoris"><svg viewBox="-1.5 -1.5 36 31" aria-hidden="true"><path class="heart-shape" d="M16.5936 4.80149L18.8021 2.51767C18.8283 2.49062 18.8546 2.46379 18.881 2.43717C22.046 -0.748968 27.2094 -0.82419 30.4671 2.28828C33.752 5.42675 33.8553 10.6179 30.6979 13.8831L17.0466 28L2.52843 14.1082C-0.754111 10.9673 -0.853503 5.77602 2.30643 2.51322C5.46637 -0.749574 10.689 -0.848368 13.9716 2.29256L16.5936 4.80149Z"/></svg></button>
+            <span class="ath-card__name">@Loan_BOZZOLO</span>
+          </article>
+        </div>
+      </section>
+
+      <!-- ============ CANAUX ============ -->
+      <section class="section">
+        <div class="tabs">
+          <button class="tab is-active">Tout</button>
+          <button class="tab">Canaux</button>
+          <button class="tab">Replays</button>
+          <button class="tab">Atlhete Talks</button>
+          <button class="tab">Posts</button>
+        </div>
+
+        <h2 class="section-title">Canaux de vos favoris</h2>
+
+        <div class="channel-grid">
+          <article class="channel-card">
+            <div class="channel-head">
+              <img class="channel-avatar" src="photo/PP/justine_GAILLARD.png" alt="" />
+              <div class="channel-meta">
+                <h3>@Justine_GAILLARD</h3>
+                <p>Ski de fond FRA</p>
+                <span class="channel-followers"><svg viewBox="0 0 24 24"><path d="M16 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4zm-8 0a3 3 0 1 0-3-3 3 3 0 0 0 3 3zm0 2c-2.7 0-8 1.3-8 4v3h9v-3c0-1 .4-1.9 1-2.6A14 14 0 0 0 8 13zm8 0c-.3 0-.7 0-1 .1A5 5 0 0 1 18 17v3h6v-3c0-2.7-5.3-4-8-4z"/></svg> Suivi par 9,6k</span>
+              </div>
+            </div>
+            <div class="channel-post">
+              <p class="channel-quote">"Hey tout le monde, si vous êtes chaud je démarre un live à 15h..."</p>
+              <div class="reactions">
+                <button class="reaction">🔥 4,7k</button>
+                <button class="reaction">👏 1,2k</button>
+                <button class="reaction">💪 9k</button>
+                <button class="reaction reaction--add">+</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="channel-card">
+            <div class="channel-head">
+              <img class="channel-avatar" src="photo/PP/PP_fabien_claude.png" alt="" />
+              <div class="channel-meta">
+                <h3>@Fabien_CLAUDE</h3>
+                <p>Ski de fond FRA</p>
+                <span class="channel-followers"><svg viewBox="0 0 24 24"><path d="M16 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4zm-8 0a3 3 0 1 0-3-3 3 3 0 0 0 3 3zm0 2c-2.7 0-8 1.3-8 4v3h9v-3c0-1 .4-1.9 1-2.6A14 14 0 0 0 8 13zm8 0c-.3 0-.7 0-1 .1A5 5 0 0 1 18 17v3h6v-3c0-2.7-5.3-4-8-4z"/></svg> Suivi par 8k</span>
+              </div>
+            </div>
+            <div class="channel-post">
+              <p class="channel-quote">"Super course hier ! La victoire s'est jouée de peu..."</p>
+              <div class="reactions">
+                <button class="reaction">🔥 4,7k</button>
+                <button class="reaction">👏 1,2k</button>
+                <button class="reaction">💪 9k</button>
+                <button class="reaction reaction--add">+</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="channel-card">
+            <div class="channel-head">
+              <img class="channel-avatar" src="photo/PP/justine_GAILLARD.png" alt="" />
+              <div class="channel-meta">
+                <h3>@Justine_GAILLARD</h3>
+                <p>Ski de fond FRA</p>
+                <span class="channel-followers"><svg viewBox="0 0 24 24"><path d="M16 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4zm-8 0a3 3 0 1 0-3-3 3 3 0 0 0 3 3zm0 2c-2.7 0-8 1.3-8 4v3h9v-3c0-1 .4-1.9 1-2.6A14 14 0 0 0 8 13zm8 0c-.3 0-.7 0-1 .1A5 5 0 0 1 18 17v3h6v-3c0-2.7-5.3-4-8-4z"/></svg> Suivi par 8k</span>
+              </div>
+            </div>
+            <div class="channel-post">
+              <p class="channel-quote">"Super course hier ! La victoire s'est jouée de peu..."</p>
+              <div class="reactions">
+                <button class="reaction">🔥 4,7k</button>
+                <button class="reaction">👏 1,2k</button>
+                <button class="reaction">💪 9k</button>
+                <button class="reaction reaction--add">+</button>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="carousel-foot is-right">
+          <button class="car-arrow">‹</button>
+          <span class="car-dots"><i class="is-active"></i><i></i><i></i><i></i></span>
+          <button class="car-arrow">›</button>
+        </div>
+      </section>
+
+      <!-- ============ COMMUNAUTÉ (live) ============ -->
+      <section class="section">
+        <h2 class="section-title">Communauté</h2>
+
+        <div class="live-list">
+
+          <!-- Carte 1 — Justine (en direct) -->
+          <a class="live-card" href="#">
+            <img class="live-card__avatar" src="photo/athlete_femme_bonnet_interview.png" alt="Justine Gaillard" />
+            <div class="live-card__body">
+              <div class="live-card__top">
+                <span class="live-card__name">@Justine_GAILLARD</span>
+                <span class="live-tag">Ski de fond</span>
+                <span class="live-status live-status--live">
+                  <span class="dot"></span> En direct
+                  <span class="live-status__views">
+                    <svg viewBox="0 0 24 16" aria-hidden="true"><path d="M12 0C6 0 1.7 3.5 0 8c1.7 4.5 6 8 12 8s10.3-3.5 12-8c-1.7-4.5-6-8-12-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-8a3 3 0 100 6 3 3 0 000-6z"/></svg>
+                    2 789
+                  </span>
+                </span>
+                <span class="live-card__members">9,6k membres
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4zm-8 0a3 3 0 1 0-3-3 3 3 0 0 0 3 3zm0 2c-2.7 0-8 1.3-8 4v3h9v-3c0-1 .4-1.9 1-2.6A14 14 0 0 0 8 13zm8 0c-.3 0-.7 0-1 .1A5 5 0 0 1 18 17v3h6v-3c0-2.7-5.3-4-8-4z"/></svg>
+                </span>
+              </div>
+
+              <div class="live-card__post">
+                <p class="live-card__quote">"Hey tout le monde, si vous êtes chaud on démarre un petit live à 15h, heure ..."</p>
+                <div class="live-card__foot">
+                  <div class="live-reacts">
+                    <span class="live-react"><button class="live-react__btn">🔥</button><span class="live-react__count">4,7k</span></span>
+                    <span class="live-react"><button class="live-react__btn">💪</button><span class="live-react__count">1,2k</span></span>
+                    <span class="live-react"><button class="live-react__btn">🥇</button><span class="live-react__count">238</span></span>
+                    <button class="live-react__btn live-react__add">+</button>
+                  </div>
+                  <div class="live-card__right">
+                    <span class="live-card__time">9h30</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <!-- Carte 2 — Fabien (hors ligne) -->
+          <a class="live-card" href="#">
+            <img class="live-card__avatar" src="photo/PP/PP_fabien_claude.png" alt="Fabien Claude" />
+            <div class="live-card__body">
+              <div class="live-card__top">
+                <span class="live-card__name">@Fabien_CLAUDE</span>
+                <span class="live-tag">Biathlon</span>
+                <span class="live-status live-status--off">
+                  <span class="dot"></span> Off line
+                </span>
+                <span class="live-card__members">17K membres
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4zm-8 0a3 3 0 1 0-3-3 3 3 0 0 0 3 3zm0 2c-2.7 0-8 1.3-8 4v3h9v-3c0-1 .4-1.9 1-2.6A14 14 0 0 0 8 13zm8 0c-.3 0-.7 0-1 .1A5 5 0 0 1 18 17v3h6v-3c0-2.7-5.3-4-8-4z"/></svg>
+                </span>
+              </div>
+
+              <div class="live-card__post">
+                <p class="live-card__quote">"Merci pour tout votre soutien durant la compétition, je sais que je vais êtes..."</p>
+                <div class="live-card__foot">
+                  <div class="live-reacts">
+                    <span class="live-react"><button class="live-react__btn">❤️</button><span class="live-react__count">2k</span></span>
+                    <span class="live-react"><button class="live-react__btn">💪</button><span class="live-react__count">5k</span></span>
+                    <span class="live-react"><button class="live-react__btn">👏</button><span class="live-react__count">938</span></span>
+                    <button class="live-react__btn live-react__add">+</button>
+                  </div>
+                  <div class="live-card__right">
+                    <span class="live-card__time">11h45</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <!-- Carte 3 — Loan (nouveau message) -->
+          <a class="live-card" href="#">
+            <img class="live-card__avatar" src="photo/athlete_redbull_interview.png" alt="Loan Bozzolo" />
+            <div class="live-card__body">
+              <div class="live-card__top">
+                <span class="live-card__name">@Loan_BOZZOLO</span>
+                <span class="live-tag">Snowboard</span>
+                <span class="live-card__members">12K membres
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4zm-8 0a3 3 0 1 0-3-3 3 3 0 0 0 3 3zm0 2c-2.7 0-8 1.3-8 4v3h9v-3c0-1 .4-1.9 1-2.6A14 14 0 0 0 8 13zm8 0c-.3 0-.7 0-1 .1A5 5 0 0 1 18 17v3h6v-3c0-2.7-5.3-4-8-4z"/></svg>
+                </span>
+              </div>
+
+              <div class="live-card__post">
+                <p class="live-card__quote">"Devinez qui est médaillé de bronze ?"</p>
+                <div class="live-card__foot">
+                  <div class="live-reacts">
+                    <span class="live-react"><button class="live-react__btn">🔥</button><span class="live-react__count">1,2k</span></span>
+                    <span class="live-react"><button class="live-react__btn">💪</button><span class="live-react__count">9k</span></span>
+                    <span class="live-react"><button class="live-react__btn">👏</button><span class="live-react__count">9k</span></span>
+                    <button class="live-react__btn live-react__add">+</button>
+                  </div>
+                  <div class="live-card__right">
+                    <span class="live-newmsg"><span class="dot"></span> New message (2)</span>
+                    <span class="live-card__time">10h30</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+
+        </div>
+      </section>
+
+      <!-- ============ REPLAY ============ -->
+      <section class="section">
+        <h2 class="section-title">Replay avec vos favoris</h2>
+        <div class="pills">
+          <button class="pill is-active">Tout</button>
+          <button class="pill">Epreuves entières</button>
+          <button class="pill">Temps forts</button>
+          <button class="pill">Continuer à regarder</button>
+        </div>
+
+        <div class="vgrid vgrid--2">
+          <article class="vcard2 vcard2--lg">
+            <div class="vcard2__media">
+              <img src="photo/ski_de_fond_arrivee_drapeau_france.png" alt="" />
+              <span class="vbadge vbadge--red">Temps forts</span>
+            </div>
+            <div class="vcard2__body">
+              <p class="vcard2__title">Sprint par équipes féminin classique | Milano Cortina 2026 | Full Replays</p>
+              <div class="vcard2__foot"><span class="vcard2__time">il y a 4h</span><button class="vtag2">Ski de fond ▸</button></div>
+            </div>
+          </article>
+
+          <article class="vcard2 vcard2--lg">
+            <div class="vcard2__media">
+              <img src="photo/snowboard_slopestyle.png" alt="" />
+              <span class="vbadge vbadge--blue">Épreuve entière</span>
+            </div>
+            <div class="vcard2__body">
+              <p class="vcard2__title">Slopestyle Hommes Finale - Snowboard | Milano Cortina 2026</p>
+              <div class="vcard2__foot"><span class="vcard2__time">il y a 30 min</span><button class="vtag2">Snowboard ▸</button></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="vgrid vgrid--3">
+          <article class="vcard2">
+            <div class="vcard2__media"><img src="photo/biathlon_course_2.png" alt="" /><span class="vbadge vbadge--red">Temps forts</span></div>
+            <div class="vcard2__body">
+              <p class="vcard2__title">Mixed Relay Biathlon | Milano Cortina 2026 | Best Time</p>
+              <div class="vcard2__foot"><span class="vcard2__time">il y a 30min</span><button class="vtag2">Biathlon ▸</button></div>
+            </div>
+          </article>
+          <article class="vcard2">
+            <div class="vcard2__media"><img src="photo/ski_de_fond_course_2.png" alt="" /><span class="vbadge vbadge--red">Temps forts</span></div>
+            <div class="vcard2__body">
+              <p class="vcard2__title">Sprint féminin classique | Milano Cortina 2026 | Best Time</p>
+              <div class="vcard2__foot"><span class="vcard2__time">il y a 4h</span><button class="vtag2">Ski de fond ▸</button></div>
+            </div>
+          </article>
+          <article class="vcard2">
+            <div class="vcard2__media"><img src="photo/biathlon_course_3.png" alt="" /><span class="vbadge vbadge--red">Temps forts</span></div>
+            <div class="vcard2__body">
+              <p class="vcard2__title">Individual 20 km Biathlon | Milano Cortina 2026 | Best Time</p>
+              <div class="vcard2__foot"><span class="vcard2__time">il y a 4h</span><button class="vtag2">Biathlon ▸</button></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="carousel-foot is-right">
+          <button class="car-arrow">‹</button>
+          <span class="car-dots"><i class="is-active"></i><i></i><i></i></span>
+          <button class="car-arrow">›</button>
+        </div>
+      </section>
+
+      <!-- ============ ATHLETE TALKS ============ -->
+      <section class="section">
+        <h2 class="section-title">Athlete Talks avec favoris</h2>
+        <div class="pills">
+          <button class="pill is-active">Tout</button>
+          <button class="pill">À venir</button>
+          <button class="pill">Passés</button>
+          <button class="pill">Continuer à regarder</button>
+        </div>
+
+        <div class="vgrid vgrid--2">
+          <article class="talk-card">
+            <img src="photo/athlete_femme_bonnet_interview_2.png" alt="" />
+            <span class="talk-live"><i></i> Live à venir</span>
+            <span class="talk-next">PROCHAIN LIVE<br /><strong>06 FEV - 14H</strong></span>
+            <span class="talk-user">@Justine_GAILLARD</span>
+          </article>
+          <article class="talk-card">
+            <img src="photo/athlete_veste_rouge_homme_interview.png" alt="" />
+            <span class="talk-live"><i></i> Live à venir</span>
+            <span class="talk-next">PROCHAIN LIVE<br /><strong>07 FEV - 14H</strong></span>
+            <span class="talk-user">@Loan_BOZZOLO</span>
+          </article>
+        </div>
+
+        <div class="vgrid vgrid--3">
+          <article class="vcard2">
+            <div class="vcard2__media"><img src="photo/athlete_conference_cortina.png" alt="" /></div>
+            <div class="vcard2__body">
+              <p class="vcard2__title">Analyse de la Mass Start avec Justine Gaillard | Milano Cortina 2026</p>
+              <div class="vcard2__foot"><span class="vcard2__time">il y a 1 jours</span></div>
+            </div>
+          </article>
+          <article class="vcard2">
+            <div class="vcard2__media"><img src="photo/athlete_veste_rouge_conference.png" alt="" /></div>
+            <div class="vcard2__body">
+              <p class="vcard2__title">Les Moments Clés du Sprint avec Fabien Claude | Milano Cortina 2026</p>
+              <div class="vcard2__foot"><span class="vcard2__time">il y a 1 jours</span></div>
+            </div>
+          </article>
+          <article class="vcard2">
+            <div class="vcard2__media"><img src="photo/patineur_interview_cortina.png" alt="" /></div>
+            <div class="vcard2__body">
+              <p class="vcard2__title">Loan Bozzolo répond à vos questions sur sa préparation | Milano Cortina</p>
+              <div class="vcard2__foot"><span class="vcard2__time">il y a 1 jours</span></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="carousel-foot is-right">
+          <button class="car-arrow">‹</button>
+          <span class="car-dots"><i class="is-active"></i><i></i><i></i></span>
+          <button class="car-arrow">›</button>
+        </div>
+      </section>
+
+      <!-- ============ POSTS ============ -->
+      <section class="section">
+        <h2 class="section-title">Les posts de vos favoris</h2>
+        <div class="pills">
+          <button class="pill is-active"><svg viewBox="0 0 24 24"><path d="M16 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4zm-8 0a3 3 0 1 0-3-3 3 3 0 0 0 3 3zm0 2c-2.7 0-8 1.3-8 4v3h9v-3c0-1 .4-1.9 1-2.6A14 14 0 0 0 8 13zm8 0c-.3 0-.7 0-1 .1A5 5 0 0 1 18 17v3h6v-3c0-2.7-5.3-4-8-4z"/></svg> Les plus populaires</button>
+          <button class="pill"><svg viewBox="0 0 24 24"><path d="M16 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4zm-8 0a3 3 0 1 0-3-3 3 3 0 0 0 3 3zm0 2c-2.7 0-8 1.3-8 4v3h9v-3c0-1 .4-1.9 1-2.6A14 14 0 0 0 8 13zm8 0c-.3 0-.7 0-1 .1A5 5 0 0 1 18 17v3h6v-3c0-2.7-5.3-4-8-4z"/></svg> Les plus récents</button>
+        </div>
+
+        <div class="posts-masonry">
+          <article class="pcard"><div class="pcard__media"><img src="photo/athlete_celebration.png" alt="" /></div><span class="pcard__cap">"Pas mal le tout droit dans la..."<span class="pcard__reacts">😎 12k · 👏 12k · 💪 12k · il y a 8 minutes</span></span></article>
+          <article class="pcard"><div class="pcard__media"><img src="photo/biathletes_femmes_selfie.png" alt="" /></div><span class="pcard__cap">"Ma photo officielle pour les JO est..."<span class="pcard__reacts">😎 12k · 👏 12k · 💪 12k · il y a 6 jours</span></span></article>
+          <article class="pcard"><div class="pcard__media"><img src="photo/couple_drapeau_france.png" alt="" /></div><span class="pcard__cap">"ON EST LES CHAMPIONS, ON EST..."<span class="pcard__reacts">😎 12k · 👏 12k · 💪 12k · il y a 5 heures</span></span></article>
+          <article class="pcard"><div class="pcard__media"><img src="photo/ski_de_fond_skieur_competition.png" alt="" /><button class="pcard__play"><svg viewBox="0 0 16 16"><path d="M3 2l11 6-11 6z"/></svg></button></div></article>
+
+          <article class="pcard"><div class="pcard__media"><img src="photo/ski_de_fond_arrivee_bleus.png" alt="" /><button class="pcard__play"><svg viewBox="0 0 16 16"><path d="M3 2l11 6-11 6z"/></svg></button></div><span class="pcard__cap">"Mon arrivée pour le 10 km sprint immortalisée !"<span class="pcard__reacts">😎 12k · 👏 12k · 💪 12k · il y a 3 jours</span></span></article>
+          <article class="pcard"><div class="pcard__media"><img src="photo/snowboard_slopestyle.png" alt="" /></div><span class="pcard__cap">"Merci à mes partenaires de toujours..."<span class="pcard__reacts">😎 12k · 👏 12k · 💪 12k · il y a 51 minutes</span></span></article>
+          <article class="pcard"><div class="pcard__media"><img src="photo/ski_de_fond_fondeuse_course.png" alt="" /></div><span class="pcard__cap">"Maintenant préparation pour le 50km"<span class="pcard__reacts">😎 12k · 👏 12k · 💪 12k · il y a 4 jours</span></span></article>
+
+          <article class="pcard"><div class="pcard__media"><img src="photo/biathlon_course_4.png" alt="" /></div><span class="pcard__cap">"Beaucoup de positif ce week-end..."<span class="pcard__reacts">😎 12k · 👏 12k · 💪 12k · il y a 6 heures</span></span></article>
+          <article class="pcard"><div class="pcard__media"><img src="photo/ski_de_fond_relais_suede_celebration.png" alt="" /><button class="pcard__play"><svg viewBox="0 0 16 16"><path d="M3 2l11 6-11 6z"/></svg></button></div><span class="pcard__cap">"On termine cette saison relay homme..."<span class="pcard__reacts">😎 12k · 👏 12k · 💪 12k · il y a 1 jour</span></span></article>
+          <article class="pcard"><div class="pcard__media"><img src="photo/athlete_medaille_or.png" alt="" /></div><span class="pcard__cap">"Et voilà, c'est terminé. On sème le frire du..."<span class="pcard__reacts">😎 12k · 👏 12k · 💪 12k · il y a 10 minutes</span></span></article>
+
+          <article class="pcard"><div class="pcard__media"><img src="photo/snowboard_cross.png" alt="" /><button class="pcard__play"><svg viewBox="0 0 16 16"><path d="M3 2l11 6-11 6z"/></svg></button></div><span class="pcard__cap">"Un saut de biche comme on en fait..."<span class="pcard__reacts">😎 12k · 👏 12k · 💪 12k · il y a 8 heures</span></span></article>
+          <article class="pcard"><div class="pcard__media"><img src="photo/biathlon_course_5.png" alt="" /><button class="pcard__play"><svg viewBox="0 0 16 16"><path d="M3 2l11 6-11 6z"/></svg></button></div><span class="pcard__cap">"C'était très serré, heureusement..."<span class="pcard__reacts">😎 12k · 👏 12k · 💪 12k · il y a 5 jours</span></span></article>
+          <article class="pcard"><div class="pcard__media"><img src="photo/saut_a_ski.png" alt="" /><button class="pcard__play"><svg viewBox="0 0 16 16"><path d="M3 2l11 6-11 6z"/></svg></button></div></article>
+          <article class="pcard"><div class="pcard__media"><img src="photo/ski_de_fond_arrivee_drapeau_france_2.png" alt="" /><button class="pcard__play"><svg viewBox="0 0 16 16"><path d="M3 2l11 6-11 6z"/></svg></button></div><span class="pcard__cap">"Mon premier départ aux Jeux Olympiques 🔥"<span class="pcard__reacts">😎 12k · 👏 12k · 💪 12k · il y a 4 jours</span></span></article>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ====================== FOOTER ====================== -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+
+      <h2 class="footer-partners-title">Partenaires Olympiques et Paralympiques Mondiaux</h2>
+
+      <div class="sponsors">
+        <div class="sponsor-cell"><a href="https://www.airbnb.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/airbnb.svg" alt="Airbnb" /></a></div>
+        <div class="sponsor-cell"><a href="https://www.alibabagroup.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/alibaba.svg" alt="Alibaba" /></a></div>
+        <div class="sponsor-cell"><a href="https://www.allianz.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/allianz.svg" alt="Allianz" /></a></div>
+        <div class="sponsor-cell"><a href="https://www.coca-cola.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/cocacola.svg" alt="Coca-Cola" /></a></div>
+        <div class="sponsor-cell"><a href="https://www.deloitte.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/deloitte.svg" alt="Deloitte" /></a></div>
+        <div class="sponsor-cell"><a href="https://www.omegawatches.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/omega.svg" alt="Omega" /></a></div>
+        <div class="sponsor-cell"><a href="https://www.pg.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/pg.svg" alt="P&amp;G" /></a></div>
+        <div class="sponsor-cell"><a href="https://www.corona.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/logo-corona-cero.png" alt="Corona Cero" /></a></div>
+        <div class="sponsor-cell"><a href="https://www.visa.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/visa.svg" alt="Visa" /></a></div>
+        <div class="sponsor-cell"><a href="https://www.samsung.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/samsung.svg" alt="Samsung" /></a></div>
+        <div class="sponsor-cell"><a href="https://www.tcl.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/tcl.svg" alt="TCL" /></a></div>
+      </div>
+
+      <div class="footer-shortcuts">
+        <div class="footer-brand">
+          <img class="footer-logo" src="assets/logos/logo_olympic_cool.svg" alt="Olympic Connect" />
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook"><img src="assets/logos/facebook.svg" alt="" /></a>
+            <a href="#" aria-label="Instagram"><img src="assets/logos/instagram.svg" alt="" /></a>
+            <a href="#" aria-label="YouTube"><img src="assets/logos/youtube.svg" alt="" /></a>
+          </div>
+        </div>
+
+        <nav class="footer-nav">
+          <div class="footer-col">
+            <a class="footer-col-title">Découvrir</a>
+            <ul>
+              <li><a href="index.html">Accueil</a></li>
+              <li><a href="#">Replays et Temps forts</a></li>
+              <li><a href="#">Live</a></li>
+              <li><a href="#">Athletes Talks</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <a class="footer-col-title">Social</a>
+            <ul>
+              <li><a href="#">Posts</a></li>
+              <li><a href="#">Communauté</a></li>
+              <li><a href="#">Athlètes</a></li>
+              <li><a href="#">Messages</a></li>
+            </ul>
+          </div>
+          <div class="footer-col footer-col--account">
+            <a class="footer-col-title">Compte &amp; aide</a>
+            <div class="footer-account-links">
+              <ul>
+                <li><a href="#">S'inscrire</a></li>
+                <li><a href="#">Se connecter</a></li>
+              </ul>
+              <ul>
+                <li><a href="sos.html">SOS</a></li>
+                <li><a href="#">Engagement</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <p class="footer-copyright">
+        Copyright © 2026 | All Rights Reserved |
+        <a href="#">Terms and Conditions</a> |
+        <a href="#">Privacy Policy</a>
+      </p>
+    </div>
+
+    <img class="footer-deco" src="assets/img/footer-deco.png" alt="" />
+  </footer>
+
+  <!-- Toggle du menu burger (< 1300px) -->
+  <script>
+    (function () {
+      var burger = document.querySelector('.btn-burger');
+      var menu = document.getElementById('headerMenu');
+      if (!burger || !menu) return;
+      function setOpen(open) {
+        burger.setAttribute('aria-expanded', String(open));
+        burger.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+        menu.classList.toggle('is-open', open);
+        document.body.classList.toggle('menu-open', open);
+      }
+      burger.addEventListener('click', function () {
+        setOpen(burger.getAttribute('aria-expanded') !== 'true');
+      });
+      menu.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () { setOpen(false); });
+      });
+    })();
+  </script>
+
+  <!-- Filtres (.tabs / .pills) : un seul bouton actif par groupe au clic -->
+  <script>
+    (function () {
+      document.querySelectorAll('.tabs, .pills').forEach(function (group) {
+        group.addEventListener('click', function (e) {
+          var btn = e.target.closest('.tab, .pill');
+          if (!btn || !group.contains(btn)) return;
+          group.querySelectorAll('.tab, .pill').forEach(function (b) {
+            b.classList.toggle('is-active', b === btn);
+            b.setAttribute('aria-pressed', String(b === btn));
+          });
+        });
+      });
+    })();
+  </script>
+
+  <!-- Boutons cœur : toggle favori + animation pop/wiggle -->
+  <script>
+    (function () {
+      document.querySelectorAll('.heart-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var liked = btn.classList.toggle('is-liked');
+          btn.setAttribute('aria-pressed', String(liked));
+          btn.setAttribute('aria-label', liked ? 'Retirer des favoris' : 'Ajouter aux favoris');
+          if (liked) {
+            btn.classList.remove('is-animating');
+            void btn.offsetWidth;            // relance l'animation
+            btn.classList.add('is-animating');
+          }
+        });
+        btn.addEventListener('animationend', function () {
+          btn.classList.remove('is-animating');
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

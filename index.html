@@ -15,21 +15,21 @@
       <!-- Barre de navigation -->
       <nav class="header-bar">
         <div class="header-left">
-          <a class="header-logo-link" href="#" aria-label="Olympic Connect 2026 — accueil">
+          <a class="header-logo-link" href="index.html" aria-label="Olympic Connect 2026 — accueil">
             <img class="header-logo" src="assets/img/logo-oc-baniere.svg" alt="Olympic Connect 2026" />
           </a>
           <span class="header-badge">JO 2026</span>
         </div>
 
         <div class="header-nav">
-          <a href="#">Replays et Temps forts</a>
-          <a href="#">Athletes Talks</a>
-          <a href="#">Posts</a>
-          <a href="#">Canaux</a>
+          <a href="replays.html">Replays et Temps forts</a>
+          <a href="athlete-talks.html">Athletes Talks</a>
+          <a href="posts.html">Posts</a>
+          <a href="canaux.html">Canaux</a>
         </div>
 
         <div class="header-actions">
-          <button class="btn-sos" type="button">SOS</button>
+          <a class="btn-sos" href="sos.html">SOS</a>
           <button class="btn-flag" type="button" aria-label="Choisir la langue — Français">
             <svg viewBox="0 0 26 24" aria-hidden="true">
               <rect width="8.667" height="24" fill="#002395" />
@@ -37,7 +37,7 @@
               <rect x="17.333" width="8.667" height="24" fill="#ED2939" />
             </svg>
           </button>
-          <a class="btn-login" href="#">Se connecter</a>
+          <a class="btn-login" href="connexion.html">Se connecter</a>
 
           <!-- Burger (visible < 1050px) -->
           <button class="btn-burger" type="button" aria-label="Ouvrir le menu"
@@ -57,10 +57,10 @@
 
       <!-- Menu plein écran (visible < 1050px, ouvert via le burger) -->
       <div class="header-menu" id="headerMenu">
-          <a href="#">Replays et Temps forts</a>
-          <a href="#">Athletes Talks</a>
-          <a href="#">Posts</a>
-          <a href="#">Canaux</a>
+          <a href="replays.html">Replays et Temps forts</a>
+          <a href="athlete-talks.html">Athletes Talks</a>
+          <a href="posts.html">Posts</a>
+          <a href="canaux.html">Canaux</a>
           <div class="header-menu-actions">
             <button class="btn-flag" type="button" aria-label="Choisir la langue — Français">
               <svg viewBox="0 0 26 24" aria-hidden="true">
@@ -69,14 +69,12 @@
                 <rect x="17.333" width="8.667" height="24" fill="#ED2939" />
               </svg>
             </button>
-            <a class="btn-login" href="#">Se connecter</a>
+            <a class="btn-login" href="connexion.html">Se connecter</a>
           </div>
       </div>
 
-      <!-- Bannière dégradée -->
-      <div class="header-banner">
-        <img src="assets/img/header-banner.png" alt="" />
-      </div>
+      <!-- Bannière dégradée (image de fond, cf. .header-banner dans style.css) -->
+      <div class="header-banner" aria-hidden="true"></div>
 
     </div>
           
@@ -109,32 +107,377 @@
     <main>
 
       <!-- ====================== ACTUALITÉS ====================== -->
-      <section class="wrap section">
+      <!-- Recréation HTML/CSS du calque « actualités » (Figma 1079:7910) -->
+      <section class="wrap section actu">
         <h2 class="section-title">Actualités</h2>
-        <img class="full-img" src="assets/img/actu.png" alt="À la une" />
-        <img class="full-img" src="assets/img/carousel.png" alt="Carousel replays" />
+
+        <!-- ===== DESKTOP : carte à la une + carrousel (masqué en mobile) ===== -->
+        <div class="actu-desktop">
+
+        <!-- Carte « à la une » (Figma « Image Actu » 1079:7913) -->
+        <a class="featured" href="#" aria-label="Women's Halfpipe Final 1 — Freestyle Skiing">
+          <img class="featured-bg" src="assets/img/actu-hero.png" alt="" />
+          <div class="featured-overlay">
+            <div class="featured-live">
+              <span class="live-badge">En direct</span>
+              <span class="live-count">
+                <svg class="ic-eye" viewBox="0 0 24 16" aria-hidden="true"><path d="M12 0C7 0 2.7 3 1 8c1.7 5 6 8 11 8s9.3-3 11-8c-1.7-5-6-8-11-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-3a2 2 0 100-4 2 2 0 000 4z"/></svg>
+                345 789
+              </span>
+            </div>
+            <span class="featured-play"><img src="assets/img/actu-play.svg" alt="Lire le live" /></span>
+            <h3 class="featured-title">Women's Halfpipe Final 1 - Freestyle Skiing | Milano Cortina 2026</h3>
+          </div>
+        </a>
+
+        <!-- Carrousel replays (Figma « Carousel Replay » 1079:7924) -->
+        <div class="carousel" data-carousel>
+          <div class="carousel-track">
+
+            <article class="replay-card">
+              <div class="replay-thumb">
+                <img src="assets/img/actu-replay-1.png" alt="" />
+                <span class="replay-cat">Temps fort</span>
+              </div>
+              <div class="replay-card-body">
+                <h4 class="replay-card-title">SWE-ITA - Men's Preliminary Round - Ice Hockey | Milano Cortina 2026</h4>
+                <div class="replay-card-bottom">
+                  <div class="replay-card-meta">
+                    <span class="replay-time">Il y a 2h</span>
+                    <span class="replay-sport">Ice Hockey</span>
+                  </div>
+                  <button class="replay-play" type="button" aria-label="Lire"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+                </div>
+              </div>
+            </article>
+
+            <article class="replay-card">
+              <div class="replay-thumb">
+                <img src="assets/img/actu-replay-2.png" alt="" />
+                <span class="replay-cat">Replay épreuve</span>
+              </div>
+              <div class="replay-card-body">
+                <h4 class="replay-card-title">Ice Dance - Free Dance - Figure Skating | Milano Cortina 2026</h4>
+                <div class="replay-card-bottom">
+                  <div class="replay-card-meta">
+                    <span class="replay-time">Il y a 4h</span>
+                    <span class="replay-sport">Ice Dance</span>
+                  </div>
+                  <button class="replay-play" type="button" aria-label="Lire"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+                </div>
+              </div>
+            </article>
+
+            <article class="replay-card">
+              <div class="replay-thumb">
+                <img src="assets/img/actu-replay-3.png" alt="" />
+                <span class="replay-cat">Post athlète</span>
+              </div>
+              <div class="replay-card-body">
+                <h4 class="replay-card-title">”New squad, same ambition. We’re officially on the road...”</h4>
+                <div class="replay-card-bottom">
+                  <div class="replay-card-meta">
+                    <span class="replay-time">Il y a 5h</span>
+                    <span class="replay-sport">Curling</span>
+                  </div>
+                  <span class="replay-author">@Oskar_ERIKSSON</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="replay-card">
+              <div class="replay-thumb">
+                <img src="assets/img/actu-replay-1.png" alt="" />
+                <span class="replay-cat">Temps fort</span>
+              </div>
+              <div class="replay-card-body">
+                <h4 class="replay-card-title">GER-FRA - Men's Preliminary Round - Ice Hockey | Milano Cortina 2026</h4>
+                <div class="replay-card-bottom">
+                  <div class="replay-card-meta">
+                    <span class="replay-time">Il y a 2h</span>
+                    <span class="replay-sport">Ice Hockey</span>
+                  </div>
+                  <button class="replay-play" type="button" aria-label="Lire"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+                </div>
+              </div>
+            </article>
+
+            <article class="replay-card">
+              <div class="replay-thumb">
+                <img src="assets/img/actu-replay-2.png" alt="" />
+                <span class="replay-cat">Replay épreuve</span>
+              </div>
+              <div class="replay-card-body">
+                <h4 class="replay-card-title">Pairs Free Skate - Figure Skating | Milano Cortina 2026</h4>
+                <div class="replay-card-bottom">
+                  <div class="replay-card-meta">
+                    <span class="replay-time">Il y a 6h</span>
+                    <span class="replay-sport">Figure Skating</span>
+                  </div>
+                  <button class="replay-play" type="button" aria-label="Lire"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+                </div>
+              </div>
+            </article>
+
+          </div>
+
+          <!-- Navigation du carrousel -->
+          <div class="carousel-nav">
+            <button class="carousel-arrow" type="button" data-dir="prev" aria-label="Replays précédents">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <span class="carousel-dots" aria-hidden="true">
+              <i class="is-active"></i><i></i>
+            </span>
+            <button class="carousel-arrow" type="button" data-dir="next" aria-label="Replays suivants">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </div>
+        </div><!-- /.actu-desktop -->
+
+        <!-- ===== MOBILE : carte vidéo + item replay + voir plus (Figma 2835:27776) ===== -->
+        <div class="actu-mobile">
+
+          <!-- Carte vidéo à la une (Figma « video replay/live » 2835:27644) -->
+          <article class="vcard">
+            <div class="vcard-bg" role="img" aria-label="Women's Halfpipe Final 1 — Freestyle Skiing" style="background-image:url('assets/img/actu-hero.png')"></div>
+            <div class="vcard-overlay">
+              <div class="vcard-live">
+                <span class="vlive-badge">En direct</span>
+                <span class="vlive-count">
+                  <svg class="ic-eye" viewBox="0 0 24 16" aria-hidden="true"><path d="M12 0C7 0 2.7 3 1 8c1.7 5 6 8 11 8s9.3-3 11-8c-1.7-5-6-8-11-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-3a2 2 0 100-4 2 2 0 000 4z"/></svg>
+                  345 789
+                </span>
+              </div>
+              <span class="vcard-play"><img src="assets/img/actu-play-mobile.svg" alt="Lire" /></span>
+              <div class="vcard-foot">
+                <p class="vcard-title">Women's Halfpipe Final 1 - Freestyle Skiing | Milano Cortina 2026</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item replay horizontal (Figma « Component 11 » 1354:7363) -->
+          <article class="vlist">
+            <a class="vlist-thumb" href="#" aria-label="SWE-ITA - Men's Preliminary Round - Ice Hockey" style="background-image:url('assets/img/actu-replay-1.png')"></a>
+            <div class="vlist-text">
+              <span class="vlist-cat">Temps fort</span>
+              <span class="vlist-title">SWE-ITA - Men's Preliminary Round - Ice Hockey | Milano Cortina 2026</span>
+              <span class="vlist-time">Il y a 2h</span>
+            </div>
+          </article>
+
+          <!-- Bouton « Voir plus » (DS Outline) -->
+          <div class="actu-more">
+            <a class="btn-outline" href="#">Voir plus
+              <svg class="ic-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+
+        </div>
       </section>
 
-      <!-- ====================== PROMO OLYMPIC CONNECT ====================== -->
+      <!-- ====================== PROMO OC — Rejoignez les canaux ====================== -->
+      <!-- Desktop Figma 1079:7925 · Mobile « billeterie » 1354:7379 -->
       <section class="wrap section">
-        <img class="full-img promo-img" src="assets/img/promo.png" alt="Rejoignez les canaux — Olympic Connect" />
+        <div class="promo">
+          <div class="promo-visual" role="img" aria-label="Aurora Olympic Connect"></div>
+          <div class="promo-text">
+            <div class="promo-copy">
+              <h2 class="promo-title">
+                <span class="promo-title--d">Rejoignez les canaux</span>
+                <span class="promo-title--m">Rejoignez la communauté</span>
+              </h2>
+              <p>Découvrez Olympic Connect, notre extension communautaire, réagissez aux posts de vos athlètes favoris..</p>
+              <p>Connectez-vous et posez vos questions aux athlètes durant les lives !</p>
+            </div>
+            <a class="btn-outline btn-outline--promo" href="#">Découvrir les canaux
+              <svg class="ic-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
       </section>
 
       <!-- ====================== ATHLETE TALKS + REDIFF ====================== -->
       <section class="wrap section">
-        <img class="full-img" src="assets/img/athlete-talks.png" alt="Athlete Talks" />
+        <!-- Athlete Talks à venir (Figma 1079:7935 — template vidéo « live a venir » 1213:5509) -->
+        <h2 class="section-title section-title--blue">
+          <span class="only-d">Athlete Talks à venir</span>
+          <span class="only-m">Lives à venir</span>
+        </h2>
+        <!-- DESKTOP : carrousel talks (masqué ≤680) -->
+        <div class="talk-desktop">
+        <div class="carousel carousel--end" data-carousel>
+          <div class="carousel-track">
 
-        <div class="rediff">
-          <h2 class="section-title">Rediffusions Athlete Talks</h2>
-          <div class="card-row four">
-            <img class="rediff-card" src="assets/img/rediff1.png" alt="Rediffusion 1" />
-            <img class="rediff-card" src="assets/img/rediff2.png" alt="Rediffusion 2" />
-            <img class="rediff-card" src="assets/img/rediff3.png" alt="Rediffusion 3" />
-            <img class="rediff-card" src="assets/img/rediff4.png" alt="Rediffusion 4" />
+            <article class="talk-card">
+              <div class="talk-card-bg" role="img" aria-label="Justine Gaillard — interview" style="background-image:url('assets/img/talk-justine.png')"></div>
+              <div class="talk-card-overlay">
+                <span class="talk-handle">@Justine_Gaillard</span>
+                <span class="talk-next"><span class="tn-label">Prochain live</span><span class="tn-date">06 Fév - 14h</span></span>
+              </div>
+            </article>
+
+            <article class="talk-card">
+              <div class="talk-card-bg" role="img" aria-label="Audrey McManiman — interview" style="background-image:url('assets/img/talk-audrey.png')"></div>
+              <div class="talk-card-overlay">
+                <span class="talk-handle">@Audrey_McManiman</span>
+                <span class="talk-next"><span class="tn-label">Prochain live</span><span class="tn-date">06 Fév - 19h</span></span>
+              </div>
+            </article>
+
+            <article class="talk-card talk-card--tba">
+              <div class="talk-card-overlay">
+                <span class="talk-next"><span class="tn-label">Prochain live</span><span class="tn-date">16 Mars</span></span>
+              </div>
+            </article>
+
+            <article class="talk-card talk-card--tba">
+              <div class="talk-card-overlay">
+                <span class="talk-next"><span class="tn-label">Prochain live</span><span class="tn-date">16 Mars</span></span>
+              </div>
+            </article>
+
           </div>
-          <div class="btn-row">
-            <a class="link-btn" href="#">Voir tous les lives
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+
+          <div class="carousel-nav">
+            <button class="carousel-arrow" type="button" data-dir="prev" aria-label="Talks précédents">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <span class="carousel-dots" aria-hidden="true"><i class="is-active"></i><i></i></span>
+            <button class="carousel-arrow" type="button" data-dir="next" aria-label="Talks suivants">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </div>
+        </div><!-- /.talk-desktop -->
+
+        <!-- MOBILE : « Lives à venir » (Figma 2773:22378) -->
+        <div class="talk-mobile">
+          <div class="talk-mobile-list">
+            <!-- Grande carte live à venir -->
+            <article class="talk-card">
+              <div class="talk-card-bg" role="img" aria-label="Justine Gaillard — interview" style="background-image:url('assets/img/talk-justine.png')"></div>
+              <div class="talk-card-overlay">
+                <span class="talk-handle">@Justine_Gaillard</span>
+                <span class="talk-next"><span class="tn-label">Prochain live</span><span class="tn-date">06 Fév - 14h</span></span>
+              </div>
+            </article>
+            <!-- Item offline (Figma « Component 6 » — variante mobile offline) -->
+            <article class="live-offline">
+              <a class="lo-thumb" href="#" aria-label="Audrey McManiman — interview" style="background-image:url('assets/img/talk-audrey.png')"></a>
+              <div class="lo-text">
+                <span class="lo-name">Audrey McManiman</span>
+                <span class="lo-handle">@Audrey_McManiman</span>
+                <span class="lo-time">Prochain live • 06 Fév - 19h</span>
+              </div>
+            </article>
+          </div>
+          <!-- Bouton « voir plus » (DS Primary plein) -->
+          <div class="talk-more">
+            <a class="btn-fill" href="#">voir plus
+              <svg class="ic-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Rediffusions Athlete Talks (Figma 1079:7936) -->
+        <div class="rediff">
+          <h2 class="section-title section-title--blue">Rediffusions Athlete Talks</h2>
+
+          <!-- DESKTOP : 4 cartes en ligne -->
+          <div class="redif-row">
+            <article class="redif-card" style="background-image:url('assets/img/redif-1.png')">
+              <div class="redif-overlay">
+                <span class="redif-views"><svg class="ic-eye" viewBox="0 0 24 16" aria-hidden="true"><path d="M12 0C7 0 2.7 3 1 8c1.7 5 6 8 11 8s9.3-3 11-8c-1.7-5-6-8-11-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-3a2 2 0 100-4 2 2 0 000 4z"/></svg>3 438</span>
+                <span class="redif-play"><img src="assets/img/actu-play.svg" alt="Lire" /></span>
+                <div class="redif-foot">
+                  <h4 class="redif-title">Oskar Eriksson revient sur la victoire de son équipe | Tour préliminaire session 4</h4>
+                  <div class="redif-tags"><span class="redif-tag">Curling</span><span class="redif-tag">@Oskar_Eriksson</span></div>
+                </div>
+              </div>
+            </article>
+            <article class="redif-card" style="background-image:url('assets/img/redif-2.png')">
+              <div class="redif-overlay">
+                <span class="redif-views"><svg class="ic-eye" viewBox="0 0 24 16" aria-hidden="true"><path d="M12 0C7 0 2.7 3 1 8c1.7 5 6 8 11 8s9.3-3 11-8c-1.7-5-6-8-11-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-3a2 2 0 100-4 2 2 0 000 4z"/></svg>3 438</span>
+                <span class="redif-play"><img src="assets/img/actu-play.svg" alt="Lire" /></span>
+                <div class="redif-foot">
+                  <h4 class="redif-title">Philipp Nawrath déçu par sa performance | Tour session 4</h4>
+                  <div class="redif-tags"><span class="redif-tag">Biathlon</span><span class="redif-tag">@Philipp_NAWRATH</span></div>
+                </div>
+              </div>
+            </article>
+            <article class="redif-card" style="background-image:url('assets/img/redif-3.png')">
+              <div class="redif-overlay">
+                <span class="redif-views"><svg class="ic-eye" viewBox="0 0 24 16" aria-hidden="true"><path d="M12 0C7 0 2.7 3 1 8c1.7 5 6 8 11 8s9.3-3 11-8c-1.7-5-6-8-11-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-3a2 2 0 100-4 2 2 0 000 4z"/></svg>3 438</span>
+                <span class="redif-play"><img src="assets/img/actu-play.svg" alt="Lire" /></span>
+                <div class="redif-foot">
+                  <h4 class="redif-title">Eileen Gu revient sur sa prestation | Tour préliminaire session 4</h4>
+                  <div class="redif-tags"><span class="redif-tag">Ski acrobatique</span><span class="redif-tag">@Eileen_GU</span></div>
+                </div>
+              </div>
+            </article>
+            <article class="redif-card" style="background-image:url('assets/img/redif-4.png')">
+              <div class="redif-overlay">
+                <span class="redif-views"><svg class="ic-eye" viewBox="0 0 24 16" aria-hidden="true"><path d="M12 0C7 0 2.7 3 1 8c1.7 5 6 8 11 8s9.3-3 11-8c-1.7-5-6-8-11-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-3a2 2 0 100-4 2 2 0 000 4z"/></svg>3 438</span>
+                <span class="redif-play"><img src="assets/img/actu-play.svg" alt="Lire" /></span>
+                <div class="redif-foot">
+                  <h4 class="redif-title">Adelia Petrosian revient sur sa chute | Demi finale | Patinage Artistique</h4>
+                  <div class="redif-tags"><span class="redif-tag">Patinage artistique</span><span class="redif-tag">@Adelia_PETROSIAN</span></div>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- MOBILE : 1 grande carte + items (comme « Lives à venir ») -->
+          <div class="redif-mobile">
+            <article class="redif-card" style="background-image:url('assets/img/redif-1.png')">
+              <div class="redif-overlay">
+                <span class="redif-views"><svg class="ic-eye" viewBox="0 0 24 16" aria-hidden="true"><path d="M12 0C7 0 2.7 3 1 8c1.7 5 6 8 11 8s9.3-3 11-8c-1.7-5-6-8-11-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-3a2 2 0 100-4 2 2 0 000 4z"/></svg>3 438</span>
+                <span class="redif-play"><img src="assets/img/actu-play.svg" alt="Lire" /></span>
+                <div class="redif-foot">
+                  <h4 class="redif-title">Oskar Eriksson revient sur la victoire de son équipe | Tour préliminaire session 4</h4>
+                  <div class="redif-tags"><span class="redif-tag">Curling</span><span class="redif-tag">@Oskar_Eriksson</span></div>
+                </div>
+              </div>
+            </article>
+            <div class="redif-mobile-list">
+            <article class="live-offline">
+              <a class="lo-thumb" href="#" aria-label="Philipp Nawrath" style="background-image:url('assets/img/redif-2.png')">
+                <span class="lo-chip"><svg class="ic-eye-sm" viewBox="0 0 24 16" aria-hidden="true"><path d="M12 0C7 0 2.7 3 1 8c1.7 5 6 8 11 8s9.3-3 11-8c-1.7-5-6-8-11-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-3a2 2 0 100-4 2 2 0 000 4z"/></svg>3 438</span>
+              </a>
+              <div class="lo-text">
+                <span class="lo-name">Philipp Nawrath</span>
+                <span class="lo-handle">@Philipp_NAWRATH</span>
+                <span class="lo-time">Biathlon</span>
+              </div>
+            </article>
+            <article class="live-offline">
+              <a class="lo-thumb" href="#" aria-label="Eileen Gu" style="background-image:url('assets/img/redif-3.png')">
+                <span class="lo-chip"><svg class="ic-eye-sm" viewBox="0 0 24 16" aria-hidden="true"><path d="M12 0C7 0 2.7 3 1 8c1.7 5 6 8 11 8s9.3-3 11-8c-1.7-5-6-8-11-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-3a2 2 0 100-4 2 2 0 000 4z"/></svg>3 438</span>
+              </a>
+              <div class="lo-text">
+                <span class="lo-name">Eileen Gu</span>
+                <span class="lo-handle">@Eileen_GU</span>
+                <span class="lo-time">Ski acrobatique</span>
+              </div>
+            </article>
+            <article class="live-offline">
+              <a class="lo-thumb" href="#" aria-label="Adelia Petrosian" style="background-image:url('assets/img/redif-4.png')">
+                <span class="lo-chip"><svg class="ic-eye-sm" viewBox="0 0 24 16" aria-hidden="true"><path d="M12 0C7 0 2.7 3 1 8c1.7 5 6 8 11 8s9.3-3 11-8c-1.7-5-6-8-11-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-3a2 2 0 100-4 2 2 0 000 4z"/></svg>3 438</span>
+              </a>
+              <div class="lo-text">
+                <span class="lo-name">Adelia Petrosian</span>
+                <span class="lo-handle">@Adelia_PETROSIAN</span>
+                <span class="lo-time">Patinage artistique</span>
+              </div>
+            </article>
+            </div>
+          </div>
+
+          <div class="redif-more">
+            <a class="btn-fill btn-fill--up" href="#">Voir tous les lives
+              <svg class="ic-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
           </div>
         </div>
@@ -281,31 +624,31 @@
             <div class="footer-col">
               <a class="footer-col-title">Découvrir</a>
               <ul>
-                <li><a href="#">Accueil</a></li>
-                <li><a href="#">Replays et Temps forts</a></li>
-                <li><a href="#">Live</a></li>
-                <li><a href="#">Athletes Talks</a></li>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="replays.html">Replays et Temps forts</a></li>
+                <li><a href="live.html">Live</a></li>
+                <li><a href="athlete-talks.html">Athletes Talks</a></li>
               </ul>
             </div>
             <div class="footer-col">
               <a class="footer-col-title">Social</a>
               <ul>
-                <li><a href="#">Posts</a></li>
-                <li><a href="#">Communauté</a></li>
-                <li><a href="#">Athlètes</a></li>
-                <li><a href="#">Messages</a></li>
+                <li><a href="posts.html">Posts</a></li>
+                <li><a href="communaute.html">Communauté</a></li>
+                <li><a href="athletes.html">Athlètes</a></li>
+                <li><a href="messages.html">Messages</a></li>
               </ul>
             </div>
             <div class="footer-col footer-col--account">
               <a class="footer-col-title">Compte &amp; aide</a>
               <div class="footer-account-links">
                 <ul>
-                  <li><a href="#">S'inscrire</a></li>
-                  <li><a href="#">Se connecter</a></li>
+                  <li><a href="inscription.html">S'inscrire</a></li>
+                  <li><a href="connexion.html">Se connecter</a></li>
                 </ul>
                 <ul>
-                  <li><a href="#">SOS</a></li>
-                  <li><a href="#">Engagement</a></li>
+                  <li><a href="sos.html">SOS</a></li>
+                  <li><a href="engagement.html">Engagement</a></li>
                 </ul>
               </div>
             </div>
@@ -323,6 +666,41 @@
 
       <img class="footer-deco" src="assets/img/footer-deco.png" alt="" />
     </footer>
+
+  <script>
+    // Carrousel replays : flèches qui défilent d'une "page" + puces synchronisées au scroll
+    (function () {
+      document.querySelectorAll('[data-carousel]').forEach(function (carousel) {
+        var track = carousel.querySelector('.carousel-track');
+        var dots  = Array.prototype.slice.call(carousel.querySelectorAll('.carousel-dots i'));
+        if (!track) return;
+
+        function page() {
+          var card = track.querySelector('.replay-card');
+          if (!card) return track.clientWidth;
+          var gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+          var per = Math.max(1, Math.round(track.clientWidth / (card.offsetWidth + gap)));
+          return per * (card.offsetWidth + gap);
+        }
+
+        carousel.querySelectorAll('.carousel-arrow').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            track.scrollBy({ left: (btn.dataset.dir === 'next' ? 1 : -1) * page(), behavior: 'smooth' });
+          });
+        });
+
+        // Puces : reflètent la progression du scroll
+        if (dots.length) {
+          track.addEventListener('scroll', function () {
+            var max = track.scrollWidth - track.clientWidth;
+            var ratio = max > 0 ? track.scrollLeft / max : 0;
+            var idx = Math.round(ratio * (dots.length - 1));
+            dots.forEach(function (d, i) { d.classList.toggle('is-active', i === idx); });
+          }, { passive: true });
+        }
+      });
+    })();
+  </script>
 
 </body>
 </html>

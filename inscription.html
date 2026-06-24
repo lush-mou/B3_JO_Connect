@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Olympic Connect 2026 — S'inscrire</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="auth.css" />
+</head>
+<body>
+
+  <main class="auth">
+    <section class="auth-form">
+      <div class="auth-form-inner">
+
+        <div class="auth-head">
+          <h1 class="auth-title">Entrez dans le jeu !</h1>
+          <p class="auth-sub">Créez votre compte et réagissez aux contenus.</p>
+        </div>
+
+        <form class="auth-fields" action="index.html" method="get">
+          <div class="auth-field">
+            <label for="pseudo">Pseudo</label>
+            <div class="auth-input">
+              <input id="pseudo" name="pseudo" type="text" autocomplete="username" placeholder="Choisissez un pseudo" />
+            </div>
+          </div>
+
+          <div class="auth-field">
+            <label for="email">Adresse Email</label>
+            <div class="auth-input">
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="Entrez votre adresse e-mail" />
+            </div>
+          </div>
+
+          <div class="auth-field">
+            <label for="password">Mot de passe</label>
+            <div class="auth-input auth-input--pw">
+              <input id="password" name="password" type="password" autocomplete="new-password" placeholder="Choisissez un mot de passe" />
+              <button type="button" class="auth-pw-toggle" aria-label="Afficher le mot de passe">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5c-5.5 0-9.4 4.6-10.5 7 1.1 2.4 5 7 10.5 7s9.4-4.6 10.5-7C21.4 9.6 17.5 5 12 5zm0 11.5A4.5 4.5 0 1112 7.5a4.5 4.5 0 010 9zm0-2.5a2 2 0 100-4 2 2 0 000 4z"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="auth-field">
+            <label for="password2">Confirmez votre mot de passe</label>
+            <div class="auth-input auth-input--pw">
+              <input id="password2" name="password2" type="password" autocomplete="new-password" placeholder="Réécrivez votre mot de passe" />
+              <button type="button" class="auth-pw-toggle" aria-label="Afficher le mot de passe">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5c-5.5 0-9.4 4.6-10.5 7 1.1 2.4 5 7 10.5 7s9.4-4.6 10.5-7C21.4 9.6 17.5 5 12 5zm0 11.5A4.5 4.5 0 1112 7.5a4.5 4.5 0 010 9zm0-2.5a2 2 0 100-4 2 2 0 000 4z"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <button type="submit" class="auth-submit">Créer mon compte</button>
+        </form>
+
+        <div class="auth-divider"><span>Ou</span></div>
+
+        <div class="auth-social">
+          <a href="#"><img src="assets/img/icon-google.svg" alt="" /> M'inscrire avec Google</a>
+          <a href="#"><img src="assets/img/icon-apple.svg" alt="" /> M'inscrire avec Apple</a>
+        </div>
+
+        <p class="auth-switch">Vous avez déjà un compte ? <a href="connexion.html">Se connecter</a></p>
+
+      </div>
+    </section>
+
+    <aside class="auth-image auth-image--signup" aria-hidden="true"></aside>
+  </main>
+
+  <script>
+    document.querySelectorAll('.auth-pw-toggle').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var input = btn.parentElement.querySelector('input');
+        var show = input.type === 'password';
+        input.type = show ? 'text' : 'password';
+        btn.setAttribute('aria-label', show ? 'Masquer le mot de passe' : 'Afficher le mot de passe');
+      });
+    });
+  </script>
+
+</body>
+</html>

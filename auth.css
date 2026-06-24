@@ -1,0 +1,120 @@
+/* ===========================================================
+   AUTH — Se connecter / S'inscrire  (Figma 1842:8513 / 2118:13867)
+   Feuille SÉPARÉE (les pages auth lient style.css POUR LES POLICES/RESET,
+   puis ce fichier). Isolé de style.css → pas de collision avec le job home.
+   =========================================================== */
+
+/* Tokens nécessaires redéclarés ici pour être auto-suffisant
+   (au cas où ils seraient retirés de style.css) */
+:root{
+  --navy:#0b0f4d;
+  --ink:#121212;
+  --indigo:#41348a;
+  --rose:#e60949;
+  --neutral-100:#f5f5f5;
+  --neutral-300:#cccccc;
+  --neutral-500:#858585;
+  --radius-sm:8px;
+  --radius-14:14px;
+}
+
+.auth{ display:flex; min-height:100dvh; }
+
+.auth-form{
+  flex:1 1 50%;
+  display:flex; flex-direction:column; justify-content:center;
+  padding:clamp(40px,5vw,64px) clamp(24px,7vw,120px);
+}
+.auth-form-inner{
+  width:100%; max-width:420px; margin-inline:auto;
+  display:flex; flex-direction:column; gap:clamp(24px,3vw,30px);
+}
+
+/* Photo (background-image — convention Lucas) */
+.auth-image{
+  flex:1 1 50%; min-height:100dvh;
+  background:var(--neutral-100) center/cover no-repeat;
+  border-radius:45px 0 0 45px;
+}
+.auth-image--login{ background-image:url('assets/img/auth-login.jpg'); }
+.auth-image--signup{ background-image:url('assets/img/auth-signup.jpg'); background-position:30% center; }
+
+/* Titre + sous-titre */
+.auth-head{ display:flex; flex-direction:column; gap:6px; }
+.auth-title{ font-family:'Anton',sans-serif; font-weight:400; font-size:clamp(2rem,1.6rem+1.6vw,2.5rem); line-height:1.1; color:var(--navy); text-wrap:balance; }
+.auth-sub{ font-family:'NewBlack',sans-serif; font-weight:500; font-size:16px; color:var(--ink); }
+
+/* Champs */
+.auth-fields{ display:flex; flex-direction:column; gap:18px; }
+.auth-field{ display:flex; flex-direction:column; gap:6px; }
+.auth-field > label{ font-family:'NewBlack',sans-serif; font-weight:500; font-size:14px; color:var(--ink); }
+.auth-input{ position:relative; display:flex; align-items:center; }
+.auth-input input{
+  width:100%; font-family:'NewBlack',sans-serif; font-weight:500; font-size:14px; color:var(--ink);
+  background:#fff; border:1px solid var(--neutral-300); border-radius:var(--radius-14);
+  padding:13px 14px; transition:border-color .2s ease, box-shadow .2s ease;
+}
+.auth-input--pw input{ padding-right:46px; }
+.auth-input input::placeholder{ color:var(--neutral-500); }
+.auth-input input:focus{ outline:none; border-color:var(--indigo); box-shadow:0 0 0 3px color-mix(in oklab,var(--indigo) 18%,transparent); }
+.auth-pw-toggle{
+  position:absolute; right:8px; display:flex; align-items:center; justify-content:center;
+  width:32px; height:32px; background:none; border:none; cursor:pointer; color:var(--neutral-500);
+}
+.auth-pw-toggle svg{ width:20px; height:20px; fill:currentColor; }
+.auth-pw-toggle:hover{ color:var(--ink); }
+
+.auth-forgot{ align-self:flex-end; font-family:'NewBlack',sans-serif; font-weight:600; font-size:12px; color:var(--indigo); margin-top:2px; text-decoration:none; }
+.auth-forgot:hover{ text-decoration:underline; }
+.auth-remember{ display:flex; align-items:center; gap:6px; font-family:'NewBlack',sans-serif; font-weight:500; font-size:12px; color:var(--ink); cursor:pointer; margin-top:2px; }
+.auth-remember input{ width:15px; height:15px; accent-color:var(--indigo); }
+
+/* Bouton principal (rose) */
+.auth-submit{
+  width:100%; display:inline-flex; align-items:center; justify-content:center;
+  background:var(--rose); color:#fff; cursor:pointer; border:none;
+  font-family:'NewBlack',sans-serif; font-weight:600; font-size:18px;
+  padding:16px 28px; border-radius:var(--radius-sm);
+  transition:background-color .2s ease, transform .12s ease;
+}
+.auth-submit:hover{ background:color-mix(in oklab,var(--rose) 88%,black); }
+.auth-submit:active{ transform:translateY(1px); }
+
+/* Séparateur Or / Ou */
+.auth-divider{ display:flex; align-items:center; gap:12px; }
+.auth-divider::before, .auth-divider::after{ content:""; flex:1; height:1px; background:var(--neutral-300); }
+.auth-divider span{ font-family:'NewBlack',sans-serif; font-weight:500; font-size:11px; color:var(--ink); }
+
+/* Boutons sociaux */
+.auth-social{ display:flex; gap:10px; }
+.auth-social a{
+  flex:1; display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  border:1px solid var(--neutral-300); border-radius:var(--radius-sm); padding:10px 14px;
+  font-family:'NewBlack',sans-serif; font-weight:500; font-size:12px; color:var(--ink); text-decoration:none;
+  transition:background-color .2s ease, border-color .2s ease;
+}
+.auth-social a:hover{ background:var(--neutral-100); border-color:var(--neutral-500); }
+.auth-social img{ width:24px; height:24px; }
+
+/* Lien de bascule connexion/inscription */
+.auth-switch{ display:flex; flex-wrap:wrap; gap:8px; justify-content:center; font-family:'NewBlack',sans-serif; font-weight:500; font-size:14px; color:var(--ink); }
+.auth-switch a{ color:var(--indigo); text-decoration:none; }
+.auth-switch a:hover{ text-decoration:underline; }
+
+/* ---------- Mobile : photo en haut, formulaire dessous (Figma 2012/2013) ---------- */
+@media (max-width:900px){
+  .auth{ flex-direction:column; min-height:auto; }
+  .auth-image{ order:-1; flex:none; width:100%; min-height:0; height:clamp(220px,38vh,320px); border-radius:0 0 32px 32px; }
+  .auth-form{ flex:none; padding:clamp(28px,6vw,40px) clamp(20px,6vw,32px) 48px; }
+  .auth-form-inner{ max-width:460px; }
+}
+
+/* Entrée animée du formulaire */
+@media (prefers-reduced-motion: no-preference){
+  .auth-form-inner > *{ animation:auth-rise .5s cubic-bezier(.22,.61,.36,1) both; }
+  .auth-form-inner > :nth-child(2){ animation-delay:.06s; }
+  .auth-form-inner > :nth-child(3){ animation-delay:.12s; }
+  .auth-form-inner > :nth-child(4){ animation-delay:.18s; }
+  .auth-form-inner > :nth-child(n+5){ animation-delay:.24s; }
+}
+@keyframes auth-rise{ from{ opacity:0; transform:translateY(16px); } to{ opacity:1; transform:none; } }

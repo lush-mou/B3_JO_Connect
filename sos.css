@@ -1,0 +1,234 @@
+/* ===========================================================
+   SOS — feuille SÉPARÉE (les pages SOS lient style.css pour @font-face + reset,
+   puis ce fichier). Isolé → pas de collision avec le job home sur style.css.
+   =========================================================== */
+:root{
+  --navy:#0b0f4d; --ink:#121212; --indigo:#41348a; --blue:#1874ff; --bleu-jo:#016381;
+  --rose:#e60949; --rose-soft:#fff0ee; --green:#1a7f37; --green-soft:#e6f4ea; --blue-50:#f0f6ff;
+  --neutral-100:#f5f5f5; --neutral-300:#cccccc; --neutral-500:#858585; --neutral-600:#696969;
+  --radius-sm:8px; --radius-md:16px; --radius-14:14px; --radius-pill:999px;
+  --fs-body:clamp(1rem, 0.82rem + 0.75vw, 1.5rem);
+}
+
+/* ===========================================================
+   PAGES SOS — parcours « Signaler un problème » (Figma 3239:23720)
+   Hub · Formulaire · Confirmation — responsive fluide + animations
+   (ré-appliqué après collision avec le travail parallèle sur la home)
+   =========================================================== */
+
+@view-transition { navigation: auto; }
+
+.sos-page{
+  --sos-h1:   clamp(2.125rem, 1.6rem + 2.1vw, 3.5rem);   /* 34 → 56 */
+  --sos-h2:   clamp(1.25rem, 1.16rem + 0.4vw, 1.5rem);   /* 20 → 24 */
+  --sos-sub:  clamp(1rem, 0.9rem + 0.4vw, 1.25rem);      /* 16 → 20 */
+  --sos-card: clamp(1rem, 0.95rem + 0.2vw, 1.125rem);    /* 16 → 18 */
+  color:var(--ink);
+}
+.sos-page p{ margin:0; max-inline-size:none; text-wrap:pretty; }   /* override scaffold */
+
+.sos-hub,
+.sos-form-wrap,
+.sos-confirm-inner{
+  max-width:1040px;
+  margin-inline:auto;
+  padding:clamp(40px,6vw,72px) clamp(20px,5vw,40px);
+}
+
+/* ---------- Éléments communs ---------- */
+.sos-pill{
+  display:inline-flex; align-items:center;
+  background:var(--rose); color:#fff;
+  font-family:'NewBlack',sans-serif; font-weight:600;
+  font-size:clamp(1rem,.95rem + .2vw,1.125rem);
+  padding:6px 18px; border-radius:var(--radius-pill);
+}
+.sos-h1{
+  font-family:'Anton',sans-serif; font-weight:400;
+  font-size:var(--sos-h1); line-height:1.05; color:var(--navy);
+  text-align:center; text-wrap:balance;
+}
+.sos-sub{
+  font-family:'NewBlack',sans-serif; font-weight:400;
+  font-size:var(--sos-sub); line-height:1.4; color:var(--neutral-600);
+  text-align:center; max-inline-size:62ch; margin-inline:auto;
+}
+
+.btn-primary{
+  display:inline-flex; align-items:center; justify-content:center;
+  background:var(--blue); color:#fff;
+  font-family:'NewBlack',sans-serif; font-weight:600; font-size:18px;
+  padding:16px 32px; border:none; border-radius:var(--radius-sm); cursor:pointer;
+  transition:background-color .2s ease, transform .15s ease;
+}
+.btn-primary:hover{ background:color-mix(in oklab, var(--blue) 88%, black); }
+.btn-outline-blue{
+  display:inline-flex; align-items:center; justify-content:center;
+  background:#fff; color:var(--blue);
+  font-family:'NewBlack',sans-serif; font-weight:600; font-size:18px;
+  padding:16px 20px; border:1.5px solid var(--blue); border-radius:var(--radius-sm); cursor:pointer;
+  transition:background-color .2s ease;
+}
+.btn-outline-blue:hover{ background:var(--blue-50); }
+.btn-text{
+  display:inline-flex; align-items:center;
+  color:var(--blue); font-family:'NewBlack',sans-serif; font-weight:600; font-size:18px;
+  padding:16px 12px; transition:opacity .2s ease;
+}
+.btn-text:hover{ opacity:.7; }
+
+/* =================== 1) HUB =================== */
+.sos-hub{ display:flex; flex-direction:column; align-items:center; gap:clamp(24px,3vw,32px); }
+.sos-hub > *{ width:100%; }
+.sos-hub > .sos-pill{ width:auto; }
+
+.sos-search{
+  display:flex; align-items:center; gap:12px;
+  background:#fff; border:1.5px solid var(--neutral-300); border-radius:var(--radius-14);
+  padding:clamp(14px,1.6vw,18px) clamp(16px,2vw,24px);
+  transition:border-color .2s ease, box-shadow .2s ease;
+}
+.sos-search:focus-within{ border-color:var(--blue); box-shadow:0 0 0 3px color-mix(in oklab,var(--blue) 18%,transparent); }
+.sos-search-ic{ font-family:'Inter',sans-serif; font-size:18px; line-height:1; }
+.sos-search input{
+  flex:1; min-width:0; border:none; outline:none; background:transparent;
+  font-family:'NewBlack',sans-serif; font-size:clamp(1rem,.95rem + .2vw,1.125rem); color:var(--ink);
+}
+.sos-search input::placeholder{ color:var(--neutral-500); }
+
+.sos-danger{
+  display:flex; align-items:center; gap:var(--radius-md);
+  background:var(--rose-soft); border:1.5px solid var(--rose); border-radius:var(--radius-md);
+  padding:clamp(20px,2.4vw,24px) 28px;
+}
+.sos-danger-txt{ display:flex; flex-direction:column; gap:4px; flex:1; min-width:0; }
+.sos-danger-title{ font-family:'NewBlack',sans-serif; font-weight:600; font-size:clamp(1.125rem,1rem+.5vw,1.375rem); color:var(--rose); }
+.sos-danger-desc{ font-family:'NewBlack',sans-serif; font-weight:400; font-size:16px; color:var(--neutral-600); }
+.sos-call{
+  display:inline-flex; align-items:center; justify-content:center; flex-shrink:0;
+  background:var(--rose); color:#fff;
+  font-family:'NewBlack',sans-serif; font-weight:600; font-size:18px;
+  padding:16px 28px; border-radius:var(--radius-sm); white-space:nowrap;
+  transition:background-color .2s ease;
+}
+.sos-call:hover{ background:color-mix(in oklab, var(--rose) 88%, black); }
+
+.sos-group{ display:flex; flex-direction:column; gap:18px; }
+.sos-group-head{ display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+.sos-group-head .dot{ width:12px; height:12px; border-radius:var(--radius-pill); flex-shrink:0; }
+.dot--jo{ background:var(--bleu-jo); }
+.dot--web{ background:var(--blue); }
+.sos-group-head h2{ font-family:'NewBlack',sans-serif; font-weight:600; font-size:var(--sos-h2); line-height:1.25; color:var(--navy); }
+.sos-group-tag{ font-family:'NewBlack',sans-serif; font-weight:400; font-size:16px; color:var(--neutral-500); }
+
+.sos-cats{ display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:16px; }
+.sos-cat{
+  display:flex; align-items:center; gap:14px;
+  background:#fff; border:1.5px solid var(--neutral-300); border-radius:var(--radius-14);
+  padding:18px 20px; color:var(--navy);
+  transition:transform .18s ease, box-shadow .18s ease, background-color .18s ease;
+}
+.sos-cat--jo{ border-color:var(--bleu-jo); }
+.sos-cat--web{ border-color:var(--blue); }
+.sos-cat-emoji{ font-family:'Inter',sans-serif; font-size:clamp(1.375rem,1.2rem+.5vw,1.625rem); line-height:1; }
+.sos-cat-label{ flex:1; font-family:'NewBlack',sans-serif; font-weight:500; font-size:var(--sos-card); }
+.sos-cat:hover{ transform:translateY(-3px); box-shadow:0 10px 24px rgba(11,15,77,.10); }
+.sos-cat--jo:hover{ background:color-mix(in oklab, var(--bleu-jo) 6%, white); }
+.sos-cat--web:hover{ background:color-mix(in oklab, var(--blue) 6%, white); }
+
+.sos-reassure{
+  display:flex; flex-direction:column; gap:6px;
+  background:var(--blue-50); border-radius:var(--radius-14); padding:22px 28px;
+}
+.sos-reassure p:first-child{ font-family:'NewBlack',sans-serif; font-weight:600; font-size:16px; color:var(--navy); }
+.sos-reassure p:last-child{ font-family:'NewBlack',sans-serif; font-weight:400; font-size:15px; color:var(--neutral-600); }
+
+/* =================== 2) FORMULAIRE =================== */
+.sos-form-wrap{ max-width:800px; display:flex; flex-direction:column; gap:clamp(18px,2.4vw,24px); }
+.sos-back{ font-family:'NewBlack',sans-serif; font-weight:500; font-size:16px; color:var(--blue); transition:opacity .2s ease; }
+.sos-back:hover{ opacity:.7; }
+.sos-form-title{ font-family:'Anton',sans-serif; font-weight:400; font-size:clamp(1.75rem,1.4rem+1.4vw,2.5rem); line-height:1.1; color:var(--navy); }
+.sos-form{ display:flex; flex-direction:column; gap:clamp(18px,2.4vw,24px); }
+.field{ display:flex; flex-direction:column; gap:8px; }
+.field > label, .field-label{ font-family:'NewBlack',sans-serif; font-weight:600; font-size:16px; color:var(--navy); }
+.field input[type=text], .field textarea{
+  width:100%; font-family:'NewBlack',sans-serif; font-size:16px; color:var(--ink);
+  background:#fff; border:1.5px solid var(--neutral-300); border-radius:var(--radius-sm);
+  padding:16px 18px; transition:border-color .2s ease, box-shadow .2s ease;
+}
+.field textarea{ min-height:150px; resize:vertical; field-sizing:content; }
+.field input::placeholder, .field textarea::placeholder{ color:var(--neutral-500); }
+.field input:focus, .field textarea:focus{ outline:none; border-color:var(--blue); box-shadow:0 0 0 3px color-mix(in oklab,var(--blue) 18%,transparent); }
+
+.sos-dropzone{
+  display:flex; align-items:center; justify-content:center; text-align:center;
+  background:var(--neutral-100); border:1.5px dashed var(--neutral-300); border-radius:var(--radius-sm);
+  padding:24px; min-height:72px; cursor:pointer;
+  font-family:'NewBlack',sans-serif; font-weight:500; font-size:16px; color:var(--neutral-500);
+  transition:border-color .2s ease, background-color .2s ease;
+}
+.sos-dropzone:hover{ border-color:var(--blue); background:var(--blue-50); color:var(--blue); }
+
+.sos-urgency{ display:flex; gap:10px; flex-wrap:wrap; }
+.urg{
+  display:inline-flex; align-items:center; cursor:pointer; position:relative;
+  background:#fff; border:1.5px solid var(--neutral-300); border-radius:var(--radius-pill);
+  padding:10px 20px; font-family:'NewBlack',sans-serif; font-weight:500; font-size:16px; color:var(--navy);
+  transition:background-color .2s ease, border-color .2s ease, color .2s ease;
+}
+.urg input{ position:absolute; opacity:0; width:0; height:0; }
+.urg:has(input:checked){ background:var(--rose); border-color:var(--rose); color:#fff; }
+.urg:has(input:focus-visible){ box-shadow:0 0 0 3px color-mix(in oklab,var(--rose) 30%,transparent); }
+
+.sos-anon{ display:flex; align-items:center; gap:14px; cursor:pointer; }
+.sos-anon input{ width:24px; height:24px; accent-color:var(--blue); flex-shrink:0; }
+.sos-anon-txt{ display:flex; flex-direction:column; }
+.sos-anon-txt strong{ font-family:'NewBlack',sans-serif; font-weight:600; font-size:16px; color:var(--navy); }
+.sos-anon-txt span{ font-family:'NewBlack',sans-serif; font-weight:400; font-size:14px; color:var(--neutral-500); }
+
+.sos-form-actions{ display:flex; align-items:center; gap:14px; flex-wrap:wrap; padding-top:8px; }
+
+/* =================== 3) CONFIRMATION =================== */
+.sos-confirm-inner{ max-width:680px; display:flex; flex-direction:column; align-items:center; gap:20px; text-align:center; padding-block:clamp(56px,9vw,120px); }
+.sos-check{
+  display:flex; align-items:center; justify-content:center;
+  width:100px; height:96px; background:var(--green-soft); border-radius:var(--radius-sm);
+  font-family:'Inter',sans-serif; font-size:clamp(2.625rem,2.2rem+1.5vw,3rem); color:var(--green);
+}
+.sos-confirm-inner .sos-h1{ font-size:clamp(2rem,1.5rem+2vw,3rem); }   /* 32 → 48 */
+.sos-track{
+  display:inline-flex; align-items:center; background:var(--blue-50); color:var(--blue);
+  font-family:'NewBlack',sans-serif; font-weight:600; font-size:clamp(.875rem,.8rem+.3vw,1rem);
+  padding:10px 20px; border-radius:var(--radius-pill);
+}
+
+@media (max-width:640px){
+  .sos-danger{ flex-direction:column; align-items:stretch; gap:16px; padding:20px; }
+  .sos-call{ width:100%; }
+  .sos-form-actions{ flex-direction:column; align-items:stretch; }
+  .sos-form-actions .btn-primary,
+  .sos-form-actions .btn-text{ width:100%; }
+}
+
+/* ---------- Animations (désactivées si prefers-reduced-motion) ---------- */
+@media (prefers-reduced-motion: no-preference){
+  .sos-hub > *,
+  .sos-form-wrap > *,
+  .sos-confirm-inner > *{ animation:sos-rise .55s cubic-bezier(.22,.61,.36,1) both; }
+  .sos-hub > :nth-child(1),  .sos-form-wrap > :nth-child(1),  .sos-confirm-inner > :nth-child(1){ animation-delay:.04s; }
+  .sos-hub > :nth-child(2),  .sos-form-wrap > :nth-child(2),  .sos-confirm-inner > :nth-child(2){ animation-delay:.10s; }
+  .sos-hub > :nth-child(3),  .sos-form-wrap > :nth-child(3),  .sos-confirm-inner > :nth-child(3){ animation-delay:.16s; }
+  .sos-hub > :nth-child(4),  .sos-form-wrap > :nth-child(4),  .sos-confirm-inner > :nth-child(4){ animation-delay:.22s; }
+  .sos-hub > :nth-child(5),  .sos-form-wrap > :nth-child(5),  .sos-confirm-inner > :nth-child(5){ animation-delay:.28s; }
+  .sos-hub > :nth-child(6),  .sos-form-wrap > :nth-child(6),  .sos-confirm-inner > :nth-child(6){ animation-delay:.34s; }
+  .sos-hub > :nth-child(n+7){ animation-delay:.40s; }
+  .sos-call{ animation:sos-pulse 2.4s ease-in-out infinite; }
+  .sos-check{ animation:sos-pop .55s cubic-bezier(.34,1.56,.64,1) both; }
+}
+@keyframes sos-rise{ from{ opacity:0; transform:translateY(16px); } to{ opacity:1; transform:none; } }
+@keyframes sos-pulse{ 0%,100%{ box-shadow:0 0 0 0 rgba(230,9,73,.35); } 50%{ box-shadow:0 0 0 10px rgba(230,9,73,0); } }
+@keyframes sos-pop{ from{ opacity:0; transform:scale(.6); } to{ opacity:1; transform:scale(1); } }
+@media (prefers-reduced-motion: reduce){ .sos-cat:hover{ transform:none; } }
+
+/* Lien « Retour à l'accueil » du hub SOS : aligné en haut-gauche (hub centré) */
+.sos-hub > .sos-back{ align-self:flex-start; width:auto; }

@@ -1,0 +1,32 @@
+/* ===========================================================
+   PAGES-COQUILLES — titre Anton des pages en construction
+   Feuille isolée (liée après style.css) → titre à l'abri des
+   collisions du job home sur style.css. Header/footer viennent de style.css.
+   =========================================================== */
+:root{ --navy:#0b0f4d; --neutral-600:#696969; }
+
+.page-hero{
+  max-width:var(--wrap, 1376px);
+  margin-inline:auto;
+  padding:clamp(56px,9vw,140px) clamp(20px,5vw,40px);
+  min-height:46vh;
+}
+.page-title{
+  font-family:'Anton',sans-serif; font-weight:400;
+  font-size:clamp(2.5rem, 1.8rem + 3.4vw, 5rem);   /* ~40 → 80px */
+  line-height:1; color:var(--navy); text-wrap:balance;
+  margin:0;
+}
+.page-lead{
+  margin-top:18px; max-width:60ch;
+  font-family:'NewBlack',sans-serif; font-weight:400;
+  font-size:clamp(1rem, .9rem + .4vw, 1.25rem); color:var(--neutral-600);
+}
+
+/* ---------- Mobile : titres Anton en bleu (#1874FF) ----------
+   Sur mobile, toutes les typos Anton (titres de page + de section)
+   passent en bleu, comme les maquettes mobiles Figma. */
+@media (max-width:768px){
+  .page-title,
+  .section-title{ color:#1874FF; }
+}

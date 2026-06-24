@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Olympic Connect 2026 — SOS · Signaler un problème</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="sos.css" />
+</head>
+<body>
+
+    <!-- SOS:MAIN:START -->
+  <!-- ====================== CONTENU SOS — FORMULAIRE (page autonome) ====================== -->
+  <main class="sos-page">
+    <section class="sos-form-wrap">
+      <a class="sos-back" href="sos.html">← Retour aux catégories</a>
+      <h1 class="sos-form-title" id="sosFormTitle">⚠️ Agression / harcèlement</h1>
+      <p class="sos-sub" style="text-align:left;max-inline-size:none;margin-inline:0;">Décrivez la situation. C'est transmis immédiatement à l'équipe sécurité concernée.</p>
+
+      <form class="sos-form" action="sos-confirmation.html" method="get">
+        <div class="field">
+          <label for="sos-loc">Où êtes-vous ?</label>
+          <input id="sos-loc" name="lieu" type="text" placeholder="Site olympique, salle, tribune, repère le plus proche…" />
+        </div>
+
+        <div class="field">
+          <label for="sos-desc">Décrivez ce qu'il se passe</label>
+          <textarea id="sos-desc" name="description" placeholder="Ce que vous voyez, depuis quand, nombre de personnes concernées…"></textarea>
+        </div>
+
+        <div class="field">
+          <span class="field-label">Ajouter une photo (optionnel)</span>
+          <label class="sos-dropzone" for="sos-photo">📎&nbsp; Glissez une photo ou cliquez pour en ajouter</label>
+          <input id="sos-photo" name="photo" type="file" accept="image/*" hidden />
+        </div>
+
+        <div class="field">
+          <span class="field-label">Niveau d'urgence</span>
+          <div class="sos-urgency" role="radiogroup" aria-label="Niveau d'urgence">
+            <label class="urg"><input type="radio" name="urgence" value="faible" />Faible</label>
+            <label class="urg"><input type="radio" name="urgence" value="moyen" />Moyen</label>
+            <label class="urg"><input type="radio" name="urgence" value="eleve" checked />Élevé</label>
+          </div>
+        </div>
+
+        <label class="sos-anon">
+          <input type="checkbox" name="anonyme" checked />
+          <span class="sos-anon-txt">
+            <strong>Rester anonyme</strong>
+            <span>Votre signalement reste confidentiel dans tous les cas.</span>
+          </span>
+        </label>
+
+        <div class="sos-form-actions">
+          <button type="submit" class="btn-primary">Envoyer le signalement</button>
+          <a class="btn-text" href="sos.html">Annuler</a>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <!-- Pré-remplit le titre selon la catégorie choisie (?type=…) -->
+  <script>
+    (function(){
+      var map={
+        suspect:"👁️ Comportement suspect", agression:"⚠️ Agression / harcèlement",
+        blesse:"🚑 Personne blessée / malaise", degradation:"🧱 Dégradation / vandalisme",
+        objet:"🎒 Objet suspect", perdue:"🧭 Personne perdue",
+        bug:"🐞 Bug / problème technique", contenu:"🚫 Contenu inapproprié",
+        compte:"🔒 Compte / connexion", autre:"✏️ Autre"
+      };
+      var t=new URLSearchParams(location.search).get('type');
+      if(t && map[t]){ var el=document.getElementById('sosFormTitle'); if(el) el.textContent=map[t]; }
+    })();
+  </script>
+  <!-- SOS:MAIN:END -->
+
+</body>
+</html>

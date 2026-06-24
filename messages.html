@@ -1,15 +1,112 @@
-<!-- ============================================================
-     FOOTER — Olympic Connect 2026  (composant réutilisable)
-     ------------------------------------------------------------
-     UTILISATION (copier-coller) :
-       1. La page doit lier la feuille de style partagée :
-            <link rel="stylesheet" href="style.css" />
-          (le style du footer y vit déjà — sélecteurs .site-footer & co.)
-       2. Coller le bloc <footer>…</footer> ci-dessous juste avant </body>.
-       3. Les chemins d'assets sont relatifs (assets/…) :
-          garder la page au même niveau que le dossier assets/,
-          sinon ajuster les src (ex. ../assets/…).
-     ============================================================ -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Olympic Connect 2026 — Messages</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="pages.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-content">
+
+    <!-- Barre de navigation -->
+    <nav class="header-bar">
+      <div class="header-left">
+        <a class="header-logo-link" href="index.html" aria-label="Olympic Connect 2026 — accueil">
+          <img class="header-logo" src="assets/img/logo-oc-baniere.svg" alt="Olympic Connect 2026" />
+        </a>
+        <span class="header-badge">JO 2026</span>
+      </div>
+
+      <div class="header-nav">
+        <a href="replays.html">Replays et Temps forts</a>
+        <a href="athlete-talks.html">Athletes Talks</a>
+        <a href="posts.html">Posts</a>
+        <a href="canaux.html">Canaux</a>
+      </div>
+
+      <div class="header-actions">
+        <a class="btn-sos" href="sos.html">SOS</a>
+        <button class="btn-flag" type="button" aria-label="Choisir la langue — Français">
+          <svg viewBox="0 0 26 24" aria-hidden="true">
+            <rect width="8.667" height="24" fill="#002395" />
+            <rect x="8.667" width="8.667" height="24" fill="#ffffff" />
+            <rect x="17.333" width="8.667" height="24" fill="#ED2939" />
+          </svg>
+        </button>
+        <a class="btn-login" href="connexion.html">Se connecter</a>
+
+        <!-- Burger (visible < 1050px) -->
+        <button class="btn-burger" type="button" aria-label="Ouvrir le menu"
+                aria-expanded="false" aria-controls="headerMenu">
+          <svg class="icon-open" viewBox="0 0 40 28" aria-hidden="true">
+            <line x1="2" y1="4"  x2="38" y2="4" />
+            <line x1="2" y1="14" x2="38" y2="14" />
+            <line x1="2" y1="24" x2="38" y2="24" />
+          </svg>
+          <svg class="icon-close" viewBox="0 0 28 28" aria-hidden="true">
+            <line x1="5" y1="5"  x2="23" y2="23" />
+            <line x1="23" y1="5" x2="5"  y2="23" />
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Menu plein écran (visible < 1050px, ouvert via le burger) -->
+    <div class="header-menu" id="headerMenu">
+      <a href="replays.html">Replays et Temps forts</a>
+      <a href="athlete-talks.html">Athletes Talks</a>
+      <a href="posts.html">Posts</a>
+      <a href="canaux.html">Canaux</a>
+      <div class="header-menu-actions">
+        <button class="btn-flag" type="button" aria-label="Choisir la langue — Français">
+          <svg viewBox="0 0 26 24" aria-hidden="true">
+            <rect width="8.667" height="24" fill="#002395" />
+            <rect x="8.667" width="8.667" height="24" fill="#ffffff" />
+            <rect x="17.333" width="8.667" height="24" fill="#ED2939" />
+          </svg>
+        </button>
+        <a class="btn-login" href="connexion.html">Se connecter</a>
+      </div>
+    </div>
+
+    <!-- Bannière dégradée (image de fond, optionnelle) -->
+    <div class="header-banner" aria-hidden="true"></div>
+
+  </div>
+</header>
+
+<!-- ▼▼▼ À coller avant </body> ▼▼▼ -->
+<script>
+  // Toggle du menu burger plein écran (< 1050px)
+  (function () {
+    var burger = document.querySelector('.btn-burger');
+    var menu = document.getElementById('headerMenu');
+    if (!burger || !menu) return;
+    function setOpen(open) {
+      burger.setAttribute('aria-expanded', String(open));
+      burger.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+      menu.classList.toggle('is-open', open);
+      document.body.classList.toggle('menu-open', open);
+    }
+    burger.addEventListener('click', function () {
+      setOpen(burger.getAttribute('aria-expanded') !== 'true');
+    });
+    // Fermer le menu au clic sur un lien
+    menu.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () { setOpen(false); });
+    });
+  })();
+</script>
+
+  <div class="page">
+    <main class="page-hero">
+      <h1 class="page-title">Messages</h1>
+    </main>
+  </div>
 
 <footer class="site-footer">
   <div class="footer-inner">
@@ -88,3 +185,6 @@
 
   <img class="footer-deco" src="assets/img/footer-deco.png" alt="" />
 </footer>
+
+</body>
+</html>

@@ -23,21 +23,21 @@
     <!-- Barre de navigation -->
     <nav class="header-bar">
       <div class="header-left">
-        <a class="header-logo-link" href="#" aria-label="Olympic Connect 2026 — accueil">
+        <a class="header-logo-link" href="index.html" aria-label="Olympic Connect 2026 — accueil">
           <img class="header-logo" src="assets/img/logo-oc-baniere.svg" alt="Olympic Connect 2026" />
         </a>
         <span class="header-badge">JO 2026</span>
       </div>
 
       <div class="header-nav">
-        <a href="#">Replays et Temps forts</a>
-        <a href="#">Athletes Talks</a>
-        <a href="#">Posts</a>
-        <a href="#">Canaux</a>
+        <a href="replays.html">Replays et Temps forts</a>
+        <a href="athlete-talks.html">Athletes Talks</a>
+        <a href="posts.html">Posts</a>
+        <a href="canaux.html">Canaux</a>
       </div>
 
       <div class="header-actions">
-        <button class="btn-sos" type="button">SOS</button>
+        <a class="btn-sos" href="sos.html">SOS</a>
         <button class="btn-flag" type="button" aria-label="Choisir la langue — Français">
           <svg viewBox="0 0 26 24" aria-hidden="true">
             <rect width="8.667" height="24" fill="#002395" />
@@ -45,7 +45,7 @@
             <rect x="17.333" width="8.667" height="24" fill="#ED2939" />
           </svg>
         </button>
-        <a class="btn-login" href="#">Se connecter</a>
+        <a class="btn-login" href="connexion.html">Se connecter</a>
 
         <!-- Burger (visible < 1050px) -->
         <button class="btn-burger" type="button" aria-label="Ouvrir le menu"
@@ -65,10 +65,10 @@
 
     <!-- Menu plein écran (visible < 1050px, ouvert via le burger) -->
     <div class="header-menu" id="headerMenu">
-      <a href="#">Replays et Temps forts</a>
-      <a href="#">Athletes Talks</a>
-      <a href="#">Posts</a>
-      <a href="#">Canaux</a>
+      <a href="replays.html">Replays et Temps forts</a>
+      <a href="athlete-talks.html">Athletes Talks</a>
+      <a href="posts.html">Posts</a>
+      <a href="canaux.html">Canaux</a>
       <div class="header-menu-actions">
         <button class="btn-flag" type="button" aria-label="Choisir la langue — Français">
           <svg viewBox="0 0 26 24" aria-hidden="true">
@@ -77,14 +77,12 @@
             <rect x="17.333" width="8.667" height="24" fill="#ED2939" />
           </svg>
         </button>
-        <a class="btn-login" href="#">Se connecter</a>
+        <a class="btn-login" href="connexion.html">Se connecter</a>
       </div>
     </div>
 
-    <!-- Bannière dégradée (optionnelle) -->
-    <div class="header-banner">
-      <img src="assets/img/header-banner.png" alt="" />
-    </div>
+    <!-- Bannière dégradée (image de fond, optionnelle) -->
+    <div class="header-banner" aria-hidden="true"></div>
 
   </div>
 </header>

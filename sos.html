@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Olympic Connect 2026 — SOS</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="sos.css" />
+</head>
+<body>
+
+  <!-- SOS:MAIN:START -->
+  <!-- ====================== CONTENU SOS — HUB (page autonome, sans header/footer) ====================== -->
+  <main class="sos-page">
+    <section class="sos-hub">
+
+      <a class="sos-back" href="index.html">← Retour à l'accueil</a>
+      <span class="sos-pill">SOS</span>
+      <h1 class="sos-h1">Un problème ? Signalez-le.</h1>
+      <p class="sos-sub">Sur place aux JO ou sur la plateforme — dites-nous ce qui se passe, on s'en occupe.</p>
+
+      <!-- Recherche -->
+      <div class="sos-search">
+        <span class="sos-search-ic" aria-hidden="true">🔍</span>
+        <input type="search" aria-label="Rechercher un type de problème"
+               placeholder="Rechercher un type de problème (ex. blessé, bug, harcèlement…)" />
+      </div>
+
+      <!-- Danger immédiat -->
+      <div class="sos-danger">
+        <div class="sos-danger-txt">
+          <p class="sos-danger-title">Danger immédiat ?</p>
+          <p class="sos-danger-desc">Personne blessée, agression en cours, urgence vitale — appelez directement les secours.</p>
+        </div>
+        <a class="sos-call" href="tel:112">Appeler les secours · 112</a>
+      </div>
+
+      <!-- Sur place — aux Jeux (sécurité) -->
+      <section class="sos-group">
+        <div class="sos-group-head">
+          <span class="dot dot--jo"></span>
+          <h2>Sur place — aux Jeux</h2>
+          <span class="sos-group-tag">(sécurité)</span>
+        </div>
+        <div class="sos-cats">
+          <a class="sos-cat sos-cat--jo" href="sos-signalement.html?type=suspect"><span class="sos-cat-emoji">👁️</span><span class="sos-cat-label">Comportement suspect</span></a>
+          <a class="sos-cat sos-cat--jo" href="sos-signalement.html?type=agression"><span class="sos-cat-emoji">⚠️</span><span class="sos-cat-label">Agression / harcèlement</span></a>
+          <a class="sos-cat sos-cat--jo" href="sos-signalement.html?type=blesse"><span class="sos-cat-emoji">🚑</span><span class="sos-cat-label">Personne blessée / malaise</span></a>
+          <a class="sos-cat sos-cat--jo" href="sos-signalement.html?type=degradation"><span class="sos-cat-emoji">🧱</span><span class="sos-cat-label">Dégradation / vandalisme</span></a>
+          <a class="sos-cat sos-cat--jo" href="sos-signalement.html?type=objet"><span class="sos-cat-emoji">🎒</span><span class="sos-cat-label">Objet suspect</span></a>
+          <a class="sos-cat sos-cat--jo" href="sos-signalement.html?type=perdue"><span class="sos-cat-emoji">🧭</span><span class="sos-cat-label">Personne perdue</span></a>
+        </div>
+      </section>
+
+      <!-- Sur la plateforme — en ligne -->
+      <section class="sos-group">
+        <div class="sos-group-head">
+          <span class="dot dot--web"></span>
+          <h2>Sur la plateforme — en ligne</h2>
+          <span class="sos-group-tag">(plateforme)</span>
+        </div>
+        <div class="sos-cats">
+          <a class="sos-cat sos-cat--web" href="sos-signalement.html?type=bug"><span class="sos-cat-emoji">🐞</span><span class="sos-cat-label">Bug / problème technique</span></a>
+          <a class="sos-cat sos-cat--web" href="sos-signalement.html?type=contenu"><span class="sos-cat-emoji">🚫</span><span class="sos-cat-label">Contenu inapproprié</span></a>
+          <a class="sos-cat sos-cat--web" href="sos-signalement.html?type=compte"><span class="sos-cat-emoji">🔒</span><span class="sos-cat-label">Compte / connexion</span></a>
+          <a class="sos-cat sos-cat--web" href="sos-signalement.html?type=autre"><span class="sos-cat-emoji">✏️</span><span class="sos-cat-label">Autre</span></a>
+        </div>
+      </section>
+
+      <!-- Rassurance -->
+      <div class="sos-reassure">
+        <p>🔒&nbsp; Vos signalements sont confidentiels et traités par notre équipe.</p>
+        <p>En cas de danger immédiat, contactez toujours les secours (112) ou la sécurité présente sur le site.</p>
+      </div>
+
+    </section>
+  </main>
+  <!-- SOS:MAIN:END -->
+
+</body>
+</html>

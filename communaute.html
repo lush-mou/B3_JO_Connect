@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Olympic Connect 2026 — Communauté</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="pages.css" />
+  <link rel="stylesheet" href="canaux.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-content">
+
+    <!-- Barre de navigation -->
+    <nav class="header-bar">
+      <div class="header-left">
+        <a class="header-logo-link" href="index.html" aria-label="Olympic Connect 2026 — accueil">
+          <img class="header-logo" src="assets/img/logo-oc-baniere.svg" alt="Olympic Connect 2026" />
+        </a>
+        <span class="header-badge">JO 2026</span>
+      </div>
+
+      <div class="header-nav">
+        <a href="replays.html">Replays et Temps forts</a>
+        <a href="athlete-talks.html">Athletes Talks</a>
+        <a href="posts.html">Posts</a>
+        <a href="canaux.html">Canaux</a>
+      </div>
+
+      <div class="header-actions">
+        <a class="btn-sos" href="sos.html">SOS</a>
+        <button class="btn-flag" type="button" aria-label="Choisir la langue — Français">
+          <svg viewBox="0 0 26 24" aria-hidden="true">
+            <rect width="8.667" height="24" fill="#002395" />
+            <rect x="8.667" width="8.667" height="24" fill="#ffffff" />
+            <rect x="17.333" width="8.667" height="24" fill="#ED2939" />
+          </svg>
+        </button>
+        <a class="btn-login" href="connexion.html">Se connecter</a>
+
+        <!-- Burger (visible < 1050px) -->
+        <button class="btn-burger" type="button" aria-label="Ouvrir le menu"
+                aria-expanded="false" aria-controls="headerMenu">
+          <svg class="icon-open" viewBox="0 0 40 28" aria-hidden="true">
+            <line x1="2" y1="4"  x2="38" y2="4" />
+            <line x1="2" y1="14" x2="38" y2="14" />
+            <line x1="2" y1="24" x2="38" y2="24" />
+          </svg>
+          <svg class="icon-close" viewBox="0 0 28 28" aria-hidden="true">
+            <line x1="5" y1="5"  x2="23" y2="23" />
+            <line x1="23" y1="5" x2="5"  y2="23" />
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Menu plein écran (visible < 1050px, ouvert via le burger) -->
+    <div class="header-menu" id="headerMenu">
+      <a href="replays.html">Replays et Temps forts</a>
+      <a href="athlete-talks.html">Athletes Talks</a>
+      <a href="posts.html">Posts</a>
+      <a href="canaux.html">Canaux</a>
+      <div class="header-menu-actions">
+        <button class="btn-flag" type="button" aria-label="Choisir la langue — Français">
+          <svg viewBox="0 0 26 24" aria-hidden="true">
+            <rect width="8.667" height="24" fill="#002395" />
+            <rect x="8.667" width="8.667" height="24" fill="#ffffff" />
+            <rect x="17.333" width="8.667" height="24" fill="#ED2939" />
+          </svg>
+        </button>
+        <a class="btn-login" href="connexion.html">Se connecter</a>
+      </div>
+    </div>
+
+    <!-- Bannière dégradée (image de fond, optionnelle) -->
+    <div class="header-banner" aria-hidden="true"></div>
+
+  </div>
+</header>
+
+<!-- ▼▼▼ À coller avant </body> ▼▼▼ -->
+<script>
+  // Toggle du menu burger plein écran (< 1050px)
+  (function () {
+    var burger = document.querySelector('.btn-burger');
+    var menu = document.getElementById('headerMenu');
+    if (!burger || !menu) return;
+    function setOpen(open) {
+      burger.setAttribute('aria-expanded', String(open));
+      burger.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+      menu.classList.toggle('is-open', open);
+      document.body.classList.toggle('menu-open', open);
+    }
+    burger.addEventListener('click', function () {
+      setOpen(burger.getAttribute('aria-expanded') !== 'true');
+    });
+    // Fermer le menu au clic sur un lien
+    menu.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () { setOpen(false); });
+    });
+  })();
+</script>
+
+  <div class="page">
+    <main class="cc-feed" style="padding-top:32px;">
+
+      <!-- ============ HERO ============ -->
+      <section style="margin-bottom:36px;">
+        <h1 class="page-title" style="font-size:clamp(26px,6vw,34px);">Espace communautaire</h1>
+        <p class="ch-sub" style="margin-top:10px;">Tous les chats des athlètes au même endroit</p>
+      </section>
+
+      <!-- ============ LES CANAUX QUE VOUS SUIVEZ ============ -->
+      <section style="margin-bottom:40px;">
+        <h2 class="section-title">Les canaux que vous suivez</h2>
+        <label class="search search--lead">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 2a8 8 0 105.3 14l5.4 5.3 1.4-1.4-5.3-5.4A8 8 0 0010 2zm0 2a6 6 0 110 12 6 6 0 010-12z"/></svg>
+          Rechercher un athlète
+        </label>
+
+        <div class="cc-list">
+
+          <!-- Carte canal empilée (composant réutilisable .cc-card) -->
+          <a class="cc-card" href="#">
+            <div class="cc-top">
+              <img class="cc-avatar" src="photo/PP_Justine_GAILLARD.png" alt="@Justine_GAILLARD" />
+              <div class="cc-main">
+                <div class="cc-row">
+                  <span class="ch-handle">@Justine_GAILLARD</span>
+                  <span class="cc-badge cc-badge--live">
+                    <span class="l"><span class="dot"></span>En live</span>
+                    <span class="l"><svg viewBox="0 0 24 16"><path d="M12 0C7 0 2.7 3 1 8c1.7 5 6 8 11 8s9.3-3 11-8c-1.7-5-6-8-11-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-3a2 2 0 100-4 2 2 0 000 4z"/></svg>2 789</span>
+                  </span>
+                </div>
+                <div class="cc-row">
+                  <span class="ch-pill">Ski de fond</span>
+                  <span class="cc-followers"><svg viewBox="0 0 24 16"><path d="M8 8a3.5 3.5 0 100-7 3.5 3.5 0 000 7zm9 0a3 3 0 100-6 3 3 0 000 6zM8 9c-3 0-6 1.5-6 4.5V16h12v-2.5C14 10.5 11 9 8 9zm9 0c-.5 0-1 .1-1.4.2 1.5 1 2.4 2.4 2.4 4.3V16h6v-2.5C24 10.5 20.5 9 17 9z"/></svg>Suivi par 9,6k</span>
+                </div>
+              </div>
+            </div>
+            <div class="ch-msg">
+              <p class="ch-quote" style="-webkit-line-clamp:1;">“Hey tout le monde, si vous êtes chaud..”</p>
+              <div class="ch-msg-bottom">
+                <div class="ch-reacts">
+                  <span class="ch-react"><span class="emoji">😂</span><span class="n">44,7k</span></span>
+                  <span class="ch-react"><span class="emoji">👀</span><span class="n">11,2k</span></span>
+                  <span class="ch-react"><span class="emoji">💪</span><span class="n">90k</span></span>
+                  <span class="ch-react ch-react--add"><span class="emoji">＋</span></span>
+                </div>
+                <span class="ch-time">10h54</span>
+              </div>
+            </div>
+          </a>
+
+          <a class="cc-card" href="#">
+            <div class="cc-top">
+              <img class="cc-avatar" src="photo/PP_Fabien_CLAUDE.png" alt="@Fabien_CLAUDE" />
+              <div class="cc-main">
+                <div class="cc-row">
+                  <span class="ch-handle">@Fabien_CLAUDE</span>
+                  <span class="cc-badge cc-badge--off"><span class="dot"></span>Off line</span>
+                </div>
+                <div class="cc-row">
+                  <span class="ch-pill">Ski de fond</span>
+                  <span class="cc-followers"><svg viewBox="0 0 24 16"><path d="M8 8a3.5 3.5 0 100-7 3.5 3.5 0 000 7zm9 0a3 3 0 100-6 3 3 0 000 6zM8 9c-3 0-6 1.5-6 4.5V16h12v-2.5C14 10.5 11 9 8 9zm9 0c-.5 0-1 .1-1.4.2 1.5 1 2.4 2.4 2.4 4.3V16h6v-2.5C24 10.5 20.5 9 17 9z"/></svg>Suivi par 17k</span>
+                </div>
+              </div>
+            </div>
+            <div class="ch-msg">
+              <p class="ch-quote" style="-webkit-line-clamp:2;">“Merci pour tout votre soutien durant la compétition, je sais que vous êtes…”</p>
+              <div class="ch-msg-bottom">
+                <div class="ch-reacts">
+                  <span class="ch-react"><span class="emoji">😂</span><span class="n">2,7k</span></span>
+                  <span class="ch-react"><span class="emoji">👀</span><span class="n">1,4k</span></span>
+                  <span class="ch-react"><span class="emoji">💪</span><span class="n">3,7k</span></span>
+                  <span class="ch-react ch-react--add"><span class="emoji">＋</span></span>
+                </div>
+                <span class="ch-time">09h11</span>
+              </div>
+            </div>
+          </a>
+
+          <a class="cc-card" href="#">
+            <div class="cc-top">
+              <img class="cc-avatar" src="photo/PP_homme_brun_polo_blanc.png" alt="@Loan_BOZZOLO" />
+              <div class="cc-main">
+                <div class="cc-row">
+                  <span class="ch-handle">@Loan_BOZZOLO</span>
+                  <span class="cc-badge cc-badge--unread"><span class="dot"></span>2 non lu</span>
+                </div>
+                <div class="cc-row">
+                  <span class="ch-pill">Snowboard</span>
+                  <span class="cc-followers"><svg viewBox="0 0 24 16"><path d="M8 8a3.5 3.5 0 100-7 3.5 3.5 0 000 7zm9 0a3 3 0 100-6 3 3 0 000 6zM8 9c-3 0-6 1.5-6 4.5V16h12v-2.5C14 10.5 11 9 8 9zm9 0c-.5 0-1 .1-1.4.2 1.5 1 2.4 2.4 2.4 4.3V16h6v-2.5C24 10.5 20.5 9 17 9z"/></svg>Suivi par 12k</span>
+                </div>
+              </div>
+            </div>
+            <div class="ch-msg">
+              <p class="ch-quote" style="-webkit-line-clamp:1;">“Devinez qui est médaillé de bronze ?”</p>
+              <div class="ch-msg-bottom">
+                <div class="ch-reacts">
+                  <span class="ch-react"><span class="emoji">😂</span><span class="n">44,7k</span></span>
+                  <span class="ch-react"><span class="emoji">👀</span><span class="n">11,2k</span></span>
+                  <span class="ch-react"><span class="emoji">💪</span><span class="n">90k</span></span>
+                  <span class="ch-react ch-react--add"><span class="emoji">＋</span></span>
+                </div>
+                <span class="ch-time">10h54</span>
+              </div>
+            </div>
+          </a>
+
+        </div>
+      </section>
+
+      <!-- ============ TROUVER DES CANAUX ============ -->
+      <section style="margin-bottom:40px;">
+        <h2 class="section-title">Trouver des canaux</h2>
+        <div class="ch-tabs" role="tablist">
+          <button class="ch-tab is-active" type="button" role="tab" aria-selected="true">Les plus populaires</button>
+          <button class="ch-tab" type="button" role="tab" aria-selected="false">Suggéré pour vous</button>
+        </div>
+        <label class="search search--lead">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 2a8 8 0 105.3 14l5.4 5.3 1.4-1.4-5.3-5.4A8 8 0 0010 2zm0 2a6 6 0 110 12 6 6 0 010-12z"/></svg>
+          Rechercher
+        </label>
+
+        <div class="cc-list">
+
+          <a class="cc-card" href="#">
+            <div class="cc-top">
+              <img class="cc-avatar" src="photo/PP_athlete_homme_sourire.webp" alt="@Clément_NOEL" />
+              <div class="cc-main">
+                <div class="cc-row">
+                  <span class="ch-handle">@Clément_NOEL</span>
+                  <span class="cc-badge cc-badge--live">
+                    <span class="l"><span class="dot"></span>En live</span>
+                    <span class="l"><svg viewBox="0 0 24 16"><path d="M12 0C7 0 2.7 3 1 8c1.7 5 6 8 11 8s9.3-3 11-8c-1.7-5-6-8-11-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-3a2 2 0 100-4 2 2 0 000 4z"/></svg>2 789</span>
+                  </span>
+                </div>
+                <div class="cc-row">
+                  <span class="ch-pill">Ski Alpin</span>
+                  <span class="cc-followers"><svg viewBox="0 0 24 16"><path d="M8 8a3.5 3.5 0 100-7 3.5 3.5 0 000 7zm9 0a3 3 0 100-6 3 3 0 000 6zM8 9c-3 0-6 1.5-6 4.5V16h12v-2.5C14 10.5 11 9 8 9zm9 0c-.5 0-1 .1-1.4.2 1.5 1 2.4 2.4 2.4 4.3V16h6v-2.5C24 10.5 20.5 9 17 9z"/></svg>Suivi par 8k</span>
+                </div>
+              </div>
+            </div>
+            <div class="ch-msg">
+              <p class="ch-quote" style="-webkit-line-clamp:1;">“Demain épreuve de Slalom, ça va être tendu ! ”</p>
+              <div class="ch-msg-bottom">
+                <div class="ch-reacts">
+                  <span class="ch-react"><span class="emoji">😂</span><span class="n">4,7k</span></span>
+                  <span class="ch-react"><span class="emoji">👀</span><span class="n">1,2k</span></span>
+                  <span class="ch-react"><span class="emoji">💪</span><span class="n">9k</span></span>
+                  <span class="ch-react ch-react--add"><span class="emoji">＋</span></span>
+                </div>
+                <span class="ch-time">10h54</span>
+              </div>
+            </div>
+          </a>
+
+          <a class="cc-card" href="#">
+            <div class="cc-top">
+              <img class="cc-avatar" src="photo/PP_biathlete_france.png" alt="@Julia_SIMON" />
+              <div class="cc-main">
+                <div class="cc-row">
+                  <span class="ch-handle">@Julia_SIMON</span>
+                  <span class="cc-badge cc-badge--off"><span class="dot"></span>Off line</span>
+                </div>
+                <div class="cc-row">
+                  <span class="ch-pill">Biathlon</span>
+                  <span class="cc-followers"><svg viewBox="0 0 24 16"><path d="M8 8a3.5 3.5 0 100-7 3.5 3.5 0 000 7zm9 0a3 3 0 100-6 3 3 0 000 6zM8 9c-3 0-6 1.5-6 4.5V16h12v-2.5C14 10.5 11 9 8 9zm9 0c-.5 0-1 .1-1.4.2 1.5 1 2.4 2.4 2.4 4.3V16h6v-2.5C24 10.5 20.5 9 17 9z"/></svg>Suivi par 4k</span>
+                </div>
+              </div>
+            </div>
+            <div class="ch-msg">
+              <p class="ch-quote" style="-webkit-line-clamp:1;">“Petite douleur à la cheville suite à...”</p>
+              <div class="ch-msg-bottom">
+                <div class="ch-reacts">
+                  <span class="ch-react"><span class="emoji">😂</span><span class="n">2,7k</span></span>
+                  <span class="ch-react"><span class="emoji">👀</span><span class="n">1,4k</span></span>
+                  <span class="ch-react"><span class="emoji">💪</span><span class="n">3,7k</span></span>
+                  <span class="ch-react ch-react--add"><span class="emoji">＋</span></span>
+                </div>
+                <span class="ch-time">09h11</span>
+              </div>
+            </div>
+          </a>
+
+        </div>
+      </section>
+
+      <!-- ============ ATHLETE TALKS SUGGÉRÉS ============ -->
+      <section style="margin-bottom:16px;">
+        <h2 class="section-title">Ces Athlètes Talks peuvent vous intéresser</h2>
+
+        <a class="vthumb cc-talk-big" href="#">
+          <div class="vthumb-bg" style="background-image:url('photo/philipp_nawrath_interview.jpg')"></div>
+          <div class="vthumb-overlay">
+            <span class="vthumb-eye"><svg viewBox="0 0 24 16"><path d="M12 0C7 0 2.7 3 1 8c1.7 5 6 8 11 8s9.3-3 11-8c-1.7-5-6-8-11-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-3a2 2 0 100-4 2 2 0 000 4z"/></svg>52 637</span>
+            <span class="vthumb-play"><svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="40" fill="rgba(255,255,255,.9)"/><path d="M33 26l24 14-24 14z" fill="#1874ff"/></svg></span>
+            <p class="vthumb-title">Philipp Nawrath déçu par sa performance | Tour session 4</p>
+            <div class="vthumb-tags">
+              <span class="ch-pill">Biathlon</span>
+              <span class="ch-pill">@Philipp_Nawrath</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="cc-talk-item" href="#">
+          <div class="cc-talk-thumb" style="background-image:url('photo/athlete_blonde_interview.png')">
+            <span class="cc-talk-dur">3min</span>
+          </div>
+          <div class="cc-talk-text">
+            <span class="cc-talk-cat">Athlete Talks</span>
+            <span class="cc-talk-title">@Justine Gaillard éliminée | Qualifications</span>
+            <span class="cc-talk-meta">il y a 1 jours • 12K
+              <svg viewBox="0 0 24 16"><path d="M12 0C7 0 2.7 3 1 8c1.7 5 6 8 11 8s9.3-3 11-8c-1.7-5-6-8-11-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-3a2 2 0 100-4 2 2 0 000 4z"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <div class="cc-more">
+          <a class="btn-outline" href="#">voir plus
+            <svg class="ic-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+
+    <h2 class="footer-partners-title">Partenaires Olympiques et Paralympiques Mondiaux</h2>
+
+    <!-- Logos sponsors (grille fluide : 4/row desktop, 3/row mobile) -->
+    <div class="sponsors">
+      <div class="sponsor-cell"><a href="https://www.airbnb.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/airbnb.svg" alt="Airbnb" /></a></div>
+      <div class="sponsor-cell"><a href="https://www.alibabagroup.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/alibaba.svg" alt="Alibaba" /></a></div>
+      <div class="sponsor-cell"><a href="https://www.allianz.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/allianz.svg" alt="Allianz" /></a></div>
+      <div class="sponsor-cell"><a href="https://www.coca-cola.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/cocacola.svg" alt="Coca-Cola" /></a></div>
+      <div class="sponsor-cell"><a href="https://www.deloitte.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/deloitte.svg" alt="Deloitte" /></a></div>
+      <div class="sponsor-cell"><a href="https://www.omegawatches.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/omega.svg" alt="Omega" /></a></div>
+      <div class="sponsor-cell"><a href="https://www.pg.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/pg.svg" alt="P&amp;G" /></a></div>
+      <div class="sponsor-cell"><a href="https://www.corona.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/logo-corona-cero.png" alt="Corona Cero" /></a></div>
+      <div class="sponsor-cell"><a href="https://www.visa.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/visa.svg" alt="Visa" /></a></div>
+      <div class="sponsor-cell"><a href="https://www.samsung.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/samsung.svg" alt="Samsung" /></a></div>
+      <div class="sponsor-cell"><a href="https://www.tcl.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/tcl.svg" alt="TCL" /></a></div>
+    </div>
+
+    <!-- Raccourcis : marque + navigation -->
+    <div class="footer-shortcuts">
+      <div class="footer-brand">
+        <img class="footer-logo" src="assets/logos/logo_olympic_cool.svg" alt="Olympic Connect" />
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook"><img src="assets/logos/facebook.svg" alt="" /></a>
+          <a href="#" aria-label="Instagram"><img src="assets/logos/instagram.svg" alt="" /></a>
+          <a href="#" aria-label="YouTube"><img src="assets/logos/youtube.svg" alt="" /></a>
+        </div>
+      </div>
+
+      <nav class="footer-nav">
+        <div class="footer-col">
+          <a class="footer-col-title">Découvrir</a>
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="replays.html">Replays et Temps forts</a></li>
+            <li><a href="live.html">Live</a></li>
+            <li><a href="athlete-talks.html">Athletes Talks</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <a class="footer-col-title">Social</a>
+          <ul>
+            <li><a href="posts.html">Posts</a></li>
+            <li><a href="communaute.html">Communauté</a></li>
+            <li><a href="athletes.html">Athlètes</a></li>
+            <li><a href="messages.html">Messages</a></li>
+          </ul>
+        </div>
+        <div class="footer-col footer-col--account">
+          <a class="footer-col-title">Compte &amp; aide</a>
+          <div class="footer-account-links">
+            <ul>
+              <li><a href="inscription.html">S'inscrire</a></li>
+              <li><a href="connexion.html">Se connecter</a></li>
+            </ul>
+            <ul>
+              <li><a href="sos.html">SOS</a></li>
+              <li><a href="engagement.html">Engagement</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <div class="footer-divider"></div>
+
+    <p class="footer-copyright">
+      Copyright © 2026 | All Rights Reserved |
+      <a href="#">Terms and Conditions</a> |
+      <a href="#">Privacy Policy</a>
+    </p>
+  </div>
+
+  <img class="footer-deco" src="assets/img/footer-deco.png" alt="" />
+</footer>
+
+<script>
+  // Onglets « Trouver des canaux »
+  document.querySelectorAll('.ch-tabs').forEach(function (group) {
+    group.querySelectorAll('.ch-tab').forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        group.querySelectorAll('.ch-tab').forEach(function (t) {
+          t.classList.remove('is-active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        tab.classList.add('is-active');
+        tab.setAttribute('aria-selected', 'true');
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
