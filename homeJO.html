@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JO Milano Cortina 2026 — Olympic Connect</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;700&family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="homeJO.css">
+</head>
+<body>
+
+<!-- NAV (header JO — Figma 509:1191) -->
+<header class="jo-header">
+  <div class="jh-bar">
+    <div class="wrap jh-row">
+      <div class="jh-left">
+        <a class="jh-logo" href="#" aria-label="Milano Cortina 2026 — accueil">
+          <img src="assets/img/jo-header-logo.png" alt="Milano Cortina 2026" />
+        </a>
+        <a class="jh-tab active" href="#">Olympic Connect</a>
+      </div>
+      <nav class="jh-menu">
+        <a href="#medailles">Résultats</a>
+        <a href="#">Les Sports</a>
+        <a href="#">Map et Agenda</a>
+        <a href="#billeterie">Billeterie</a>
+        <a href="#shop">Shop</a>
+      </nav>
+      <div class="jh-right">
+        <a class="jh-sos" href="#">SOS</a>
+        <button class="jh-flag" type="button" aria-label="Choisir la langue — Français">
+          <svg viewBox="0 0 26 24" aria-hidden="true">
+            <rect width="8.667" height="24" fill="#002395"/>
+            <rect x="8.667" width="8.667" height="24" fill="#ffffff"/>
+            <rect x="17.333" width="8.667" height="24" fill="#ED2939"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="jh-banner" aria-hidden="true"></div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-stage">
+      <div class="vid v1"><span class="live">● LIVE</span><span class="play">▶</span></div>
+      <div class="vid v2"><span class="live">● LIVE</span><span class="play">▶</span></div>
+      <div class="emoji e1">🔥</div>
+      <div class="emoji e2">❤️</div>
+      <div class="emoji e3">🏅</div>
+      <div class="emoji e4">😮</div>
+      <div class="emoji e5">👏</div>
+    </div>
+    <div class="hero-copy">
+      <h1>Retrouvez tous vos replays et participez à des <span class="hl">lives</span> avec vos athlètes préférés !</h1>
+      <div class="hero-cta">
+        <a class="btn btn-green" href="#">Rejoindre Olympic Connect →</a>
+        <div class="dots"><span class="on"></span><span></span><span></span><span></span><span></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEDAL TABLE -->
+<section class="section" id="medailles">
+  <div class="wrap medals-grid">
+    <div class="panel">
+      <div class="medal-head"><h3>Tableau des médailles</h3><span>· Tous sports</span></div>
+      <table class="medals">
+        <thead>
+          <tr><th>Pos.</th><th class="l">Pays</th><th>🥇 Or</th><th>🥈 Arg.</th><th>🥉 Bron.</th><th>Total</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="pos">1</td><td class="l"><span class="cflag" style="background:linear-gradient(90deg,#0055a4 33%,#fff 33% 66%,#ef4135 66%)"></span> <span class="country">France</span></td><td>18</td><td>12</td><td>11</td><td class="total">41</td></tr>
+          <tr><td class="pos">2</td><td class="l"><span class="cflag" style="background:#d52b1e"></span> <span class="country">Suisse</span></td><td>12</td><td>12</td><td>9</td><td class="total">33</td></tr>
+          <tr><td class="pos">3</td><td class="l"><span class="cflag" style="background:linear-gradient(180deg,#ef2b2d 50%,#002868 50%)"></span> <span class="country">Norvège</span></td><td>10</td><td>7</td><td>3</td><td class="total">20</td></tr>
+          <tr><td class="pos">4</td><td class="l"><span class="cflag" style="background:linear-gradient(180deg,#000 33%,#dd0000 33% 66%,#ffce00 66%)"></span> <span class="country">Allemagne</span></td><td>10</td><td>6</td><td>14</td><td class="total">30</td></tr>
+          <tr><td class="pos">5</td><td class="l"><span class="cflag" style="background:#de2910"></span> <span class="country">Chine</span></td><td>8</td><td>10</td><td>8</td><td class="total">26</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="filters">
+      <div class="panel">
+        <h4>Filtres</h4>
+        <div class="field">Date <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"/></svg></div>
+        <div class="field">Tous les sports <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"/></svg></div>
+        <div class="field">Tous les NOC <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"/></svg></div>
+        <div class="field">Athlète <span>🔍</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCHAINES COMPÉTITIONS -->
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Prochaines<br>compétitions</h2>
+      <a class="link" href="#">Découvrir l'Agenda →</a>
+    </div>
+    <div class="cards4">
+      <article class="compcard"><div class="ph" style="background:linear-gradient(135deg,#0a6a8c,#0a1b3a)"><span class="tag">⛸️ Patinage</span></div><div class="body"><h4>Patinage de vitesse</h4><div class="meta"><span>500 m hommes</span></div><div class="foot"><span style="font-weight:700;color:var(--bleu-jo)">9 février</span><a class="mini" href="#">S'inscrire</a></div></div></article>
+      <article class="compcard"><div class="ph" style="background:linear-gradient(135deg,#1d8a5a,#0a1b3a)"><span class="tag">🏂 Snow</span></div><div class="body"><h4>Snowboard</h4><div class="meta"><span>Big Air hommes · Livigno</span></div><div class="foot"><span style="font-weight:700;color:var(--bleu-jo)">10 février</span><a class="mini" href="#">S'inscrire</a></div></div></article>
+      <article class="compcard"><div class="ph" style="background:linear-gradient(135deg,#016381,#231c4a)"><span class="tag">🛷 Luge</span></div><div class="body"><h4>Luge</h4><div class="meta"><span>Simple femmes · Cortina</span></div><div class="foot"><span style="font-weight:700;color:var(--bleu-jo)">10 février</span><a class="mini" href="#">S'inscrire</a></div></div></article>
+      <article class="compcard"><div class="ph" style="background:linear-gradient(135deg,#0a6a8c,#16324a)"><span class="tag">⛸️ Patinage</span></div><div class="body"><h4>Patinage Artistique</h4><div class="meta"><span>Couple libre</span></div><div class="foot"><span style="font-weight:700;color:var(--bleu-jo)">11 février</span><a class="mini" href="#">S'inscrire</a></div></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- COMMUNITY BANNER -->
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="banner community">
+      <div class="img"></div>
+      <div class="txt">
+        <h3>Rejoignez la communauté</h3>
+        <p>Découvrez Olympic Connect, notre extension communautaire, réagissez aux posts de vos athlètes favoris.</p>
+        <p style="font-size:14px;color:#9fb6e8">Connectez-vous et posez vos questions aux athlètes durant les lives !</p>
+        <a class="btn btn-green" href="#">Découvrir Olympic Connect →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIVE / REPLAYS strip + featured -->
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head"><h2>Suivez vos talks en replay</h2><a class="link" href="#">Voir tous les replays →</a></div>
+    <div class="strip">
+      <div class="vcard"><div class="ph"><span class="live">● LIVE</span><span class="play">▶</span></div><div class="cap">Ski Alpin — Descente hommes</div></div>
+      <div class="vcard"><div class="ph" style="background:linear-gradient(135deg,#16324a,#0a1b3a)"><span class="live">● LIVE</span><span class="play">▶</span></div><div class="cap">Hockey sur glace — GER vs FRA</div></div>
+      <div class="vcard"><div class="ph" style="background:linear-gradient(135deg,#0a6a8c,#231c4a)"><span class="live">● LIVE</span><span class="play">▶</span></div><div class="cap">Biathlon — Sprint femmes</div></div>
+      <div class="vcard"><div class="ph" style="background:linear-gradient(135deg,#1d8a5a,#0a1b3a)"><span class="live">● LIVE</span><span class="play">▶</span></div><div class="cap">Curling — Round Robin</div></div>
+      <div class="vcard"><div class="ph" style="background:linear-gradient(135deg,#016381,#16324a)"><span class="live">● LIVE</span><span class="play">▶</span></div><div class="cap">Bobsleigh — Manche 2</div></div>
+    </div>
+    <div class="replays2" style="margin-top:28px">
+      <article class="replay-big"><div class="ph"><span class="play">▶</span></div><div class="body"><h4>SWE–ITA — Men's Preliminary Round · Ice Hockey | Milano Cortina 2026</h4><div class="meta"><span class="chip time">Il y a 2h</span><span class="chip">🏒 Ice hockey</span></div></div></article>
+      <article class="replay-big"><div class="ph" style="background:linear-gradient(135deg,#1d4d3a,#0a1b3a)"><span class="play">▶</span></div><div class="body"><h4>GER–FRA — Men's Preliminary Round · Ice Hockey | Milano Cortina 2026</h4><div class="meta"><span class="chip time">Il y a 3h</span><span class="chip">🏒 Ice hockey</span></div></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- MILANO CORTINA — results + map -->
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head"><h2>Découvre Milano Cortina 2026</h2></div>
+    <div class="milano">
+      <div class="map-panel">
+        <div class="shape"></div>
+        <div class="pin" style="top:34%;left:22%">Cortina d'Ampezzo</div>
+        <div class="pin" style="top:30%;left:50%">Anterselva</div>
+        <div class="pin" style="top:52%;left:30%">Livigno</div>
+        <div class="pin" style="top:48%;left:18%">Bormio</div>
+        <div class="pin" style="top:58%;left:55%">Predazzo</div>
+        <div class="pin" style="top:64%;left:40%">Tesero</div>
+      </div>
+      <div>
+        <div class="res-filters">
+          <div class="field">Ville <svg viewBox="0 0 24 24" width="14" height="14"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"/></svg></div>
+          <div class="field">Sport <svg viewBox="0 0 24 24" width="14" height="14"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"/></svg></div>
+          <div class="field">Rechercher <span>🔍</span></div>
+        </div>
+        <div class="res-cards">
+          <article class="compcard"><div class="ph" style="background:linear-gradient(135deg,#0a6a8c,#16324a)"><span class="tag">⛷️ Ski</span></div><div class="body"><h4>Ski Alpin</h4><div class="meta"><span>Super-G hommes</span><span>📍 Cortina · ⏱ 14h</span></div><div class="foot"><span style="font-weight:700;color:var(--bleu-jo)">9 fév.</span><a class="mini" href="#">S'inscrire</a></div></div></article>
+          <article class="compcard"><div class="ph" style="background:linear-gradient(135deg,#0a6a8c,#0a1b3a)"><span class="tag">🎯 Biathlon</span></div><div class="body"><h4>Biathlon</h4><div class="meta"><span>Sprint 10km</span><span>📍 Anterselva · ⏱ 9h</span></div><div class="foot"><span style="font-weight:700;color:var(--bleu-jo)">9 fév.</span><a class="mini" href="#">S'inscrire</a></div></div></article>
+          <article class="compcard"><div class="ph" style="background:linear-gradient(135deg,#016381,#231c4a)"><span class="tag">⛸️ Patinage</span></div><div class="body"><h4>Patinage de V.</h4><div class="meta"><span>500 m hommes</span><span>📍 Milano · ⏱ 16h</span></div><div class="foot"><span style="font-weight:700;color:var(--bleu-jo)">9 fév.</span><a class="mini" href="#">S'inscrire</a></div></div></article>
+          <article class="compcard"><div class="ph" style="background:linear-gradient(135deg,#1d8a5a,#0a1b3a)"><span class="tag">🏂 Snow</span></div><div class="body"><h4>Snowboard</h4><div class="meta"><span>Big Air hommes</span><span>📍 Livigno · ⏱ 11h</span></div><div class="foot"><span style="font-weight:700;color:var(--bleu-jo)">10 fév.</span><a class="mini" href="#">S'inscrire</a></div></div></article>
+          <article class="compcard"><div class="ph" style="background:linear-gradient(135deg,#016381,#16324a)"><span class="tag">🛷 Luge</span></div><div class="body"><h4>Luge</h4><div class="meta"><span>Simple femmes</span><span>📍 Cortina · ⏱ 18h</span></div><div class="foot"><span style="font-weight:700;color:var(--bleu-jo)">10 fév.</span><a class="mini" href="#">S'inscrire</a></div></div></article>
+          <article class="compcard"><div class="ph" style="background:linear-gradient(135deg,#0a6a8c,#231c4a)"><span class="tag">⛸️ Patinage</span></div><div class="body"><h4>Patinage Art.</h4><div class="meta"><span>Couple libre</span><span>📍 Milano · ⏱ 20h</span></div><div class="foot"><span style="font-weight:700;color:var(--bleu-jo)">11 fév.</span><a class="mini" href="#">S'inscrire</a></div></div></article>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BILLETERIE BANNER -->
+<section class="section" id="billeterie" style="padding-top:0">
+  <div class="wrap">
+    <div class="banner">
+      <div class="img"></div>
+      <div class="txt">
+        <h3>Billeterie</h3>
+        <p>Il reste encore des places pour certaines épreuves des JO ! Réservez dès maintenant vos billets et venez ressentir l'ambiance unique des compétitions au plus près des athlètes.</p>
+        <a class="btn btn-green" href="#">Réserver mes billets ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DISCIPLINES -->
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head"><h2>Découvre les disciplines</h2><a class="link" href="#">Voir toutes les disciplines →</a></div>
+    <div class="disc-grid">
+      <div class="disc"><div class="ph">🎯</div><div class="name">Biathlon</div></div>
+      <div class="disc"><div class="ph">🛷</div><div class="name">Bobsleigh</div></div>
+      <div class="disc"><div class="ph">⛷️</div><div class="name">Combiné nordique</div></div>
+      <div class="disc"><div class="ph">🥌</div><div class="name">Curling</div></div>
+      <div class="disc"><div class="ph">🏒</div><div class="name">Hockey sur glace</div></div>
+      <div class="disc"><div class="ph">🛷</div><div class="name">Luge</div></div>
+    </div>
+    <div class="rings">⬤⬤⬤⬤⬤</div>
+  </div>
+</section>
+
+<!-- SHOP -->
+<section class="section" id="shop" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head"><h2>La boutique officielle</h2><a class="link" href="#">Accéder à la boutique →</a></div>
+    <div class="shop-grid">
+      <div class="prod"><div class="ph">🧣</div><div class="body"><div class="n">Écharpe officielle</div><div class="p">29 €</div></div></div>
+      <div class="prod"><div class="ph">🧢</div><div class="body"><div class="n">Casquette Milano</div><div class="p">25 €</div></div></div>
+      <div class="prod"><div class="ph">👕</div><div class="body"><div class="n">T-shirt Team FR</div><div class="p">35 €</div></div></div>
+      <div class="prod"><div class="ph">🧤</div><div class="body"><div class="n">Gants supporters</div><div class="p">19 €</div></div></div>
+      <div class="prod"><div class="ph">🐻‍❄️</div><div class="body"><div class="n">Mascotte peluche</div><div class="p">24 €</div></div></div>
+      <div class="prod"><div class="ph">🎽</div><div class="body"><div class="n">Maillot collector</div><div class="p">59 €</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- RESPONSABLE BANNER -->
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="banner resp">
+      <div class="img"></div>
+      <div class="txt">
+        <h3>Des Jeux Olympiques responsables</h3>
+        <p>Une plateforme pensée pour limiter son impact ! De l'accessibilité à l'hébergement, chaque choix vise des Jeux plus durables.</p>
+        <a class="btn btn-green" href="#">Voir la charte d'engagement ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footJO">
+  <div class="footJO-inner">
+
+    <h4 class="footJO-title">Partenaires Olympiques et Paralympiques Mondiaux</h4>
+
+    <div class="footJO-sponsors">
+      <div class="footJO-row">
+        <img class="spon" style="--h:65px" src="assets/logos/airbnb.svg" alt="Airbnb">
+        <img class="spon" style="--h:35px" src="assets/logos/alibaba.svg" alt="Alibaba">
+        <img class="spon" style="--h:60px" src="assets/logos/allianz.svg" alt="Allianz">
+        <img class="spon" style="--h:56px" src="assets/logos/cocacola.svg" alt="Coca-Cola">
+      </div>
+      <div class="footJO-row">
+        <img class="spon" style="--h:42px" src="assets/logos/deloitte.svg" alt="Deloitte">
+        <img class="spon" style="--h:77px" src="assets/logos/omega.svg" alt="Omega">
+        <img class="spon" style="--h:50px" src="assets/logos/pg.svg" alt="P&amp;G">
+        <img class="spon" style="--h:72px" src="assets/logos/logo-corona-cero.png" alt="Corona Cero">
+      </div>
+      <div class="footJO-row">
+        <img class="spon" style="--h:46px" src="assets/logos/visa.svg" alt="Visa">
+        <img class="spon" style="--h:31px" src="assets/logos/samsung.svg" alt="Samsung">
+        <img class="spon" style="--h:40px" src="assets/logos/tcl.svg" alt="TCL">
+      </div>
+    </div>
+
+    <div class="footJO-cols">
+      <div class="footJO-brand">
+        <a class="footJO-logo" href="#"><img src="assets/logos/logo_olympic_cool.svg" alt="Olympic Connect 2026"></a>
+        <div class="footJO-social">
+          <a href="#" aria-label="Facebook"><img src="assets/logos/facebook.svg" alt=""></a>
+          <a href="#" aria-label="Instagram"><img src="assets/logos/instagram.svg" alt=""></a>
+          <a href="#" aria-label="YouTube"><img src="assets/logos/youtube.svg" alt=""></a>
+        </div>
+      </div>
+      <nav class="footJO-nav">
+        <div class="footJO-col">
+          <h5>Compétition</h5>
+          <ul>
+            <li><a href="#">Résultats</a></li>
+            <li><a href="#">Médailles</a></li>
+            <li><a href="#">Disciplines</a></li>
+            <li><a href="#">Athlètes</a></li>
+          </ul>
+        </div>
+        <div class="footJO-col">
+          <h5>L'évènement</h5>
+          <ul>
+            <li><a href="#">Actualités</a></li>
+            <li><a href="#">Map et Agenda</a></li>
+            <li><a href="#">Calendrier</a></li>
+            <li><a href="#">Billeterie</a></li>
+          </ul>
+        </div>
+        <div class="footJO-col">
+          <h5>Services</h5>
+          <ul>
+            <li><a href="#">Shop</a></li>
+            <li><a href="#">Aide</a></li>
+            <li><a href="#">SOS</a></li>
+            <li><a href="#">Engagement</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="footJO-divider"></div>
+
+    <p class="footJO-copy">Copyright © 2026 | All Rights Reserved | <a href="#">Terms and Conditions</a> | <a href="#">Privacy Policy</a></p>
+
+  </div>
+  <div class="footJO-deco" aria-hidden="true"></div>
+</footer>
+
+</body>
+</html>

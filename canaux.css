@@ -73,6 +73,26 @@
 }
 .ch-members svg{ width:22px; height:16px; fill:#fff; flex-shrink:0; }
 
+/* Badge statut « Off line » (gris) — top row carte desktop */
+.ch-status{
+  display:inline-flex; align-items:center; gap:6px;
+  border-radius:6px; padding:6px 8px;
+  font-family:'NewBlack',sans-serif; font-weight:400;
+  font-size:clamp(13px, calc(11px + .3vw), 18px); line-height:1; white-space:nowrap;
+}
+.ch-status .dot{ width:9px; height:9px; border-radius:50%; }
+.ch-status--off{ background:#cdd2db; color:#5b616e; }
+.ch-status--off .dot{ background:#fff; }
+
+/* Badge « New message (n) » (rouge) — dans la boîte message, à droite de la citation */
+.ch-newmsg{
+  display:inline-flex; align-items:center; gap:8px; flex-shrink:0;
+  background:var(--sos); border-radius:6px; padding:6px 10px;
+  font-family:'NewBlack',sans-serif; font-weight:400;
+  font-size:clamp(13px, calc(11px + .3vw), 18px); line-height:1; color:#fff; white-space:nowrap;
+}
+.ch-newmsg .dot{ width:9px; height:9px; border-radius:50%; background:#fff; flex-shrink:0; }
+
 /* Boîte message blanche (citation + réactions) */
 .ch-msg{
   display:flex; flex-direction:column; gap:12px;
