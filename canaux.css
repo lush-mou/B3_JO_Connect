@@ -199,8 +199,11 @@
    « feed » mobile. Composants : .cc-card / .cc-badge / .cc-talk
    =========================================================== */
 .cc-feed{ max-width:600px; margin-inline:auto; padding-inline:16px; }
+/* Titres Anton en bleu #1874FF à TOUTES les largeurs (hero + sections) */
+.cc-feed .page-title,
+.cc-feed .section-title{ color:var(--blue) !important; }
 .cc-feed .section-title{
-  font-size:clamp(24px, calc(20px + 2vw), 34px); color:var(--blue);
+  font-size:clamp(24px, calc(20px + 2vw), 34px);
   margin-bottom:14px;
 }
 .cc-feed .ch-sub{ font-size:clamp(14px, calc(13px + .4vw), 16px); margin:-4px 0 20px; }
@@ -219,9 +222,10 @@
   display:flex; flex-direction:column; gap:8px;
   background:var(--blue); border-radius:var(--radius-md); padding:8px;
 }
-.cc-top{ display:flex; gap:10px; padding:4px 4px 0; min-width:0; }
+.cc-top{ display:flex; align-items:flex-start; gap:10px; padding:4px 4px 0; min-width:0; }
 .cc-avatar{
-  flex-shrink:0; width:clamp(64px, 18vw, 84px); aspect-ratio:1;
+  flex-shrink:0; align-self:flex-start;        /* ne s'étire jamais → reste carré */
+  width:clamp(64px, 18vw, 84px); aspect-ratio:1; height:auto;
   border-radius:12px; object-fit:cover;
 }
 .cc-main{ flex:1; min-width:0; display:flex; flex-direction:column; justify-content:center; gap:12px; }
@@ -311,4 +315,13 @@
   .ch-card-top{ flex-direction:column; }
   .ch-card-avatar{ width:100%; aspect-ratio:16/10; }
   .ch-tabs{ gap:12px; }
+}
+
+/* ===========================================================
+   canaux.html — bascule responsive : desktop ≥768px / feed mobile (917-7399) <768px
+   =========================================================== */
+.ch-mobile{ display:none; }
+@media (max-width:767px){
+  .ch-desktop{ display:none; }
+  .ch-mobile{ display:block; }
 }

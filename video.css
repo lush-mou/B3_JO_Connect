@@ -1,0 +1,307 @@
+/* ============================================================
+   COMPOSANT « Video / Replay / Live »
+   COPIE 1:1 du component set Figma 1213:5509 — dimensions
+   EXACTES en pixels (largeur, hauteur, paddings, typo, play).
+   Aucune mise à l'échelle / clamp : on reproduit la maquette.
+
+   Variantes :
+   .vid--replays-d   replays desktop            677 × 376
+   .vid--cat         replays desktop + cat       678 × 380
+   .vid--replays-m   replays mobile              374 × 207
+   .vid--live-d      live à venir desktop        676 × 376
+   .vid--live-m      live à venir mobile         374 × 208
+   .vid--direct-m    mobile direct               374 × 201
+   .vid-petit        mobile direct petit (liste) 390 × 72
+   .vid-offline      mobile offline (liste)      390 × 72
+   .vid--photo       photo / placeholder hero   1440 × 594
+
+   Couleurs (style.css) : --indigo #41348a · --paper #fbfbfb · --blue #1874ff
+   Polices : 'NewBlack' (corps) · 'Anton' (prochain live)
+   ============================================================ */
+
+/* ---------- Briques partagées ---------- */
+.vid{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  box-sizing:border-box;
+  color:var(--paper);
+  font-family:'NewBlack',sans-serif;
+  background-color:#1b1b1b;
+  background-size:cover;
+  background-position:center;
+  border-radius:6px;
+  overflow:hidden;
+  isolation:isolate;
+}
+
+/* Pastille « vues » (œil + compteur) — indigo */
+.vid-view{
+  display:inline-flex; align-items:center; gap:8px;
+  background:var(--indigo);
+  padding:4px 9px 3px 7px;
+  font-weight:400; line-height:1; color:var(--paper);
+  font-size:20px; letter-spacing:-.2px;
+  text-transform:uppercase; white-space:nowrap;
+}
+.vid-view .vid-eye{ width:26px; height:17px; display:block; }
+.vid-view--m{ justify-content:center; padding:0 4px; font-size:16px; letter-spacing:-.16px; }
+.vid-view--m .vid-eye{ width:18px; height:12px; }
+.vid-view--full{ font-size:32px; letter-spacing:-.32px; }
+
+/* Bouton lecture (cercle indigo + triangle blanc) */
+.vid-play{ display:block; flex:0 0 auto; }
+
+/* Séparateur · (point) — suit la couleur du texte */
+.vid-dot{
+  display:inline-block; width:6px; height:6px;
+  border-radius:50%; background:currentColor; flex:0 0 auto;
+}
+
+/* Étiquette catégorie (texte bleu sur fond blanc) */
+.vid-cats{ display:flex; gap:8px; min-width:0; }
+.vid-chip{
+  display:inline-flex; align-items:center; justify-content:center;
+  background:var(--paper); color:var(--blue);
+  border-radius:5px; padding:0 4px; height:22px;
+  font-weight:500; line-height:1; letter-spacing:-.16px;
+  font-size:16px; white-space:nowrap;
+}
+
+/* Bouton plein (mobile direct) */
+.vid-btn{
+  display:inline-flex; align-items:center; justify-content:center;
+  background:#fff; color:var(--blue);
+  border:0; border-radius:8px; padding:6px 12px;
+  font-family:'NewBlack',sans-serif; font-weight:600; font-size:14px;
+  line-height:1; cursor:pointer; white-space:nowrap;
+}
+
+/* =========================================================
+   1) REPLAYS — DESKTOP   677 × 376
+   ========================================================= */
+.vid--replays-d{
+  width:677px; height:376px;
+  justify-content:space-between;
+  padding:16px 0;
+}
+.vid--replays-d .vid-top{ display:flex; justify-content:flex-end; }
+.vid--replays-d .vid-mid{ display:flex; justify-content:center; }
+.vid--replays-d .vid-play{ width:95px; height:95px; }
+.vid--replays-d .vid-bottom{ display:flex; flex-direction:column; padding:0 8px; }
+.vid--replays-d .vid-title{ font-weight:400; line-height:1; font-size:20px; }
+.vid--replays-d .vid-meta{
+  display:flex; align-items:center; justify-content:flex-end; gap:12px;
+  font-weight:600; line-height:1; font-size:20px;
+}
+
+/* =========================================================
+   2) REPLAYS — DESKTOP + CATÉGORIES   678 × 380
+   ========================================================= */
+.vid--cat{
+  width:678px; height:380px;
+  justify-content:space-between; align-items:center;
+  padding:40px 0 16px;
+}
+.vid--cat .vid-top{ width:100%; display:flex; justify-content:flex-end; }
+.vid--cat .vid-mid{ display:flex; justify-content:center; padding:8px; }
+.vid--cat .vid-play{ width:66px; height:66px; }
+.vid--cat .vid-bottom{ display:flex; flex-direction:column; gap:7px; padding:0 8px; width:100%; }
+.vid--cat .vid-title{ font-weight:400; line-height:1; font-size:20px; }
+.vid--cat .vid-row{ display:flex; align-items:center; justify-content:space-between; gap:12px; width:100%; }
+.vid--cat .vid-meta{
+  display:flex; align-items:center; gap:7px; flex:0 0 auto;
+  font-weight:600; line-height:1; font-size:20px;
+}
+.vid--cat:hover{ box-shadow:inset 0 7px 41px 30px rgba(0,0,0,.3); }
+
+/* =========================================================
+   3) REPLAYS — MOBILE   374 × 207
+   ========================================================= */
+.vid--replays-m{
+  width:374px; height:207px; border-radius:8px;
+  justify-content:space-between; padding:8px 0;
+}
+.vid--replays-m .vid-top{ display:flex; justify-content:flex-end; }
+.vid--replays-m .vid-mid{ display:flex; justify-content:center; }
+.vid--replays-m .vid-play{ width:47px; height:47px; }
+.vid--replays-m .vid-bottom{ display:flex; flex-direction:column; gap:8px; padding:0 8px; }
+.vid--replays-m .vid-title{ font-weight:500; line-height:1; font-size:14px; }
+.vid--replays-m .vid-meta{
+  display:flex; align-items:center; justify-content:flex-end; gap:10px;
+  font-weight:300; line-height:1; font-size:14px;
+}
+.vid--replays-m .vid-dot{ width:5px; height:5px; }
+
+/* =========================================================
+   4) LIVE À VENIR — DESKTOP   676 × 376
+   ========================================================= */
+.vid--live-d{
+  width:676px; height:376px;
+  flex-direction:row; align-items:flex-end; justify-content:flex-end;
+  padding:16px;
+}
+.vid--live-d .vid-live-row{
+  display:flex; flex:1; align-items:flex-end; justify-content:space-between;
+  gap:12px; min-width:0; color:var(--paper); text-transform:uppercase;
+}
+.vid--live-d .vid-handle{ font-weight:400; line-height:1; font-size:28px; }
+.vid--live-d .vid-next{
+  font-family:'Anton',sans-serif; line-height:1; letter-spacing:-.28px;
+  text-align:right; font-size:28px;
+}
+.vid--live-d .vid-next span{ display:block; }
+
+/* =========================================================
+   5) LIVE À VENIR — MOBILE   374 × 208
+   ========================================================= */
+.vid--live-m{
+  width:374px; height:208px;
+  flex-direction:row; align-items:flex-end; justify-content:flex-end;
+  padding:16px;
+}
+.vid--live-m .vid-live-row{
+  display:flex; flex:1; align-items:flex-end; justify-content:space-between;
+  gap:12px; min-width:0; color:var(--paper);
+}
+.vid--live-m .vid-handle{ font-weight:500; line-height:1; font-size:14px; }
+.vid--live-m .vid-next{
+  font-family:'Anton',sans-serif; line-height:1; letter-spacing:-.2px;
+  text-transform:uppercase; text-align:right; font-size:20px;
+}
+.vid--live-m .vid-next span{ display:block; }
+
+/* =========================================================
+   6) MOBILE DIRECT   374 × 201
+   ========================================================= */
+.vid--direct-m{
+  width:374px; height:201px; border-radius:8px;
+  justify-content:space-between; padding:8px 0;
+}
+.vid--direct-m .vid-top{ display:flex; justify-content:flex-end; }
+.vid--direct-m .vid-mid{ display:flex; justify-content:center; }
+.vid--direct-m .vid-play{ width:47px; height:47px; }
+.vid--direct-m .vid-bottom{ display:flex; flex-direction:column; gap:7px; padding:0 4px; }
+.vid--direct-m .vid-title{ font-weight:500; line-height:1; font-size:14px; text-align:left; }
+.vid--direct-m .vid-actions{ display:flex; gap:10px; justify-content:flex-start; }
+
+/* =========================================================
+   7) MOBILE DIRECT PETIT  (composant indépendant)  390 × 72
+   Item de liste, fond clair. Toute la typo en Regular 400.
+   ========================================================= */
+.vid-petit{
+  display:flex; gap:15px; align-items:stretch;
+  width:390px; height:72px; box-sizing:border-box;
+  font-family:'NewBlack',sans-serif;
+}
+.vid-petit__tile{
+  position:relative; flex:0 0 120px; width:120px; align-self:stretch;
+  background:#e5e5e5; background-size:cover; background-position:center;
+  border-radius:8px; overflow:hidden;
+}
+.vid-petit__badge{
+  position:absolute; left:3px; bottom:3px;
+  display:inline-flex; align-items:center; gap:4px;
+  background:rgba(0,0,0,.45); border-radius:2px; padding:0 2px;
+  color:var(--paper); font-weight:300; font-size:11px; line-height:1;
+}
+.vid-petit__live{ width:10px; height:10px; border-radius:50%; background:#ff4b55; flex:0 0 auto; }
+.vid-petit__body{
+  display:flex; flex-direction:column; justify-content:space-between; flex:1; min-width:0;
+}
+.vid-petit__title{ font-weight:700; font-size:16px; line-height:1; color:#121212; }
+.vid-petit__sub{   font-weight:500; font-size:16px; line-height:1; color:#4d4d4d; }
+.vid-petit__meta{  font-weight:400; font-size:16px; line-height:1; color:#4d4d4d; }
+
+/* =========================================================
+   8) MOBILE OFFLINE  (composant indépendant)  390 × 72
+   Item de liste, fond clair. Titre Bold 700 / @handle Medium 500 / foot Regular 400.
+   ========================================================= */
+.vid-offline{
+  display:flex; gap:15px; align-items:stretch;
+  width:390px; height:72px; box-sizing:border-box;
+  font-family:'NewBlack',sans-serif;
+}
+.vid-offline__tile{
+  position:relative; flex:0 0 120px; width:120px; align-self:stretch;
+  background:#e5e5e5; background-size:cover; background-position:center;
+  border-radius:8px; overflow:hidden;
+}
+.vid-offline__badge{
+  position:absolute; left:3px; bottom:3px;
+  display:inline-flex; align-items:center;
+  background:rgba(0,0,0,.45); border-radius:2px; padding:0 2px;
+  color:var(--paper); font-weight:300; font-size:11px; line-height:1;
+}
+.vid-offline__body{
+  display:flex; flex-direction:column; justify-content:space-between; flex:1; min-width:0;
+}
+.vid-offline__title{ font-weight:700; font-size:16px; line-height:1; color:#121212; letter-spacing:-.16px; }
+.vid-offline__sub{   font-weight:500; font-size:16px; line-height:1; color:#4d4d4d; letter-spacing:-.16px; }
+.vid-offline__meta{
+  display:flex; align-items:center; gap:10px;
+  font-weight:400; font-size:16px; line-height:1; color:#4d4d4d;
+}
+.vid-offline__meta .vid-dot{ width:5px; height:5px; }
+.vid-offline__meta .vid-eye{ width:18px; height:12px; opacity:.8; }
+
+/* =========================================================
+   9) PHOTO / PLACEHOLDER (hero d'upload)   1440 × 594
+   ========================================================= */
+.vid--photo{
+  width:1440px; height:594px; border-radius:16px;
+  align-items:center; justify-content:space-between;
+  padding:16px 0;
+  background-color:#fbfbfb;
+  background-image:
+    linear-gradient(45deg,#e9e9e9 25%,transparent 25%),
+    linear-gradient(-45deg,#e9e9e9 25%,transparent 25%),
+    linear-gradient(45deg,transparent 75%,#e9e9e9 75%),
+    linear-gradient(-45deg,transparent 75%,#e9e9e9 75%);
+  background-size:40px 40px;
+  background-position:0 0,0 20px,20px -20px,-20px 0;
+  color:var(--paper);
+}
+.vid--photo .vid-top{ width:100%; display:flex; justify-content:flex-end; padding:0 8px; }
+.vid--photo .vid-mid{ display:flex; justify-content:center; }
+.vid--photo .vid-play{ width:96px; height:96px; }
+.vid--photo .vid-bottom{ display:flex; flex-direction:column; gap:25px; width:100%; }
+.vid--photo .vid-title{
+  font-weight:600; line-height:1; letter-spacing:-.36px; padding:0 16px; font-size:36px;
+}
+.vid--photo .vid-row{
+  display:flex; align-items:center; justify-content:space-between; gap:12px;
+  width:100%; padding:0 16px; box-sizing:border-box;
+}
+.vid--photo .vid-chip{ height:34px; border-radius:8px; padding:0 8px; font-size:24px; letter-spacing:-.24px; }
+.vid--photo .vid-meta{
+  display:flex; align-items:center; gap:10px; flex:0 0 auto;
+  font-weight:600; font-size:20px; line-height:1; letter-spacing:-.2px;
+}
+.vid--photo .vid-dot{ width:8px; height:8px; }
+
+/* =========================================================
+   PAGE DE RÉFÉRENCE (showcase) — cartes à taille réelle,
+   défilement horizontal si une carte dépasse l'écran.
+   ========================================================= */
+.lab{ max-width:1200px; margin:0 auto; padding:40px 24px 96px; }
+.lab-head{ margin-bottom:48px; }
+.lab-head h1{
+  font-family:'Anton',sans-serif; color:var(--navy);
+  font-size:clamp(28px,5vw,48px); line-height:1; margin:0 0 10px;
+}
+.lab-head p{ color:#5a5a5a; font-size:16px; max-width:60ch; margin:0; }
+
+.lab-group{ display:flex; flex-direction:column; gap:18px; padding:28px 0; border-top:1px solid #eaeaea; }
+.lab-label{
+  font-family:'NewBlack',sans-serif; font-weight:600; color:var(--indigo);
+  font-size:13px; text-transform:uppercase; letter-spacing:.06em; margin:0;
+}
+.lab-note{ color:#7a7a7a; font-size:13px; margin:-8px 0 0; }
+.lab-row{ display:flex; flex-wrap:wrap; gap:28px; align-items:flex-start; overflow-x:auto; }
+
+.lab-list{
+  display:flex; flex-direction:column; gap:16px;
+  width:420px; padding:16px;
+  background:#fff; border:1px solid #ececec; border-radius:12px;
+}

@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Olympic Connect 2026 — Composant Vidéo</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="video.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-content">
+
+    <!-- Barre de navigation -->
+    <nav class="header-bar">
+      <div class="header-left">
+        <a class="header-logo-link" href="index.html" aria-label="Olympic Connect 2026 — accueil">
+          <img class="header-logo" src="assets/img/logo-oc-baniere.svg" alt="Olympic Connect 2026" />
+        </a>
+        <span class="header-badge">JO 2026</span>
+      </div>
+
+      <div class="header-nav">
+        <a href="replays.html">Replays et Temps forts</a>
+        <a href="athlete-talks.html">Athletes Talks</a>
+        <a href="posts.html">Posts</a>
+        <a href="canaux.html">Canaux</a>
+      </div>
+
+      <div class="header-actions">
+        <a class="btn-sos" href="sos.html">SOS</a>
+        <button class="btn-flag" type="button" aria-label="Choisir la langue — Français">
+          <svg viewBox="0 0 26 24" aria-hidden="true">
+            <rect width="8.667" height="24" fill="#002395" />
+            <rect x="8.667" width="8.667" height="24" fill="#ffffff" />
+            <rect x="17.333" width="8.667" height="24" fill="#ED2939" />
+          </svg>
+        </button>
+        <a class="btn-login" href="connexion.html">Se connecter</a>
+
+        <!-- Burger (visible < 1050px) -->
+        <button class="btn-burger" type="button" aria-label="Ouvrir le menu"
+                aria-expanded="false" aria-controls="headerMenu">
+          <svg class="icon-open" viewBox="0 0 40 28" aria-hidden="true">
+            <line x1="2" y1="4"  x2="38" y2="4" />
+            <line x1="2" y1="14" x2="38" y2="14" />
+            <line x1="2" y1="24" x2="38" y2="24" />
+          </svg>
+          <svg class="icon-close" viewBox="0 0 28 28" aria-hidden="true">
+            <line x1="5" y1="5"  x2="23" y2="23" />
+            <line x1="23" y1="5" x2="5"  y2="23" />
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Menu plein écran (visible < 1050px, ouvert via le burger) -->
+    <div class="header-menu" id="headerMenu">
+      <a href="replays.html">Replays et Temps forts</a>
+      <a href="athlete-talks.html">Athletes Talks</a>
+      <a href="posts.html">Posts</a>
+      <a href="canaux.html">Canaux</a>
+      <div class="header-menu-actions">
+        <button class="btn-flag" type="button" aria-label="Choisir la langue — Français">
+          <svg viewBox="0 0 26 24" aria-hidden="true">
+            <rect width="8.667" height="24" fill="#002395" />
+            <rect x="8.667" width="8.667" height="24" fill="#ffffff" />
+            <rect x="17.333" width="8.667" height="24" fill="#ED2939" />
+          </svg>
+        </button>
+        <a class="btn-login" href="connexion.html">Se connecter</a>
+      </div>
+    </div>
+
+    <!-- Bannière dégradée -->
+    <div class="header-banner" aria-hidden="true"></div>
+
+  </div>
+</header>
+
+<!--
+  ============================================================
+  Définitions SVG réutilisées par les cartes vidéo
+  (œil « vues » + bouton lecture). Symbols => <use> partout.
+  ============================================================
+-->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="ic-eye" viewBox="0 0 24 16">
+    <path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"
+      d="M12 0C5 0 1 8 1 8s4 8 11 8 11-8 11-8-4-8-11-8Zm0 12a4 4 0 1 1 0-8 4 4 0 0 1 0 8Z"/>
+  </symbol>
+  <symbol id="ic-play" viewBox="0 0 96 96">
+    <circle cx="48" cy="48" r="48" fill="#41348a"/>
+    <path d="M38 30 70 48 38 66Z" fill="#fbfbfb"/>
+  </symbol>
+</svg>
+
+<main class="lab">
+
+  <header class="lab-head">
+    <h1>Composant Vidéo</h1>
+    <p>Reconstruction fidèle du component set Figma « Video / Replay / Live »
+       (node 1213:5509). Chaque variante ci-dessous est réutilisable : on garde
+       le markup, on change juste la photo et les textes.</p>
+  </header>
+
+  <!-- 1) REPLAYS — DESKTOP -->
+  <section class="lab-group">
+    <p class="lab-label">Replays — desktop</p>
+    <div class="lab-row">
+      <article class="vid vid--replays-d" role="img"
+        aria-label="Women's Halfpipe Final — Freestyle Skiing"
+        style="background-image:url('assets/img/video-skier.png')">
+        <div class="vid-top">
+          <span class="vid-view"><svg class="vid-eye" viewBox="0 0 24 16"><use href="#ic-eye"/></svg>12 345</span>
+        </div>
+        <div class="vid-mid"><svg class="vid-play" viewBox="0 0 96 96"><use href="#ic-play"/></svg></div>
+        <div class="vid-bottom">
+          <p class="vid-title">Women's Halfpipe Final 1 - Freestyle Skiing</p>
+          <p class="vid-meta">il y a 1 jour <span class="vid-dot"></span> 12 min</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 2) REPLAYS — DESKTOP + CATÉGORIES -->
+  <section class="lab-group">
+    <p class="lab-label">Replays — desktop + catégories</p>
+    <p class="lab-note">Survol = ombre interne (état hover Figma).</p>
+    <div class="lab-row">
+      <article class="vid vid--cat" role="img" aria-label="Athlete Talks"
+        style="background-image:url('assets/img/video-talk.png')">
+        <div class="vid-top">
+          <span class="vid-view"><svg class="vid-eye" viewBox="0 0 24 16"><use href="#ic-eye"/></svg>8 920</span>
+        </div>
+        <div class="vid-mid"><svg class="vid-play" viewBox="0 0 96 96"><use href="#ic-play"/></svg></div>
+        <div class="vid-bottom">
+          <p class="vid-title">Athlete Talks</p>
+          <div class="vid-row">
+            <div class="vid-cats">
+              <span class="vid-chip">Curling</span>
+              <span class="vid-chip">Interview</span>
+              <span class="vid-chip">CAN</span>
+            </div>
+            <p class="vid-meta">il y a 1 jour <span class="vid-dot"></span> 12 min</p>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3) REPLAYS — MOBILE -->
+  <section class="lab-group">
+    <p class="lab-label">Replays — mobile</p>
+    <div class="lab-row">
+      <article class="vid vid--replays-m" role="img"
+        aria-label="SWE-ITA — Men's Preliminary Round — Ice Hockey"
+        style="background-image:url('assets/img/video-skier.png')">
+        <div class="vid-top">
+          <span class="vid-view vid-view--m"><svg class="vid-eye" viewBox="0 0 24 16"><use href="#ic-eye"/></svg>12 345</span>
+        </div>
+        <div class="vid-mid"><svg class="vid-play" viewBox="0 0 96 96"><use href="#ic-play"/></svg></div>
+        <div class="vid-bottom">
+          <p class="vid-title">SWE-ITA - Men's Preliminary Round - Ice Hockey</p>
+          <p class="vid-meta">Il y a 2h <span class="vid-dot"></span> 12 min</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 4) LIVE À VENIR — DESKTOP -->
+  <section class="lab-group">
+    <p class="lab-label">Live à venir — desktop</p>
+    <div class="lab-row">
+      <article class="vid vid--live-d" role="img" aria-label="Justine Gaillard"
+        style="background-image:url('assets/img/video-justine.png')">
+        <div class="vid-live-row">
+          <p class="vid-handle">@Justine_Gaillard</p>
+          <p class="vid-next"><span>Prochain live</span><span>06 Fév - 14h</span></p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 5) LIVE À VENIR — MOBILE -->
+  <section class="lab-group">
+    <p class="lab-label">Live à venir — mobile</p>
+    <div class="lab-row">
+      <article class="vid vid--live-m" role="img" aria-label="Justine Gaillard"
+        style="background-image:url('assets/img/video-justine.png')">
+        <div class="vid-live-row">
+          <p class="vid-handle">@Justine_Gaillard</p>
+          <p class="vid-next"><span>Prochain live</span><span>06 Fév - 14h</span></p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 6) MOBILE DIRECT -->
+  <section class="lab-group">
+    <p class="lab-label">Mobile direct</p>
+    <div class="lab-row">
+      <article class="vid vid--direct-m" role="img" aria-label="Cérémonie d'ouverture"
+        style="background-image:url('assets/img/video-talk.png')">
+        <div class="vid-top">
+          <span class="vid-view vid-view--m"><svg class="vid-eye" viewBox="0 0 24 16"><use href="#ic-eye"/></svg>3 465</span>
+        </div>
+        <div class="vid-mid"><svg class="vid-play" viewBox="0 0 96 96"><use href="#ic-play"/></svg></div>
+        <div class="vid-bottom">
+          <p class="vid-title">Cérémonie d'ouverture</p>
+          <div class="vid-actions">
+            <button class="vid-btn" type="button">Revoir</button>
+            <button class="vid-btn" type="button">Partager</button>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 7 + 8) ITEMS DE LISTE : MOBILE DIRECT PETIT / MOBILE OFFLINE -->
+  <section class="lab-group">
+    <p class="lab-label">Items de liste — mobile direct petit &amp; offline</p>
+    <div class="lab-row">
+      <div class="lab-list">
+
+        <!-- COMPOSANT 1 : mobile direct petit -->
+        <article class="vid-petit">
+          <div class="vid-petit__tile" style="background-image:url('assets/img/video-skier.png')">
+            <span class="vid-petit__badge"><span class="vid-petit__live"></span>1 234</span>
+          </div>
+          <div class="vid-petit__body">
+            <p class="vid-petit__title">Athlete Talks</p>
+            <p class="vid-petit__sub">@Justine</p>
+            <p class="vid-petit__meta">12 min</p>
+          </div>
+        </article>
+
+        <!-- COMPOSANT 2 : mobile offline (distinct du précédent) -->
+        <article class="vid-offline">
+          <div class="vid-offline__tile" style="background-image:url('assets/img/video-justine.png')">
+            <span class="vid-offline__badge">12 min</span>
+          </div>
+          <div class="vid-offline__body">
+            <p class="vid-offline__title">Audrey McManiman</p>
+            <p class="vid-offline__sub">@Audrey_McManiman</p>
+            <p class="vid-offline__meta">il y a 1 jour <span class="vid-dot"></span> 3 465
+              <svg class="vid-eye" viewBox="0 0 24 16"><use href="#ic-eye"/></svg></p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 9) PHOTO / PLACEHOLDER -->
+  <section class="lab-group">
+    <p class="lab-label">Photo — placeholder (hero d'upload)</p>
+    <div class="lab-row">
+      <article class="vid vid--photo">
+        <div class="vid-top">
+          <span class="vid-view vid-view--full"><svg class="vid-eye" viewBox="0 0 24 16"><use href="#ic-eye"/></svg>X XXX</span>
+        </div>
+        <div class="vid-mid"><svg class="vid-play" viewBox="0 0 96 96"><use href="#ic-play"/></svg></div>
+        <div class="vid-bottom">
+          <p class="vid-title">Titre de la vidéo</p>
+          <div class="vid-row">
+            <div class="vid-cats">
+              <span class="vid-chip">catégorie 1</span>
+              <span class="vid-chip">catégorie 2</span>
+              <span class="vid-chip">catégorie 3</span>
+            </div>
+            <p class="vid-meta">il y a 1 jour <span class="vid-dot"></span> 12 min</p>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+
+    <h2 class="footer-partners-title">Partenaires Olympiques et Paralympiques Mondiaux</h2>
+
+    <div class="sponsors">
+      <div class="sponsor-cell"><a href="https://www.airbnb.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/airbnb.svg" alt="Airbnb" /></a></div>
+      <div class="sponsor-cell"><a href="https://www.alibabagroup.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/alibaba.svg" alt="Alibaba" /></a></div>
+      <div class="sponsor-cell"><a href="https://www.allianz.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/allianz.svg" alt="Allianz" /></a></div>
+      <div class="sponsor-cell"><a href="https://www.coca-cola.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/cocacola.svg" alt="Coca-Cola" /></a></div>
+      <div class="sponsor-cell"><a href="https://www.deloitte.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/deloitte.svg" alt="Deloitte" /></a></div>
+      <div class="sponsor-cell"><a href="https://www.omegawatches.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/omega.svg" alt="Omega" /></a></div>
+      <div class="sponsor-cell"><a href="https://www.pg.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/pg.svg" alt="P&amp;G" /></a></div>
+      <div class="sponsor-cell"><a href="https://www.corona.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/logo-corona-cero.png" alt="Corona Cero" /></a></div>
+      <div class="sponsor-cell"><a href="https://www.visa.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/visa.svg" alt="Visa" /></a></div>
+      <div class="sponsor-cell"><a href="https://www.samsung.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/samsung.svg" alt="Samsung" /></a></div>
+      <div class="sponsor-cell"><a href="https://www.tcl.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/tcl.svg" alt="TCL" /></a></div>
+    </div>
+
+    <div class="footer-shortcuts">
+      <div class="footer-brand">
+        <img class="footer-logo" src="assets/logos/logo_olympic_cool.svg" alt="Olympic Connect" />
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook"><img src="assets/logos/facebook.svg" alt="" /></a>
+          <a href="#" aria-label="Instagram"><img src="assets/logos/instagram.svg" alt="" /></a>
+          <a href="#" aria-label="YouTube"><img src="assets/logos/youtube.svg" alt="" /></a>
+        </div>
+      </div>
+
+      <nav class="footer-nav">
+        <div class="footer-col">
+          <a class="footer-col-title">Découvrir</a>
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="replays.html">Replays et Temps forts</a></li>
+            <li><a href="live.html">Live</a></li>
+            <li><a href="athlete-talks.html">Athletes Talks</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <a class="footer-col-title">Social</a>
+          <ul>
+            <li><a href="posts.html">Posts</a></li>
+            <li><a href="communaute.html">Communauté</a></li>
+            <li><a href="athletes.html">Athlètes</a></li>
+            <li><a href="messages.html">Messages</a></li>
+          </ul>
+        </div>
+        <div class="footer-col footer-col--account">
+          <a class="footer-col-title">Compte &amp; aide</a>
+          <div class="footer-account-links">
+            <ul>
+              <li><a href="inscription.html">S'inscrire</a></li>
+              <li><a href="connexion.html">Se connecter</a></li>
+            </ul>
+            <ul>
+              <li><a href="sos.html">SOS</a></li>
+              <li><a href="engagement.html">Engagement</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <div class="footer-divider"></div>
+
+    <p class="footer-copyright">
+      Copyright © 2026 | All Rights Reserved |
+      <a href="#">Terms and Conditions</a> |
+      <a href="#">Privacy Policy</a>
+    </p>
+  </div>
+
+  <img class="footer-deco" src="assets/img/footer-deco.png" alt="" />
+</footer>
+
+<script>
+  // Toggle du menu burger plein écran (< 1050px)
+  (function () {
+    var burger = document.querySelector('.btn-burger');
+    var menu = document.getElementById('headerMenu');
+    if (!burger || !menu) return;
+    function setOpen(open) {
+      burger.setAttribute('aria-expanded', String(open));
+      burger.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+      menu.classList.toggle('is-open', open);
+      document.body.classList.toggle('menu-open', open);
+    }
+    burger.addEventListener('click', function () {
+      setOpen(burger.getAttribute('aria-expanded') !== 'true');
+    });
+    menu.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () { setOpen(false); });
+    });
+  })();
+</script>
+
+</body>
+</html>
