@@ -94,6 +94,18 @@
     <circle cx="48" cy="48" r="48" fill="#41348a"/>
     <path d="M38 30 70 48 38 66Z" fill="#fbfbfb"/>
   </symbol>
+  <symbol id="ic-people" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm8 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM2 19c0-2.5 2.7-4 6-4s6 1.5 6 4v1H2v-1Zm14.6-3.7c1.9.6 3.4 1.9 3.4 3.7v1h-3.2v-1c0-1.5-.5-2.8-1.4-3.8.4 0 .8 0 1.2.1Z"/>
+  </symbol>
+  <symbol id="ic-heart" viewBox="0 0 33 28">
+    <path fill="none" stroke="currentColor" stroke-width="2.5" d="M16.5 26S2 17.7 2 8.8A5.8 5.8 0 0 1 16.5 5 5.8 5.8 0 0 1 31 8.8C31 17.7 16.5 26 16.5 26Z"/>
+  </symbol>
+  <symbol id="ic-sms" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M4 3h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H9l-5 4V5a2 2 0 0 1 2-2Z"/>
+  </symbol>
+  <symbol id="ic-clock" viewBox="0 0 24 24">
+    <path fill="none" stroke="currentColor" stroke-width="2" d="M12 7v5l3.2 2M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+  </symbol>
 </svg>
 
 <main class="lab">
@@ -274,6 +286,173 @@
           </div>
         </div>
       </article>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CANAL / LIVE - COMMUNAUTÉ  (Figma 2228:23297) — 3 variants
+       ============================================================ -->
+
+  <!-- A) CANAL — message non lu — DESKTOP  1376 × 181 -->
+  <section class="lab-group">
+    <p class="lab-label">Canal — message non lu (desktop)</p>
+    <p class="lab-note">Pleine largeur, seul sur la page desktop (1 par ligne). Version responsive = « mobile » plus bas.</p>
+    <div class="lab-row">
+      <a class="canal-d" href="#" aria-label="Canal Loan Bozzolo — message non lu">
+        <span class="canal-d__avatar" style="background-image:url('assets/img/video-skier.png')"></span>
+        <div class="canal-d__body">
+          <div class="canal-d__head">
+            <div class="canal-d__headleft">
+              <p class="canal-name">@Loan_BOZZOLO</p>
+              <span class="canal-sport">Snowboard</span>
+              <span class="canal-live">
+                <span class="canal-live__grp"><span class="canal-dot"></span>En direct</span>
+                <span class="canal-live__grp"><svg class="vid-eye" viewBox="0 0 24 16"><use href="#ic-eye"/></svg>X XXX</span>
+              </span>
+            </div>
+            <span class="canal-members">1.2K membres <svg class="ic" viewBox="0 0 24 24"><use href="#ic-people"/></svg></span>
+          </div>
+          <div class="canal-msg">
+            <div class="canal-msg__row">
+              <p class="canal-quote">“Devinez qui est médaillé de bronze”</p>
+              <span class="canal-newmsg">
+                <span class="canal-newmsg__grp"><span class="canal-dot"></span>New message (2)</span>
+                <span class="canal-newmsg__grp"><svg class="vid-eye" viewBox="0 0 24 16"><use href="#ic-eye"/></svg>En ligne il y a 34mn</span>
+              </span>
+            </div>
+            <div class="canal-reacts">
+              <div class="canal-reacts__list">
+                <span class="canal-react"><span class="canal-react__emoji">👏</span><span class="canal-react__count">1,2k</span></span>
+                <span class="canal-react"><span class="canal-react__emoji">💪</span><span class="canal-react__count">9k</span></span>
+                <span class="canal-react"><span class="canal-react__emoji">💪</span><span class="canal-react__count">9k</span></span>
+                <span class="canal-add">＋</span>
+              </div>
+              <p class="canal-time">10h54</p>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- B) CANAL — message non lu — MOBILE  374 -->
+  <section class="lab-group">
+    <p class="lab-label">Canal — message non lu (mobile)</p>
+    <p class="lab-note">Version responsive de la carte desktop ci-dessus.</p>
+    <div class="lab-row">
+      <div class="canal-m">
+        <div class="canal-m__head">
+          <span class="canal-m__avatar" style="background-image:url('assets/img/video-skier.png')"></span>
+          <div class="canal-m__info">
+            <div class="canal-m__id">
+              <p class="canal-m__name">@Loan_BOZZOLO</p>
+              <span class="canal-sport canal-sport--sm">Snowboard</span>
+            </div>
+            <div class="canal-m__right">
+              <span class="canal-livemini">
+                <span><span class="canal-livemini__dot"></span>En live</span>
+                <span><svg class="vid-eye" viewBox="0 0 24 16"><use href="#ic-eye"/></svg>2 789</span>
+              </span>
+              <span class="canal-foll"><svg class="ic" viewBox="0 0 24 24"><use href="#ic-people"/></svg>Suivi par 8k</span>
+            </div>
+          </div>
+        </div>
+        <div class="canal-m__msg">
+          <p class="canal-m__quote">“Devinez qui est médaillé de bronze”</p>
+          <div class="canal-m__reacts">
+            <div class="canal-m__list">
+              <span class="canal-chip"><span class="canal-chip__emoji">😂</span><span class="canal-chip__count">4,7k</span></span>
+              <span class="canal-chip"><span class="canal-chip__emoji">👀</span><span class="canal-chip__count">1,2k</span></span>
+              <span class="canal-chip"><span class="canal-chip__emoji">💪</span><span class="canal-chip__count">9k</span></span>
+              <span class="canal-addsm">＋</span>
+            </div>
+            <p class="canal-m__time">10h54</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- C) FRAME 39936 — carte profil / canal  674 (toujours par 2 en colonne) -->
+  <section class="lab-group">
+    <p class="lab-label">Carte profil / canal (Frame 39936)</p>
+    <p class="lab-note">Toujours affichée par 2 (2 × 674 + gouttière = 1376, même largeur que le desktop). Cartes identiques, seules infos + image changent.</p>
+    <div class="lab-row canal-card-pair">
+
+      <a class="canal-card" href="#" aria-label="Carte canal Loan Bozzolo">
+        <div class="canal-card__top">
+          <span class="canal-card__photo" style="background-image:url('assets/img/talk-justine.png')"></span>
+          <div class="canal-card__info">
+            <div class="canal-card__idrow">
+              <div class="canal-card__id">
+                <p class="canal-card__name">@Loan_BOZZOLO</p>
+                <span class="canal-sport">Snowboard</span>
+              </div>
+              <button class="canal-heart" type="button" aria-label="Suivre">
+                <svg class="ic" viewBox="0 0 33 28"><use href="#ic-heart"/></svg>
+              </button>
+            </div>
+            <div class="canal-card__stats">
+              <span class="canal-stat"><svg class="ic" viewBox="0 0 24 24"><use href="#ic-people"/></svg>Suivi par 8k</span>
+              <span class="canal-stat"><svg class="ic" viewBox="0 0 24 24"><use href="#ic-sms"/></svg>Plus de 15 messages</span>
+              <span class="canal-stat"><svg class="ic" viewBox="0 0 24 24"><use href="#ic-clock"/></svg>Il y a XX mn</span>
+            </div>
+          </div>
+        </div>
+        <div class="canal-card__box">
+          <div class="canal-card__quoterow">
+            <p class="canal-card__quote">“Devinez qui est médaillé de bronze”</p>
+            <span class="canal-direct"><span class="canal-dot"></span>En direct</span>
+          </div>
+          <div class="canal-card__reacts">
+            <div class="canal-card__list">
+              <span class="canal-react canal-react--card"><span class="canal-react__emoji">🔥</span><span class="canal-react__count">4,7k</span></span>
+              <span class="canal-react canal-react--card"><span class="canal-react__emoji">👏</span><span class="canal-react__count">1,2k</span></span>
+              <span class="canal-react canal-react--card"><span class="canal-react__emoji">💪</span><span class="canal-react__count">9k</span></span>
+              <span class="canal-add canal-add--card">＋</span>
+            </div>
+            <p class="canal-time">10h54</p>
+          </div>
+        </div>
+      </a>
+
+      <a class="canal-card" href="#" aria-label="Carte canal Audrey McManiman">
+        <div class="canal-card__top">
+          <span class="canal-card__photo" style="background-image:url('assets/img/talk-audrey.png')"></span>
+          <div class="canal-card__info">
+            <div class="canal-card__idrow">
+              <div class="canal-card__id">
+                <p class="canal-card__name">@Audrey_MCMANIMAN</p>
+                <span class="canal-sport">Snowboard</span>
+              </div>
+              <button class="canal-heart" type="button" aria-label="Suivre">
+                <svg class="ic" viewBox="0 0 33 28"><use href="#ic-heart"/></svg>
+              </button>
+            </div>
+            <div class="canal-card__stats">
+              <span class="canal-stat"><svg class="ic" viewBox="0 0 24 24"><use href="#ic-people"/></svg>Suivi par 12k</span>
+              <span class="canal-stat"><svg class="ic" viewBox="0 0 24 24"><use href="#ic-sms"/></svg>Plus de 8 messages</span>
+              <span class="canal-stat"><svg class="ic" viewBox="0 0 24 24"><use href="#ic-clock"/></svg>Il y a 5 mn</span>
+            </div>
+          </div>
+        </div>
+        <div class="canal-card__box">
+          <div class="canal-card__quoterow">
+            <p class="canal-card__quote">“On vise l'or demain 🥇”</p>
+            <span class="canal-direct"><span class="canal-dot"></span>En direct</span>
+          </div>
+          <div class="canal-card__reacts">
+            <div class="canal-card__list">
+              <span class="canal-react canal-react--card"><span class="canal-react__emoji">🔥</span><span class="canal-react__count">6,1k</span></span>
+              <span class="canal-react canal-react--card"><span class="canal-react__emoji">👏</span><span class="canal-react__count">3k</span></span>
+              <span class="canal-react canal-react--card"><span class="canal-react__emoji">❄️</span><span class="canal-react__count">2k</span></span>
+              <span class="canal-add canal-add--card">＋</span>
+            </div>
+            <p class="canal-time">10h58</p>
+          </div>
+        </div>
+      </a>
+
     </div>
   </section>
 

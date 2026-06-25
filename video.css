@@ -305,3 +305,153 @@
   width:420px; padding:16px;
   background:#fff; border:1px solid #ececec; border-radius:12px;
 }
+
+/* ============================================================
+   COMPOSANT « Canal / Live - communauté »
+   COPIE 1:1 du component set Figma 2228:23297 (« live - communauté »).
+   3 variants, fond bleu --blue, police NewBlack, dimensions px exactes.
+
+   .canal-d      canal - message non lu  (desktop)  1376 × 181
+   .canal-m      canal - message non lu  (mobile)    374 × auto
+   .canal-card   Frame 39936 (carte profil/canal)    674 × auto
+
+   Réactions = emojis unicode. Icônes = <use> sur les symbols
+   #ic-eye/#ic-people/#ic-heart/#ic-sms/#ic-clock définis dans video.html.
+   ============================================================ */
+
+/* ---------- briques canal partagées ---------- */
+.canal-sport{                       /* badge sport (ex. « Snowboard ») */
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  background:#fff; border:1.5px solid var(--blue); border-radius:8px;
+  padding:10px 18px;
+  font-family:'NewBlack',sans-serif; font-weight:600; font-size:20px; line-height:1;
+  color:var(--blue); white-space:nowrap;
+}
+.canal-react{ display:inline-flex; align-items:center; gap:4.2px; }
+.canal-react__emoji{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:48.3px; height:39.9px; background:#f4f4f4; border-radius:12.6px;
+  font-size:25.2px; line-height:1;
+}
+.canal-react__count{ font-weight:400; font-size:28px; line-height:1; color:var(--blue); }
+.canal-add{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:48.3px; height:39.9px; background:#f4f4f4; border-radius:12.6px;
+  font-size:24px; line-height:1; color:#454545;
+}
+.canal-time{ font-weight:400; font-size:20px; line-height:1; color:var(--blue); white-space:nowrap; }
+
+/* =========================================================
+   A) CANAL — MESSAGE NON LU — DESKTOP   1376 × 181
+   ========================================================= */
+.canal-d{
+  display:flex; gap:16px; align-items:stretch;
+  width:1376px; box-sizing:border-box;
+  background:var(--blue); border-radius:16px; padding:8px;
+  font-family:'NewBlack',sans-serif; color:var(--paper);
+}
+.canal-d__avatar{
+  flex:0 0 165px; width:165px; height:165px;
+  border-radius:12px; background:#e5e5e5 center/cover no-repeat;
+}
+.canal-d__body{ flex:1; min-width:0; display:flex; flex-direction:column; justify-content:space-between; }
+.canal-d__head{ display:flex; align-items:center; gap:8px; width:100%; }
+.canal-d__headleft{ flex:1; min-width:0; display:flex; align-items:center; gap:16px; padding:3px 0; }
+.canal-name{ font-weight:500; font-size:32px; line-height:1; letter-spacing:-.32px; color:var(--paper); white-space:nowrap; }
+.canal-live{                         /* badge « En direct » + vues, rouge */
+  display:inline-flex; align-items:center; gap:24px;
+  background:var(--sos); border-radius:4px; padding:8px; flex:0 0 auto;
+}
+.canal-live__grp{ display:inline-flex; align-items:center; gap:8px; font-weight:400; font-size:20px; line-height:1; color:#fff; white-space:nowrap; }
+.canal-dot{ width:13px; height:13px; border-radius:50%; background:#fff; flex:0 0 auto; }
+.canal-live .vid-eye{ width:24px; height:15px; display:block; }
+.canal-members{ display:flex; align-items:center; gap:6px; font-weight:400; font-size:20px; line-height:1; color:#fff; white-space:nowrap; }
+.canal-members .ic{ width:24px; height:24px; display:block; }
+
+.canal-msg{
+  background:var(--paper); border-radius:8.4px; padding:8px;
+  display:flex; flex-direction:column; gap:13px; width:100%; box-sizing:border-box;
+}
+.canal-msg__row{ display:flex; align-items:center; justify-content:space-between; gap:8px; width:100%; }
+.canal-quote{ flex:1; min-width:0; font-weight:300; font-size:29.4px; line-height:1; color:#000; }
+.canal-newmsg{                       /* badge bleu « New message (2) » */
+  display:inline-flex; align-items:flex-start; gap:8px;
+  background:var(--blue); border-radius:4px; padding:8px; flex:0 0 auto;
+}
+.canal-newmsg__grp{ display:inline-flex; align-items:center; gap:8px; font-weight:300; font-size:20px; line-height:1; color:#fff; white-space:nowrap; }
+.canal-newmsg .canal-dot{ width:10px; height:10px; }
+.canal-newmsg .vid-eye{ width:18px; height:12px; display:block; }
+.canal-reacts{ display:flex; align-items:flex-end; justify-content:space-between; width:100%; }
+.canal-reacts__list{ display:flex; align-items:center; gap:9px; }
+
+/* =========================================================
+   B) CANAL — MESSAGE NON LU — MOBILE   374 × auto
+   ========================================================= */
+.canal-m{
+  width:374px; box-sizing:border-box;
+  background:var(--blue); border-radius:16px; padding:14px;
+  display:flex; flex-direction:column; gap:10px;
+  font-family:'NewBlack',sans-serif; color:var(--paper);
+}
+.canal-m__head{ display:flex; gap:8px; align-items:center; width:100%; }
+.canal-m__avatar{ flex:0 0 52px; width:52px; height:52px; border-radius:12px; background:#e5e5e5 center/cover no-repeat; }
+.canal-m__info{ flex:1; min-width:0; display:flex; align-items:flex-start; justify-content:space-between; gap:8px; }
+.canal-m__id{ display:flex; flex-direction:column; gap:8px; }
+.canal-m__name{ font-weight:600; font-size:20px; line-height:26px; color:var(--paper); white-space:nowrap; }
+.canal-sport--sm{ padding:6px 12px; gap:6px; font-size:14px; }
+.canal-m__right{ display:flex; flex-direction:column; align-items:flex-end; gap:6px; }
+.canal-livemini{ display:flex; flex-direction:column; align-items:flex-end; gap:2px; background:var(--sos); border-radius:6px; padding:3px 8px; }
+.canal-livemini span{ display:inline-flex; align-items:center; gap:8px; font-weight:400; font-size:11px; line-height:1; color:#fff; }
+.canal-livemini__dot{ width:8px; height:8px; border-radius:50%; background:#fff; }
+.canal-livemini .vid-eye{ width:13px; height:8px; display:block; }
+.canal-foll{ display:inline-flex; align-items:center; gap:6px; font-weight:300; font-size:14px; line-height:1; color:#fff; white-space:nowrap; }
+.canal-foll .ic{ width:20px; height:20px; display:block; }
+.canal-m__msg{
+  background:var(--paper); border-radius:10px; padding:10px;
+  display:flex; flex-direction:column; gap:8px; width:100%; box-sizing:border-box;
+}
+.canal-m__quote{ font-weight:400; font-size:16px; line-height:24px; color:#121212; }
+.canal-m__reacts{ display:flex; align-items:flex-end; justify-content:space-between; width:100%; }
+.canal-m__list{ display:flex; align-items:center; gap:6px; }
+.canal-chip{ display:inline-flex; align-items:center; gap:4px; background:#f4f4f4; border-radius:8px; padding:4px 8px 4px 6px; }
+.canal-chip__emoji{ width:20px; text-align:center; font-size:18px; line-height:20px; }
+.canal-chip__count{ font-weight:400; font-size:14px; line-height:20px; color:var(--blue); }
+.canal-addsm{ display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; background:#f4f4f4; border-radius:8px; font-size:18px; line-height:1; color:#454545; }
+.canal-m__time{ font-weight:500; font-size:12px; line-height:16px; color:var(--blue); white-space:nowrap; }
+
+/* =========================================================
+   C) FRAME 39936 — carte profil / canal   674 × auto
+   ========================================================= */
+.canal-card{
+  width:674px; box-sizing:border-box;
+  background:var(--blue); border-radius:16px; padding:24px;
+  display:flex; flex-direction:column; align-items:flex-end; gap:23px;
+  font-family:'NewBlack',sans-serif; color:#fff;
+}
+.canal-card__top{ display:flex; align-items:center; justify-content:space-between; width:100%; }
+.canal-card__photo{ flex:0 0 190px; width:190px; height:181px; border-radius:16px; background:#e5e5e5 center/cover no-repeat; }
+.canal-card__info{ width:407px; display:flex; flex-direction:column; gap:24px; }
+.canal-card__idrow{ display:flex; align-items:flex-start; justify-content:space-between; gap:24px; }
+.canal-card__id{ display:flex; flex-direction:column; gap:7px; }
+.canal-card__name{ font-weight:400; font-size:32px; line-height:1.1; letter-spacing:-.32px; color:#fff; }
+.canal-heart{ flex:0 0 auto; width:33px; height:28px; color:#fff; background:none; border:0; padding:0; cursor:pointer; }
+.canal-heart .ic{ width:33px; height:28px; display:block; }
+.canal-card__stats{ display:flex; flex-direction:column; gap:7px; }
+.canal-stat{ display:flex; align-items:center; gap:6px; font-weight:400; font-size:20px; line-height:24px; letter-spacing:-.2px; color:#fff; white-space:nowrap; }
+.canal-stat .ic{ width:22px; height:22px; display:block; flex:0 0 auto; }
+.canal-card__box{
+  background:#fff; border-radius:8px; padding:8px;
+  display:flex; flex-direction:column; gap:16px; width:100%; box-sizing:border-box;
+}
+.canal-card__quoterow{ display:flex; align-items:center; justify-content:space-between; gap:16px; width:100%; }
+.canal-card__quote{ flex:1; min-width:0; font-weight:300; font-size:24px; line-height:1; color:#000; }
+.canal-direct{ display:inline-flex; align-items:center; gap:8px; background:var(--sos); border-radius:4px; padding:8px; flex:0 0 auto; font-weight:400; font-size:20px; line-height:1; color:#fff; white-space:nowrap; }
+.canal-card__reacts{ display:flex; align-items:flex-end; justify-content:space-between; width:100%; }
+.canal-card__list{ display:flex; align-items:flex-end; gap:14px; }
+.canal-react--card{ gap:5px; }
+.canal-react--card .canal-react__emoji{ width:auto; min-width:28px; height:25px; border-radius:6px; padding:0 6px; font-size:16px; }
+.canal-react--card .canal-react__count{ font-weight:300; font-size:16px; letter-spacing:-.16px; }
+.canal-add--card{ width:36px; height:26.5px; border-radius:6px; background:#ebebeb; border:1px solid #d9d9d9; font-size:14px; color:#454545; }
+
+/* paire de cartes (usage réel : toujours 2 par colonne → 2×674 + 28 = 1376) */
+.canal-card-pair{ display:grid; grid-template-columns:repeat(2,674px); gap:28px; width:max-content; }
