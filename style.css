@@ -278,23 +278,28 @@ main{ padding-bottom:64px; }
 .featured-overlay{
   position:absolute; inset:0;
   display:flex; flex-direction:column;
-  padding:24px;
   background:linear-gradient(180deg, rgba(11,15,77,.45) 0%, rgba(11,15,77,0) 28%, rgba(11,15,77,0) 55%, rgba(11,15,77,.65) 100%);
 }
-/* Badge live + compteur de vues (en haut à droite) */
+/* Badge live + compteur de vues : pleine largeur, collé en haut à droite, rouge */
 .featured-live{
-  display:flex; flex-direction:column; align-items:flex-end; gap:14px;
+  width:100%;
+  display:flex; justify-content:flex-end;
+}
+.featured-live-box{
+  display:flex; flex-direction:column;
+  background:red;
 }
 .live-badge{
-  background:var(--indigo); color:var(--smoke);
+  display:flex; align-items:center; justify-content:center;
+  background:red; color:var(--smoke);
   font-family:'NewBlack',sans-serif; font-weight:700;
   font-size:clamp(18px, calc(14.09px + 1.09vw), 28px); line-height:1; letter-spacing:-.28px;
   text-transform:uppercase;
-  padding:6px 12px;
+  min-height:38px; padding:0 8px;
 }
 .live-count{
-  display:inline-flex; align-items:center; gap:6px;
-  background:var(--indigo); color:var(--paper);
+  display:inline-flex; align-items:center; justify-content:flex-end; gap:8px;
+  background:red; color:var(--paper);
   font-family:'NewBlack',sans-serif; font-weight:400;
   font-size:clamp(14px, calc(11.65px + 0.65vw), 20px); line-height:1; letter-spacing:-.2px;
   text-transform:uppercase;
@@ -313,6 +318,7 @@ main{ padding-bottom:64px; }
   font-size:clamp(18px, calc(12.52px + 1.52vw), 32px); line-height:1.05; letter-spacing:-.32px;
   text-transform:uppercase;
   color:var(--smoke);
+  padding:0 24px 24px;
 }
 
 /* ---------- Carrousel replays ---------- */
@@ -487,6 +493,46 @@ main{ padding-bottom:64px; }
 
 /* Bouton Outline « Voir plus » (DS Outline) — réutilisable */
 .actu-more{ display:flex; justify-content:center; }
+
+/* ---------- Item liste mobile (carte bleue) — Figma 3413:23958 ----------
+   Réutilisable : Actualités / Replays / (Talks) mobile.
+   Vignette 120 + durée · titre blanc · pill sport · heure. */
+.mlist{
+  display:flex; align-items:stretch; height:82px;
+  background:var(--blue); border:1px solid var(--blue); border-radius:6px; overflow:hidden;
+}
+.mlist-thumb{
+  position:relative; flex:0 0 120px; width:120px; display:block;
+  background:#1b1b1b center/cover no-repeat; border-radius:8px 0 0 8px;
+}
+.mlist-dur{
+  position:absolute; left:3px; bottom:3px;
+  display:inline-flex; align-items:center; gap:3px;
+  background:rgba(0,0,0,.75); color:var(--paper); border-radius:2px; padding:0 3px;
+  font-family:'NewBlack',sans-serif; font-weight:300; font-size:11px; line-height:1.5;
+}
+.mlist-body{ flex:1; min-width:0; display:flex; flex-direction:column; justify-content:space-between; padding:8px 6px 8px 4px; }
+.mlist-title{
+  font-family:'NewBlack',sans-serif; font-weight:700; font-size:16px; line-height:1.05; color:#fff;
+  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
+}
+.mlist-foot{ display:flex; align-items:center; justify-content:space-between; gap:8px; }
+.mlist-pill{
+  display:inline-flex; align-items:center; justify-content:center;
+  background:var(--paper); color:var(--blue); border-radius:6px; padding:4px 8px;
+  font-family:'NewBlack',sans-serif; font-weight:500; font-size:14px; line-height:1; white-space:nowrap;
+}
+.mlist-time{ font-family:'NewBlack',sans-serif; font-weight:300; font-size:14px; line-height:1; color:#f5f5f5; white-space:nowrap; }
+
+/* ---------- Bouton bleu plein (CTA mobile « Voir plus ») ---------- */
+.btn-fill{
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  background:var(--blue); color:#fff; border:0; border-radius:var(--radius-sm);
+  padding:9px 20px;
+  font-family:'NewBlack',sans-serif; font-weight:600; font-size:16px; line-height:1;
+  cursor:pointer; white-space:nowrap;
+}
+.btn-fill svg{ width:18px; height:18px; fill:none; stroke:currentColor; stroke-width:2.5; }
 .btn-outline{
   display:inline-flex; align-items:center; gap:6px;
   background:var(--white); color:var(--blue);
@@ -510,6 +556,7 @@ main{ padding-bottom:64px; }
 .promo-visual{
   flex:0 0 51%;
   min-height:242px;
+  display:block; object-fit:cover;   /* vidéo : remplit le cadre ; fond aurora = placeholder */
   background:url('assets/img/promo-aurora.png') left center / cover no-repeat;
 }
 .promo-text{
@@ -533,6 +580,7 @@ main{ padding-bottom:64px; }
 .btn-outline--promo{
   color:var(--indigo-500); border-color:var(--indigo-500);
   font-size:clamp(16px, calc(14.43px + 0.43vw), 20px); padding:10px 18px; gap:8px;
+  justify-content:center;            /* texte centré dans le bouton */
 }
 .btn-outline--promo .ic-arrow{ width:20px; height:20px; stroke:var(--indigo-500); stroke-width:2.2; fill:none; }
 .btn-outline--promo:hover{ background:#f0eefb; }
@@ -582,10 +630,39 @@ main{ padding-bottom:64px; }
 
 /* Utilitaires d'affichage par breakpoint */
 .only-m{ display:none; }
+.rday-mobile{ display:none; }
 
 /* ---------- MOBILE « Lives à venir » (Figma 2773:22378) — affiché ≤680 ---------- */
 .talk-mobile{ display:none; }
 .talk-mobile-list{ display:flex; flex-direction:column; gap:10px; }
+
+/* Grande carte « live à venir » mobile — Figma 3450:24154 (titre + Prochain live, sans play) */
+.tklive-hero{
+  position:relative; height:208px; border-radius:6px; overflow:hidden; isolation:isolate;
+  display:block;
+  background:#1b1b1b center/cover no-repeat; color:var(--paper);
+}
+.tklive-hero::after{ content:""; position:absolute; inset:0; z-index:0;
+  background:linear-gradient(to top, rgba(0,0,0,.55) 0%, rgba(0,0,0,0) 45%); }
+.tklive-foot{
+  position:absolute; left:16px; right:16px; bottom:16px; z-index:1;
+  display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:end; gap:10px;
+}
+.tklive-title{
+  min-width:0; overflow:hidden; max-height:2.4em;
+  font-family:'NewBlack',sans-serif; font-weight:500; font-size:14px; line-height:1.15; color:var(--paper);
+}
+.tklive-next{
+  font-family:'Anton',sans-serif; font-size:20px; line-height:1.05; letter-spacing:-.2px;
+  text-transform:uppercase; text-align:right; color:var(--paper); white-space:nowrap;
+}
+.tklive-next span{ display:block; }
+
+/* Item « live à venir » : carte bleue (.mlist) + titre Anton + 2 pills, sans heure */
+.mlist--live .mlist-body{ justify-content:space-between; padding:10px 4px; }
+.mlist-live-title{ font-family:'Anton',sans-serif; font-size:20px; line-height:1; letter-spacing:-.2px; text-transform:uppercase; color:var(--paper); }
+.mlist--live .mlist-foot{ justify-content:flex-start; gap:8px; }
+.mlist--live .mlist-pill{ padding:2px 4px; border-radius:5px; }
 
 /* Item offline (carte blanche : vignette + noms) */
 .live-offline{ display:flex; gap:15px; height:72px; }
@@ -669,14 +746,17 @@ main{ padding-bottom:64px; }
   font-family:'NewBlack',sans-serif;
   font-weight:600;
   font-size:16px;
-  color:var(--blue);
+  color:#fff;
+  background:var(--blue);
   text-transform:uppercase;
   letter-spacing:.5px;
   display:inline-flex;
   align-items:center;
   gap:8px;
+  padding:10px 18px;
+  border-radius:var(--radius-sm);
 }
-.link-btn svg{ width:18px;height:18px;stroke:var(--blue); }
+.link-btn svg{ width:18px;height:18px;stroke:#fff; }
 
 /* ---------- Rangées de cartes ---------- */
 .card-row{ display:flex; gap:20px; }
@@ -729,6 +809,59 @@ main{ padding-bottom:64px; }
   white-space:nowrap;
 }
 .replay-meta .spacer{ flex:1; }
+
+/* ---------- Replays du jour : cartes BLEUES (Figma 1079:8001) ----------
+   Toute la section = carte replay bleue. 2 tailles : grande (.rday--big,
+   + badge durée, titre 24) et moyenne (.rday, titre 20). Réutilise les
+   conteneurs .card-row two/three (responsive déjà géré). */
+.rday{
+  display:flex; flex-direction:column; gap:15px; min-width:0;
+  background:var(--blue); border-radius:var(--radius-md); overflow:hidden;
+}
+.rday-thumb{ position:relative; width:100%; aspect-ratio:445/232; overflow:hidden; border-radius:8px; }
+.rday-thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
+.rday-cat{
+  position:absolute; top:0; right:0;
+  background:var(--indigo); color:var(--smoke);
+  font-family:'NewBlack',sans-serif; font-weight:700;
+  font-size:clamp(15px, calc(13.43px + .43vw), 20px); line-height:1; letter-spacing:-.2px;
+  text-transform:uppercase; padding:8px;
+}
+.rday-dur{
+  position:absolute; left:8px; bottom:8px;
+  background:rgba(77,77,77,.7); color:var(--paper);
+  font-family:'NewBlack',sans-serif; font-weight:400;
+  font-size:clamp(15px, calc(13.43px + .43vw), 20px); line-height:1; letter-spacing:-.2px;
+  border-radius:4px; padding:1px 4px;
+}
+.rday-body{ display:flex; flex-direction:column; gap:9px; padding:0 12px 8px; }
+.rday-title{
+  font-family:'NewBlack',sans-serif; font-weight:600;
+  font-size:clamp(16px, calc(14.4px + .45vw), 20px); line-height:1.1; letter-spacing:-.2px;
+  color:var(--paper);
+  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
+}
+.rday-meta{ display:flex; align-items:center; gap:8px; }
+.rday-time{
+  font-family:'NewBlack',sans-serif; font-weight:400;
+  font-size:clamp(15px, calc(13.43px + .43vw), 20px); line-height:1; letter-spacing:-.2px;
+  color:var(--paper); white-space:nowrap; padding:0 4px;
+}
+.rday-pill{
+  background:var(--paper); color:var(--blue);
+  font-family:'NewBlack',sans-serif; font-weight:500;
+  font-size:16px; line-height:1; letter-spacing:-.16px;
+  border-radius:14px; padding:8px; white-space:nowrap;
+}
+.rday-spacer{ flex:1; }
+.rday-play{ flex:none; width:47px; height:47px; border:0; background:none; padding:0; cursor:pointer; }
+.rday-play svg{ display:block; width:47px; height:47px; }
+
+.rday--big{ gap:8px; }
+.rday--big .rday-thumb{ aspect-ratio:678/245; border-radius:8px 8px 0 0; }
+.rday--big .rday-body{ flex:1; justify-content:space-between; gap:16px; padding:0 8px 8px; }
+.rday--big .rday-title{ font-size:clamp(18px, calc(15.6px + .67vw), 24px); letter-spacing:-.24px; }
+.rday--big .rday-meta{ gap:clamp(12px, 2vw, 30px); }
 .play{
   flex:none;
   width:44px;height:44px;
@@ -761,16 +894,66 @@ main{ padding-bottom:64px; }
 }
 .search svg{ width:20px;height:20px;fill:var(--navy);margin-left:auto; }
 
-.posts-grid{ display:flex; gap:27px; }
-.posts-left{ width:673px; display:flex; flex-direction:column; gap:23px; }
-.posts-left .post-wide{ width:673px; height:290px; }
+.posts-grid{ display:flex; gap:27px; align-items:stretch; }
+.posts-left{ flex:0 0 673px; max-width:673px; min-width:0; display:flex; flex-direction:column; gap:23px; }
+.posts-right{ flex:1 1 0; min-width:0; display:flex; gap:27px; }
+.post-col{ flex:0 0 328px; max-width:328px; display:flex; flex-direction:column; gap:17px; }
 .post-pair{ display:flex; gap:17px; }
-.post-pair img{ width:328px; height:290px; }
-.posts-right{ flex:1; display:flex; gap:27px; }
-.post-col{ display:flex; flex-direction:column; gap:17px; }
-.post-col img{ width:328px; height:290px; }
-.post-tall{ width:328px; height:597px; }
-.post{ object-fit:cover; border-radius:var(--radius-md); }
+
+/* ---------- Carte post : photo + vraie légende (avatar + message + @handle + heure) ----------
+   Figma 1079:8085. Remplace les anciennes images aplaties : le texte est du vrai HTML. */
+.post-card{
+  position:relative; display:flex; flex-direction:column; justify-content:flex-end;
+  border-radius:var(--radius-md); overflow:hidden; isolation:isolate; background:#1b1b1b;
+}
+.post-card-img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0; }
+.post-card::after{                                   /* voile bas pour lisibilité du texte */
+  content:""; position:absolute; inset:0; z-index:1; pointer-events:none;
+  background:linear-gradient(to top, rgba(0,0,0,.6) 0%, rgba(0,0,0,0) 32%);
+}
+.post-card-play{
+  position:absolute; top:46%; left:50%; transform:translate(-50%,-50%); z-index:2;
+  width:clamp(48px, 6vw, 76px); height:auto;
+}
+.post-card-play svg{ width:100%; height:auto; display:block; }
+.post-cap{ position:relative; z-index:2; display:flex; align-items:center; gap:9px; padding:8px 16px; }
+.post-cap-avatar{ flex:0 0 49px; width:49px; height:39px; border-radius:6px; object-fit:cover; }
+.post-cap-text{ flex:1; min-width:0; display:flex; flex-direction:column; gap:4px; }
+.post-cap-msg{
+  font-family:'NewBlack',sans-serif; font-weight:400; font-size:16px; line-height:1.15; letter-spacing:-.16px;
+  color:var(--paper);
+  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
+}
+.post-cap-foot{ display:flex; flex-direction:column; align-items:flex-start; gap:2px; }
+.post-cap-handle{ font-family:'NewBlack',sans-serif; font-weight:500; font-size:16px; letter-spacing:-.16px; color:var(--paper); white-space:nowrap; }
+.post-cap-time{ font-family:'NewBlack',sans-serif; font-weight:400; font-size:14px; letter-spacing:-.14px; color:var(--paper); white-space:nowrap; }
+
+/* tailles (aspect-ratio → responsive) */
+.post-card--wide{ width:100%; aspect-ratio:673/290; }
+.post-pair .post-card{ flex:1 1 0; min-width:0; aspect-ratio:328/290; }
+.post-col .post-card{ width:100%; aspect-ratio:328/290; }
+.post-card--tall{ flex:1 1 0; min-width:0; align-self:stretch; }
+.post-card--wide .post-cap-foot{ flex-direction:row; align-items:center; justify-content:space-between; width:100%; }
+.post-card--tall .post-card-play{ width:clamp(56px, 7vw, 88px); }
+
+/* ---------- Posts mobile : carrousel horizontal (Figma 983:3888 / composant 2704:15679) ---------- */
+.posts-mobile{ display:none; }        /* affiché ≤680 ; mosaïque cachée en mobile */
+.posts-more-m{ display:none; }        /* bouton « voir plus » filled, mobile only */
+.post-m{
+  position:relative; flex:0 0 175px; width:175px; height:252px;
+  display:flex; flex-direction:column; justify-content:flex-end;
+  overflow:hidden; isolation:isolate; background:#1b1b1b; scroll-snap-align:start;
+}
+.post-m-img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0; }
+.post-m::after{
+  content:""; position:absolute; inset:0; z-index:1; pointer-events:none;
+  background:linear-gradient(to top, rgba(0,0,0,.6) 0%, rgba(0,0,0,0) 32%);
+}
+.post-m-cap{ position:relative; z-index:2; display:flex; align-items:flex-end; gap:8px; padding:8px; }
+.post-m-avatar{ flex:0 0 26px; width:26px; height:26px; border-radius:6px; object-fit:cover; }
+.post-m-text{ flex:1; min-width:0; display:flex; flex-direction:column; }
+.post-m-handle{ font-family:'NewBlack',sans-serif; font-weight:700; font-size:14px; line-height:1; color:var(--paper); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.post-m-time{ font-family:'NewBlack',sans-serif; font-weight:200; font-size:14px; line-height:1; color:var(--paper); margin-top:4px; }
 
 /* ===========================================================
    FOOTER (recréation Figma « footer olympic » node 790:2924)
@@ -936,11 +1119,8 @@ main{ padding-bottom:64px; }
   .card-row.three > *{ flex:1 1 calc(50% - 10px); }
 
   /* Posts : bento en cellules fluides */
-  .posts-left{ width:auto; flex:1; }
-  .posts-left .post-wide,
-  .post-pair img,
-  .post-col img,
-  .post-tall{ width:100%; height:auto; }
+  .posts-left{ flex:1 1 0; max-width:none; min-width:0; }
+  .post-col{ flex:0 1 328px; }
 }
 
 /* ---------- Mobile (≤ 680px) ---------- */
@@ -958,12 +1138,12 @@ main{ padding-bottom:64px; }
 
   /* Promo OC → mobile « billeterie » : colonne, aurora en haut, bouton pleine largeur */
   .promo{ flex-direction:column; border-radius:8px; }
-  .promo-visual{ flex:none; width:100%; min-height:0; aspect-ratio:16 / 9; }
+  .promo-visual{ flex:none; width:100%; min-height:0; aspect-ratio:374 / 380; background-position:center; }
   .promo-text{ align-items:stretch; justify-content:flex-start; gap:24px; padding:24px 22px 16px; }
   .promo-copy{ max-width:none; }
   .promo-title--d{ display:none; }
   .promo-title--m{ display:inline; }
-  .btn-outline--promo{ align-self:stretch; }
+  .btn-outline--promo{ align-self:flex-end; }
 
   /* Athlete Talks à venir : 1 carte par vue, typo réduite */
   .talk-card{ flex-basis:100%; aspect-ratio:374 / 208; }
@@ -974,10 +1154,15 @@ main{ padding-bottom:64px; }
   .only-d{ display:none; }
   .only-m{ display:inline; }
 
+  /* Bascule Replays desktop (grille) → mobile (1 grande + 2 items + bouton) */
+  .rday-desktop{ display:none; }
+  .rday-mobile{ display:flex; flex-direction:column; gap:12px; }
+
   /* Rediffusions : desktop 4-en-ligne → mobile (grande carte + items, comme Lives à venir) */
   .redif-row{ display:none; }
   .redif-mobile{ display:flex; flex-direction:column; gap:16px; }
   .redif-mobile-list{ display:flex; flex-direction:column; gap:10px; }
+  .redif-mobile-list .mlist-foot{ justify-content:flex-start; }
   .redif-mobile .redif-card{ flex:none; aspect-ratio:374 / 208; }
   .redif-more{ justify-content:center; }
 
@@ -988,14 +1173,26 @@ main{ padding-bottom:64px; }
   .card-row.three > *,
   .card-row.two  > *{ flex:1 1 auto; }
 
-  /* en-tête posts empilé + recherche pleine largeur */
-  .posts-head{ flex-direction:column; align-items:flex-start; gap:14px; }
-  .search{ min-width:0; width:100%; }
+  /* en-tête posts empilé + recherche pleine largeur (Figma 983:3888) */
+  .posts-head{ flex-direction:column; align-items:flex-start; gap:16px; margin-bottom:16px; }
+  .posts .search{
+    min-width:0; width:100%; gap:8px;
+    background:var(--paper); border:1px solid var(--blue); border-radius:8px;
+    padding:8px 14px; color:#949494; font-weight:600; font-size:16px;
+  }
+  .posts .search svg{ width:20px; height:20px; fill:var(--blue); }
 
-  /* posts en pile simple */
-  .posts-grid{ flex-direction:column; gap:16px; }
-  .posts-left, .posts-right{ width:100%; flex:none; gap:16px; }
-  .post-pair{ gap:16px; }
+  /* mosaïque desktop cachée → carrousel mobile */
+  .posts .posts-grid{ display:none; }
+  .posts-mobile{ display:block; }
+  .posts-mobile-track{
+    display:flex; gap:20px; overflow-x:auto; scroll-snap-type:x mandatory;
+    padding-bottom:4px; -webkit-overflow-scrolling:touch;
+  }
+
+  /* bascule boutons : lien desktop caché, « voir plus » filled affiché */
+  .posts .posts-more-d{ display:none; }
+  .posts .posts-more-m{ display:inline-flex; }
 
   /* ---------- FOOTER mobile (cf. Figma « footer phone » 790:2923) ---------- */
   .footer-inner{ align-items:stretch; gap:40px; padding:40px 20px; }

@@ -1,0 +1,69 @@
+/* ===========================================================
+   HEADER — Olympic Connect / JO goatesque  (Figma 509:1191)
+   À copier-coller dans le <style> de la page (ou lier via <link>).
+
+   Dépendances déjà présentes dans les pages JO :
+     - police  : 'NewBlack Typeface'
+     - variables : --indigo-900 (#231c4a), --blue-50 (#f0f6ff), --blanc (#fbfbfb)
+   Si la page hôte ne les a pas, dé-commenter le bloc ci-dessous.
+   -----------------------------------------------------------
+   .jo-header{ --indigo-900:#231c4a; --blue-50:#f0f6ff; --blanc:#fbfbfb; }
+   =========================================================== */
+
+.jo-header{ position:relative; z-index:50; width:100%; background:#00627c; }
+.jh-bar{ background:#00627c; }
+
+/* Le fond (teal) reste pleine largeur ; le contenu se fige à 1400px et se centre.
+   => au-delà de 1400px l'écran grandit mais seul le fond s'élargit. */
+.jh-inner{ display:flex; align-items:center; justify-content:space-between; gap:32px;
+           width:100%; max-width:1400px; margin:0 auto; padding:24px 34px; box-sizing:border-box; }
+
+/* groupes gauche / droite à largeur égale → le menu reste centré */
+.jh-left,.jh-right{ flex:1 0 0; min-width:0; display:flex; align-items:center; }
+.jh-left{ gap:clamp(24px,6vw,150px); }
+.jh-right{ justify-content:flex-end; gap:24px; }
+
+.jh-logo{ display:block; flex-shrink:0; }
+.jh-logo img{ height:72px; width:auto; display:block; }
+
+/* onglet « Olympic Connect » (actif) */
+.jh-tab{ font-family:'NewBlack Typeface','Archivo',sans-serif; font-weight:700; font-size:18px; line-height:1;
+         color:var(--blue-50,#f0f6ff); white-space:nowrap; padding:12px 11px; border-radius:3px; transition:.15s; }
+.jh-tab.active{ background:var(--indigo-900,#231c4a); }
+.jh-tab:hover{ color:#fff; }
+
+/* menu central */
+.jh-menu{ display:flex; align-items:center; gap:32px; flex-shrink:0; }
+.jh-menu a{ font-family:'NewBlack Typeface','Archivo',sans-serif; font-weight:700; font-size:18px; line-height:1;
+            color:var(--blue-50,#f0f6ff); white-space:nowrap; padding:12px 0; transition:.15s; }
+.jh-menu a:hover{ color:#fff; }
+
+/* bouton SOS */
+.jh-sos{ display:flex; align-items:center; justify-content:center; height:47px; padding:0 16px; border-radius:6px;
+         background:red; color:var(--blanc,#fbfbfb); font-family:'NewBlack Typeface','Archivo',sans-serif;
+         font-weight:700; font-size:18px; line-height:1; transition:.15s; }
+.jh-sos:hover{ background:#e60000; }
+
+/* bouton drapeau (langue) */
+.jh-flag{ display:flex; align-items:center; justify-content:center; height:47px; padding:0 20px;
+          border:2px solid #fff; border-radius:6px; background:transparent; cursor:pointer; transition:.15s; }
+.jh-flag:hover{ background:rgba(255,255,255,.12); }
+.jh-flag svg{ width:26px; height:24px; display:block; border-radius:2px; }
+
+/* bannière dégradée sous la nav (swoosh teal → vert) — <img> pour rester
+   portable (un background CSS se résout relativement au .css, pas à la page). */
+.jh-banner{ display:block; width:100%; height:355px; object-fit:cover; object-position:center top; }
+
+/* ===========================================================
+   RESPONSIVE — version desktop active dès 1080px.
+   En dessous : le menu central est masqué (logo + Olympic Connect + SOS + drapeau).
+   =========================================================== */
+@media (max-width:1080px){
+  .jh-menu{ display:none; }
+  .jh-banner{ height:200px; }
+}
+@media (max-width:680px){
+  .jh-inner{ padding:16px 20px; gap:16px; }
+  .jh-logo img{ height:56px; }
+  .jh-tab{ font-size:15px; padding:9px 10px; }
+}

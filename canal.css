@@ -1,0 +1,217 @@
+/* ===========================================================
+   CANAL — « Dans un canal » (Figma 647:6084) — version desktop
+   Fil de discussion d'un canal : barre canal + messages + réactions.
+   Header/footer/tokens viennent de style.css.
+   =========================================================== */
+
+/* ---------- Fil d'ariane ---------- */
+.cnl-crumb{
+  font-family:'NewBlack',sans-serif; font-weight:400;
+  font-size:clamp(16px, calc(14px + .4vw), 20px); color:var(--neutral-600);
+  padding:24px 0 16px;
+}
+.cnl-crumb a{ color:var(--neutral-600); }
+.cnl-crumb a:hover{ color:var(--blue); }
+.cnl-crumb .sep{ margin:0 6px; }
+
+/* ---------- Barre canal (bleu pleine largeur) ---------- */
+.cnl-topbar{ width:100%; background:var(--blue); }
+.cnl-topbar-inner{
+  max-width:1400px; margin:0 auto; padding:24px 40px;
+  display:flex; align-items:center; gap:clamp(20px, 3vw, 64px);
+}
+.cnl-back{ flex:0 0 auto; width:48px; height:48px; color:#fff; background:none; border:0; padding:0; cursor:pointer; }
+.cnl-back svg{ width:100%; height:100%; display:block; }
+.cnl-id{ flex:1; min-width:0; display:flex; align-items:center; gap:clamp(18px, 3vw, 42px); }
+.cnl-id-avatar{ flex:0 0 auto; width:clamp(96px, 11vw, 144px); height:clamp(85px, 9.5vw, 128px); border-radius:19px; object-fit:cover; }
+.cnl-id-text{ min-width:0; display:flex; flex-direction:column; gap:10px; }
+.cnl-id-row{ display:flex; align-items:center; gap:20px; }
+.cnl-name{ font-family:'Anton',sans-serif; font-weight:400; font-size:clamp(28px, 3.4vw, 48px); line-height:1; letter-spacing:-.48px; color:#fff; white-space:nowrap; }
+.cnl-heart{ flex:0 0 auto; width:33px; height:28px; color:#fff; background:none; border:0; padding:0; cursor:pointer; }
+.cnl-heart svg{ width:100%; height:100%; }
+.cnl-heart.is-fav svg path{ fill:#fff; }
+.cnl-livetag{ font-family:'NewBlack',sans-serif; font-weight:400; color:#fff; font-size:clamp(20px, 2vw, 28px); line-height:1; }
+.cnl-livetag .dot{ font-size:.72em; vertical-align:middle; }
+.cnl-members{ display:inline-flex; align-items:center; gap:10px; font-family:'NewBlack',sans-serif; font-weight:400; font-size:clamp(16px, 1.7vw, 24px); color:#fff; white-space:nowrap; }
+.cnl-members svg{ width:28px; height:28px; fill:#fff; flex:0 0 auto; }
+.cnl-profile{
+  flex:0 0 auto; display:inline-flex; align-items:center; justify-content:center;
+  background:#fff; color:var(--blue); border-radius:6px; padding:14px 16px;
+  font-family:'NewBlack',sans-serif; font-weight:400; font-size:20px; line-height:1; white-space:nowrap;
+}
+
+/* ---------- Fil de messages ---------- */
+.cnl-feed{ display:flex; flex-direction:column; gap:clamp(32px, 4vw, 56px); padding:40px 0 24px; }
+.cnl-msg{ display:flex; gap:18px; align-items:flex-start; }
+.cnl-avatar{ flex:0 0 auto; width:98px; height:91px; border-radius:19px; object-fit:cover; }
+.cnl-body{ flex:1; min-width:0; display:flex; flex-direction:column; gap:12px; }
+.cnl-head{ display:flex; align-items:flex-end; gap:6px; flex-wrap:wrap; }
+.cnl-msg-name{ font-family:'NewBlack',sans-serif; font-weight:600; font-size:clamp(20px, 2vw, 28px); line-height:1; letter-spacing:-.28px; color:var(--blue); }
+.cnl-msg-time{ font-family:'NewBlack',sans-serif; font-weight:400; font-size:16px; line-height:1; color:var(--ink); }
+.cnl-text{ font-family:'NewBlack',sans-serif; font-weight:400; font-size:clamp(18px, 1.6vw, 24px); line-height:1.15; color:#121212; }
+.cnl-sub{ font-family:'NewBlack',sans-serif; font-weight:400; font-size:clamp(18px, 1.6vw, 24px); line-height:1.15; color:#656565; }
+
+/* ---------- Réactions ---------- */
+.cnl-reacts{ display:flex; align-items:center; gap:clamp(14px, 2vw, 27px); flex-wrap:wrap; }
+.cnl-react{ display:inline-flex; align-items:center; gap:5px; }
+.cnl-react-btn{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:48px; height:40px; background:#f4f4f4; border-radius:13px; font-size:22px; line-height:1;
+}
+.cnl-react-n{ font-family:'NewBlack',sans-serif; font-weight:400; font-size:clamp(18px, 1.6vw, 24px); color:var(--blue); }
+.cnl-react--add .cnl-react-btn{ color:#454545; }
+
+/* ---------- Carte vidéo (live) ---------- */
+.cnl-video{
+  position:relative; width:100%; max-width:760px; aspect-ratio:751/367;
+  border-radius:8px; overflow:hidden; isolation:isolate;
+  background:#1b1b1b center/cover no-repeat;
+}
+.cnl-video::after{ content:""; position:absolute; inset:0; z-index:0;
+  background:linear-gradient(to top, rgba(0,0,0,.6) 0%, rgba(0,0,0,0) 42%); }
+.cnl-video-badge{ position:absolute; top:8px; right:8px; z-index:1; display:flex; flex-direction:column; align-items:stretch; }
+.cnl-video-badge .live{ background:var(--sos); color:#fff; font-family:'NewBlack',sans-serif; font-weight:600; font-size:clamp(16px,1.6vw,24px); line-height:1; padding:8px; display:flex; justify-content:center; }
+.cnl-video-badge .views{ background:var(--sos); color:#fff; display:flex; align-items:center; justify-content:center; gap:9px; padding:6px 8px; font-family:'NewBlack',sans-serif; font-weight:400; font-size:clamp(14px,1.4vw,20px); line-height:1; }
+.cnl-video-badge .views svg{ width:28px; height:19px; fill:#fff; }
+.cnl-video-play{ position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); z-index:1; width:clamp(60px, 9vw, 105px); height:auto; }
+.cnl-video-play svg{ width:100%; height:auto; display:block; }
+.cnl-video-title{
+  position:absolute; left:8px; right:8px; bottom:8px; z-index:1;
+  font-family:'NewBlack',sans-serif; font-weight:600; font-size:clamp(16px, 1.6vw, 24px); line-height:1.12; letter-spacing:-.24px; color:var(--paper);
+}
+
+/* ---------- Séparateur « Nouveau message » ---------- */
+.cnl-divider{ display:flex; align-items:center; gap:clamp(16px, 3vw, 44px); margin:8px 0; }
+.cnl-divider .line{ flex:1; height:1px; background:#d9d9d9; }
+.cnl-divider .pill{
+  flex:0 0 auto; display:inline-flex; align-items:center; gap:8px;
+  background:var(--sos); color:#fff; border-radius:5px; padding:5px 14px;
+  font-family:'NewBlack',sans-serif; font-weight:400; font-size:clamp(16px, 1.6vw, 24px); line-height:1; white-space:nowrap;
+}
+.cnl-divider .pill .dot{ width:11px; height:11px; border-radius:50%; background:#fff; flex:0 0 auto; }
+
+/* ---------- Bouton options (3 points) — mobile uniquement ---------- */
+.cnl-more{
+  display:none;
+  flex:0 0 auto; width:28px; height:28px; margin-left:auto; color:#fff; background:none; border:0; padding:4px; cursor:pointer;
+  align-items:center; justify-content:center;
+}
+.cnl-more svg{ width:100%; height:auto; fill:currentColor; }
+
+/* ---------- Barre « Réagir au dernier post » (BottomBar 1049:4285) ----------
+   Desktop : bandeau inline en bas du fil. Mobile : barre fixe en bas (cf. @media plus bas). */
+.cnl-reactbar{
+  display:flex; flex-direction:column; gap:12px;
+  max-width:var(--wrap); margin:8px auto 48px; padding:20px 32px;
+  background:#fafafa; border:1px solid #ececec; border-radius:16px;
+}
+.cnl-reactbar-label{
+  font-family:'NewBlack',sans-serif; font-weight:400;
+  font-size:clamp(13px, 1.1vw, 16px); line-height:1; letter-spacing:.6px;
+  text-transform:uppercase; color:#9a9aa5;
+}
+.cnl-reactbar-row{ display:flex; gap:12px; flex-wrap:wrap; }
+.cnl-reactbar-row button{
+  width:56px; height:48px; flex:0 0 auto;
+  display:inline-flex; align-items:center; justify-content:center;
+  background:#f4f4f4; border:0; border-radius:13px;
+  font-size:26px; line-height:1; cursor:pointer; transition:background .15s;
+}
+.cnl-reactbar-row button:hover{ background:#e9e9ec; }
+.cnl-reactbar-add{ color:#656565; }
+
+/* ---------- Indicateur de saisie (mobile uniquement) ---------- */
+.cnl-typing{ display:none; align-items:flex-end; gap:18px; }
+.cnl-typing-bubble{ display:inline-flex; align-items:center; gap:6px; background:#f4f4f4; border-radius:16px; padding:14px 16px; }
+.cnl-typing-bubble span{ width:8px; height:8px; border-radius:50%; background:#9aa0a6; }
+
+/* ===========================================================
+   MOBILE (≤768px) — vue chat plein écran (Figma 1049:4186)
+   En-tête app navy · bulles grises · barre réactions fixe en bas.
+   =========================================================== */
+@media (max-width:768px){
+  /* chrome du site masqué : la barre canal sert d'en-tête app */
+  .site-header,
+  .site-footer,
+  .cnl-crumb{ display:none; }
+
+  body{ background:var(--white); }
+  main{ padding-bottom:104px; }            /* place pour la barre réactions fixe */
+
+  /* ---- En-tête app (navy) ---- */
+  .cnl-topbar{ background:var(--navy); position:sticky; top:0; z-index:20; }
+  .cnl-topbar-inner{ padding:14px 16px; gap:12px; align-items:center; }
+  .cnl-back{ width:22px; height:22px; }
+  .cnl-id{ gap:12px; align-items:center; }
+  .cnl-id-avatar{ width:42px; height:42px; border-radius:10px; }
+  .cnl-id-text{ gap:3px; }
+  .cnl-id-row{ gap:8px; }
+  .cnl-name{ font-family:'NewBlack',sans-serif; font-weight:700; font-size:18px; letter-spacing:-.2px; }
+  .cnl-heart,
+  .cnl-members,
+  .cnl-profile{ display:none; }            /* pas dans l'en-tête mobile */
+  .cnl-livetag{ font-size:13px; color:var(--paper); }
+  .cnl-livetag .dot{ font-size:.8em; }
+  .cnl-more{ display:inline-flex; }
+
+  /* ---- Fil de messages ---- */
+  .cnl-feed{ gap:22px; padding:20px 0 8px; }
+  .cnl-msg{ gap:10px; align-items:flex-start; }
+  .cnl-avatar{ width:42px; height:42px; border-radius:10px; }
+  .cnl-body{ gap:6px; }
+  .cnl-head{ justify-content:space-between; align-items:baseline; gap:8px; flex-wrap:nowrap; }
+  .cnl-msg-name{ font-size:16px; letter-spacing:-.16px; }
+  .cnl-msg-time{ font-size:14px; color:#656565; white-space:nowrap; }
+  .cnl-sub{ font-size:14px; }
+
+  /* texte → bulle grise */
+  .cnl-text{
+    background:#f1f1f3; color:var(--ink);
+    padding:10px 14px; border-radius:14px;
+    font-size:15px; line-height:1.3; align-self:flex-start; max-width:100%;
+  }
+
+  /* réactions → pastilles bordées (emoji + nombre dans la même pilule) */
+  .cnl-reacts{ gap:10px; }
+  .cnl-react{ background:#f4f4f4; border:1px solid #e6e6e6; border-radius:10px; padding:5px 10px; gap:6px; }
+  .cnl-react-btn{ width:auto; height:auto; background:none; border-radius:0; font-size:15px; }
+  .cnl-react-n{ font-size:14px; color:#656565; }
+  .cnl-react--add{ padding:5px 12px; }
+  .cnl-react--add .cnl-react-btn{ color:#656565; }
+
+  /* carte vidéo */
+  .cnl-video{ max-width:none; aspect-ratio:328/180; }
+  .cnl-video-title{ font-size:14px; }
+  .cnl-video-badge .live{ font-size:13px; padding:5px 8px; }
+  .cnl-video-badge .views{ font-size:12px; }
+  .cnl-video-badge .views svg{ width:18px; height:12px; }
+
+  /* séparateur « Nouveau message » : absent du design mobile */
+  .cnl-divider{ display:none; }
+
+  /* indicateur « … » en haut du fil */
+  .cnl-typing{ display:flex; align-items:center; gap:10px; }
+  .cnl-typing .cnl-avatar{ width:42px; height:42px; }
+  .cnl-typing-bubble{ background:#ececef; border-radius:14px; padding:11px 14px; gap:5px; }
+  .cnl-typing-bubble span{ width:6px; height:6px; background:#9a9aa5; }
+
+  /* ---- Barre réactions fixe en bas (BottomBar) ---- */
+  .cnl-reactbar{
+    display:block; position:fixed; left:0; right:0; bottom:0; z-index:30;
+    background:var(--white); border-top:1px solid #ececec;
+    padding:13px 16px calc(13px + env(safe-area-inset-bottom));
+    box-shadow:0 -2px 12px rgba(0,0,0,.05);
+  }
+  .cnl-reactbar-label{
+    display:block; margin-bottom:8px;
+    font-family:'NewBlack',sans-serif; font-weight:400; font-size:11px; line-height:1;
+    letter-spacing:.6px; text-transform:uppercase; color:#9a9aa5;
+  }
+  .cnl-reactbar-row{ display:flex; justify-content:space-between; gap:8px; }
+  .cnl-reactbar-row button{
+    flex:1 1 0; height:40px; min-width:0;
+    display:inline-flex; align-items:center; justify-content:center;
+    background:#f4f4f4; border:0; border-radius:10px; font-size:22px; line-height:1; cursor:pointer;
+  }
+  .cnl-reactbar-add{ color:#656565; }
+}

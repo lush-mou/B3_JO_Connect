@@ -6,6 +6,8 @@
   <title>Olympic Connect 2026 — Posts</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="pages.css" />
+  <link rel="stylesheet" href="live.css" />
+  <link rel="stylesheet" href="posts.css" />
 </head>
 <body>
 
@@ -18,7 +20,7 @@
         <a class="header-logo-link" href="index.html" aria-label="Olympic Connect 2026 — accueil">
           <img class="header-logo" src="assets/img/logo-oc-baniere.svg" alt="Olympic Connect 2026" />
         </a>
-        <span class="header-badge">JO 2026</span>
+        <a class="header-badge" href="homeJO.html">JO 2026</a>
       </div>
 
       <div class="header-nav">
@@ -103,8 +105,278 @@
 </script>
 
   <div class="page">
-    <main class="page-hero">
-      <h1 class="page-title">Posts</h1>
+    <main>
+
+      <!-- ============ MES FAVORIS ============ -->
+      <section class="wrap section pf-fav-sec" style="margin-top:48px;">
+        <h2 class="section-title section-title--blue">Mes favoris</h2>
+        <label class="pf-search">Rechercher un(e) athlète
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 2a8 8 0 105.3 14l5.4 5.3 1.4-1.4-5.3-5.4A8 8 0 0010 2zm0 2a6 6 0 110 12 6 6 0 010-12z"/></svg>
+        </label>
+
+        <div class="pf-fav-rail">
+          <a class="pf-fav" href="canal.html" style="background-image:url('photo/PP_Fabien_CLAUDE.png')">
+            <button class="pf-fav-heart" type="button" aria-label="Favori"><svg viewBox="0 0 24 22" aria-hidden="true"><path d="M12 20.5S2.5 14 2.5 7.8A4.7 4.7 0 0 1 12 5a4.7 4.7 0 0 1 9.5 2.8C21.5 14 12 20.5 12 20.5Z"/></svg></button>
+            <span class="pf-fav-name">@Fabien_CLAUDE</span>
+          </a>
+          <a class="pf-fav" href="canal.html" style="background-image:url('photo/Justine_GAILLARD.png')">
+            <button class="pf-fav-heart" type="button" aria-label="Favori"><svg viewBox="0 0 24 22" aria-hidden="true"><path d="M12 20.5S2.5 14 2.5 7.8A4.7 4.7 0 0 1 12 5a4.7 4.7 0 0 1 9.5 2.8C21.5 14 12 20.5 12 20.5Z"/></svg></button>
+            <span class="pf-fav-name">@Justine_GAILLARD</span>
+          </a>
+          <a class="pf-fav" href="canal.html" style="background-image:url('photo/PP_athlete_homme_sourire.webp')">
+            <button class="pf-fav-heart" type="button" aria-label="Favori"><svg viewBox="0 0 24 22" aria-hidden="true"><path d="M12 20.5S2.5 14 2.5 7.8A4.7 4.7 0 0 1 12 5a4.7 4.7 0 0 1 9.5 2.8C21.5 14 12 20.5 12 20.5Z"/></svg></button>
+            <span class="pf-fav-name">@Loan_BOZZOLO</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- ============ POSTS DE VOS ATHLÈTES ============ -->
+      <section class="wrap section pf-posts-sec">
+        <h2 class="section-title section-title--blue">Posts de vos athlètes</h2>
+
+        <div class="pf-tabs" role="tablist">
+          <button class="pf-tab is-active" type="button" role="tab" aria-selected="true">
+            <svg viewBox="0 0 24 16" aria-hidden="true"><path d="M8 8a3.5 3.5 0 100-7 3.5 3.5 0 000 7zm9 0a3 3 0 100-6 3 3 0 000 6zM8 9c-3 0-6 1.5-6 4.5V16h12v-2.5C14 10.5 11 9 8 9zm9 0c-.5 0-1 .1-1.4.2 1.5 1 2.4 2.4 2.4 4.3V16h6v-2.5C24 10.5 20.5 9 17 9z"/></svg>
+            Les plus populaires
+          </button>
+          <button class="pf-tab" type="button" role="tab" aria-selected="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 18a8 8 0 110-16 8 8 0 010 16zm.5-13H11v6l5.2 3.1.8-1.3-4.5-2.7V7z"/></svg>
+            Les plus récents
+          </button>
+          <button class="pf-tab" type="button" role="tab" aria-selected="false">
+            <svg viewBox="0 0 24 22" aria-hidden="true"><path d="M12 21S2 14.5 2 7.6A5 5 0 0112 5a5 5 0 0110 2.6C22 14.5 12 21 12 21z"/></svg>
+            De mes favoris
+          </button>
+        </div>
+
+        <label class="pf-search">Rechercher un(e) athlète
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 2a8 8 0 105.3 14l5.4 5.3 1.4-1.4-5.3-5.4A8 8 0 0010 2zm0 2a6 6 0 110 12 6 6 0 010-12z"/></svg>
+        </label>
+
+        <div class="pf-grid">
+
+          <article class="post-card pf-post">
+            <img class="post-card-img" src="photo/post/justine_GAILLARD.png" alt="" />
+            <div class="post-cap">
+              <img class="post-cap-avatar" src="photo/post/PP_justine_GAILLARD.png" alt="" />
+              <div class="post-cap-text">
+                <p class="post-cap-msg">“Olympic Silver and more to come…”</p>
+                <div class="post-cap-foot"><span class="post-cap-handle">@Justine_GAILLARD</span><span class="post-cap-time">il y a 8min</span></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="post-card pf-post">
+            <img class="post-card-img" src="photo/post/Lee_CHAE-UN.png" alt="" />
+            <span class="post-card-play"><svg viewBox="0 0 76 76" aria-hidden="true"><circle cx="38" cy="38" r="38" fill="#41348a"/><path d="M30 24 54 38 30 52Z" fill="#fbfbfb"/></svg></span>
+            <div class="post-cap">
+              <img class="post-cap-avatar" src="photo/post/PP_Lee_CHAE-UN.png" alt="" />
+              <div class="post-cap-text">
+                <p class="post-cap-msg">“Un magnifique envol vers la finale…”</p>
+                <div class="post-cap-foot"><span class="post-cap-handle">@Lee_CHAE-UN</span><span class="post-cap-time">il y a 34min</span></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="post-card pf-post">
+            <img class="post-card-img" src="photo/post/Loic_MAILLARD.png" alt="" />
+            <div class="post-cap">
+              <img class="post-cap-avatar" src="photo/post/PP_Loic_MAILLARD.png" alt="" />
+              <div class="post-cap-text">
+                <p class="post-cap-msg">“Recap d’une journée incroyable…”</p>
+                <div class="post-cap-foot"><span class="post-cap-handle">@Loic_MAILLARD</span><span class="post-cap-time">il y a 44min</span></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="post-card pf-post">
+            <img class="post-card-img" src="photo/post/Eileen_GU.png" alt="" />
+            <div class="post-cap">
+              <img class="post-cap-avatar" src="photo/post/PP_Eileen_GU.png" alt="" />
+              <div class="post-cap-text">
+                <p class="post-cap-msg">“Olympic Silver and more…”</p>
+                <div class="post-cap-foot"><span class="post-cap-handle">@Eileen_GU</span><span class="post-cap-time">il y a 54min</span></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="post-card pf-post">
+            <img class="post-card-img" src="photo/post/Yuma_KAGIYAMA.png" alt="" />
+            <div class="post-cap">
+              <img class="post-cap-avatar" src="photo/post/PP_Yuma_KAGIYAMA.png" alt="" />
+              <div class="post-cap-text">
+                <p class="post-cap-msg">“Merci pour tout votre soutien !”</p>
+                <div class="post-cap-foot"><span class="post-cap-handle">@Yuma_KAGIYAMA</span><span class="post-cap-time">il y a 1h</span></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="post-card pf-post">
+            <img class="post-card-img" src="photo/post/dame_blonde.png" alt="" />
+            <div class="post-cap">
+              <img class="post-cap-avatar" src="photo/post/PP_dame_blonde.png" alt="" />
+              <div class="post-cap-text">
+                <p class="post-cap-msg">“Maintenant c’est parti !”</p>
+                <div class="post-cap-foot"><span class="post-cap-handle">@Mikaela_SHIFFRIN</span><span class="post-cap-time">il y a 1h</span></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="post-card pf-post">
+            <img class="post-card-img" src="photo/post/Franziska_PREUß.png" alt="" />
+            <div class="post-cap">
+              <img class="post-cap-avatar" src="photo/post/PP_Franziska_PREUß.png" alt="" />
+              <div class="post-cap-text">
+                <p class="post-cap-msg">“Les jeux commencent bien !”</p>
+                <div class="post-cap-foot"><span class="post-cap-handle">@Franziska_PREUß</span><span class="post-cap-time">il y a 2h</span></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="post-card pf-post">
+            <img class="post-card-img" src="photo/post/Alex_HALL.png" alt="" />
+            <div class="post-cap">
+              <img class="post-cap-avatar" src="photo/post/PP_Alex_HALL.png" alt="" />
+              <div class="post-cap-text">
+                <p class="post-cap-msg">“Honoré de partager ça avec vous…”</p>
+                <div class="post-cap-foot"><span class="post-cap-handle">@Alex_HALL</span><span class="post-cap-time">il y a 2h</span></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="post-card pf-post">
+            <img class="post-card-img" src="photo/post/Kaori_SAKAMOTO.png" alt="" />
+            <span class="post-card-play"><svg viewBox="0 0 76 76" aria-hidden="true"><circle cx="38" cy="38" r="38" fill="#41348a"/><path d="M30 24 54 38 30 52Z" fill="#fbfbfb"/></svg></span>
+            <div class="post-cap">
+              <img class="post-cap-avatar" src="photo/post/PP_Kaori_SAKAMOTO.png" alt="" />
+              <div class="post-cap-text">
+                <p class="post-cap-msg">“Programme libre dans 3 jours…”</p>
+                <div class="post-cap-foot"><span class="post-cap-handle">@Kaori_SAKAMOTO</span><span class="post-cap-time">il y a 3h</span></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="post-card pf-post">
+            <img class="post-card-img" src="photo/post/Kim_MEYLEMANS.png" alt="" />
+            <div class="post-cap">
+              <img class="post-cap-avatar" src="photo/post/PP_Kim_MEYLEMANS.png" alt="" />
+              <div class="post-cap-text">
+                <p class="post-cap-msg">“Prête pour la descente !”</p>
+                <div class="post-cap-foot"><span class="post-cap-handle">@Kim_MEYLEMANS</span><span class="post-cap-time">il y a 4h</span></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="post-card pf-post">
+            <img class="post-card-img" src="photo/post/Laura_NOLTE.png" alt="" />
+            <div class="post-cap">
+              <img class="post-cap-avatar" src="photo/post/PP_Laura_NOLTE.png" alt="" />
+              <div class="post-cap-text">
+                <p class="post-cap-msg">“On vise le podium à Cortina 🛷”</p>
+                <div class="post-cap-foot"><span class="post-cap-handle">@Laura_NOLTE</span><span class="post-cap-time">il y a 4h</span></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="post-card pf-post">
+            <img class="post-card-img" src="photo/post/Mika_VERMEULEN.png" alt="" />
+            <div class="post-cap">
+              <img class="post-cap-avatar" src="photo/post/PP_Mika_VERMEULEN.png" alt="" />
+              <div class="post-cap-text">
+                <p class="post-cap-msg">“Grosse séance d’altitude ce matin…”</p>
+                <div class="post-cap-foot"><span class="post-cap-handle">@Mika_VERMEULEN</span><span class="post-cap-time">il y a 5h</span></div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="pf-more">
+          <a href="#">Voir plus
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </section>
+
+      <!-- ============ ATHLÈTE TALKS : RESSENTEZ LES JEUX ============ -->
+      <section class="wrap section">
+        <div class="pf-talks-head">
+          <h2 class="section-title section-title--blue">Athlète Talks : Ressentez les jeux</h2>
+          <a class="link-btn" href="athlete-talks.html">Voir tous les Athlète Talks
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+
+        <!-- 2 grandes cartes « prochain live » -->
+        <div class="pf-talks-big">
+          <article class="vid-card vid-card--next">
+            <div class="vid-card__media" style="background-image:url('photo/biathlete_femme_interview.png')"></div>
+            <div class="vid-card__badges"><span class="vid-card__soon">Prochain live<small>06 FÉV - 14h</small></span></div>
+            <div class="vid-card__next"><p class="vid-card__handle">@Justine_GAILLARD</p></div>
+          </article>
+          <article class="vid-card vid-card--next">
+            <div class="vid-card__media" style="background-image:url('photo/athlete_femme_bonnet_interview.png')"></div>
+            <div class="vid-card__badges"><span class="vid-card__soon">Prochain live<small>06 FÉV - 19h</small></span></div>
+            <div class="vid-card__next"><p class="vid-card__handle">@Audrey_McManiman</p></div>
+          </article>
+        </div>
+
+        <!-- Carrousel de replays Athlète Talks -->
+        <div class="carousel carousel--end vid-rail vid-rail--small" data-carousel>
+          <div class="carousel-track">
+
+            <article class="vid-card">
+              <div class="vid-card__media" style="background-image:url('photo/patineur_interview_cortina.png')"></div>
+              <div class="vid-card__badges"><span class="vid-card__views"><svg class="ic-eye" viewBox="0 0 26 17" aria-hidden="true"><path d="M13 0C7 0 2.1 3.4 0 8.5 2.1 13.6 7 17 13 17s10.9-3.4 13-8.5C23.9 3.4 19 0 13 0Zm0 14a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11Zm0-9a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z"/></svg>2 572</span></div>
+              <button class="vid-card__play" type="button" aria-label="Lire"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+              <div class="vid-card__info"><p class="vid-card__desc">Yuma Kagiyama décrypte les figures les plus impressionnantes du patinage.</p><div class="vid-card__tags"><span class="chip chip--solid">Patinage Artistique</span><span class="chip chip--solid">@Yuma_KAGIYAMA</span></div></div>
+            </article>
+
+            <article class="vid-card">
+              <div class="vid-card__media" style="background-image:url('photo/biathlete_allemand_interview.png')"></div>
+              <div class="vid-card__badges"><span class="vid-card__views"><svg class="ic-eye" viewBox="0 0 26 17" aria-hidden="true"><path d="M13 0C7 0 2.1 3.4 0 8.5 2.1 13.6 7 17 13 17s10.9-3.4 13-8.5C23.9 3.4 19 0 13 0Zm0 14a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11Zm0-9a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z"/></svg>1 253</span></div>
+              <button class="vid-card__play" type="button" aria-label="Lire"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+              <div class="vid-card__info"><p class="vid-card__desc">Philipp Nawrath revient sur sa course du sprint.</p><div class="vid-card__tags"><span class="chip chip--solid">Biathlon</span><span class="chip chip--solid">@Philipp_NAWRATH</span></div></div>
+            </article>
+
+            <article class="vid-card">
+              <div class="vid-card__media" style="background-image:url('photo/curling_interview.png')"></div>
+              <div class="vid-card__badges"><span class="vid-card__views"><svg class="ic-eye" viewBox="0 0 26 17" aria-hidden="true"><path d="M13 0C7 0 2.1 3.4 0 8.5 2.1 13.6 7 17 13 17s10.9-3.4 13-8.5C23.9 3.4 19 0 13 0Zm0 14a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11Zm0-9a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z"/></svg>3 544</span></div>
+              <button class="vid-card__play" type="button" aria-label="Lire"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+              <div class="vid-card__info"><p class="vid-card__desc">Réactions du skip après une fin de match au sommet.</p><div class="vid-card__tags"><span class="chip chip--solid">Curling</span><span class="chip chip--solid">@Niklas_EDIN</span></div></div>
+            </article>
+
+            <article class="vid-card">
+              <div class="vid-card__media" style="background-image:url('photo/patineuse_interview_cortina.png')"></div>
+              <div class="vid-card__badges"><span class="vid-card__views"><svg class="ic-eye" viewBox="0 0 26 17" aria-hidden="true"><path d="M13 0C7 0 2.1 3.4 0 8.5 2.1 13.6 7 17 13 17s10.9-3.4 13-8.5C23.9 3.4 19 0 13 0Zm0 14a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11Zm0-9a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z"/></svg>5 902</span></div>
+              <button class="vid-card__play" type="button" aria-label="Lire"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+              <div class="vid-card__info"><p class="vid-card__desc">Kaori Sakamoto se confie après son programme libre.</p><div class="vid-card__tags"><span class="chip chip--solid">Patinage Artistique</span><span class="chip chip--solid">@Kaori_SAKAMOTO</span></div></div>
+            </article>
+
+            <article class="vid-card">
+              <div class="vid-card__media" style="background-image:url('photo/athlete_blonde_interview.png')"></div>
+              <div class="vid-card__badges"><span class="vid-card__views"><svg class="ic-eye" viewBox="0 0 26 17" aria-hidden="true"><path d="M13 0C7 0 2.1 3.4 0 8.5 2.1 13.6 7 17 13 17s10.9-3.4 13-8.5C23.9 3.4 19 0 13 0Zm0 14a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11Zm0-9a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z"/></svg>8 117</span></div>
+              <button class="vid-card__play" type="button" aria-label="Lire"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+              <div class="vid-card__info"><p class="vid-card__desc">Le mot de la championne avant la grande finale.</p><div class="vid-card__tags"><span class="chip chip--solid">Ski alpin</span><span class="chip chip--solid">@Mikaela_SHIFFRIN</span></div></div>
+            </article>
+
+            <article class="vid-card">
+              <div class="vid-card__media" style="background-image:url('photo/athlete_homme_interview.png')"></div>
+              <div class="vid-card__badges"><span class="vid-card__views"><svg class="ic-eye" viewBox="0 0 26 17" aria-hidden="true"><path d="M13 0C7 0 2.1 3.4 0 8.5 2.1 13.6 7 17 13 17s10.9-3.4 13-8.5C23.9 3.4 19 0 13 0Zm0 14a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11Zm0-9a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z"/></svg>4 380</span></div>
+              <button class="vid-card__play" type="button" aria-label="Lire"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+              <div class="vid-card__info"><p class="vid-card__desc">Sensations du grand tremplin, juste après le saut.</p><div class="vid-card__tags"><span class="chip chip--solid">Saut à ski</span><span class="chip chip--solid">@Martin_NYENGET</span></div></div>
+            </article>
+
+          </div>
+
+          <div class="carousel-nav">
+            <button class="carousel-arrow" type="button" data-dir="prev" aria-label="Talks précédents"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <span class="carousel-dots" aria-hidden="true"><i class="is-active"></i><i></i></span>
+            <button class="carousel-arrow" type="button" data-dir="next" aria-label="Talks suivants"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </div>
+        </div>
+      </section>
+
     </main>
   </div>
 
@@ -185,6 +457,144 @@
 
   <img class="footer-deco" src="assets/img/footer-deco.png" alt="" />
 </footer>
+
+<script>
+  // Onglets de filtre
+  document.querySelectorAll('.pf-tabs').forEach(function (group) {
+    group.querySelectorAll('.pf-tab').forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        group.querySelectorAll('.pf-tab').forEach(function (t) {
+          t.classList.remove('is-active'); t.setAttribute('aria-selected', 'false');
+        });
+        tab.classList.add('is-active'); tab.setAttribute('aria-selected', 'true');
+      });
+    });
+  });
+
+  // Cœurs favoris
+  document.querySelectorAll('.pf-fav-heart').forEach(function (h) {
+    h.addEventListener('click', function (e) { e.preventDefault(); h.classList.toggle('is-fav'); });
+  });
+
+  // Carrousels génériques (flèches + puces)
+  document.querySelectorAll('[data-carousel]').forEach(function (carousel) {
+    var track = carousel.querySelector('.carousel-track');
+    var dots  = Array.prototype.slice.call(carousel.querySelectorAll('.carousel-dots i'));
+    if (!track) return;
+    function page() {
+      var card = track.firstElementChild;
+      if (!card) return track.clientWidth;
+      var gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+      var per = Math.max(1, Math.round(track.clientWidth / (card.offsetWidth + gap)));
+      return per * (card.offsetWidth + gap);
+    }
+    carousel.querySelectorAll('.carousel-arrow').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        track.scrollBy({ left: (btn.dataset.dir === 'next' ? 1 : -1) * page(), behavior: 'smooth' });
+      });
+    });
+    if (dots.length) {
+      track.addEventListener('scroll', function () {
+        var max = track.scrollWidth - track.clientWidth;
+        var ratio = max > 0 ? track.scrollLeft / max : 0;
+        var idx = Math.round(ratio * (dots.length - 1));
+        dots.forEach(function (d, i) { d.classList.toggle('is-active', i === idx); });
+      }, { passive: true });
+    }
+  });
+</script>
+
+<!-- ============ POP-UP POST (Figma 1905:17607 — carte 1905:17604) ============
+     Clic sur une .post-card-img → ouvre ce modal (backdrop flou plein écran). -->
+<div class="pm-overlay" id="postModal" aria-hidden="true">
+  <button class="pm-close" type="button" aria-label="Fermer">
+    <svg viewBox="0 0 30 30" aria-hidden="true"><path d="M5 5l20 20M25 5 5 25" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg>
+  </button>
+
+  <div class="pm-card" role="dialog" aria-modal="true" aria-label="Post de Justine Gaillard">
+    <div class="pm-img" role="img" aria-label="Post de Justine Gaillard" style="background-image:url('photo/post/justine_GAILLARD.png')"></div>
+
+    <div class="pm-panel">
+      <!-- Post -->
+      <div class="pm-post">
+        <div class="pm-head">
+          <img class="pm-avatar" src="photo/post/PP_justine_GAILLARD.png" alt="" />
+          <div class="pm-meta">
+            <span class="pm-name">@Justine_GAILLARD</span>
+            <span class="pm-date">01 février 2026 - 12h57</span>
+          </div>
+        </div>
+        <p class="pm-caption">“Merci à Worldcup station des rousses et la @FFS de m'avoir permis de vivre ces moments.🥹  Participer à sa première coupe du monde c'est ressentir des émotions qui ne s'oublient pas (surtout dans l'ambiance des rousses 🔥) !”</p>
+        <div class="pm-reacts">
+          <button class="pm-react" type="button"><span>🎉</span>1.5k</button>
+          <button class="pm-react" type="button"><span>🔥</span>1.2k</button>
+          <button class="pm-react" type="button"><span>💪</span>987</button>
+          <button class="pm-react" type="button"><span>🥇</span>654</button>
+          <button class="pm-react pm-react--add" type="button"><span>＋</span></button>
+          <a class="pm-translate" href="#">Traduire</a>
+        </div>
+      </div>
+
+      <!-- Commentaires -->
+      <p class="pm-comments-label">Commentaires :</p>
+
+      <div class="pm-comment">
+        <div class="pm-head">
+          <img class="pm-avatar pm-avatar--sm" src="photo/post/PP_Loic_MAILLARD.png" alt="" />
+          <div class="pm-meta">
+            <span class="pm-name">@FFS</span>
+            <span class="pm-date">01 février 2026 - 13h07</span>
+          </div>
+        </div>
+        <p class="pm-ctext">Merci à toi pour cette belle énergie. Une première Coupe du Monde, ça marque forcément… et ce n'est que le début 💙🤍❤️ Hâte de te revoir sur les prochaines ! 💪</p>
+        <div class="pm-reacts">
+          <button class="pm-react" type="button"><span>🎉</span>1.5k</button>
+          <button class="pm-react" type="button"><span>🔥</span>1.2k</button>
+          <button class="pm-react" type="button"><span>💪</span>987</button>
+          <button class="pm-react" type="button"><span>🥇</span>654</button>
+          <button class="pm-react pm-react--add" type="button"><span>＋</span></button>
+          <a class="pm-translate" href="#">Traduire</a>
+        </div>
+      </div>
+
+      <div class="pm-comment">
+        <div class="pm-head">
+          <img class="pm-avatar pm-avatar--sm" src="photo/post/PP_dame_blonde.png" alt="" />
+          <div class="pm-meta">
+            <span class="pm-name">@Melissa_GAL</span>
+            <span class="pm-date">02 février 2026 - 18h43</span>
+          </div>
+        </div>
+        <p class="pm-ctext">Et quelle première ! Trop fière d'avoir partagé ça avec toi !! On en veut encore plein d'autres comme ça 💪</p>
+        <div class="pm-reacts">
+          <button class="pm-react" type="button"><span>🎉</span>1.5k</button>
+          <button class="pm-react" type="button"><span>🔥</span>1.2k</button>
+          <button class="pm-react" type="button"><span>💪</span>987</button>
+          <button class="pm-react" type="button"><span>🥇</span>654</button>
+          <button class="pm-react pm-react--add" type="button"><span>＋</span></button>
+          <a class="pm-translate" href="#">Traduire</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Pop-up post : ouverture au clic sur une image de post
+  (function () {
+    var modal = document.getElementById('postModal');
+    if (!modal) return;
+    function open() { modal.classList.add('is-open'); modal.setAttribute('aria-hidden', 'false'); document.body.classList.add('pm-lock'); }
+    function close() { modal.classList.remove('is-open'); modal.setAttribute('aria-hidden', 'true'); document.body.classList.remove('pm-lock'); }
+    document.querySelectorAll('.post-card-img').forEach(function (img) {
+      img.style.cursor = 'pointer';
+      img.addEventListener('click', function (e) { e.preventDefault(); open(); });
+    });
+    modal.querySelector('.pm-close').addEventListener('click', close);
+    modal.addEventListener('click', function (e) { if (e.target === modal) close(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && modal.classList.contains('is-open')) close(); });
+  })();
+</script>
 
 </body>
 </html>

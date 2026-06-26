@@ -6,6 +6,10 @@
   <title>Olympic Connect 2026 — Athlètes</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="pages.css" />
+  <link rel="stylesheet" href="live.css" />
+  <link rel="stylesheet" href="posts.css" />
+  <link rel="stylesheet" href="video.css" />
+  <link rel="stylesheet" href="athletes.css" />
 </head>
 <body>
 
@@ -18,7 +22,7 @@
         <a class="header-logo-link" href="index.html" aria-label="Olympic Connect 2026 — accueil">
           <img class="header-logo" src="assets/img/logo-oc-baniere.svg" alt="Olympic Connect 2026" />
         </a>
-        <span class="header-badge">JO 2026</span>
+        <a class="header-badge" href="homeJO.html">JO 2026</a>
       </div>
 
       <div class="header-nav">
@@ -103,8 +107,385 @@
 </script>
 
   <div class="page">
-    <main class="page-hero">
-      <h1 class="page-title">Athlètes</h1>
+    <main class="ath">
+
+      <!-- ============ EN-TÊTE ATHLÈTE ============ -->
+      <section class="wrap ath-head">
+
+        <!-- Identité : photo + nom + méta -->
+        <div class="ath-id">
+          <div class="ath-photo"><img src="assets/athletes/justine_photo.png" alt="Justine Gaillard" /></div>
+          <div class="ath-id-text">
+            <div class="ath-name-row">
+              <h1 class="ath-name">@Justine_GAILLARD</h1>
+              <button class="ath-heart" type="button" aria-label="Suivre l'athlète">
+                <svg viewBox="0 0 33 28" aria-hidden="true"><path d="M16.5 27 14.4 25.1C6.9 18.3 2 13.9 2 8.4 2 3.9 5.5.5 9.9.5c2.5 0 4.9 1.2 6.6 3 1.7-1.8 4.1-3 6.6-3C27.5.5 31 3.9 31 8.4c0 5.5-4.9 9.9-12.4 16.7L16.5 27Z"/></svg>
+              </button>
+            </div>
+            <p class="ath-meta"><span>Athlète JO - Ski de fond -</span><span>Née le 03/11/2003</span></p>
+          </div>
+        </div>
+
+        <!-- Statistiques : compétitions + médailles -->
+        <div class="ath-stats">
+
+          <!-- Compétitions concernant l'athlète -->
+          <div class="ath-comp">
+            <h2 class="ath-subtitle">Compétitions concernant l'athlète</h2>
+            <div class="ath-comp-cards">
+              <article class="comp-card">
+                <div class="comp-card-media"><img src="assets/athletes/comp_sprint_classique.png" alt="" /></div>
+                <button class="comp-card-heart" type="button" aria-label="Ajouter aux favoris">
+                  <svg viewBox="0 0 33 28" aria-hidden="true"><path d="M16.5 27 14.4 25.1C6.9 18.3 2 13.9 2 8.4 2 3.9 5.5.5 9.9.5c2.5 0 4.9 1.2 6.6 3 1.7-1.8 4.1-3 6.6-3C27.5.5 31 3.9 31 8.4c0 5.5-4.9 9.9-12.4 16.7L16.5 27Z"/></svg>
+                </button>
+                <p class="comp-card-label">Sprint classique</p>
+              </article>
+              <article class="comp-card">
+                <div class="comp-card-media"><img src="assets/athletes/comp_50km.png" alt="" /></div>
+                <button class="comp-card-heart" type="button" aria-label="Ajouter aux favoris">
+                  <svg viewBox="0 0 33 28" aria-hidden="true"><path d="M16.5 27 14.4 25.1C6.9 18.3 2 13.9 2 8.4 2 3.9 5.5.5 9.9.5c2.5 0 4.9 1.2 6.6 3 1.7-1.8 4.1-3 6.6-3C27.5.5 31 3.9 31 8.4c0 5.5-4.9 9.9-12.4 16.7L16.5 27Z"/></svg>
+                </button>
+                <p class="comp-card-label">50 km en groupe</p>
+              </article>
+            </div>
+          </div>
+
+          <!-- Médailles reçues -->
+          <div class="ath-medals">
+            <h2 class="ath-subtitle">Médailles reçues</h2>
+            <div class="medals">
+              <div class="medals-row">
+                <div class="medal-cell"><img class="medal-ic" src="assets/athletes/medal_or.svg" alt="" /><span class="medal-cat">Or</span></div>
+                <div class="medal-cell"><img class="medal-ic" src="assets/athletes/medal_argent.svg" alt="" /><span class="medal-cat">Or</span></div>
+                <div class="medal-cell"><img class="medal-ic" src="assets/athletes/medal_bronze.svg" alt="" /><span class="medal-cat">Or</span></div>
+                <div class="medal-cell medal-cell--total"><span class="medal-total">Total</span></div>
+              </div>
+              <div class="medals-row">
+                <div class="medal-cell"><span class="medal-num">0</span></div>
+                <div class="medal-cell"><span class="medal-num">0</span></div>
+                <div class="medal-cell"><span class="medal-num">0</span></div>
+                <div class="medal-cell"><span class="medal-num">0</span></div>
+              </div>
+            </div>
+            <a class="ath-results" href="#">Découvrir ses résultats</a>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============ CANAL DE L'ATHLÈTE (composant .canal-d, cf. video.html) ============ -->
+      <section class="wrap section ath-canal">
+        <h2 class="section-title section-title--blue">Canal de Justine Gaillard</h2>
+
+        <a class="canal-d" href="canal.html" aria-label="Canal de Justine Gaillard">
+          <span class="canal-d__avatar" style="background-image:url('assets/athletes/canal_cover.png')"></span>
+          <div class="canal-d__body">
+            <div class="canal-d__head">
+              <div class="canal-d__headleft">
+                <p class="canal-name">@Justine_GAILLARD</p>
+                <span class="canal-sport">Ski de fond</span>
+                <span class="canal-live"><span class="canal-live__grp"><span class="canal-dot"></span>En live</span></span>
+              </div>
+              <span class="canal-members">9,6K membres
+                <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm8 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM2 19c0-2.5 2.7-4 6-4s6 1.5 6 4v1H2v-1Zm14.6-3.7c1.9.6 3.4 1.9 3.4 3.7v1h-3.2v-1c0-1.5-.5-2.8-1.4-3.8.4 0 .8 0 1.2.1Z"/></svg>
+              </span>
+            </div>
+            <div class="canal-msg">
+              <div class="canal-msg__row">
+                <p class="canal-quote">“Hey tout le monde, si vous êtes chaud on démarre un petit live à 15h, heure …”</p>
+              </div>
+              <div class="canal-reacts">
+                <div class="canal-reacts__list">
+                  <span class="canal-react"><span class="canal-react__emoji">👏</span><span class="canal-react__count">5,7k</span></span>
+                  <span class="canal-react"><span class="canal-react__emoji">💪</span><span class="canal-react__count">790</span></span>
+                  <span class="canal-react"><span class="canal-react__emoji">💪</span><span class="canal-react__count">2,1k</span></span>
+                  <span class="canal-add">＋</span>
+                </div>
+                <p class="canal-time">10h54</p>
+              </div>
+            </div>
+          </div>
+        </a>
+      </section>
+
+      <!-- ============ POSTS DE L'ATHLÈTE ============ -->
+      <section class="wrap section ath-feed">
+
+        <!-- Filtres catégorie -->
+        <div class="afilter" role="tablist" aria-label="Filtrer le contenu">
+          <button class="afilter-pill is-active" type="button" role="tab" aria-selected="true">Tout</button>
+          <a class="afilter-pill" href="posts.html" role="tab">Posts</a>
+          <a class="afilter-pill" href="replays.html" role="tab">Replays</a>
+          <a class="afilter-pill" href="athlete-talks.html" role="tab">Athlète Talks</a>
+        </div>
+
+        <h2 class="section-title section-title--blue">Les posts de Justine Gaillard</h2>
+
+        <!-- Sous-onglets de tri -->
+        <div class="asub-tabs">
+          <button class="asub-tab is-active" type="button"><img src="assets/athletes/ic_people_white.svg" alt="" />Les plus populaires</button>
+          <button class="asub-tab" type="button"><img src="assets/athletes/ic_people_blue.svg" alt="" />Les plus récents</button>
+        </div>
+
+        <!-- Mosaïque de posts -->
+        <div class="posts-grid">
+          <div class="posts-left">
+
+            <div class="post-pair">
+              <article class="post-card">
+                <img class="post-card-img" src="assets/athletes/post_1.png" alt="" />
+                <span class="post-card-play apost-play"><img src="assets/athletes/play_small.svg" alt="Lire" /></span>
+                <div class="apost-cap">
+                  <p class="apost-quote">“Pas mal de tout droit dans la…”</p>
+                  <div class="apost-foot">
+                    <div class="apost-reacts">
+                      <span class="apost-react"><span class="apost-emoji"><img src="assets/athletes/reaction_emoji.png" alt="" /></span>1,2k</span>
+                      <span class="apost-react"><span class="apost-emoji"><img src="assets/athletes/reaction_emoji.png" alt="" /></span>1,2k</span>
+                      <span class="apost-react"><span class="apost-emoji"><img src="assets/athletes/reaction_emoji.png" alt="" /></span>1,2k</span>
+                      <button class="apost-add" type="button" aria-label="Réagir">＋</button>
+                    </div>
+                    <span class="apost-time">Il y a 18 minutes</span>
+                  </div>
+                </div>
+              </article>
+
+              <article class="post-card">
+                <img class="post-card-img" src="assets/athletes/post_2.png" alt="" />
+                <span class="post-card-play apost-play"><img src="assets/athletes/play_small.svg" alt="Lire" /></span>
+                <div class="apost-cap">
+                  <p class="apost-quote">“Je m’en souviendrais de cette saison !”</p>
+                  <div class="apost-foot">
+                    <div class="apost-reacts">
+                      <span class="apost-react"><span class="apost-emoji"><img src="assets/athletes/reaction_emoji.png" alt="" /></span>1,2k</span>
+                      <span class="apost-react"><span class="apost-emoji"><img src="assets/athletes/reaction_emoji.png" alt="" /></span>1,2k</span>
+                      <span class="apost-react"><span class="apost-emoji"><img src="assets/athletes/reaction_emoji.png" alt="" /></span>1,2k</span>
+                      <button class="apost-add" type="button" aria-label="Réagir">＋</button>
+                    </div>
+                    <span class="apost-time">Il y a 5 heures</span>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <article class="post-card post-card--wide">
+              <img class="post-card-img" src="assets/athletes/post_3_wide.png" alt="" />
+              <div class="apost-cap">
+                <p class="apost-quote">“Mon premier départ aux Jeux Olympiques 🫶”</p>
+                <div class="apost-foot">
+                  <div class="apost-reacts apost-reacts--ghost">
+                    <span class="apost-react"><span class="apost-emoji"><img src="assets/athletes/reaction_emoji.png" alt="" /></span>1,2k</span>
+                    <span class="apost-react"><span class="apost-emoji"><img src="assets/athletes/reaction_emoji.png" alt="" /></span>1,2k</span>
+                    <span class="apost-react"><span class="apost-emoji"><img src="assets/athletes/reaction_emoji.png" alt="" /></span>1,2k</span>
+                    <button class="apost-add" type="button" aria-label="Réagir">＋</button>
+                  </div>
+                  <span class="apost-time">Il y a 4 jours</span>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="posts-right">
+            <div class="post-col">
+              <article class="post-card">
+                <img class="post-card-img" src="assets/athletes/post_4.png" alt="" />
+                <span class="post-card-play apost-play"><img src="assets/athletes/play_small.svg" alt="Lire" /></span>
+                <div class="apost-cap">
+                  <p class="apost-quote">“Un grand merci à mes partenaires…”</p>
+                  <div class="apost-foot">
+                    <div class="apost-reacts">
+                      <span class="apost-react"><span class="apost-emoji"><img src="assets/athletes/reaction_emoji.png" alt="" /></span>1,2k</span>
+                      <span class="apost-react"><span class="apost-emoji"><img src="assets/athletes/reaction_emoji.png" alt="" /></span>1,2k</span>
+                      <span class="apost-react"><span class="apost-emoji"><img src="assets/athletes/reaction_emoji.png" alt="" /></span>1,2k</span>
+                      <button class="apost-add" type="button" aria-label="Réagir">＋</button>
+                    </div>
+                    <span class="apost-time">Il y a 1 jours</span>
+                  </div>
+                </div>
+              </article>
+
+              <article class="post-card">
+                <img class="post-card-img" src="assets/athletes/post_5.png" alt="" />
+                <span class="post-card-play apost-play"><img src="assets/athletes/play_small.svg" alt="Lire" /></span>
+                <div class="apost-cap">
+                  <p class="apost-quote">“Je suis très fière de mon parcours…”</p>
+                  <div class="apost-foot">
+                    <div class="apost-reacts">
+                      <span class="apost-react"><span class="apost-emoji"><img src="assets/athletes/reaction_emoji.png" alt="" /></span>1,2k</span>
+                      <span class="apost-react"><span class="apost-emoji"><img src="assets/athletes/reaction_emoji.png" alt="" /></span>1,2k</span>
+                      <span class="apost-react"><span class="apost-emoji"><img src="assets/athletes/reaction_emoji.png" alt="" /></span>1,2k</span>
+                      <button class="apost-add" type="button" aria-label="Réagir">＋</button>
+                    </div>
+                    <span class="apost-time">Il y a 2 jours</span>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <article class="post-card post-card--tall">
+              <img class="post-card-img" src="assets/athletes/post_6_tall.png" alt="" />
+              <span class="post-card-play apost-play apost-play--big"><img src="assets/athletes/play_big.svg" alt="Lire" /></span>
+              <div class="apost-cap">
+                <p class="apost-quote">“Heureuse d’avoir découvert le paradis…”</p>
+                <div class="apost-foot apost-foot--reverse">
+                  <span class="apost-time">Il y a 4 jours</span>
+                  <div class="apost-reacts apost-reacts--ghost">
+                    <span class="apost-react"><span class="apost-emoji"><img src="assets/athletes/reaction_emoji.png" alt="" /></span>1,2k</span>
+                    <span class="apost-react"><span class="apost-emoji"><img src="assets/athletes/reaction_emoji.png" alt="" /></span>1,2k</span>
+                    <span class="apost-react"><span class="apost-emoji"><img src="assets/athletes/reaction_emoji.png" alt="" /></span>1,2k</span>
+                    <button class="apost-add" type="button" aria-label="Réagir">＋</button>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="ath-more"><a href="#">Voir plus</a></div>
+      </section>
+
+      <!-- ============ REPLAYS DE L'ATHLÈTE ============ -->
+      <section class="wrap section ath-replays">
+        <h2 class="section-title section-title--blue">Replays de Justine Gaillard</h2>
+
+        <div class="afilter" role="tablist" aria-label="Filtrer les replays">
+          <button class="afilter-pill is-active" type="button" role="tab" aria-selected="true">Tout</button>
+          <button class="afilter-pill" type="button" role="tab">Epreuves entières</button>
+          <button class="afilter-pill" type="button" role="tab">Temps forts</button>
+        </div>
+
+        <div class="rcard-row rcard-row--2">
+          <a class="rcard rcard--lg" href="#">
+            <div class="rcard-media" style="background-image:url('assets/athletes/replay_1.png')">
+              <span class="rcard-cat">Temps forts</span>
+              <span class="rcard-dur">06:53</span>
+            </div>
+            <div class="rcard-body">
+              <p class="rcard-title">Sprint par équipes féminin classique | Milano Cortina 2026 | Best Time</p>
+              <div class="rcard-foot">
+                <div class="rcard-meta"><span class="rcard-time">Il y a 4h</span><span class="rcard-sport">Ski de fond</span></div>
+                <span class="rcard-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+              </div>
+            </div>
+          </a>
+          <a class="rcard rcard--lg" href="#">
+            <div class="rcard-media" style="background-image:url('assets/athletes/replay_2.png')">
+              <span class="rcard-cat">Epreuve entiere</span>
+              <span class="rcard-dur">03:32:21</span>
+            </div>
+            <div class="rcard-body">
+              <p class="rcard-title">L’arrivée difficile de Justine Gaillard | Sprint Féminin | Milano Cortina 2026 | Full replay</p>
+              <div class="rcard-foot">
+                <div class="rcard-meta"><span class="rcard-time">Il y a 30 min</span><span class="rcard-sport">Ski de fond</span></div>
+                <span class="rcard-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="rcard-row rcard-row--3">
+          <a class="rcard" href="#">
+            <div class="rcard-media" style="background-image:url('assets/athletes/replay_3.png')">
+              <span class="rcard-cat">Epreuve entiere</span>
+              <span class="rcard-dur">03:12:59</span>
+            </div>
+            <div class="rcard-body">
+              <p class="rcard-title">Sprint féminin classique | Milano Cortina 2026 | Full Replays</p>
+              <div class="rcard-foot">
+                <div class="rcard-meta"><span class="rcard-time">Il y a 4h</span><span class="rcard-sport">Ski de fond</span></div>
+                <span class="rcard-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+              </div>
+            </div>
+          </a>
+          <a class="rcard" href="#">
+            <div class="rcard-media" style="background-image:url('assets/athletes/replay_4.png')">
+              <span class="rcard-cat">Temps fort</span>
+              <span class="rcard-dur">03:31</span>
+            </div>
+            <div class="rcard-body">
+              <p class="rcard-title">La France arrive 4ème au sprint féminin | Milano Cortina 2026 | Best Time</p>
+              <div class="rcard-foot">
+                <div class="rcard-meta"><span class="rcard-time">Il y a 30min</span><span class="rcard-sport">Ski de fond</span></div>
+                <span class="rcard-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+              </div>
+            </div>
+          </a>
+          <a class="rcard" href="#">
+            <div class="rcard-media" style="background-image:url('assets/athletes/replay_5.png')">
+              <span class="rcard-cat">Temps fort</span>
+              <span class="rcard-dur">05:43</span>
+            </div>
+            <div class="rcard-body">
+              <p class="rcard-title">50 km en groupe féminin | Milano Cortina 2026 | Best Time</p>
+              <div class="rcard-foot">
+                <div class="rcard-meta"><span class="rcard-time">Il y a 2h</span><span class="rcard-sport">Ski de fond</span></div>
+                <span class="rcard-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- ============ ATHLÈTE TALKS DE L'ATHLÈTE ============ -->
+      <section class="wrap section ath-talks">
+        <h2 class="section-title section-title--blue">Athlète Talks de Justine Gaillard</h2>
+
+        <div class="tcard-grid">
+          <!-- Rangée du haut : live à venir + replay -->
+          <div class="tcard-row">
+            <article class="vid-card vid-card--next">
+              <div class="vid-card__media" style="background-image:url('assets/athletes/talk_live.png')"></div>
+              <div class="vid-card__next">
+                <p class="vid-card__handle">live à venir</p>
+                <p class="vid-card__date">Prochain live<br>10 FÉV - 11h</p>
+              </div>
+            </article>
+
+            <a class="vid-card tcard" href="#">
+              <div class="vid-card__media" style="background-image:url('assets/athletes/talk_replay.png')"></div>
+              <div class="vid-card__badges"><span class="vid-card__views"><svg class="ic-eye" viewBox="0 0 26 17" aria-hidden="true"><path d="M13 0C7 0 2.1 3.4 0 8.5 2.1 13.6 7 17 13 17s10.9-3.4 13-8.5C23.9 3.4 19 0 13 0Zm0 14a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11Zm0-9a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z"/></svg>6 853</span></div>
+              <button class="vid-card__play" type="button" aria-label="Lire"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+              <div class="vid-card__info">
+                <p class="vid-card__desc">Justine Gaillard donne son opinion sur la selection JO 2026 et répond à vos questions.</p>
+                <div class="tcard-foot"><span>il y a 6 jours</span><i class="tcard-dot"></i><span>19 min</span></div>
+              </div>
+            </a>
+          </div>
+
+          <!-- Rangée du bas : 3 talks -->
+          <div class="tcard-row tcard-row--3">
+            <a class="vid-card tcard tcard--sm" href="#">
+              <div class="vid-card__media" style="background-image:url('assets/athletes/talk_1.png')"></div>
+              <div class="vid-card__badges"><span class="vid-card__views"><svg class="ic-eye" viewBox="0 0 26 17" aria-hidden="true"><path d="M13 0C7 0 2.1 3.4 0 8.5 2.1 13.6 7 17 13 17s10.9-3.4 13-8.5C23.9 3.4 19 0 13 0Zm0 14a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11Zm0-9a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z"/></svg>3 438</span></div>
+              <button class="vid-card__play" type="button" aria-label="Lire"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+              <div class="vid-card__info">
+                <p class="vid-card__desc">Dans les coulisses du Sprint par équipes avec Justine Gaillard.</p>
+                <div class="tcard-foot"><span>Il y a 3 jours</span><i class="tcard-dot"></i><span>12 min</span></div>
+              </div>
+            </a>
+            <a class="vid-card tcard tcard--sm" href="#">
+              <div class="vid-card__media" style="background-image:url('assets/athletes/talk_2.png')"></div>
+              <div class="vid-card__badges"><span class="vid-card__views"><svg class="ic-eye" viewBox="0 0 26 17" aria-hidden="true"><path d="M13 0C7 0 2.1 3.4 0 8.5 2.1 13.6 7 17 13 17s10.9-3.4 13-8.5C23.9 3.4 19 0 13 0Zm0 14a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11Zm0-9a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z"/></svg>8 412</span></div>
+              <button class="vid-card__play" type="button" aria-label="Lire"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+              <div class="vid-card__info">
+                <p class="vid-card__desc">Retour sur le Sprint par équipes, Justine Gaillard répond à vos questions</p>
+                <div class="tcard-foot"><span>Il y a 2 jours</span><i class="tcard-dot"></i><span>09 min</span></div>
+              </div>
+            </a>
+            <a class="vid-card tcard tcard--sm" href="#">
+              <div class="vid-card__media" style="background-image:url('assets/athletes/talk_3.png')"></div>
+              <div class="vid-card__badges"><span class="vid-card__views"><svg class="ic-eye" viewBox="0 0 26 17" aria-hidden="true"><path d="M13 0C7 0 2.1 3.4 0 8.5 2.1 13.6 7 17 13 17s10.9-3.4 13-8.5C23.9 3.4 19 0 13 0Zm0 14a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11Zm0-9a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z"/></svg>9 375</span></div>
+              <button class="vid-card__play" type="button" aria-label="Lire"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+              <div class="vid-card__info">
+                <p class="vid-card__desc">Dans les coulisses des JO avec Justine Gaillard !</p>
+                <div class="tcard-foot"><span>Il y a 3 jours</span><i class="tcard-dot"></i><span>14 min</span></div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="ath-more"><a href="#">Voir plus</a></div>
+      </section>
+
     </main>
   </div>
 

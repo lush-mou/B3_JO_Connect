@@ -33,11 +33,14 @@ body{
   color:var(--indigo-900);
   background:var(--blanc);
   -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
 }
-h1,h2,h3,h4,.display{font-family:"NewBlack Typeface","Archivo",sans-serif;font-weight:800;letter-spacing:-.01em;text-transform:uppercase}
+h1,h2,h3,h4,.display{font-family:"NewBlack Typeface","Archivo",sans-serif;font-weight:800;letter-spacing:-.01em;text-transform:uppercase;overflow-wrap:break-word}
 a{text-decoration:none;color:inherit}
 img{max-width:100%;display:block}
-.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad)}
+/* Largeur de contenu alignée sur index.html (.wrap de style.css) :
+   colonne max 1376px + 32px de gouttières → contenu réel ~1312px, centré. */
+.wrap{width:100%;max-width:1376px;margin:0 auto;padding:0 var(--pad)}
 .btn{
   display:inline-flex;align-items:center;gap:10px;border:none;cursor:pointer;
   font-family:"NewBlack Typeface","Archivo",sans-serif;font-weight:700;font-size:15px;text-transform:uppercase;
@@ -52,14 +55,16 @@ img{max-width:100%;display:block}
 .btn-arrow:hover{gap:14px}
 .section{padding:54px 0}
 .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:30px}
-.sec-head h2{font-size:40px;line-height:1;color:var(--indigo-900)}
+/* Titres de section : Anton 48px teal (#016381), conforme au Figma home */
+.sec-head h2{font-family:"Anton","Archivo",sans-serif;font-weight:400;font-size:48px;line-height:1;letter-spacing:-.48px;color:var(--bleu-jo)}
 .sec-head .link{font-family:"NewBlack Typeface","Archivo";font-weight:700;text-transform:uppercase;font-size:14px;color:var(--bleu-jo);display:inline-flex;gap:8px;align-items:center}
 .sec-head .link:hover{gap:12px}
 
 /* ---------- HEADER JO (Figma 509:1191) ---------- */
-.jo-header{position:sticky;top:0;z-index:50;background:#00627c}
+.jo-header{position:relative;z-index:50;background:#00627c}
 .jh-bar{background:#00627c}
-.jh-row{display:flex;align-items:center;justify-content:space-between;gap:32px;padding-top:24px;padding-bottom:24px}
+/* Conteneur aligné sur .header-bar de style.css : plafonné 1400px, padding 24/34, centré */
+.jh-row{display:flex;align-items:center;justify-content:space-between;gap:24px;max-width:1400px;margin:0 auto;padding:24px 34px}
 /* groupes gauche / droite à largeur égale → menu centré */
 .jh-left,.jh-right{flex:1 0 0;min-width:0;display:flex;align-items:center}
 .jh-left{gap:clamp(24px,6vw,150px)}
@@ -81,11 +86,27 @@ img{max-width:100%;display:block}
 .jh-flag{display:flex;align-items:center;justify-content:center;height:47px;padding:0 20px;border:2px solid #fff;border-radius:6px;background:transparent;cursor:pointer}
 .jh-flag svg{width:26px;height:24px;display:block;border-radius:2px}
 /* bannière dégradée sous la nav */
-.jh-banner{height:355px;background:url('assets/img/jo-header-gradient.png') center top / cover no-repeat}
-
-/* logo footer (réutilise .logo/.mark) */
-.logo{display:flex;align-items:center;gap:10px;color:#fff;font-family:"NewBlack Typeface","Archivo";font-weight:900;font-size:13px;line-height:1.05;text-transform:uppercase}
-.logo .mark{width:46px;height:46px;border-radius:12px;background:linear-gradient(135deg,var(--green),var(--bleu-jo-d));display:grid;place-items:center;font-size:18px;color:#fff;box-shadow:0 0 0 2px rgba(255,255,255,.18) inset}
+.jh-banner{display:block;width:100%;height:355px;object-fit:cover;object-position:center top}
+/* burger (visible < 1080px) */
+.jh-burger{display:none;align-items:center;justify-content:center;width:48px;height:40px;padding:0;background:transparent;border:none;cursor:pointer}
+.jh-burger svg{width:36px;height:auto}
+.jh-burger line{stroke:#fff;stroke-width:3;stroke-linecap:round}
+.jh-burger .icon-close{display:none}
+.jh-burger[aria-expanded="true"] .icon-open{display:none}
+.jh-burger[aria-expanded="true"] .icon-close{display:block}
+/* menu plein écran mobile */
+.jh-menu-m{
+  position:fixed;inset:0;z-index:55;height:100dvh;
+  display:flex;flex-direction:column;justify-content:center;gap:4px;
+  padding:120px 28px 40px;background:#00627c;
+  opacity:0;visibility:hidden;transform:translateY(-16px);
+  transition:opacity .35s ease-in-out,transform .35s ease-in-out,visibility 0s linear .35s;
+}
+.jh-menu-m.is-open{opacity:1;visibility:visible;transform:translateY(0);
+  transition:opacity .35s ease-in-out,transform .35s ease-in-out}
+.jh-menu-m a{font-family:"NewBlack Typeface","Archivo",sans-serif;font-weight:700;font-size:24px;line-height:1;color:var(--blue-50);padding:14px 0;transition:opacity .2s}
+.jh-menu-m a:hover{opacity:.7;color:#fff}
+body.jh-menu-open{overflow:hidden}
 
 /* ---------- HERO ---------- */
 .hero{
@@ -119,32 +140,67 @@ img{max-width:100%;display:block}
 .dots span{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.4)}
 .dots span.on{background:#fff;width:24px;border-radius:999px}
 
-/* ---------- MEDALS ---------- */
-.medals-grid{display:grid;grid-template-columns:1fr 300px;gap:48px;align-items:start}
-.panel{background:#fff;border-radius:var(--radius);box-shadow:0 10px 30px rgba(35,28,74,.06);border:1px solid #eef0f6}
-.medal-head{display:flex;align-items:baseline;gap:12px;padding:24px 28px 0}
-.medal-head h3{font-size:26px;color:var(--indigo-900)}
-.medal-head span{color:var(--neutral-600);font-size:15px}
-table.medals{width:100%;border-collapse:collapse;margin-top:14px}
-table.medals th,table.medals td{padding:14px 18px;text-align:center;font-size:15px}
-table.medals th{font-family:"NewBlack Typeface","Archivo";text-transform:uppercase;font-size:12px;color:var(--neutral-600);font-weight:700;border-bottom:1px solid #eef0f6}
-table.medals th.l,table.medals td.l{text-align:left}
-table.medals td{border-bottom:1px solid #f3f4f9}
-table.medals tr:hover td{background:#f7faff}
-.pos{font-family:"NewBlack Typeface","Archivo";font-weight:800;color:var(--indigo-700)}
-.cflag{width:30px;height:21px;border-radius:4px;display:inline-block;vertical-align:middle;background:#ccd;box-shadow:0 0 0 1px rgba(0,0,0,.06)}
-.country{font-weight:600}
-.med{display:inline-flex;align-items:center;gap:6px;font-weight:700}
-.dot{width:13px;height:13px;border-radius:50%;display:inline-block}
-.g{background:var(--gold)}.s{background:var(--silver)}.b{background:var(--bronze)}
-.total{font-family:"NewBlack Typeface","Archivo";font-weight:800;color:var(--indigo-900)}
-.filters .panel{padding:22px}
-.filters h4{font-size:18px;margin-bottom:16px;color:var(--indigo-900)}
+/* ---------- MEDALS (Figma 2666:16662) ---------- */
+.medals{display:flex;gap:50px;align-items:stretch}
+.medals-table{flex:1 1 auto;min-width:0;border-radius:24px 24px 0 0;overflow:hidden}
+/* header card (bleu-jo) */
+.mt-head{background:var(--bleu-jo);padding:40px 16px 24px;display:flex;flex-direction:column;align-items:center;gap:27px}
+.mt-title{display:flex;flex-direction:column;align-items:center;gap:8px}
+.mt-title h3{font-family:"Anton",sans-serif;font-weight:400;font-size:28px;line-height:1;letter-spacing:-.01em;color:var(--blue-50);text-transform:uppercase}
+.mt-title span{font-family:"NewBlack Typeface","Archivo",sans-serif;font-weight:500;font-size:18px;line-height:1;letter-spacing:-.01em;color:var(--blanc);text-transform:uppercase}
+/* shared column layout (header + body rows) */
+.mt-cols,.mt-row{display:flex;align-items:center;justify-content:space-between;width:100%;padding:0 16px}
+.mt-left{display:flex;align-items:center;gap:20px}
+.mt-right{display:flex;align-items:center;gap:22px}
+.mt-pos,.mt-cell{width:94px;text-align:center;flex:0 0 auto}
+.mt-flag-col{width:96px;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.mt-pos,.mt-cell,.mt-name{font-family:"NewBlack Typeface","Archivo",sans-serif;font-weight:500;font-size:34px;line-height:1;letter-spacing:-.01em}
+.mt-name{padding-right:24px;white-space:nowrap}
+/* header label sizing/colour */
+.mt-cols .mt-pos,.mt-cols .mt-cell,.mt-cols .mt-name{color:var(--blue-50);font-size:28px}
+/* body rows */
+.mt-row{background:#fafafa;color:#000;padding-top:8px;padding-bottom:8px}
+.mt-row + .mt-row{border-top:1px solid #949494}
+.cflag{width:58px;height:40px;border-radius:2px;display:block;object-fit:cover;box-shadow:0 0 0 1px rgba(0,0,0,.08)}
+/* vertical divider */
+.medals-divider{flex:0 0 2px;align-self:stretch;background:#949494}
+/* filters column */
+.medals-filters{flex:0 0 287px;align-self:flex-start;display:flex;flex-direction:column;gap:30px}
+.medals-filters h3{font-family:"Anton",sans-serif;font-weight:400;font-size:28px;line-height:1;letter-spacing:-.01em;color:var(--bleu-jo);text-transform:uppercase}
+/* dropdown filter (Figma 2900:22001) */
+.mf-dd{width:100%}
+.mf,.mf-opt,.mf-search{font-family:"NewBlack Typeface","Archivo",sans-serif;font-weight:400;font-size:28px;line-height:24px;letter-spacing:-.01em;color:var(--blanc);background:var(--bleu-jo);border:none;border-radius:8px;cursor:pointer}
+.mf{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;padding:9px 24px;text-align:left;transition:background .15s}
+.mf:hover{background:var(--bleu-jo-d)}
+.mf svg{flex:0 0 auto;width:26px;height:26px}
+.mf .chev{width:28px;height:14px;transition:transform .2s}
+.mf-dd.open .chev{transform:rotate(180deg)}
+.mf-opts{display:none;flex-direction:column;gap:1px;margin-top:1px}
+.mf-dd.open .mf-opts{display:flex}
+.mf-opt{width:100%;padding:9px 24px;text-align:center;transition:background .15s}
+.mf-opt:hover{background:var(--bleu-jo-d)}
+.mf-search{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;padding:9px 24px}
+.mf-input{flex:1 1 auto;min-width:0;background:none;border:none;outline:none;color:var(--blanc);font:inherit}
+.mf-input::placeholder{color:var(--blanc);opacity:1}
+.mf-search svg{flex:0 0 auto;width:26px;height:26px}
+/* Mobile medals : titre "Classement" + filtres (Figma 3513:25488) — masqués en desktop */
+.medals-m-title,.medals-filters-m{display:none}
 .field{width:100%;display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border:1px solid #e6e8f0;border-radius:12px;margin-bottom:12px;color:var(--neutral-600);font-size:15px;cursor:pointer}
 .field:hover{border-color:var(--bleu-jo)}
 .field svg{width:14px;height:14px}
 
 /* ---------- CARDS (compétitions) ---------- */
+/* Placeholders .ph affichant une vraie photo via inline background-image */
+.compcard .ph,.replay-big .ph,.vcard .ph,.disc .ph{
+  background-size:cover;background-position:center;background-repeat:no-repeat;
+}
+/* Voile bas pour la lisibilité du badge/play par-dessus la photo */
+.compcard .ph::after,.vcard .ph::after,.replay-big .ph::after{
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:1;
+  background:linear-gradient(180deg,rgba(11,15,77,.30) 0%,rgba(11,15,77,0) 38%,rgba(11,15,77,0) 60%,rgba(11,15,77,.45) 100%);
+}
+.compcard .ph .tag,.vcard .ph .live,.vcard .ph .play,.replay-big .ph .play{position:relative;z-index:2}
+.vcard .ph .play,.replay-big .ph .play{position:absolute;z-index:2}
 .cards4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
 .compcard{background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:0 10px 30px rgba(35,28,74,.07);border:1px solid #eef0f6;transition:.2s}
 .compcard:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(35,28,74,.14)}
@@ -156,6 +212,83 @@ table.medals tr:hover td{background:#f7faff}
 .compcard .foot{margin-top:14px;display:flex;justify-content:space-between;align-items:center}
 .mini{font-family:"NewBlack Typeface","Archivo";font-weight:700;font-size:12px;text-transform:uppercase;color:var(--bleu-jo);border:1px solid var(--bleu-jo);padding:6px 12px;border-radius:999px}
 
+/* ---------- AGENDA / Prochaines compétitions (Figma 2677:15484) ---------- */
+.agenda .sec-head h2{font-family:"Anton","Archivo",sans-serif;font-weight:400;font-size:48px;letter-spacing:-.48px;color:var(--bleu-jo)}
+.agenda-link{
+  display:inline-flex;align-items:center;gap:9px;
+  background:var(--bleu-jo);color:var(--blue-50);
+  border-radius:4px;padding:5px 9px;
+  font-family:"NewBlack Typeface","Archivo",sans-serif;font-weight:500;
+  font-size:16px;line-height:1.3;text-transform:uppercase;letter-spacing:-.18px;white-space:nowrap;transition:.15s
+}
+.agenda-link:hover{background:var(--bleu-jo-d)}
+.agenda-link svg{width:19px;height:auto;color:#fff}
+
+.agenda-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.agcard{
+  display:flex;flex-direction:column;
+  background:var(--bleu-jo);border-radius:6px;overflow:hidden;
+  color:var(--blanc);transition:.2s
+}
+.agcard:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(1,99,129,.28)}
+.agcard__media{height:193px;width:100%;flex-shrink:0;background-size:cover;background-position:center;background-repeat:no-repeat}
+.agcard__body{flex:1;display:flex;flex-direction:column;gap:15px;padding:11px 15px 15px}
+.agcard__head{display:flex;flex-direction:column;gap:6px}
+.agcard__row{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.agcard__title{font-family:"Anton","Archivo",sans-serif;font-weight:400;font-size:24px;line-height:1;letter-spacing:-.24px}
+.agcard__date{font-family:"Anton","Archivo",sans-serif;font-weight:400;font-size:24px;line-height:1;white-space:nowrap}
+.agcard__sub{font-family:"NewBlack Typeface","Archivo",sans-serif;font-weight:400;font-size:20px;line-height:1}
+.agcard__info{display:flex;flex-direction:column;gap:7px}
+.agcard__line{display:flex;align-items:center;gap:6px;font-family:"NewBlack Typeface","Archivo",sans-serif;font-weight:400;font-size:20px;line-height:1}
+.agcard__line svg{width:20px;height:20px;flex-shrink:0;fill:var(--blanc)}
+.agcard__btn{
+  margin-top:auto;align-self:flex-end;
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--blanc);border:1px solid var(--bleu-jo);border-radius:8px;padding:6px 12px;
+  font-family:"NewBlack Typeface","Archivo",sans-serif;font-weight:600;font-size:14px;color:var(--bleu-jo);transition:.15s
+}
+.agcard__btn:hover{background:#eaf3f6}
+.agcard__btn svg{width:13px;height:13px;color:var(--bleu-jo)}
+
+/* ---------- REPLAYS — 2 cartes à la une + carrousel (Figma 3502:24055) ---------- */
+.rep-top{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.rep-big{display:flex;flex-direction:column;gap:15px;background:var(--bleu-jo);border-radius:16px;overflow:hidden;padding-bottom:8px;transition:.2s}
+.rep-big:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(1,99,129,.28)}
+.rep-big__media{position:relative;height:232px;background-size:cover;background-position:center;background-repeat:no-repeat}
+.rep-badge{
+  position:absolute;top:40px;right:0;height:24px;display:flex;align-items:center;padding:0 8px;
+  background:var(--indigo-700);color:#d9d9d9;
+  font-family:"NewBlack Typeface","Archivo";font-weight:700;font-size:20px;line-height:1;letter-spacing:-.2px;text-transform:uppercase
+}
+.rep-big__body{display:flex;flex-direction:column;gap:9px;padding:0 24px 8px}
+.rep-big__title{font-family:"NewBlack Typeface","Archivo";font-weight:600;font-size:20px;line-height:1.15;letter-spacing:-.2px;color:var(--blanc);text-transform:none}
+.rep-big__meta{display:flex;align-items:flex-end;justify-content:space-between;gap:10px}
+.rep-big__metaL{display:flex;align-items:center;gap:2px}
+.rep-time{font-family:"NewBlack Typeface","Archivo";font-weight:400;font-size:20px;letter-spacing:-.2px;color:var(--blanc);padding:8px}
+.rep-chip{display:inline-flex;align-items:center;justify-content:center;background:var(--blanc);border-radius:14px;padding:8px 14px;font-family:"NewBlack Typeface","Archivo";font-weight:500;font-size:16px;letter-spacing:-.16px;color:#00627c;white-space:nowrap}
+.rep-play{flex-shrink:0;width:47px;height:47px;border:none;cursor:pointer;border-radius:50%;background:var(--blanc);display:grid;place-items:center;transition:.15s}
+.rep-play:hover{transform:scale(1.07)}
+.rep-play svg{width:20px;height:20px;fill:var(--bleu-jo);margin-left:3px}
+
+/* Carrousel de petites vidéos */
+.rep-rail{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;margin-top:20px;padding-bottom:10px}
+.rep-rail::-webkit-scrollbar{height:8px}
+.rep-rail::-webkit-scrollbar-thumb{background:#dfe3ef;border-radius:8px}
+.vrl{position:relative;flex:0 0 328px;max-width:328px;aspect-ratio:328/208;border-radius:8px;overflow:hidden;scroll-snap-align:start;display:flex;flex-direction:column;justify-content:space-between;padding:8px;color:var(--blanc);isolation:isolate}
+.vrl__bg{position:absolute;inset:0;z-index:0;background-size:cover;background-position:center;transition:transform .4s ease}
+.vrl:hover .vrl__bg{transform:scale(1.05)}
+.vrl::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(11,15,77,.15) 0%,rgba(11,15,77,0) 32%,rgba(11,15,77,0) 50%,rgba(11,15,77,.78) 100%)}
+.vrl__top,.vrl__play,.vrl__bottom{position:relative;z-index:2}
+.vrl__top{display:flex;justify-content:flex-end}
+.vrl__views{display:inline-flex;align-items:center;gap:8px;background:var(--indigo-700);padding:3px 5px;font-family:"NewBlack Typeface","Archivo";font-weight:400;font-size:16px;letter-spacing:-.16px;text-transform:uppercase;color:var(--blanc)}
+.vrl__views svg{width:18px;height:12px;fill:var(--blanc);flex-shrink:0}
+.vrl__play{align-self:center;width:47px;height:47px;border-radius:50%;background:var(--blanc);display:grid;place-items:center}
+.vrl__play svg{width:18px;height:18px;fill:var(--indigo-700);margin-left:2px}
+.vrl__bottom{display:flex;flex-direction:column;gap:7px;padding:0 4px}
+.vrl__title{font-family:"NewBlack Typeface","Archivo";font-weight:500;font-size:14px;line-height:1.15;color:var(--blanc);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.vrl__tags{display:flex;gap:10px;flex-wrap:wrap}
+.vrl__tag{display:inline-flex;align-items:center;background:#fff;border-radius:8px;padding:6px 12px;font-family:"NewBlack Typeface","Archivo";font-weight:600;font-size:14px;color:#1874ff;white-space:nowrap}
+
 /* ---------- BANNER (billeterie/community) ---------- */
 .banner{display:grid;grid-template-columns:1fr 1fr;border-radius:var(--radius);overflow:hidden;background:var(--indigo-900);color:#fff;min-height:240px}
 .banner .img{background:
@@ -164,10 +297,45 @@ table.medals tr:hover td{background:#f7faff}
 .banner .img::after{content:"🎟️";position:absolute;inset:0;display:grid;place-items:center;font-size:90px;opacity:.5}
 .banner.community .img::after{content:"💬"}
 .banner.resp .img::after{content:"🌱"}
+/* Bannière avec vraie photo (override du dégradé + emoji) */
+.banner .img.has-img{background-size:cover;background-position:center;background-repeat:no-repeat}
+.banner .img.has-img::after{content:none}
 .banner .txt{padding:42px 48px;display:flex;flex-direction:column;justify-content:center;gap:14px}
 .banner .txt h3{font-size:30px}
 .banner .txt p{color:#cfd3ec;font-size:16px;line-height:1.55;max-width:520px}
 .banner .txt .btn{align-self:flex-start;margin-top:6px}
+/* ----- Community (Figma 2570:15510) ----- */
+.community-head h2{color:var(--bleu-jo);font-size:48px}
+.pill-link{display:inline-flex;align-items:center;gap:10px;background:var(--indigo-700);color:#fff;
+  border-radius:4px;padding:7px 14px;font-family:"NewBlack Typeface","Archivo",sans-serif;
+  font-weight:600;font-size:15px;text-transform:uppercase;line-height:1;transition:.2s}
+.pill-link:hover{background:#4d3fa0}
+.pill-link svg{width:18px;height:auto;flex-shrink:0;color:#fff}
+.banner.community{background:var(--indigo-700);min-height:242px}
+.banner.community .txt{justify-content:center;gap:18px;padding:36px 64px 36px 48px}
+.banner.community .txt h3{color:var(--blue-50);font-size:28px}
+.banner.community .txt p{color:var(--blue-50);max-width:520px}
+.btn-community{align-self:flex-end;display:inline-flex;align-items:center;gap:8px;background:#fff;
+  border:1.5px solid var(--indigo-700);color:var(--indigo-700);border-radius:8px;padding:10px 18px;
+  font-family:"NewBlack Typeface","Archivo",sans-serif;font-weight:500;font-size:20px;line-height:1.2;transition:.2s}
+.btn-community:hover{background:var(--blue-50)}
+/* ----- Billeterie (Figma 2570:15642) ----- */
+.banner.tickets{background:var(--bleu-jo);min-height:230px;border-radius:6px}
+.banner.tickets .img{clip-path:polygon(0 0,100% 0,84% 100%,0 100%)}
+.banner.tickets .txt{justify-content:center;align-items:flex-start;gap:16px;padding:32px 64px 32px 24px}
+.banner.tickets .txt h3{color:var(--blue-50);font-size:28px}
+.banner.tickets .txt p{color:var(--blue-50);max-width:495px}
+.btn-ticket{align-self:flex-end;display:inline-flex;align-items:center;gap:8px;background:var(--blanc);
+  color:var(--bleu-jo);border-radius:4px;padding:6px 14px;
+  font-family:"NewBlack Typeface","Archivo",sans-serif;font-weight:400;font-size:20px;line-height:1.2;transition:.2s}
+.btn-ticket:hover{gap:12px}
+
+/* ----- Responsable (Figma 2570:15716) ----- */
+.banner.resp{background:var(--bleu-jo);min-height:232px;border-radius:6px}
+.banner.resp .img.has-img{background-position:left center}
+.banner.resp .txt{justify-content:center;align-items:flex-start;gap:18px;padding:32px 48px 32px 24px}
+.banner.resp .txt h3{font-family:"Anton","Archivo",sans-serif;font-weight:400;font-size:28px;line-height:1;letter-spacing:-.28px;color:var(--blue-50)}
+.banner.resp .txt p{color:var(--blue-50);font-size:16px;line-height:1.3;max-width:495px;margin:0}
 
 /* ---------- REPLAYS featured ---------- */
 .replays2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
@@ -189,34 +357,99 @@ table.medals tr:hover td{background:#f7faff}
 .vcard .ph .play{position:absolute;inset:0;margin:auto;width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.92);display:grid;place-items:center;color:var(--bleu-jo)}
 .vcard .cap{padding:12px 14px;font-weight:600;font-size:14px;color:var(--indigo-900)}
 
-/* ---------- MILANO CORTINA (map + results) ---------- */
-.milano{display:grid;grid-template-columns:1fr 1.5fr;gap:24px;align-items:start}
-.map-panel{border-radius:var(--radius);min-height:540px;position:relative;overflow:hidden;
-  background:radial-gradient(600px 400px at 30% 20%,#0a7d9e,transparent),linear-gradient(160deg,#016381,#231c4a)}
-.map-panel .shape{position:absolute;inset:60px;border-radius:30% 50% 40% 55%/50% 40% 55% 45%;background:rgba(255,255,255,.10);border:1px dashed rgba(255,255,255,.3)}
-.pin{position:absolute;display:flex;align-items:center;gap:6px;color:#fff;font-size:12px;font-weight:600}
-.pin::before{content:"📍"}
-.res-filters{display:flex;gap:14px;margin-bottom:20px}
-.res-filters .field{margin:0;flex:1;background:#fff}
-.res-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.res-cards .compcard .ph{height:120px}
+/* ---------- MILANO CORTINA — carte interactive + résultats (Figma 3506:23845) ---------- */
+.milano{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
 
-/* ---------- DISCIPLINES ---------- */
-.disc-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
-.disc{border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 8px 22px rgba(35,28,74,.07);border:1px solid #eef0f6;transition:.2s}
-.disc:hover{transform:translateY(-4px)}
-.disc .ph{height:170px;background:linear-gradient(160deg,#016381,#231c4a);display:grid;place-items:center;font-size:46px}
-.disc .name{text-align:center;padding:12px 6px;font-family:"NewBlack Typeface","Archivo";font-weight:700;font-size:14px;text-transform:uppercase;color:var(--indigo-900)}
-.rings{text-align:center;margin-top:28px;font-size:34px;letter-spacing:-6px;color:var(--bleu-jo)}
+/* Carte interactive */
+.map-panel{position:relative;border-radius:var(--radius);overflow:hidden;line-height:0}
+.map-img{display:block;width:100%;height:auto}
+.map-pin{
+  position:absolute;width:30px;height:30px;transform:translate(-50%,-50%);
+  border:none;background:transparent;padding:0;cursor:pointer;border-radius:50%
+}
+/* halo au survol par-dessus le point déjà dessiné dans l'image */
+.map-pin::after{
+  content:"";position:absolute;inset:0;border-radius:50%;
+  border:2px solid #fff;box-shadow:0 0 0 4px rgba(1,99,129,.35);
+  opacity:0;transform:scale(.55);transition:.2s
+}
+.map-pin:hover::after,.map-pin:focus-visible::after{opacity:1;transform:scale(1)}
+.map-pin:focus-visible{outline:none}
+/* infobulle */
+.map-tip{
+  position:absolute;bottom:130%;left:50%;transform:translateX(-50%) translateY(4px);
+  background:var(--indigo-900);color:#fff;white-space:nowrap;
+  font-family:"Onest",sans-serif;font-weight:600;font-size:12px;line-height:1;
+  padding:7px 10px;border-radius:6px;opacity:0;pointer-events:none;transition:.18s;z-index:3
+}
+.map-tip::after{content:"";position:absolute;top:100%;left:50%;transform:translateX(-50%);border:5px solid transparent;border-top-color:var(--indigo-900)}
+.map-pin:hover .map-tip,.map-pin:focus-visible .map-tip{opacity:1;transform:translateX(-50%) translateY(0)}
 
-/* ---------- SHOP ---------- */
-.shop-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
-.prod{border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 8px 22px rgba(35,28,74,.07);border:1px solid #eef0f6;transition:.2s}
+/* Filtres */
+.milano-filters{display:flex;gap:22px;margin-bottom:20px}
+.mfilter{
+  flex:1;display:flex;align-items:center;justify-content:center;gap:10px;
+  background:var(--bleu-jo);color:var(--blanc);border:none;cursor:pointer;
+  border-radius:8px;padding:9px 16px;
+  font-family:"NewBlack Typeface","Archivo",sans-serif;font-weight:500;font-size:18px;line-height:1;transition:.15s
+}
+.mfilter:hover{background:var(--bleu-jo-d)}
+.mfilter svg{width:18px;height:auto;color:var(--blanc);flex-shrink:0}
+.mfilter--search svg{width:20px;height:20px}
+
+/* Grille de cartes résultats (réutilise .agcard en plus petit) */
+.milano-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr;gap:20px}
+.agcard--sm{height:100%}
+.agcard--sm .agcard__media{height:auto;flex:1 1 auto;min-height:120px}
+.agcard--sm .agcard__body{flex:0 0 auto;gap:10px;padding:8px;justify-content:space-between}
+.agcard--sm .agcard__head{gap:6px}
+.agcard--sm .agcard__title,.agcard--sm .agcard__date{font-size:18px;letter-spacing:-.18px}
+.agcard--sm .agcard__sub{font-size:18px}
+.agcard--sm .agcard__info{gap:5px}
+.agcard--sm .agcard__line{font-size:16px;gap:2px}
+.agcard--sm .agcard__line svg{width:18px;height:18px}
+
+/* ---------- DISCIPLINES — carrousel (Figma 2570:15655) ---------- */
+.disc-rail{display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding-bottom:4px;scrollbar-width:none}
+.disc-rail::-webkit-scrollbar{display:none}
+.disc{flex:0 0 211px;scroll-snap-align:start;display:flex;flex-direction:column;background:var(--bleu-jo);border-radius:8px;overflow:hidden;transition:transform .2s,box-shadow .2s}
+.disc:hover{transform:translateY(-4px);box-shadow:0 16px 34px rgba(1,99,129,.25)}
+.disc__img{position:relative;height:228px;width:100%;background-size:cover;background-position:center;background-repeat:no-repeat}
+.disc__name{padding:8px;text-align:center;font-family:"NewBlack Typeface","Archivo",sans-serif;font-weight:500;font-size:20px;line-height:1;color:var(--blue-50);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* Cœur favori (visible en mobile, cf. Figma 2903:25071) */
+.disc-fav{display:none;position:absolute;top:0;right:0;padding:8px;cursor:pointer;z-index:2;line-height:0}
+.disc-fav svg{width:22px;height:20px;fill:none;stroke:#fff;stroke-width:2;filter:drop-shadow(0 1px 2px rgba(0,0,0,.4))}
+.disc-fav.is-fav svg{fill:#fff}
+/* Navigation (dots + flèches) */
+.disc-nav{display:flex;align-items:center;justify-content:flex-end;gap:20px;margin-top:18px}
+.disc-dots{display:flex;align-items:center;gap:9px}
+.disc-dots i{width:12px;height:12px;border-radius:50%;background:#c4ccd6;transition:.2s;cursor:pointer}
+.disc-dots i.on{background:var(--bleu-jo);width:30px;border-radius:99px}
+.disc-arrows{display:flex;gap:12px}
+.disc-arrow{width:41px;height:41px;border-radius:50%;border:2px solid var(--bleu-jo);background:#fff;color:var(--bleu-jo);display:grid;place-items:center;cursor:pointer;transition:.15s}
+.disc-arrow:hover{background:var(--bleu-jo);color:#fff}
+.disc-arrow svg{width:14px;height:14px}
+
+/* ---------- SHOP (Figma 2570:15699) ---------- */
+.pill-link--jo{background:var(--bleu-jo)}
+.pill-link--jo:hover{background:#02738f}
+.shop-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:20px}
+.prod{display:flex;flex-direction:column;transition:.2s}
 .prod:hover{transform:translateY(-4px)}
-.prod .ph{height:180px;background:#eef6f8;display:grid;place-items:center;font-size:50px}
-.prod .body{padding:12px 14px 16px}
-.prod .body .n{font-weight:600;font-size:14px;color:var(--indigo-900)}
-.prod .body .p{font-family:"NewBlack Typeface","Archivo";font-weight:800;color:var(--bleu-jo);margin-top:6px}
+.prod-img{height:192px;border:2px solid var(--bleu-jo);border-radius:6px 6px 0 0;overflow:hidden;background:#fff}
+.prod-img img{width:100%;height:100%;object-fit:cover}
+.prod-body{flex:1;display:flex;flex-direction:column;gap:8px;background:var(--bleu-jo);
+  border-radius:0 0 8px 8px;padding:8px 5px;color:var(--blanc)}
+.prod-name{font-family:"NewBlack Typeface","Archivo",sans-serif;font-weight:800;font-size:16px;
+  line-height:1;letter-spacing:-.16px;color:var(--blanc);text-transform:none}
+.prod-desc{font-family:"NewBlack Typeface","Archivo",sans-serif;font-weight:400;font-size:14px;
+  line-height:1.15;letter-spacing:-.14px;color:var(--blanc);margin:0}
+.prod-foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between}
+.prod-price{font-family:"NewBlack Typeface","Archivo",sans-serif;font-weight:400;font-size:16px;letter-spacing:-.16px}
+.prod-buy{display:inline-flex;align-items:center;justify-content:center;background:var(--blanc);
+  border:1px solid var(--bleu-jo);border-radius:8px;padding:6px 12px;
+  font-family:"NewBlack Typeface","Archivo",sans-serif;font-weight:600;font-size:14px;color:var(--bleu-jo);transition:.2s}
+.prod-buy:hover{background:#e6f1f4}
 
 /* ---------- FOOTER ---------- */
 /* ---------- FOOTER JO (Figma 917:6097) ---------- */
@@ -225,46 +458,205 @@ footer.footJO{position:relative;background:#00627c;color:var(--blanc);padding-to
 .footJO-title{font-family:"NewBlack Typeface","Archivo",sans-serif;font-weight:600;font-size:40px;line-height:1;color:var(--blanc);text-align:center;text-transform:none;letter-spacing:0;margin:0}
 .footJO-sponsors{display:flex;flex-direction:column;align-items:center;gap:35px;width:100%;max-width:991px}
 .footJO-row{display:flex;align-items:center;justify-content:center;gap:64px;flex-wrap:wrap}
-.footJO-row .spon{height:var(--h);width:auto;object-fit:contain}
+.footJO-spon{display:inline-flex;align-items:center;transition:opacity .2s ease}
+.footJO-spon:hover{opacity:.7}
+.footJO-row .spon{height:var(--h);width:auto;object-fit:contain;filter:brightness(0) invert(1)}
 .footJO-cols{display:flex;gap:123px;align-items:flex-start}
 .footJO-brand{display:flex;flex-direction:column;gap:22px;align-items:flex-start;width:340px}
 .footJO-logo img{height:72px;width:auto}
 .footJO-social{display:flex;gap:16px}
-.footJO-social a{display:block;width:36px;height:36px}
+.footJO-social a{display:block;width:36px;height:36px;transition:opacity .2s ease}
+.footJO-social a:hover{opacity:.7}
 .footJO-social img{width:36px;height:36px}
 .footJO-nav{display:flex;gap:93px;align-items:flex-start}
 .footJO-col h5{font-family:"DM Sans",sans-serif;font-weight:700;font-size:20px;line-height:20px;color:var(--blanc);text-transform:none;letter-spacing:0;margin:0 0 21px}
 .footJO-col ul{list-style:none;display:flex;flex-direction:column;gap:20px;margin:0;padding:0}
-.footJO-col a{font-family:"NewBlack Typeface","Archivo",sans-serif;font-weight:600;font-size:14px;line-height:1;color:var(--blanc)}
-.footJO-col a:hover{opacity:.8}
-.footJO-divider{width:100%;height:1px;background:rgba(255,255,255,.35)}
+.footJO-col a{font-family:"NewBlack Typeface","Archivo",sans-serif;font-weight:600;font-size:14px;line-height:1;color:var(--blanc);transition:opacity .25s ease}
+.footJO-col a:hover{opacity:.45}
+.footJO-divider{width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(251,251,251,.25) 50%,transparent)}
 .footJO-copy{font-family:"DM Sans",sans-serif;font-weight:400;font-size:18px;line-height:30px;color:var(--blanc);text-align:center;margin:0}
-.footJO-copy a{color:var(--blanc);text-decoration:underline}
+.footJO-copy a{color:var(--blanc);text-decoration:underline;text-underline-offset:3px}
 .footJO-deco{width:100%;height:301px;margin-top:56px;background:url("assets/img/footer-jo-deco.png") center bottom/cover no-repeat}
 
+/* ============================================================
+   RESPONSIVE (cible mobile Figma 647:7272 — frame 390px)
+   ============================================================ */
+
+/* ---------- < 1080px : tablette / passage burger ---------- */
 @media(max-width:1080px){
-  .medals-grid{grid-template-columns:1fr}
+  /* header : nav centrale → burger (logo + SOS + burger, cf. Figma mobile) */
+  .jh-menu{display:none}
+  .jh-tab,.jh-flag{display:none}
+  .jh-burger{display:inline-flex}
+  .jh-left,.jh-right{flex:0 0 auto}
+  .jh-left{flex:1 1 auto}
+  .jh-row{padding:18px 20px;gap:14px}
+  .jo-header{position:relative;z-index:60}
+  .jh-banner{height:200px}
+
+  /* médailles : table seule en colonne, filtres dessous */
+  .medals{flex-direction:column;gap:32px}
+  .medals-divider{display:none}
+  .medals-filters{flex-basis:auto;width:100%}
+
+  /* grilles de cartes */
   .cards4,.disc-grid,.shop-grid{grid-template-columns:repeat(3,1fr)}
-  .banner,.replays2,.milano{grid-template-columns:1fr}
-  .res-cards{grid-template-columns:repeat(2,1fr)}
-  .nav-menu{display:none}
+  .banner,.milano{grid-template-columns:1fr}
+  .milano-grid{grid-template-columns:repeat(2,1fr)}
+  .rep-top{grid-template-columns:1fr}
+
+  /* prochaines compétitions → défilement horizontal */
+  .agenda-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:16px;
+    margin:0 calc(-1*var(--pad));padding:4px var(--pad) 12px}
+  .agenda-grid::-webkit-scrollbar{height:8px}
+  .agenda-grid::-webkit-scrollbar-thumb{background:#dfe3ef;border-radius:8px}
+  .agcard{flex:0 0 300px;scroll-snap-align:start}
+
+  /* bannières : image au-dessus, texte dessous */
+  .banner .img,.banner.community .img{min-height:220px}
+
+  /* billeterie (pattern mobile Figma 2903:22918) : image pleine largeur en haut
+     (plus de diagonale), texte dessous, bouton pleine largeur centré et bordé */
+  .banner.tickets .img{clip-path:none;min-height:300px}
+  .banner.tickets .txt{align-items:stretch;padding:28px 22px 24px}
+  .banner.tickets .btn-ticket{
+    align-self:stretch;width:100%;justify-content:center;
+    border:1.5px solid var(--bleu-jo);border-radius:8px;padding:10px 18px;font-weight:600
+  }
+  .banner.tickets .btn-ticket:hover{gap:8px;transform:translateY(-2px)}
 }
+
+/* ---------- < 760px : on resserre les sections ---------- */
+@media(max-width:760px){
+  .section{padding:36px 0}
+  .sec-head{flex-direction:column;align-items:flex-start;gap:14px;margin-bottom:22px}
+  /* en colonne flex + align-start, le h2 prendrait sa largeur max-content et déborderait → on le force pleine largeur */
+  .sec-head h2{width:100%}
+  .sec-head h2,.community-head h2,.agenda .sec-head h2{font-size:30px}
+  /* le CTA "Tout Voir / Découvrir l'Agenda" passe pleine largeur */
+  .agenda .sec-head{align-items:stretch}
+  .agenda-link{justify-content:center;padding:12px;font-size:17px}
+  .sec-head .link,.pill-link{align-self:flex-start}
+
+  /* bannières : padding réduit */
+  .banner .txt{padding:28px 24px}
+  .banner.community .txt{padding:28px 24px}
+  .banner .txt h3,.banner.community .txt h3{font-size:24px}
+  .btn-community{align-self:flex-start}
+
+  /* filtres résultats Milano (Figma mobile 647:7362) :
+     Ville + Sport (teal) côte à côte, Rechercher en input blanc pleine largeur */
+  .milano-filters{flex-wrap:wrap;gap:14px 22px}
+  .mfilter{flex:1 1 calc(50% - 11px);font-size:16px}
+  .mfilter--search{
+    flex:1 1 100%;order:1;justify-content:space-between;
+    background:#fff;color:#8a8a96;border:1.5px solid #d8d8e0
+  }
+  .mfilter--search:hover{background:#fff}
+  .mfilter--search svg{color:var(--bleu-jo)}
+}
+
+/* ---------- < 680px : mobile ---------- */
 @media(max-width:680px){
-  .cards4,.disc-grid,.shop-grid{grid-template-columns:repeat(2,1fr)}
-  .hero-copy h1{font-size:32px}.sec-head h2{font-size:28px}
+  :root{--pad:16px}            /* gouttière mobile : aligne .wrap ET les rails (agenda/shop) qui utilisent --pad */
+  .wrap{padding:0 16px}        /* gouttière mobile resserrée (Figma ~374px) */
+  .cards4,.disc-grid{grid-template-columns:repeat(2,1fr)}
+
+  /* boutique (pattern mobile Figma 2903:23203) : rangée de cartes en défilement horizontal */
+  .shop-grid{display:flex;grid-template-columns:none;overflow-x:auto;scroll-snap-type:x mandatory;
+    gap:20px;margin:0 calc(-1*var(--pad));padding:4px var(--pad) 12px}
+  .shop-grid::-webkit-scrollbar{height:8px}
+  .shop-grid::-webkit-scrollbar-thumb{background:#dfe3ef;border-radius:8px}
+  .prod{flex:0 0 200px;scroll-snap-align:start}
+  .hero .wrap{padding-top:32px;padding-bottom:44px}
+  .hero-copy h1{font-size:32px}
+  .hero-stage{height:auto}
   .v1,.v2{position:relative;inset:auto;width:100%;margin-bottom:14px}
-  .hero-stage{height:auto}.emoji{display:none}
+  .emoji{display:none}
+  .btn-green{justify-content:center}
+  .hero-cta .btn-green{flex:1 1 auto}
+
+  /* ----- Mobile medals : titre "Classement" + filtres Figma, avant la table ----- */
+  .medals{flex-direction:column;gap:16px;align-items:stretch;overflow:hidden;width:100%}
+  .medals-m-title{display:block;order:0;width:100%;
+    font-family:"Anton","Archivo",sans-serif;font-weight:400;font-size:clamp(44px,15vw,64px);line-height:1;
+    letter-spacing:-.02em;color:var(--bleu-jo);text-transform:none;white-space:nowrap;overflow:hidden}
+  .medals-filters-m{display:flex;flex-direction:column;gap:8px;order:1;width:100%}
+  .medals-table{order:2;width:100%}
+  .medals-filters{display:none}     /* filtres desktop cachés en mobile */
+  .mfm-row{display:flex;justify-content:space-between;gap:8px;width:100%}
+  .mfm-row .mfm{flex:0 1 auto;min-width:0}
+  .mfm{display:inline-flex;align-items:center;justify-content:center;gap:6px;
+    background:var(--bleu-jo);color:var(--blanc);border:none;border-radius:8px;padding:6px 10px;
+    font-family:"NewBlack Typeface","Archivo",sans-serif;font-weight:600;font-size:13px;line-height:1;white-space:nowrap;cursor:pointer;transition:background .15s}
+  .mfm:hover{background:var(--bleu-jo-d)}
+  .mfm-full{width:100%;justify-content:space-between}
+  .mfm .chev{width:14px;height:9px;flex:0 0 auto}
+  .mfm svg{flex:0 0 auto}
+
+  /* ----- Tableau des médailles : version compacte qui tient sur 390px ----- */
+  .mt-head{padding:28px 12px 18px;gap:18px}
+  .mt-title h3{font-size:24px}
+  .mt-title span{font-size:16px}
+  .mt-cols,.mt-row{padding:0 10px}
+  .mt-name{display:none}                 /* la colonne "Nom Pays" disparaît (cf. Figma mobile) */
+  .mt-left{gap:10px}
+  .mt-right{gap:0;flex:1 1 auto;justify-content:space-between}
+  .mt-pos,.mt-cell{width:auto;flex:1 1 0;min-width:0}
+  .mt-flag-col{width:48px}
+  .mt-pos,.mt-cell,.mt-name{font-size:22px}
+  .mt-cols .mt-pos,.mt-cols .mt-cell,.mt-cols .mt-name{font-size:18px}
+  .cflag{width:38px;height:26px}
+
+  /* filtres médailles plein largeur, texte plus petit */
+  .mf,.mf-opt,.mf-search{font-size:20px;line-height:1.2}
+  .mf,.mf-opt,.mf-search{padding:10px 16px}
+
+  /* cartes agenda un peu plus étroites */
+  .agcard{flex:0 0 78vw;max-width:300px}
+
+  /* résultats Milano : 2 colonnes sur mobile (Figma 647:7362) */
+  .milano-grid{grid-template-columns:repeat(2,1fr);gap:18px}
+
+  /* disciplines : carrousel 2 cartes par vue + cœur favori (Figma 2903:25071) */
+  .disc-rail{gap:14px}
+  .disc{flex:0 0 calc(50% - 7px)}
+  .disc__img{height:118px}
+  .disc__name{font-size:18px}
+  .disc-fav{display:block}
 }
 
+/* ---------- < 420px : très petits écrans ---------- */
+@media(max-width:420px){
+  .jh-logo img{height:56px}
+  .jh-sos{height:42px;padding:0 12px;font-size:16px}
+  .jh-flag{height:42px;padding:0 14px}
+  .hero-copy h1{font-size:27px}
+  .sec-head h2,.community-head h2,.agenda .sec-head h2{font-size:26px}
+  .disc-grid,.shop-grid{grid-template-columns:1fr 1fr;gap:12px}
+  /* Tableau médailles : resserré pour tenir sur ~390px sans déborder */
+  .mt-head{padding:22px 8px 14px;gap:14px}
+  .mt-title h3{font-size:20px}
+  .mt-title span{font-size:15px}
+  .mt-cols,.mt-row{padding:0 8px}
+  .mt-left{gap:8px}
+  .mt-flag-col{width:34px}
+  .cflag{width:30px;height:21px}
+  .mt-pos,.mt-cell{font-size:18px}
+  .mt-cols .mt-pos,.mt-cols .mt-cell{font-size:14px}
+}
 
+/* ---------- FOOTER responsive ---------- */
 @media(max-width:1080px){
   .footJO-inner{padding:0 40px;gap:48px}
   .footJO-cols{flex-direction:column;gap:40px}
   .footJO-title{font-size:30px}
 }
 @media(max-width:680px){
+  .footJO-inner{padding:0 24px}
   .footJO-nav{flex-wrap:wrap;gap:32px 48px}
-  .footJO-row{gap:32px}
+  .footJO-col{flex:1 1 40%}
+  .footJO-row{gap:28px}
   .footJO-title{font-size:22px}
   .footJO-copy{font-size:15px}
   .footJO-deco{height:180px;margin-top:40px}

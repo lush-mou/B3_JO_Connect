@@ -103,6 +103,24 @@
 }
 .vid-card__soon small{ font-weight:400; font-size:.85em; letter-spacing:0; }
 
+/* Carte « PROCHAIN LIVE » (live à venir) : image + bas = @handle / date Anton.
+   Pas de badge ni play (Figma 2466:11672). */
+.vid-card--next .vid-card__next{
+  position:absolute; left:0; right:0; bottom:0; z-index:2;
+  display:flex; align-items:flex-end; justify-content:space-between; gap:12px;
+  padding:clamp(10px,1.6vw,16px);
+  text-transform:uppercase; color:var(--paper);
+}
+.vid-card__handle{
+  font-family:'NewBlack',sans-serif; font-weight:400; letter-spacing:-.28px; line-height:1;
+  font-size:clamp(15px, calc(11px + 0.9vw), 28px);
+}
+.vid-card__date{
+  flex:none; text-align:right; display:flex; flex-direction:column; gap:3px;
+  font-family:'Anton',sans-serif; font-weight:400; letter-spacing:-.28px; line-height:1;
+  font-size:clamp(15px, calc(11px + 0.9vw), 28px);
+}
+
 /* Bouton play centré */
 .vid-card__play{
   position:absolute; inset:0; z-index:2; margin:auto;
@@ -174,7 +192,7 @@
    mobile (≤899px) = lecteur → chat → méta (ordre demandé). */
 .live-stage{
   display:grid;
-  grid-template-columns:minmax(0,1fr) clamp(320px, 31%, 452px);
+  grid-template-columns:minmax(0,1fr) clamp(320px, 34%, 452px);
   grid-template-areas:
     "player chat"
     "meta   .";
@@ -220,13 +238,13 @@
 
 /* ----- Méta sous le lecteur : tags + vignette + titre ----- */
 .live-meta{ display:flex; flex-direction:column; gap:clamp(14px,1.6vw,22px); }
-.live-meta__tags{ display:flex; flex-wrap:wrap; gap:12px; }
-/* Pills méta (sur fond blanc) : bleu plein, texte blanc, NewBlack Bold ~24px */
+.live-meta__tags{ display:flex; flex-wrap:wrap; gap:clamp(14px, 2vw, 29px); }
+/* Pills méta (sur fond blanc) : bleu plein, texte blanc, NewBlack Bold 24px, radius 8, padding 12/8 */
 .live-meta__tags .chip{
-  background:var(--blue); color:var(--paper); border:none;
+  background:var(--blue); color:var(--paper); border:none; border-radius:8px;
   font-weight:700;
   font-size:clamp(15px, calc(12px + 0.9vw), 24px);
-  padding:9px 12px;
+  padding:12px 8px;
 }
 .live-meta__row{ display:flex; align-items:center; gap:clamp(12px,1.4vw,16px); }
 .live-meta__thumb{
@@ -349,6 +367,63 @@
   display:-webkit-box; -webkit-line-clamp:1; -webkit-box-orient:vertical; overflow:hidden;
 }
 .live-row__time{ font-family:'NewBlack',sans-serif; font-weight:400; font-size:13px; line-height:1; color:#4d4d4d; }
+
+/* Les deux .live-mobile-list reprennent la mise en page de .live-mini :
+   carte bleue compacte, vignette pleine hauteur à gauche, texte blanc à droite. */
+.live-mobile-list .live-row{
+  gap:0; padding:0; align-items:stretch; overflow:hidden; min-height:84px;
+  background:var(--blue); border-radius:8px; color:var(--paper);
+}
+.live-mobile-list .live-row__thumb{
+  flex:0 0 120px; width:120px; align-self:stretch; aspect-ratio:auto;
+  border-radius:8px 0 0 8px;
+}
+.live-mobile-list .live-row__text{
+  align-self:stretch; justify-content:space-between; gap:4px; padding:8px 10px 8px 12px;
+}
+.live-mobile-list .live-row__name{ color:var(--paper); }
+.live-mobile-list .live-row__desc{ color:var(--paper); -webkit-line-clamp:2; }
+.live-mobile-list .live-row__time{ color:var(--paper); opacity:.85; }
+
+/* Carte compacte bleue (Figma 3442:23896) : vignette + titre + pill @handle + vues.
+   Reprend le composant « video replay/live » offline (carte bleue). */
+.live-mini{
+  display:flex; gap:8px; align-items:flex-end;
+  width:100%; min-height:84px; overflow:hidden;
+  background:var(--blue); border-radius:8px;
+  color:var(--paper); font-family:'NewBlack',sans-serif;
+}
+.live-mini__tile{
+  flex:0 0 120px; width:120px; align-self:stretch;
+  display:flex; align-items:flex-end; padding:3px;
+  background-size:cover; background-position:center;
+  border:1px solid var(--blue); border-radius:8px 0 0 8px; overflow:hidden;
+}
+.live-mini__badge{
+  display:inline-flex; align-items:center;
+  background:rgba(0,0,0,.75); border-radius:2px; padding:0 2px;
+  font-weight:300; font-size:14px; line-height:1; color:var(--paper);
+}
+.live-mini__body{
+  flex:1; min-width:0; align-self:stretch;
+  display:flex; flex-direction:column; justify-content:space-between;
+  padding:8px 4px;
+}
+.live-mini__title{
+  font-weight:700; font-size:16px; line-height:1.05; letter-spacing:-.16px; color:var(--paper);
+  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
+}
+.live-mini__foot{ display:flex; align-items:center; justify-content:space-between; gap:8px; }
+.live-mini__handle{
+  display:inline-flex; align-items:center; justify-content:center;
+  background:var(--paper); color:var(--blue); border-radius:6px; padding:4px 8px;
+  font-weight:500; font-size:16px; line-height:1; letter-spacing:-.16px; white-space:nowrap;
+}
+.live-mini__views{
+  display:inline-flex; align-items:center; gap:5px; flex:none;
+  font-weight:300; font-size:11px; line-height:1; color:var(--paper); white-space:nowrap;
+}
+.live-mini__views .ic-eye{ width:18px; height:auto; fill:currentColor; flex:none; }
 
 /* Bouton « voir plus » centré (réutilise .btn-fill de style.css) */
 .live-more{ display:flex; justify-content:center; margin-top:4px; }

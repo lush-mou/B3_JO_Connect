@@ -8,6 +8,12 @@
    .vthumb-*  → cartes vidéo (Athlete Talks)
    =========================================================== */
 
+/* ---------- Typos Anton en bleu (#1874FF) ----------
+   Titres de page + de section de l'espace communautaire passent
+   du navy (#0B0F4D) au bleu (#1874FF), à toutes les tailles. */
+.page-title,
+.section-title{ color:#1874FF; }
+
 /* ---------- En-tête de section (titre + recherche) ---------- */
 .ch-head{
   display:flex; align-items:center; justify-content:space-between;

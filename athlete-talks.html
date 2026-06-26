@@ -6,6 +6,7 @@
   <title>Olympic Connect 2026 — Athletes Talks</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="pages.css" />
+  <link rel="stylesheet" href="athlete-talks.css" />
 </head>
 <body>
 
@@ -18,7 +19,7 @@
         <a class="header-logo-link" href="index.html" aria-label="Olympic Connect 2026 — accueil">
           <img class="header-logo" src="assets/img/logo-oc-baniere.svg" alt="Olympic Connect 2026" />
         </a>
-        <span class="header-badge">JO 2026</span>
+        <a class="header-badge" href="homeJO.html">JO 2026</a>
       </div>
 
       <div class="header-nav">
@@ -103,10 +104,166 @@
 </script>
 
   <div class="page">
-    <main class="page-hero">
-      <h1 class="page-title">Athletes Talks</h1>
+    <main class="at">
+
+      <!-- ============ TOP : favoris + lives à la une ============ -->
+      <section class="wrap at-section">
+        <h1 class="section-title section-title--blue at-pagetitle">Athletes talks</h1>
+        <h2 class="section-title section-title--blue at-sub">Mes favoris</h2>
+
+        <label class="search at-search">
+          Rechercher un(e) athlète
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 21l-4.3-4.3M11 19a8 8 0 110-16 8 8 0 010 16z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </label>
+
+        <div class="fav-row">
+          <a class="fav-card" href="#" style="background-image:url('photo/biathlete_allemand_interview.png')">
+            <span class="fav-heart"><svg viewBox="0 0 33 28" aria-hidden="true"><path d="M16.5 27.5C16.5 27.5 1.5 19 1.5 8.7 1.5 4.2 5 1 9 1c2.8 0 5.5 1.6 7.5 4.2C18.5 2.6 21.2 1 24 1c4 0 7.5 3.2 7.5 7.7 0 10.3-15 18.8-15 18.8z" fill="#1874ff" stroke="#fff" stroke-width="1.5"/></svg></span>
+            <span class="fav-handle">@Fabien_CLAUDE</span>
+          </a>
+          <a class="fav-card" href="#" style="background-image:url('photo/athlete_blonde_interview.png')">
+            <span class="fav-heart"><svg viewBox="0 0 33 28" aria-hidden="true"><path d="M16.5 27.5C16.5 27.5 1.5 19 1.5 8.7 1.5 4.2 5 1 9 1c2.8 0 5.5 1.6 7.5 4.2C18.5 2.6 21.2 1 24 1c4 0 7.5 3.2 7.5 7.7 0 10.3-15 18.8-15 18.8z" fill="#1874ff" stroke="#fff" stroke-width="1.5"/></svg></span>
+            <span class="fav-handle">@Justine_GAILLARD</span>
+          </a>
+          <a class="fav-card" href="#" style="background-image:url('photo/athlete_homme_interview.png')">
+            <span class="fav-heart"><svg viewBox="0 0 33 28" aria-hidden="true"><path d="M16.5 27.5C16.5 27.5 1.5 19 1.5 8.7 1.5 4.2 5 1 9 1c2.8 0 5.5 1.6 7.5 4.2C18.5 2.6 21.2 1 24 1c4 0 7.5 3.2 7.5 7.7 0 10.3-15 18.8-15 18.8z" fill="#1874ff" stroke="#fff" stroke-width="1.5"/></svg></span>
+            <span class="fav-handle">@Loan_BOZZOLO</span>
+          </a>
+        </div>
+
+        <div class="at-lives2">
+          <article class="vcard">
+            <div class="vcard-bg" style="background-image:url('assets/img/video-talk.png')"></div>
+            <div class="vcard-overlay">
+              <div class="vcard-live">
+                <span class="vlive-badge">En live</span>
+                <span class="vlive-count"><svg class="ic-eye" viewBox="0 0 24 16" aria-hidden="true"><path d="M12 0C7 0 2.7 3 1 8c1.7 5 6 8 11 8s9.3-3 11-8c-1.7-5-6-8-11-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-3a2 2 0 100-4 2 2 0 000 4z"/></svg>2 517</span>
+              </div>
+              <span class="vcard-play"><img src="assets/img/actu-play.svg" alt="Lire"></span>
+              <div class="vcard-foot">
+                <p class="vcard-title">Loan Bozzolo et Les Costa reviennent sur leur performance et répondent à vos questions</p>
+                <div class="vcard-tags"><span class="vtag">@Loan_BOZZOLO</span><span class="vtag">@Les_COSTA</span><span class="vtag">Ski</span></div>
+              </div>
+            </div>
+          </article>
+          <article class="vcard">
+            <div class="vcard-bg" style="background-image:url('assets/img/tklive-franziska.png')"></div>
+            <div class="vcard-overlay">
+              <div class="vcard-live">
+                <span class="vlive-badge">En live</span>
+                <span class="vlive-count"><svg class="ic-eye" viewBox="0 0 24 16" aria-hidden="true"><path d="M12 0C7 0 2.7 3 1 8c1.7 5 6 8 11 8s9.3-3 11-8c-1.7-5-6-8-11-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-3a2 2 0 100-4 2 2 0 000 4z"/></svg>1 725</span>
+              </div>
+              <span class="vcard-play"><img src="assets/img/actu-play.svg" alt="Lire"></span>
+              <div class="vcard-foot">
+                <p class="vcard-title">Les Moments Clés du Sprint avec Fabien Claude | Milano Cortina 2026</p>
+                <div class="vcard-tags"><span class="vtag">@Fabien_CLAUDE</span><span class="vtag">Biathlon</span></div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ============ REDIFUSIONS ============ -->
+      <section class="wrap at-section">
+        <h2 class="section-title section-title--blue at-sub">Redifusions</h2>
+
+        <label class="search at-search at-search--lg">
+          Rechercher un(e) athlète/sport ou NOC
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 21l-4.3-4.3M11 19a8 8 0 110-16 8 8 0 010 16z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </label>
+
+        <div class="at-chips">
+          <button class="btn-outline at-chip is-active" type="button">Les plus populaires</button>
+          <button class="btn-outline at-chip" type="button">Suggéré pour vous</button>
+          <button class="btn-outline at-chip" type="button">De mes favoris</button>
+        </div>
+
+        <p class="at-total">Total 16 lives</p>
+
+        <div class="vgrid" id="atGrid"></div>
+
+        <div class="at-more">
+          <a class="btn-outline" href="#">voir plus</a>
+        </div>
+      </section>
+
+      <!-- ============ ATHLETES TALKS À VENIR (carousel) ============ -->
+      <section class="wrap at-section">
+        <h2 class="section-title section-title--blue">Athletes Talks à venir</h2>
+        <div class="carousel carousel--end" data-carousel>
+          <div class="carousel-track">
+            <article class="talk-card">
+              <div class="talk-card-bg" role="img" aria-label="Justine Gaillard" style="background-image:url('assets/img/talk-justine.png')"></div>
+              <div class="talk-card-overlay">
+                <span class="talk-handle">@Justine_GAILLARD</span>
+                <span class="talk-next"><span class="tn-label">Prochain live</span><span class="tn-date">06 Fév - 14h</span></span>
+              </div>
+            </article>
+            <article class="talk-card">
+              <div class="talk-card-bg" role="img" aria-label="Audrey McManiman" style="background-image:url('assets/img/talk-audrey.png')"></div>
+              <div class="talk-card-overlay">
+                <span class="talk-handle">@Audrey_McManiman</span>
+                <span class="talk-next"><span class="tn-label">Prochain live</span><span class="tn-date">06 Fév - 19h</span></span>
+              </div>
+            </article>
+            <article class="talk-card">
+              <div class="talk-card-bg" role="img" aria-label="Franziska" style="background-image:url('assets/img/tklive-franziska.png')"></div>
+              <div class="talk-card-overlay">
+                <span class="talk-handle">@Franziska_PREUSS</span>
+                <span class="talk-next"><span class="tn-label">Prochain live</span><span class="tn-date">08 Fév - 11h</span></span>
+              </div>
+            </article>
+            <article class="talk-card talk-card--tba">
+              <div class="talk-card-overlay">
+                <span class="talk-next"><span class="tn-label">Prochain live</span><span class="tn-date">16 Mars</span></span>
+              </div>
+            </article>
+          </div>
+          <div class="carousel-nav">
+            <button class="carousel-arrow" type="button" data-dir="prev" aria-label="Précédent"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <span class="carousel-dots" aria-hidden="true"><i class="is-active"></i><i></i></span>
+            <button class="carousel-arrow" type="button" data-dir="next" aria-label="Suivant"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </div>
+        </div>
+      </section>
+
     </main>
   </div>
+
+  <!-- Génération des 12 cartes lives (Redifusions) -->
+  <script>
+    (function () {
+      var grid = document.getElementById('atGrid');
+      if (!grid) return;
+      var data = [
+        ['assets/img/replay1.png', 'Descente Hommes — Analyse avec Cyprien Sarrazin', '3 204', ['@Cyprien_SARRAZIN','Ski']],
+        ['assets/img/tklive-audrey.png', 'Half-pipe — Débrief avec Audrey McManiman', '2 118', ['@Audrey_McM','Snowboard']],
+        ['assets/img/replay2.png', 'Sprint 10km — Réactions à chaud des Bleus', '1 942', ['@Team_FR','Biathlon']],
+        ['assets/img/replay3.png', 'Bobsleigh à 2 — Les coulisses de la manche 2', '1 730', ['@Les_COSTA','Bobsleigh']],
+        ['assets/img/tklive-justine.png', 'Patinage libre — Questions/réponses avec Justine', '1 605', ['@Justine_G','Patinage']],
+        ['assets/img/replay4.png', 'Curling — Stratégie du Round Robin expliquée', '1 488', ['@Team_CURL','Curling']],
+        ['assets/img/actu-replay-1.png', 'Hockey — Réactions après SWE-ITA', '1 377', ['@Hockey_FR','Hockey']],
+        ['assets/img/replay5.png', 'Combiné nordique — Le saut décortiqué', '1 256', ['@Combine_FR','Nordique']],
+        ['assets/img/actu-replay-2.png', 'Ice Dance — Backstage du Free Dance', '1 184', ['@IceDance','Patinage']],
+        ['assets/img/tklive-franziska.png', 'Mass Start — Franziska revient sur sa course', '1 092', ['@Franziska_P','Biathlon']],
+        ['assets/img/actu-replay-3.png', 'Saut à ski — Conditions de vent et stratégie', '   968', ['@SkiJump','Saut']],
+        ['assets/img/canal-live.png', 'Luge — La trajectoire parfaite avec les pros', '   841', ['@Luge_FR','Luge']]
+      ];
+      var eye = '<svg class="ic-eye" viewBox="0 0 24 16" aria-hidden="true"><path d="M12 0C7 0 2.7 3 1 8c1.7 5 6 8 11 8s9.3-3 11-8c-1.7-5-6-8-11-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-3a2 2 0 100-4 2 2 0 000 4z"/></svg>';
+      grid.innerHTML = data.map(function (d) {
+        var tags = d[3].map(function (t) { return '<span class="vtag">' + t + '</span>'; }).join('');
+        return '<article class="vcard">' +
+          '<div class="vcard-bg" style="background-image:url(\'' + d[0] + '\')"></div>' +
+          '<div class="vcard-overlay">' +
+            '<div class="vcard-live"><span class="vlive-badge">En live</span>' +
+            '<span class="vlive-count">' + eye + d[2].trim() + '</span></div>' +
+            '<span class="vcard-play"><img src="assets/img/actu-play.svg" alt="Lire"></span>' +
+            '<div class="vcard-foot"><p class="vcard-title">' + d[1] + '</p>' +
+            '<div class="vcard-tags">' + tags + '</div></div>' +
+          '</div></article>';
+      }).join('');
+    })();
+  </script>
 
 <footer class="site-footer">
   <div class="footer-inner">

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Header — preview</title>
+
+<!-- base = racine du site pour que les "assets/..." du header se résolvent -->
+<base href="../" />
+
+<style>
+  /* Polices + variables (déjà présentes dans les pages JO ; ici pour la preview) */
+  @font-face { font-family:'NewBlack Typeface'; src:url('assets/fonts/NewBlackTypeface-Regular.ttf') format('truetype'); font-weight:400; font-display:swap; }
+  @font-face { font-family:'NewBlack Typeface'; src:url('assets/fonts/NewBlackTypeface-Medium.ttf') format('truetype'); font-weight:500; font-display:swap; }
+  @font-face { font-family:'NewBlack Typeface'; src:url('assets/fonts/NewBlackTypeface-SemiBold.ttf') format('truetype'); font-weight:600; font-display:swap; }
+  @font-face { font-family:'NewBlack Typeface'; src:url('assets/fonts/NewBlackTypeface-Bold.ttf') format('truetype'); font-weight:700; font-display:swap; }
+  @font-face { font-family:'NewBlack Typeface'; src:url('assets/fonts/NewBlackTypeface-ExtraBold.ttf') format('truetype'); font-weight:800; font-display:swap; }
+
+  :root{ --indigo-900:#231c4a; --blue-50:#f0f6ff; --blanc:#fbfbfb; }
+
+  *{ box-sizing:border-box; }
+  body{ margin:0; font-family:'NewBlack Typeface',-apple-system,Segoe UI,Roboto,sans-serif; background:#e9e9ef; }
+  a{ color:inherit; text-decoration:none; }
+
+  /* repère visuel : montre la limite 1400px du contenu */
+  body::before{ content:'⟵ contenu max 1400px • le fond teal grandit au-delà ⟶'; display:block; text-align:center; font-size:13px; color:#555; padding:14px; }
+</style>
+
+<!-- la CSS du header, telle qu'elle sera collée dans les pages -->
+<link rel="stylesheet" href="header/header.css" />
+</head>
+<body>
+
+<header class="jo-header">
+  <div class="jh-bar">
+    <div class="jh-inner">
+      <div class="jh-left">
+        <a class="jh-logo" href="homeJO.html" aria-label="Milano Cortina 2026 — accueil">
+          <img src="assets/img/jo-header-logo.png" alt="Milano Cortina 2026" />
+        </a>
+        <a class="jh-tab active" href="index.html">Olympic Connect</a>
+      </div>
+      <nav class="jh-menu">
+        <a href="#">Résultats</a>
+        <a href="#">Les Sports</a>
+        <a href="#">Map et Agenda</a>
+        <a href="#">Billeterie</a>
+        <a href="#">Shop</a>
+      </nav>
+      <div class="jh-right">
+        <a class="jh-sos" href="sos.html">SOS</a>
+        <button class="jh-flag" type="button" aria-label="Choisir la langue — Français">
+          <svg viewBox="0 0 26 24" aria-hidden="true">
+            <rect width="8.667" height="24" fill="#002395" />
+            <rect x="8.667" width="8.667" height="24" fill="#ffffff" />
+            <rect x="17.333" width="8.667" height="24" fill="#ED2939" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <img class="jh-banner" src="assets/img/jo-header-gradient.png" alt="" />
+</header>
+
+</body>
+</html>

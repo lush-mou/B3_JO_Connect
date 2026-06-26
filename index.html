@@ -18,7 +18,7 @@
           <a class="header-logo-link" href="index.html" aria-label="Olympic Connect 2026 — accueil">
             <img class="header-logo" src="assets/img/logo-oc-baniere.svg" alt="Olympic Connect 2026" />
           </a>
-          <span class="header-badge">JO 2026</span>
+          <a class="header-badge" href="homeJO.html">JO 2026</a>
         </div>
 
         <div class="header-nav">
@@ -119,11 +119,13 @@
           <img class="featured-bg" src="assets/img/actu-hero.png" alt="" />
           <div class="featured-overlay">
             <div class="featured-live">
-              <span class="live-badge">En direct</span>
-              <span class="live-count">
-                <svg class="ic-eye" viewBox="0 0 24 16" aria-hidden="true"><path d="M12 0C7 0 2.7 3 1 8c1.7 5 6 8 11 8s9.3-3 11-8c-1.7-5-6-8-11-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-3a2 2 0 100-4 2 2 0 000 4z"/></svg>
-                345 789
-              </span>
+              <div class="featured-live-box">
+                <span class="live-badge">En live</span>
+                <span class="live-count">
+                  <svg class="ic-eye" viewBox="0 0 24 16" aria-hidden="true"><path d="M12 0C7 0 2.7 3 1 8c1.7 5 6 8 11 8s9.3-3 11-8c-1.7-5-6-8-11-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-3a2 2 0 100-4 2 2 0 000 4z"/></svg>
+                  345 789
+                </span>
+              </div>
             </div>
             <span class="featured-play"><img src="assets/img/actu-play.svg" alt="Lire le live" /></span>
             <h3 class="featured-title">Women's Halfpipe Final 1 - Freestyle Skiing | Milano Cortina 2026</h3>
@@ -177,7 +179,7 @@
                 <h4 class="replay-card-title">”New squad, same ambition. We’re officially on the road...”</h4>
                 <div class="replay-card-bottom">
                   <div class="replay-card-meta">
-                    <span class="replay-time">Il y a 3h</span>
+                    <span class="replay-time">Il y a 5h</span>
                     <span class="replay-sport">Curling</span>
                   </div>
                   <span class="replay-author">@Oskar_ERIKSSON</span>
@@ -244,7 +246,7 @@
             <div class="vcard-bg" role="img" aria-label="Women's Halfpipe Final 1 — Freestyle Skiing" style="background-image:url('assets/img/actu-hero.png')"></div>
             <div class="vcard-overlay">
               <div class="vcard-live">
-                <span class="vlive-badge">En direct</span>
+                <span class="vlive-badge">En live</span>
                 <span class="vlive-count">
                   <svg class="ic-eye" viewBox="0 0 24 16" aria-hidden="true"><path d="M12 0C7 0 2.7 3 1 8c1.7 5 6 8 11 8s9.3-3 11-8c-1.7-5-6-8-11-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-3a2 2 0 100-4 2 2 0 000 4z"/></svg>
                   345 789
@@ -257,20 +259,37 @@
             </div>
           </article>
 
-          <!-- Item replay horizontal (Figma « Component 11 » 1354:7363) -->
-          <article class="vlist">
-            <a class="vlist-thumb" href="#" aria-label="SWE-ITA - Men's Preliminary Round - Ice Hockey" style="background-image:url('assets/img/actu-replay-1.png')"></a>
-            <div class="vlist-text">
-              <span class="vlist-cat">Temps fort</span>
-              <span class="vlist-title">SWE-ITA - Men's Preliminary Round - Ice Hockey | Milano Cortina 2026</span>
-              <span class="vlist-time">Il y a 2h</span>
+          <!-- Items replay (carte bleue mobile) — Figma 3413:23958 / 23996 -->
+          <article class="mlist">
+            <a class="mlist-thumb" href="#" aria-label="SWE-ITA - Men's Preliminary Round - Ice Hockey" style="background-image:url('assets/img/actu-replay-1.png')">
+              <span class="mlist-dur">03:21:36</span>
+            </a>
+            <div class="mlist-body">
+              <p class="mlist-title">SWE-ITA - Men's Preliminary Round - Ice Hockey</p>
+              <div class="mlist-foot">
+                <span class="mlist-pill">Ice Hockey</span>
+                <span class="mlist-time">Il y a 2h</span>
+              </div>
             </div>
           </article>
 
-          <!-- Bouton « Voir plus » (DS Outline) -->
+          <article class="mlist">
+            <a class="mlist-thumb" href="#" aria-label="Ice Dance - Free Dance - Figure Skating" style="background-image:url('assets/img/actu-replay-2.png')">
+              <span class="mlist-dur">03:21:36</span>
+            </a>
+            <div class="mlist-body">
+              <p class="mlist-title">Ice Dance - Free Dance - Figure Skating</p>
+              <div class="mlist-foot">
+                <span class="mlist-pill">Ice Dance</span>
+                <span class="mlist-time">Il y a 4h</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Bouton « Voir plus » (DS Primary, bleu plein) -->
           <div class="actu-more">
-            <a class="btn-outline" href="#">Voir plus
-              <svg class="ic-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <a class="btn-fill" href="replays.html">Voir plus
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
           </div>
 
@@ -281,7 +300,11 @@
       <!-- Desktop Figma 1079:7925 · Mobile « billeterie » 1354:7379 -->
       <section class="wrap section">
         <div class="promo">
-          <div class="promo-visual" role="img" aria-label="Aurora Olympic Connect"></div>
+          <!-- Visuel = vidéo (source à ajouter par Lucas) ; l'aurora reste en fond placeholder -->
+          <video class="promo-visual" muted loop autoplay playsinline aria-label="Aurora Olympic Connect">
+            <!-- TODO : <source src="assets/img/promo.mp4" type="video/mp4"> -->
+            <source src="" type="video/mp4" />
+          </video>
           <div class="promo-text">
             <div class="promo-copy">
               <h2 class="promo-title">
@@ -303,7 +326,7 @@
         <!-- Athlete Talks à venir (Figma 1079:7935 — template vidéo « live a venir » 1213:5509) -->
         <h2 class="section-title section-title--blue">
           <span class="only-d">Athlete Talks à venir</span>
-          <span class="only-m">Lives à venir</span>
+          <span class="only-m">Athlètes Talks : ressentez les jeux</span>
         </h2>
         <!-- DESKTOP : carrousel talks (masqué ≤680) -->
         <div class="talk-desktop">
@@ -355,28 +378,42 @@
         <!-- MOBILE : « Lives à venir » (Figma 2773:22378) -->
         <div class="talk-mobile">
           <div class="talk-mobile-list">
-            <!-- Grande carte live à venir -->
-            <article class="talk-card">
-              <div class="talk-card-bg" role="img" aria-label="Justine Gaillard — interview" style="background-image:url('assets/img/talk-justine.png')"></div>
-              <div class="talk-card-overlay">
-                <span class="talk-handle">@Justine_Gaillard</span>
-                <span class="talk-next"><span class="tn-label">Prochain live</span><span class="tn-date">06 Fév - 14h</span></span>
+
+            <!-- Grande carte « live à venir » : titre + Prochain live (Figma 3450:24154) -->
+            <article class="tklive-hero" role="img" aria-label="Justine Gaillard éliminée — Qualification du sprint classique" style="background-image:url('assets/img/tklive-justine.png')">
+              <div class="tklive-foot">
+                <p class="tklive-title">Justine Gaillard éliminée | Qualification du sprint classique...</p>
+                <p class="tklive-next"><span>Prochain live</span><span>10 Fév - 12h</span></p>
               </div>
             </article>
-            <!-- Item offline (Figma « Component 6 » — variante mobile offline) -->
-            <article class="live-offline">
-              <a class="lo-thumb" href="#" aria-label="Audrey McManiman — interview" style="background-image:url('assets/img/talk-audrey.png')"></a>
-              <div class="lo-text">
-                <span class="lo-name">Audrey McManiman</span>
-                <span class="lo-handle">@Audrey_McManiman</span>
-                <span class="lo-time">Prochain live • 06 Fév - 19h</span>
+
+            <!-- Items « live à venir » (carte bleue + titre Anton + pills) -->
+            <article class="mlist mlist--live">
+              <a class="mlist-thumb" href="#" aria-label="Audrey McManiman" style="background-image:url('assets/img/tklive-audrey.png')"></a>
+              <div class="mlist-body">
+                <p class="mlist-live-title">Prochain live - 06 Fév - 19h</p>
+                <div class="mlist-foot">
+                  <span class="mlist-pill">@Audrey_McManiman</span>
+                  <span class="mlist-pill">Snowboard</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="mlist mlist--live">
+              <a class="mlist-thumb" href="#" aria-label="Franziska Preuß" style="background-image:url('assets/img/tklive-franziska.png')"></a>
+              <div class="mlist-body">
+                <p class="mlist-live-title">Prochain live - 08 Fév - 12h</p>
+                <div class="mlist-foot">
+                  <span class="mlist-pill">@Franziska_PREUß</span>
+                  <span class="mlist-pill">Snowboard</span>
+                </div>
               </div>
             </article>
           </div>
           <!-- Bouton « voir plus » (DS Primary plein) -->
           <div class="talk-more">
-            <a class="btn-fill" href="#">voir plus
-              <svg class="ic-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <a class="btn-fill" href="athlete-talks.html">voir plus
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
           </div>
         </div>
@@ -442,34 +479,40 @@
               </div>
             </article>
             <div class="redif-mobile-list">
-            <article class="live-offline">
-              <a class="lo-thumb" href="#" aria-label="Philipp Nawrath" style="background-image:url('assets/img/redif-2.png')">
-                <span class="lo-chip"><svg class="ic-eye-sm" viewBox="0 0 24 16" aria-hidden="true"><path d="M12 0C7 0 2.7 3 1 8c1.7 5 6 8 11 8s9.3-3 11-8c-1.7-5-6-8-11-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-3a2 2 0 100-4 2 2 0 000 4z"/></svg>3 438</span>
+            <article class="mlist">
+              <a class="mlist-thumb" href="#" aria-label="Philipp Nawrath" style="background-image:url('assets/img/redif-2.png')">
+                <span class="mlist-dur"><svg class="ic-eye-sm" viewBox="0 0 24 16" aria-hidden="true"><path d="M12 0C7 0 2.7 3 1 8c1.7 5 6 8 11 8s9.3-3 11-8c-1.7-5-6-8-11-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-3a2 2 0 100-4 2 2 0 000 4z"/></svg>3 438</span>
               </a>
-              <div class="lo-text">
-                <span class="lo-name">Philipp Nawrath</span>
-                <span class="lo-handle">@Philipp_NAWRATH</span>
-                <span class="lo-time">Biathlon</span>
+              <div class="mlist-body">
+                <p class="mlist-title">Philipp Nawrath revient sur sa course | Sprint 10 km Biathlon</p>
+                <div class="mlist-foot">
+                  <span class="mlist-pill">Biathlon</span>
+                  <span class="mlist-pill">@Philipp_NAWRATH</span>
+                </div>
               </div>
             </article>
-            <article class="live-offline">
-              <a class="lo-thumb" href="#" aria-label="Eileen Gu" style="background-image:url('assets/img/redif-3.png')">
-                <span class="lo-chip"><svg class="ic-eye-sm" viewBox="0 0 24 16" aria-hidden="true"><path d="M12 0C7 0 2.7 3 1 8c1.7 5 6 8 11 8s9.3-3 11-8c-1.7-5-6-8-11-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-3a2 2 0 100-4 2 2 0 000 4z"/></svg>3 438</span>
+            <article class="mlist">
+              <a class="mlist-thumb" href="#" aria-label="Eileen Gu" style="background-image:url('assets/img/redif-3.png')">
+                <span class="mlist-dur"><svg class="ic-eye-sm" viewBox="0 0 24 16" aria-hidden="true"><path d="M12 0C7 0 2.7 3 1 8c1.7 5 6 8 11 8s9.3-3 11-8c-1.7-5-6-8-11-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-3a2 2 0 100-4 2 2 0 000 4z"/></svg>3 438</span>
               </a>
-              <div class="lo-text">
-                <span class="lo-name">Eileen Gu</span>
-                <span class="lo-handle">@Eileen_GU</span>
-                <span class="lo-time">Ski acrobatique</span>
+              <div class="mlist-body">
+                <p class="mlist-title">Eileen Gu impressionne en finale | Halfpipe Ski acrobatique</p>
+                <div class="mlist-foot">
+                  <span class="mlist-pill">Ski acrobatique</span>
+                  <span class="mlist-pill">@Eileen_GU</span>
+                </div>
               </div>
             </article>
-            <article class="live-offline">
-              <a class="lo-thumb" href="#" aria-label="Adelia Petrosian" style="background-image:url('assets/img/redif-4.png')">
-                <span class="lo-chip"><svg class="ic-eye-sm" viewBox="0 0 24 16" aria-hidden="true"><path d="M12 0C7 0 2.7 3 1 8c1.7 5 6 8 11 8s9.3-3 11-8c-1.7-5-6-8-11-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-3a2 2 0 100-4 2 2 0 000 4z"/></svg>3 438</span>
+            <article class="mlist">
+              <a class="mlist-thumb" href="#" aria-label="Adelia Petrosian" style="background-image:url('assets/img/redif-4.png')">
+                <span class="mlist-dur"><svg class="ic-eye-sm" viewBox="0 0 24 16" aria-hidden="true"><path d="M12 0C7 0 2.7 3 1 8c1.7 5 6 8 11 8s9.3-3 11-8c-1.7-5-6-8-11-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-3a2 2 0 100-4 2 2 0 000 4z"/></svg>3 438</span>
               </a>
-              <div class="lo-text">
-                <span class="lo-name">Adelia Petrosian</span>
-                <span class="lo-handle">@Adelia_PETROSIAN</span>
-                <span class="lo-time">Patinage artistique</span>
+              <div class="mlist-body">
+                <p class="mlist-title">Adelia Petrosian sublime sur la glace | Programme libre Patinage</p>
+                <div class="mlist-foot">
+                  <span class="mlist-pill">Patinage artistique</span>
+                  <span class="mlist-pill">@Adelia_PETROSIAN</span>
+                </div>
               </div>
             </article>
             </div>
@@ -484,102 +527,345 @@
       </section>
 
       <!-- ====================== REPLAYS DU JOUR ====================== -->
+      <!-- Recréation du calque « Replays du jour » (Figma 1079:8001) — cartes bleues -->
       <section class="wrap section">
-        <h2 class="section-title">Replays du jour</h2>
+        <h2 class="section-title section-title--blue">
+          <span class="only-d">Replays du jour</span>
+          <span class="only-m">Replays et temps forts</span>
+        </h2>
 
+        <!-- ===== DESKTOP : 2 grandes + 3 moyennes (masqué en mobile) ===== -->
+        <div class="rday-desktop">
+        <!-- 2 grandes cartes (Component 30/31) -->
         <div class="card-row two">
-          <article class="replay">
-            <div class="thumb"><img src="assets/img/replay1.png" alt="" /></div>
-            <h3 class="replay-title">SWE-ITA - Men's Preliminary Round - Ice Hockey | Milano Cortina 2026</h3>
-            <div class="replay-meta">
-              <span class="time-pill">il y a 2h</span>
-              <span class="sport-tag">Ice Hockey</span>
-              <span class="spacer"></span>
-              <button class="play" aria-label="Lire"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+          <article class="rday rday--big">
+            <div class="rday-thumb">
+              <img src="assets/img/rdj-big1.png" alt="" />
+              <span class="rday-cat">Temps fort</span>
+              <span class="rday-dur">06:53</span>
+            </div>
+            <div class="rday-body">
+              <h3 class="rday-title">GER-FRA - Women Preliminary Round - Ice Hockey | Milano Cortina 2026</h3>
+              <div class="rday-meta">
+                <span class="rday-time">Il y a 2 jours</span>
+                <span class="rday-pill">Hockey sur glace</span>
+                <span class="rday-spacer"></span>
+                <button class="rday-play" type="button" aria-label="Lire"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="24" fill="#fbfbfb"/><path d="M19 14 35 24 19 34Z" fill="#1874ff"/></svg></button>
+              </div>
             </div>
           </article>
-          <article class="replay">
-            <div class="thumb"><img src="assets/img/replay2.png" alt="" /></div>
-            <h3 class="replay-title">GER-FRA - Men's Preliminary Round - Ice Hockey | Milano Cortina 2026</h3>
-            <div class="replay-meta">
-              <span class="time-pill">il y a 3h</span>
-              <span class="sport-tag">Ice Hockey</span>
-              <span class="spacer"></span>
-              <button class="play" aria-label="Lire"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+          <article class="rday rday--big">
+            <div class="rday-thumb">
+              <img src="assets/img/rdj-big2.png" alt="" />
+              <span class="rday-cat">Épreuve entière</span>
+              <span class="rday-dur">03:32:21</span>
+            </div>
+            <div class="rday-body">
+              <h3 class="rday-title">Slopestyle Hommes Finale - Snowboard | Milano Cortina 2026</h3>
+              <div class="rday-meta">
+                <span class="rday-time">Il y a 8h</span>
+                <span class="rday-pill">Snowboard</span>
+                <span class="rday-spacer"></span>
+                <button class="rday-play" type="button" aria-label="Lire"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="24" fill="#fbfbfb"/><path d="M19 14 35 24 19 34Z" fill="#1874ff"/></svg></button>
+              </div>
             </div>
           </article>
         </div>
 
+        <!-- 3 cartes moyennes (Frame 39738/39749/39750) -->
         <div class="card-row three">
-          <article class="replay">
-            <div class="thumb"><img src="assets/img/replay3.png" alt="" /></div>
-            <h3 class="replay-title">Figure Skating | Pairs Free Skate | Milano Cortina 2026 | Full Replays</h3>
-            <div class="replay-meta">
-              <span class="time-pill">il y a 4h</span>
-              <span class="sport-tag">Figure Skating</span>
-              <span class="spacer"></span>
-              <button class="play" aria-label="Lire"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+          <article class="rday">
+            <div class="rday-thumb">
+              <img src="assets/img/rdj-med1.png" alt="" />
+              <span class="rday-cat">Épreuve entière</span>
+            </div>
+            <div class="rday-body">
+              <h3 class="rday-title">Figure Skating | Pairs Free Skate | Milano Cortina 2026 | Full Replays</h3>
+              <div class="rday-meta">
+                <span class="rday-time">Il y a 4h</span>
+                <span class="rday-pill">Patinage Artistique</span>
+                <span class="rday-spacer"></span>
+                <button class="rday-play" type="button" aria-label="Lire"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="24" fill="#fbfbfb"/><path d="M19 14 35 24 19 34Z" fill="#1874ff"/></svg></button>
+              </div>
             </div>
           </article>
-          <article class="replay">
-            <div class="thumb"><img src="assets/img/replay4.png" alt="" /></div>
-            <h3 class="replay-title">Men's 50km Mass Start Classic | Milano Cortina 2026 | Best Time</h3>
-            <div class="replay-meta">
-              <span class="time-pill">il y a 30mn</span>
-              <span class="sport-tag">Cross Country</span>
-              <span class="spacer"></span>
-              <button class="play" aria-label="Lire"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+          <article class="rday">
+            <div class="rday-thumb">
+              <img src="assets/img/rdj-med2.png" alt="" />
+              <span class="rday-cat">Temps fort</span>
+            </div>
+            <div class="rday-body">
+              <h3 class="rday-title">Men's 50km Mass Start Classic | Milano Cortina 2026 | Best Time</h3>
+              <div class="rday-meta">
+                <span class="rday-time">Il y a 30mn</span>
+                <span class="rday-pill">Ski de fond</span>
+                <span class="rday-spacer"></span>
+                <button class="rday-play" type="button" aria-label="Lire"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="24" fill="#fbfbfb"/><path d="M19 14 35 24 19 34Z" fill="#1874ff"/></svg></button>
+              </div>
             </div>
           </article>
-          <article class="replay">
-            <div class="thumb"><img src="assets/img/replay5.png" alt="" /></div>
-            <h3 class="replay-title">Women's 50km Mass Start Classic | Milano Cortina 2026 | Best Time</h3>
-            <div class="replay-meta">
-              <span class="time-pill">il y a 2h</span>
-              <span class="sport-tag">Cross Country</span>
-              <span class="spacer"></span>
-              <button class="play" aria-label="Lire"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+          <article class="rday">
+            <div class="rday-thumb">
+              <img src="assets/img/rdj-med3.png" alt="" />
+              <span class="rday-cat">Temps fort</span>
+            </div>
+            <div class="rday-body">
+              <h3 class="rday-title">Women's 50km Mass Start Classic | Milano Cortina 2026 | Best Time</h3>
+              <div class="rday-meta">
+                <span class="rday-time">Il y a 2h</span>
+                <span class="rday-pill">Ski de fond</span>
+                <span class="rday-spacer"></span>
+                <button class="rday-play" type="button" aria-label="Lire"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="24" fill="#fbfbfb"/><path d="M19 14 35 24 19 34Z" fill="#1874ff"/></svg></button>
+              </div>
             </div>
           </article>
         </div>
 
         <div class="btn-row">
-          <a class="link-btn" href="#">Voir tous les replays
+          <a class="link-btn" href="replays.html">Voir tous les replays
             <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
+        </div>
+        </div><!-- /.rday-desktop -->
+
+        <!-- ===== MOBILE : 1 grande carte + 2 items + bouton (Figma 3239:25250) ===== -->
+        <div class="rday-mobile">
+          <article class="rday">
+            <div class="rday-thumb">
+              <img src="assets/img/rmob-big.png" alt="" />
+              <span class="rday-cat">Temps fort</span>
+              <span class="rday-dur">08:23</span>
+            </div>
+            <div class="rday-body">
+              <h3 class="rday-title">SWE-ITA - Men's Preliminary Round - Ice Hockey | Milano Cortina 2026</h3>
+              <div class="rday-meta">
+                <span class="rday-time">Il y a 2h</span>
+                <span class="rday-pill">Ice Hockey</span>
+                <span class="rday-spacer"></span>
+                <button class="rday-play" type="button" aria-label="Lire"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="24" fill="#fbfbfb"/><path d="M19 14 35 24 19 34Z" fill="#1874ff"/></svg></button>
+              </div>
+            </div>
+          </article>
+
+          <article class="mlist">
+            <a class="mlist-thumb" href="#" aria-label="Slopestyle Hommes Finale - Snowboard" style="background-image:url('assets/img/rmob-1.png')">
+              <span class="mlist-dur">03:32:21</span>
+            </a>
+            <div class="mlist-body">
+              <p class="mlist-title">Slopestyle Hommes Finale - Snowboard | Milano Cortina 2026</p>
+              <div class="mlist-foot">
+                <span class="mlist-pill">Snowboard</span>
+                <span class="mlist-time">Il y a 8 heures</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="mlist">
+            <a class="mlist-thumb" href="#" aria-label="Figure Skating | Pairs Free Skate" style="background-image:url('assets/img/rmob-2.png')">
+              <span class="mlist-dur">11:36</span>
+            </a>
+            <div class="mlist-body">
+              <p class="mlist-title">Figure Skating | Pairs Free Skate | Milano Cortina 2026 | Full Replays</p>
+              <div class="mlist-foot">
+                <span class="mlist-pill">Patinage Artistique</span>
+                <span class="mlist-time">Il y a 4 heures</span>
+              </div>
+            </div>
+          </article>
+
+          <div class="actu-more">
+            <a class="btn-fill" href="replays.html">voir plus
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
         </div>
       </section>
 
       <!-- ====================== POSTS ====================== -->
-      <section class="wrap section">
+      <section class="wrap section posts">
         <div class="posts-head">
-          <h2 class="section-title" style="margin-bottom:0">Les posts de vos athlètes</h2>
+          <h2 class="section-title section-title--blue" style="margin-bottom:0">Les posts de vos athlètes</h2>
           <div class="search">
             <span>Rechercher un(e) athlète</span>
             <svg viewBox="0 0 24 24"><path d="M10 2a8 8 0 105.3 14l5.4 5.4 1.4-1.4-5.4-5.4A8 8 0 0010 2zm0 2a6 6 0 110 12 6 6 0 010-12z"/></svg>
           </div>
         </div>
 
+        <!-- Mosaïque de posts : photo + vraie légende (Figma 1079:8085) -->
         <div class="posts-grid">
           <div class="posts-left">
-            <img class="post post-wide" src="assets/img/post1.png" alt="Post" />
+
+            <!-- Grande carte (Nawrath) -->
+            <article class="post-card post-card--wide">
+              <img class="post-card-img" src="assets/img/postimg-1.png" alt="" />
+              <div class="post-cap">
+                <img class="post-cap-avatar" src="assets/img/postav-1.png" alt="" />
+                <div class="post-cap-text">
+                  <p class="post-cap-msg">“Ça s'est joué de peu !”</p>
+                  <div class="post-cap-foot">
+                    <span class="post-cap-handle">@Philipp_NAWRATH</span>
+                    <span class="post-cap-time">Il y a 1 heure</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
             <div class="post-pair">
-              <img class="post" src="assets/img/post2.png" alt="Post" />
-              <img class="post" src="assets/img/post3.png" alt="Post" />
+              <!-- Vidéo : Bergsma -->
+              <article class="post-card">
+                <img class="post-card-img" src="assets/img/postimg-2.png" alt="" />
+                <span class="post-card-play"><svg viewBox="0 0 76 76" aria-hidden="true"><circle cx="38" cy="38" r="38" fill="#41348a"/><path d="M30 24 54 38 30 52Z" fill="#fbfbfb"/></svg></span>
+                <div class="post-cap">
+                  <img class="post-cap-avatar" src="assets/img/postav-2.png" alt="" />
+                  <div class="post-cap-text">
+                    <p class="post-cap-msg">“MASS START GOLD🤩🔥”</p>
+                    <div class="post-cap-foot">
+                      <span class="post-cap-handle">@Jorrit_BERGSMA</span>
+                      <span class="post-cap-time">Il y a 1 heure</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- Julia Simon -->
+              <article class="post-card">
+                <img class="post-card-img" src="assets/img/postimg-3.png" alt="" />
+                <div class="post-cap">
+                  <img class="post-cap-avatar" src="assets/img/postav-3.png" alt="" />
+                  <div class="post-cap-text">
+                    <p class="post-cap-msg">“Après 6 ans d'entrainement...”</p>
+                    <div class="post-cap-foot">
+                      <span class="post-cap-handle">@Julia_SIMON</span>
+                      <span class="post-cap-time">Il y a 1 heure</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
             </div>
           </div>
+
           <div class="posts-right">
             <div class="post-col">
-              <img class="post" src="assets/img/post4.png" alt="Post" />
-              <img class="post" src="assets/img/post5.png" alt="Post" />
+              <!-- Vidéo : Lee -->
+              <article class="post-card">
+                <img class="post-card-img" src="assets/img/postimg-4.png" alt="" />
+                <span class="post-card-play"><svg viewBox="0 0 76 76" aria-hidden="true"><circle cx="38" cy="38" r="38" fill="#41348a"/><path d="M30 24 54 38 30 52Z" fill="#fbfbfb"/></svg></span>
+                <div class="post-cap">
+                  <img class="post-cap-avatar" src="assets/img/postav-4.png" alt="" />
+                  <div class="post-cap-text">
+                    <p class="post-cap-msg">“Un magnifique envol vers la...”</p>
+                    <div class="post-cap-foot">
+                      <span class="post-cap-handle">@Lee_CHAE-UN</span>
+                      <span class="post-cap-time">Il y a 1 heure</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- Maillard -->
+              <article class="post-card">
+                <img class="post-card-img" src="assets/img/postimg-5.png" alt="" />
+                <div class="post-cap">
+                  <img class="post-cap-avatar" src="assets/img/postav-5.png" alt="" />
+                  <div class="post-cap-text">
+                    <p class="post-cap-msg">“Une magnifique victoire...”</p>
+                    <div class="post-cap-foot">
+                      <span class="post-cap-handle">@Loïc_MAILLARD</span>
+                      <span class="post-cap-time">Il y a 1 heure</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
             </div>
-            <img class="post post-tall" src="assets/img/post6.png" alt="Post" />
+
+            <!-- Grande carte verticale, vidéo : Stolz -->
+            <article class="post-card post-card--tall">
+              <img class="post-card-img" src="assets/img/postimg-6.png" alt="" />
+              <span class="post-card-play"><svg viewBox="0 0 76 76" aria-hidden="true"><circle cx="38" cy="38" r="38" fill="#41348a"/><path d="M30 24 54 38 30 52Z" fill="#fbfbfb"/></svg></span>
+              <div class="post-cap">
+                <img class="post-cap-avatar" src="assets/img/postav-6.png" alt="" />
+                <div class="post-cap-text">
+                  <p class="post-cap-msg">“Another day, another win !”</p>
+                  <div class="post-cap-foot">
+                    <span class="post-cap-handle">@Jordan_STOLZ</span>
+                    <span class="post-cap-time">Il y a 1 heure</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- MOBILE : carrousel horizontal de posts (Figma 983:3888 / composant 2773:17976) -->
+        <div class="posts-mobile">
+          <div class="posts-mobile-track">
+            <article class="post-m">
+              <img class="post-m-img" src="assets/img/postimg-1.png" alt="" />
+              <div class="post-m-cap">
+                <img class="post-m-avatar" src="assets/img/postav-1.png" alt="" />
+                <div class="post-m-text">
+                  <span class="post-m-handle">@Philipp_NAWRATH</span>
+                  <span class="post-m-time">Il y a 16min</span>
+                </div>
+              </div>
+            </article>
+            <article class="post-m">
+              <img class="post-m-img" src="assets/img/postimg-4.png" alt="" />
+              <div class="post-m-cap">
+                <img class="post-m-avatar" src="assets/img/postav-4.png" alt="" />
+                <div class="post-m-text">
+                  <span class="post-m-handle">@Lee_CHAE-UN</span>
+                  <span class="post-m-time">Il y a 34min</span>
+                </div>
+              </div>
+            </article>
+            <article class="post-m">
+              <img class="post-m-img" src="assets/img/postimg-5.png" alt="" />
+              <div class="post-m-cap">
+                <img class="post-m-avatar" src="assets/img/postav-5.png" alt="" />
+                <div class="post-m-text">
+                  <span class="post-m-handle">@Loïc_MAILLARD</span>
+                  <span class="post-m-time">Il y a 44min</span>
+                </div>
+              </div>
+            </article>
+            <article class="post-m">
+              <img class="post-m-img" src="assets/img/postimg-2.png" alt="" />
+              <div class="post-m-cap">
+                <img class="post-m-avatar" src="assets/img/postav-2.png" alt="" />
+                <div class="post-m-text">
+                  <span class="post-m-handle">@Jorrit_BERGSMA</span>
+                  <span class="post-m-time">Il y a 1h</span>
+                </div>
+              </div>
+            </article>
+            <article class="post-m">
+              <img class="post-m-img" src="assets/img/postimg-3.png" alt="" />
+              <div class="post-m-cap">
+                <img class="post-m-avatar" src="assets/img/postav-3.png" alt="" />
+                <div class="post-m-text">
+                  <span class="post-m-handle">@Julia_SIMON</span>
+                  <span class="post-m-time">Il y a 2h</span>
+                </div>
+              </div>
+            </article>
+            <article class="post-m">
+              <img class="post-m-img" src="assets/img/postimg-6.png" alt="" />
+              <div class="post-m-cap">
+                <img class="post-m-avatar" src="assets/img/postav-6.png" alt="" />
+                <div class="post-m-text">
+                  <span class="post-m-handle">@Jordan_STOLZ</span>
+                  <span class="post-m-time">Il y a 5h</span>
+                </div>
+              </div>
+            </article>
           </div>
         </div>
 
         <div class="btn-row">
-          <a class="link-btn" href="#">Voir tous les posts
+          <a class="link-btn posts-more-d" href="posts.html">Voir tous les posts
             <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="btn-fill posts-more-m" href="posts.html">voir plus
+            <svg class="ic-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
         </div>
       </section>

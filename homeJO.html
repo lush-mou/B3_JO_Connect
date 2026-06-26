@@ -6,7 +6,7 @@
 <title>JO Milano Cortina 2026 — Olympic Connect</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;700&family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;700&family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="homeJO.css">
 </head>
 <body>
@@ -14,12 +14,12 @@
 <!-- NAV (header JO — Figma 509:1191) -->
 <header class="jo-header">
   <div class="jh-bar">
-    <div class="wrap jh-row">
+    <div class="jh-row">
       <div class="jh-left">
-        <a class="jh-logo" href="#" aria-label="Milano Cortina 2026 — accueil">
+        <a class="jh-logo" href="homeJO.html" aria-label="Milano Cortina 2026 — accueil">
           <img src="assets/img/jo-header-logo.png" alt="Milano Cortina 2026" />
         </a>
-        <a class="jh-tab active" href="#">Olympic Connect</a>
+        <a class="jh-tab active" href="index.html">Olympic Connect</a>
       </div>
       <nav class="jh-menu">
         <a href="#medailles">Résultats</a>
@@ -29,7 +29,7 @@
         <a href="#shop">Shop</a>
       </nav>
       <div class="jh-right">
-        <a class="jh-sos" href="#">SOS</a>
+        <a class="jh-sos" href="sos.html">SOS</a>
         <button class="jh-flag" type="button" aria-label="Choisir la langue — Français">
           <svg viewBox="0 0 26 24" aria-hidden="true">
             <rect width="8.667" height="24" fill="#002395"/>
@@ -37,10 +37,33 @@
             <rect x="17.333" width="8.667" height="24" fill="#ED2939"/>
           </svg>
         </button>
+        <!-- Burger (visible < 1080px) -->
+        <button class="jh-burger" type="button" aria-label="Ouvrir le menu"
+                aria-expanded="false" aria-controls="jhMenuM">
+          <svg class="icon-open" viewBox="0 0 40 28" aria-hidden="true">
+            <line x1="2" y1="4"  x2="38" y2="4"/>
+            <line x1="2" y1="14" x2="38" y2="14"/>
+            <line x1="2" y1="24" x2="38" y2="24"/>
+          </svg>
+          <svg class="icon-close" viewBox="0 0 28 28" aria-hidden="true">
+            <line x1="5" y1="5"  x2="23" y2="23"/>
+            <line x1="23" y1="5" x2="5"  y2="23"/>
+          </svg>
+        </button>
       </div>
     </div>
   </div>
-  <div class="jh-banner" aria-hidden="true"></div>
+
+  <!-- Menu plein écran mobile (ouvert via le burger, < 1080px) -->
+  <nav class="jh-menu-m" id="jhMenuM">
+    <a href="#medailles">Résultats</a>
+    <a href="#">Les Sports</a>
+    <a href="#">Map et Agenda</a>
+    <a href="#billeterie">Billeterie</a>
+    <a href="#shop">Shop</a>
+  </nav>
+
+  <img class="jh-banner" src="assets/img/jo-header-gradient.png" alt="" />
 </header>
 
 <!-- HERO -->
@@ -65,81 +88,316 @@
   </div>
 </section>
 
-<!-- MEDAL TABLE -->
+<!-- MEDAL TABLE (Figma 2666:16662) -->
 <section class="section" id="medailles">
-  <div class="wrap medals-grid">
-    <div class="panel">
-      <div class="medal-head"><h3>Tableau des médailles</h3><span>· Tous sports</span></div>
-      <table class="medals">
-        <thead>
-          <tr><th>Pos.</th><th class="l">Pays</th><th>🥇 Or</th><th>🥈 Arg.</th><th>🥉 Bron.</th><th>Total</th></tr>
-        </thead>
-        <tbody>
-          <tr><td class="pos">1</td><td class="l"><span class="cflag" style="background:linear-gradient(90deg,#0055a4 33%,#fff 33% 66%,#ef4135 66%)"></span> <span class="country">France</span></td><td>18</td><td>12</td><td>11</td><td class="total">41</td></tr>
-          <tr><td class="pos">2</td><td class="l"><span class="cflag" style="background:#d52b1e"></span> <span class="country">Suisse</span></td><td>12</td><td>12</td><td>9</td><td class="total">33</td></tr>
-          <tr><td class="pos">3</td><td class="l"><span class="cflag" style="background:linear-gradient(180deg,#ef2b2d 50%,#002868 50%)"></span> <span class="country">Norvège</span></td><td>10</td><td>7</td><td>3</td><td class="total">20</td></tr>
-          <tr><td class="pos">4</td><td class="l"><span class="cflag" style="background:linear-gradient(180deg,#000 33%,#dd0000 33% 66%,#ffce00 66%)"></span> <span class="country">Allemagne</span></td><td>10</td><td>6</td><td>14</td><td class="total">30</td></tr>
-          <tr><td class="pos">5</td><td class="l"><span class="cflag" style="background:#de2910"></span> <span class="country">Chine</span></td><td>8</td><td>10</td><td>8</td><td class="total">26</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="filters">
-      <div class="panel">
-        <h4>Filtres</h4>
-        <div class="field">Date <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"/></svg></div>
-        <div class="field">Tous les sports <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"/></svg></div>
-        <div class="field">Tous les NOC <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"/></svg></div>
-        <div class="field">Athlète <span>🔍</span></div>
+  <div class="wrap">
+    <div class="medals">
+      <!-- Mobile : titre + filtres (Figma 3513:25488), masqués en desktop -->
+      <h2 class="medals-m-title">Classement</h2>
+      <div class="medals-filters-m">
+        <div class="mfm-row">
+          <button class="mfm" type="button">Tous les NOC
+            <svg class="chev" viewBox="0 0 30 15" fill="none"><path d="M2 2l13 11L28 2" stroke="#fbfbfb" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <button class="mfm" type="button">Médailles par sportif
+            <svg class="chev" viewBox="0 0 30 15" fill="none"><path d="M2 2l13 11L28 2" stroke="#fbfbfb" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        </div>
+        <button class="mfm mfm-full" type="button">Médailles par sportif
+          <svg class="chev" viewBox="0 0 30 15" fill="none"><path d="M2 2l13 11L28 2" stroke="#fbfbfb" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <button class="mfm mfm-full" type="button">Rechercher par Athlète
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none"><circle cx="11" cy="11" r="7" stroke="#fbfbfb" stroke-width="2"/><path d="M20 20l-3.5-3.5" stroke="#fbfbfb" stroke-width="2" stroke-linecap="round"/></svg></button>
       </div>
+      <div class="medals-table">
+        <div class="mt-head">
+          <div class="mt-title"><h3>Tableau des médailles</h3><span>Sport</span></div>
+          <div class="mt-cols">
+            <div class="mt-left">
+              <span class="mt-pos">Pos.</span>
+              <span class="mt-flag-col">Pays</span>
+              <span class="mt-name">Nom Pays</span>
+            </div>
+            <div class="mt-right">
+              <span class="mt-cell">🥇</span>
+              <span class="mt-cell">🥈</span>
+              <span class="mt-cell">🥉</span>
+              <span class="mt-cell">Total</span>
+            </div>
+          </div>
+        </div>
+        <div class="mt-body">
+          <div class="mt-row">
+            <div class="mt-left"><span class="mt-pos">1</span><span class="mt-flag-col"><img class="cflag" src="photo/drapeau/drapeau_france.svg" alt="Drapeau France"></span><span class="mt-name">France</span></div>
+            <div class="mt-right"><span class="mt-cell">18</span><span class="mt-cell">12</span><span class="mt-cell">11</span><span class="mt-cell">41</span></div>
+          </div>
+          <div class="mt-row">
+            <div class="mt-left"><span class="mt-pos">2</span><span class="mt-flag-col"><img class="cflag" src="photo/drapeau/drapeau_suisse.svg" alt="Drapeau Suisse"></span><span class="mt-name">Suisse</span></div>
+            <div class="mt-right"><span class="mt-cell">12</span><span class="mt-cell">12</span><span class="mt-cell">9</span><span class="mt-cell">33</span></div>
+          </div>
+          <div class="mt-row">
+            <div class="mt-left"><span class="mt-pos">3</span><span class="mt-flag-col"><img class="cflag" src="photo/drapeau/drapeau_norvege.svg" alt="Drapeau Norvège"></span><span class="mt-name">Norvège</span></div>
+            <div class="mt-right"><span class="mt-cell">10</span><span class="mt-cell">7</span><span class="mt-cell">3</span><span class="mt-cell">20</span></div>
+          </div>
+          <div class="mt-row">
+            <div class="mt-left"><span class="mt-pos">4</span><span class="mt-flag-col"><img class="cflag" src="photo/drapeau/drapeau_allemagne.svg" alt="Drapeau Allemagne"></span><span class="mt-name">Allemagne</span></div>
+            <div class="mt-right"><span class="mt-cell">10</span><span class="mt-cell">6</span><span class="mt-cell">14</span><span class="mt-cell">30</span></div>
+          </div>
+          <div class="mt-row">
+            <div class="mt-left"><span class="mt-pos">5</span><span class="mt-flag-col"><img class="cflag" src="photo/drapeau/drapeau_chine.svg" alt="Drapeau Chine"></span><span class="mt-name">Chine</span></div>
+            <div class="mt-right"><span class="mt-cell">8</span><span class="mt-cell">10</span><span class="mt-cell">8</span><span class="mt-cell">26</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="medals-divider" aria-hidden="true"></div>
+      <aside class="medals-filters">
+        <h3>Filtres</h3>
+
+        <div class="mf-dd">
+          <button class="mf" type="button" aria-expanded="false"><span class="mf-label">Date</span>
+            <svg class="chev" viewBox="0 0 30 15" fill="none"><path d="M2 2l13 11L28 2" stroke="#fbfbfb" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="mf-opts">
+            <button class="mf-opt" type="button">04 fev</button>
+            <button class="mf-opt" type="button">05 fev</button>
+            <button class="mf-opt" type="button">06 fev</button>
+            <button class="mf-opt" type="button">07 fev</button>
+            <button class="mf-opt" type="button">08 fev</button>
+            <button class="mf-opt" type="button">09 fev</button>
+            <button class="mf-opt" type="button">10 fev</button>
+            <button class="mf-opt" type="button">11 fev</button>
+            <button class="mf-opt" type="button">12 fev</button>
+            <button class="mf-opt" type="button">13 fev</button>
+          </div>
+        </div>
+
+        <div class="mf-dd">
+          <button class="mf" type="button" aria-expanded="false"><span class="mf-label">Tous les sports</span>
+            <svg class="chev" viewBox="0 0 30 15" fill="none"><path d="M2 2l13 11L28 2" stroke="#fbfbfb" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="mf-opts">
+            <button class="mf-opt" type="button">Biathlon</button>
+            <button class="mf-opt" type="button">Bobsleigh</button>
+            <button class="mf-opt" type="button">Combiné nordique</button>
+            <button class="mf-opt" type="button">Curling</button>
+            <button class="mf-opt" type="button">Hockey sur glace</button>
+            <button class="mf-opt" type="button">Luge</button>
+            <button class="mf-opt" type="button">Patinage artistique</button>
+            <button class="mf-opt" type="button">Patinage de vitesse</button>
+            <button class="mf-opt" type="button">Saut à ski</button>
+            <button class="mf-opt" type="button">Short track</button>
+          </div>
+        </div>
+
+        <div class="mf-dd">
+          <button class="mf" type="button" aria-expanded="false"><span class="mf-label">Tous les NOC</span>
+            <svg class="chev" viewBox="0 0 30 15" fill="none"><path d="M2 2l13 11L28 2" stroke="#fbfbfb" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="mf-opts">
+            <button class="mf-opt" type="button">France</button>
+            <button class="mf-opt" type="button">États-Unis</button>
+            <button class="mf-opt" type="button">Chine</button>
+            <button class="mf-opt" type="button">Japon</button>
+            <button class="mf-opt" type="button">Allemagne</button>
+            <button class="mf-opt" type="button">Norvège</button>
+            <button class="mf-opt" type="button">Suède</button>
+            <button class="mf-opt" type="button">Autriche</button>
+            <button class="mf-opt" type="button">Italie</button>
+            <button class="mf-opt" type="button">Canada</button>
+          </div>
+        </div>
+
+        <div class="mf-search">
+          <input class="mf-input" type="text" placeholder="Athlète" aria-label="Rechercher un athlète">
+          <svg viewBox="0 0 26 26" fill="none"><circle cx="11" cy="11" r="8" stroke="#fbfbfb" stroke-width="2.5"/><path d="M17 17l6 6" stroke="#fbfbfb" stroke-width="2.5" stroke-linecap="round"/></svg>
+        </div>
+      </aside>
     </div>
   </div>
 </section>
 
-<!-- PROCHAINES COMPÉTITIONS -->
-<section class="section" style="padding-top:0">
+<!-- PROCHAINES COMPÉTITIONS (Figma 2677:15484) -->
+<section class="section agenda" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head">
-      <h2>Prochaines<br>compétitions</h2>
-      <a class="link" href="#">Découvrir l'Agenda →</a>
+      <h2>Prochaines compétitions</h2>
+      <a class="agenda-link" href="#">Découvrir l'Agenda
+        <svg viewBox="0 0 20 16" aria-hidden="true" fill="none"><path d="M2 8h15M12 3l5 5-5 5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
     </div>
-    <div class="cards4">
-      <article class="compcard"><div class="ph" style="background:linear-gradient(135deg,#0a6a8c,#0a1b3a)"><span class="tag">⛸️ Patinage</span></div><div class="body"><h4>Patinage de vitesse</h4><div class="meta"><span>500 m hommes</span></div><div class="foot"><span style="font-weight:700;color:var(--bleu-jo)">9 février</span><a class="mini" href="#">S'inscrire</a></div></div></article>
-      <article class="compcard"><div class="ph" style="background:linear-gradient(135deg,#1d8a5a,#0a1b3a)"><span class="tag">🏂 Snow</span></div><div class="body"><h4>Snowboard</h4><div class="meta"><span>Big Air hommes · Livigno</span></div><div class="foot"><span style="font-weight:700;color:var(--bleu-jo)">10 février</span><a class="mini" href="#">S'inscrire</a></div></div></article>
-      <article class="compcard"><div class="ph" style="background:linear-gradient(135deg,#016381,#231c4a)"><span class="tag">🛷 Luge</span></div><div class="body"><h4>Luge</h4><div class="meta"><span>Simple femmes · Cortina</span></div><div class="foot"><span style="font-weight:700;color:var(--bleu-jo)">10 février</span><a class="mini" href="#">S'inscrire</a></div></div></article>
-      <article class="compcard"><div class="ph" style="background:linear-gradient(135deg,#0a6a8c,#16324a)"><span class="tag">⛸️ Patinage</span></div><div class="body"><h4>Patinage Artistique</h4><div class="meta"><span>Couple libre</span></div><div class="foot"><span style="font-weight:700;color:var(--bleu-jo)">11 février</span><a class="mini" href="#">S'inscrire</a></div></div></article>
+    <div class="agenda-grid">
+
+      <article class="agcard">
+        <div class="agcard__media" style="background-image:url('photo/patinage_vitesse_pays_bas.jpg')"></div>
+        <div class="agcard__body">
+          <div class="agcard__head">
+            <div class="agcard__row"><span class="agcard__title">Patinage de V</span><span class="agcard__date">9 février</span></div>
+            <span class="agcard__sub">500 m hommes</span>
+          </div>
+          <div class="agcard__info">
+            <span class="agcard__line"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 00-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 00-7-7zm0 9.5A2.5 2.5 0 1112 6.5a2.5 2.5 0 010 5z"/></svg>Milan</span>
+            <span class="agcard__line"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1010 10A10 10 0 0012 2zm1 10.6l4 2.3-.8 1.4L11 13V6h2z"/></svg>16h</span>
+          </div>
+          <a class="agcard__btn" href="#">Billeterie
+            <svg viewBox="0 0 16 16" aria-hidden="true" fill="none"><path d="M5 3l5 5-5 5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="agcard">
+        <div class="agcard__media" style="background-image:url('photo/snowboard_big_air_romain_allemand.jpg')"></div>
+        <div class="agcard__body">
+          <div class="agcard__head">
+            <div class="agcard__row"><span class="agcard__title">Snowboard</span><span class="agcard__date">10 février</span></div>
+            <span class="agcard__sub">Big Air hommes</span>
+          </div>
+          <div class="agcard__info">
+            <span class="agcard__line"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 00-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 00-7-7zm0 9.5A2.5 2.5 0 1112 6.5a2.5 2.5 0 010 5z"/></svg>Livigno</span>
+            <span class="agcard__line"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1010 10A10 10 0 0012 2zm1 10.6l4 2.3-.8 1.4L11 13V6h2z"/></svg>19h30</span>
+          </div>
+          <a class="agcard__btn" href="#">Billeterie
+            <svg viewBox="0 0 16 16" aria-hidden="true" fill="none"><path d="M5 3l5 5-5 5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="agcard">
+        <div class="agcard__media" style="background-image:url('photo/luge_descente_milano_cortina.jpg')"></div>
+        <div class="agcard__body">
+          <div class="agcard__head">
+            <div class="agcard__row"><span class="agcard__title">Luge</span><span class="agcard__date">10 février</span></div>
+            <span class="agcard__sub">Simple femme</span>
+          </div>
+          <div class="agcard__info">
+            <span class="agcard__line"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 00-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 00-7-7zm0 9.5A2.5 2.5 0 1112 6.5a2.5 2.5 0 010 5z"/></svg>Cortina</span>
+            <span class="agcard__line"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1010 10A10 10 0 0012 2zm1 10.6l4 2.3-.8 1.4L11 13V6h2z"/></svg>19h30</span>
+          </div>
+          <a class="agcard__btn" href="#">Billeterie
+            <svg viewBox="0 0 16 16" aria-hidden="true" fill="none"><path d="M5 3l5 5-5 5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="agcard">
+        <div class="agcard__media" style="background-image:url('photo/patinage_artistique_couple.avif')"></div>
+        <div class="agcard__body">
+          <div class="agcard__head">
+            <div class="agcard__row"><span class="agcard__title">Patinage Art</span><span class="agcard__date">11 février</span></div>
+            <span class="agcard__sub">Finale couple libre</span>
+          </div>
+          <div class="agcard__info">
+            <span class="agcard__line"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 00-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 00-7-7zm0 9.5A2.5 2.5 0 1112 6.5a2.5 2.5 0 010 5z"/></svg>Milan</span>
+            <span class="agcard__line"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1010 10A10 10 0 0012 2zm1 10.6l4 2.3-.8 1.4L11 13V6h2z"/></svg>14h</span>
+          </div>
+          <a class="agcard__btn" href="#">Billeterie
+            <svg viewBox="0 0 16 16" aria-hidden="true" fill="none"><path d="M5 3l5 5-5 5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </article>
+
     </div>
   </div>
 </section>
 
-<!-- COMMUNITY BANNER -->
+<!-- COMMUNITY BANNER (Figma 2570:15510) -->
 <section class="section" style="padding-top:0">
   <div class="wrap">
+    <div class="sec-head community-head">
+      <h2>Athlete Talks et replays</h2>
+      <a class="pill-link" href="#">voir tous les backstages
+        <svg viewBox="0 0 24 24" width="16" height="14"><path d="M5 12h12M12 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
     <div class="banner community">
-      <div class="img"></div>
+      <div class="img has-img" style="background-image:url('photo/biathletes_femmes_selfie.png')"></div>
       <div class="txt">
         <h3>Rejoignez la communauté</h3>
-        <p>Découvrez Olympic Connect, notre extension communautaire, réagissez aux posts de vos athlètes favoris.</p>
-        <p style="font-size:14px;color:#9fb6e8">Connectez-vous et posez vos questions aux athlètes durant les lives !</p>
-        <a class="btn btn-green" href="#">Découvrir Olympic Connect →</a>
+        <p>Découvrez Olympic Connect, notre extension communautaire, réagissez aux posts de vos athlètes favoris..</p>
+        <p>Connectez-vous et posez vos questions aux athlètes durant les lives !</p>
+        <a class="btn-community" href="#">Découvrir Olympic Connect
+          <svg viewBox="0 0 24 24" width="18" height="18"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- LIVE / REPLAYS strip + featured -->
+<!-- REPLAYS — 2 cartes à la une + carrousel (Figma 3502:24055) -->
 <section class="section" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head"><h2>Suivez vos talks en replay</h2><a class="link" href="#">Voir tous les replays →</a></div>
-    <div class="strip">
-      <div class="vcard"><div class="ph"><span class="live">● LIVE</span><span class="play">▶</span></div><div class="cap">Ski Alpin — Descente hommes</div></div>
-      <div class="vcard"><div class="ph" style="background:linear-gradient(135deg,#16324a,#0a1b3a)"><span class="live">● LIVE</span><span class="play">▶</span></div><div class="cap">Hockey sur glace — GER vs FRA</div></div>
-      <div class="vcard"><div class="ph" style="background:linear-gradient(135deg,#0a6a8c,#231c4a)"><span class="live">● LIVE</span><span class="play">▶</span></div><div class="cap">Biathlon — Sprint femmes</div></div>
-      <div class="vcard"><div class="ph" style="background:linear-gradient(135deg,#1d8a5a,#0a1b3a)"><span class="live">● LIVE</span><span class="play">▶</span></div><div class="cap">Curling — Round Robin</div></div>
-      <div class="vcard"><div class="ph" style="background:linear-gradient(135deg,#016381,#16324a)"><span class="live">● LIVE</span><span class="play">▶</span></div><div class="cap">Bobsleigh — Manche 2</div></div>
+
+    <!-- 2 grandes cartes -->
+    <div class="rep-top">
+      <article class="rep-big">
+        <div class="rep-big__media" style="background-image:url('photo/hockey_sur_glace_suede.png')">
+          <span class="rep-badge">Temps fort</span>
+        </div>
+        <div class="rep-big__body">
+          <p class="rep-big__title">SWE-ITA - Men's Preliminary Round - Ice Hockey | Milano Cortina 2026</p>
+          <div class="rep-big__meta">
+            <div class="rep-big__metaL">
+              <span class="rep-time">Il y a 2h</span>
+              <span class="rep-chip">Ice Hockey</span>
+            </div>
+            <button class="rep-play" type="button" aria-label="Lire"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+          </div>
+        </div>
+      </article>
+
+      <article class="rep-big">
+        <div class="rep-big__media" style="background-image:url('photo/equipe_hockey_france.png')">
+          <span class="rep-badge">Temps fort</span>
+        </div>
+        <div class="rep-big__body">
+          <p class="rep-big__title">GER-FRA - Men's Preliminary Round - Ice Hockey | Milano Cortina 2026</p>
+          <div class="rep-big__meta">
+            <div class="rep-big__metaL">
+              <span class="rep-time">Il y a 3h</span>
+              <span class="rep-chip">Ice Hockey</span>
+            </div>
+            <button class="rep-play" type="button" aria-label="Lire"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+          </div>
+        </div>
+      </article>
     </div>
-    <div class="replays2" style="margin-top:28px">
-      <article class="replay-big"><div class="ph"><span class="play">▶</span></div><div class="body"><h4>SWE–ITA — Men's Preliminary Round · Ice Hockey | Milano Cortina 2026</h4><div class="meta"><span class="chip time">Il y a 2h</span><span class="chip">🏒 Ice hockey</span></div></div></article>
-      <article class="replay-big"><div class="ph" style="background:linear-gradient(135deg,#1d4d3a,#0a1b3a)"><span class="play">▶</span></div><div class="body"><h4>GER–FRA — Men's Preliminary Round · Ice Hockey | Milano Cortina 2026</h4><div class="meta"><span class="chip time">Il y a 3h</span><span class="chip">🏒 Ice hockey</span></div></div></article>
+
+    <!-- Carrousel de petites vidéos -->
+    <div class="rep-rail">
+      <a class="vrl" href="#"><div class="vrl__bg" style="background-image:url('photo/philipp_nawrath_interview.jpg')"></div>
+        <div class="vrl__top"><span class="vrl__views"><svg viewBox="0 0 24 16" aria-hidden="true"><path d="M12 0C7 0 2.7 3 1 8c1.7 5 6 8 11 8s9.3-3 11-8c-1.7-5-6-8-11-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-3a2 2 0 100-4 2 2 0 000 4z"/></svg>52 637</span></div>
+        <div class="vrl__play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="vrl__bottom"><p class="vrl__title">Philipp Nawrath déçu par sa performance | Tour session 4</p><div class="vrl__tags"><span class="vrl__tag">Biathlon</span><span class="vrl__tag">@Philipp_Nawrath</span></div></div>
+      </a>
+      <a class="vrl" href="#"><div class="vrl__bg" style="background-image:url('photo/curling_interview.png')"></div>
+        <div class="vrl__top"><span class="vrl__views"><svg viewBox="0 0 24 16" aria-hidden="true"><path d="M12 0C7 0 2.7 3 1 8c1.7 5 6 8 11 8s9.3-3 11-8c-1.7-5-6-8-11-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-3a2 2 0 100-4 2 2 0 000 4z"/></svg>34 218</span></div>
+        <div class="vrl__play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="vrl__bottom"><p class="vrl__title">Le skip britannique revient sur son dernier end</p><div class="vrl__tags"><span class="vrl__tag">Curling</span><span class="vrl__tag">@Bruce_MOUAT</span></div></div>
+      </a>
+      <a class="vrl" href="#"><div class="vrl__bg" style="background-image:url('photo/patineuse_interview_cortina.png')"></div>
+        <div class="vrl__top"><span class="vrl__views"><svg viewBox="0 0 24 16" aria-hidden="true"><path d="M12 0C7 0 2.7 3 1 8c1.7 5 6 8 11 8s9.3-3 11-8c-1.7-5-6-8-11-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-3a2 2 0 100-4 2 2 0 000 4z"/></svg>89 401</span></div>
+        <div class="vrl__play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="vrl__bottom"><p class="vrl__title">Après le programme libre, ses premiers mots</p><div class="vrl__tags"><span class="vrl__tag">Patinage</span><span class="vrl__tag">@Kaori_SAKAMOTO</span></div></div>
+      </a>
+      <a class="vrl" href="#"><div class="vrl__bg" style="background-image:url('photo/snowboardeuse_burton_interview.png')"></div>
+        <div class="vrl__top"><span class="vrl__views"><svg viewBox="0 0 24 16" aria-hidden="true"><path d="M12 0C7 0 2.7 3 1 8c1.7 5 6 8 11 8s9.3-3 11-8c-1.7-5-6-8-11-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-3a2 2 0 100-4 2 2 0 000 4z"/></svg>21 905</span></div>
+        <div class="vrl__play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="vrl__bottom"><p class="vrl__title">Run final en slopestyle : les coulisses</p><div class="vrl__tags"><span class="vrl__tag">Snowboard</span><span class="vrl__tag">@Zoi_SADOWSKI</span></div></div>
+      </a>
+      <a class="vrl" href="#"><div class="vrl__bg" style="background-image:url('photo/biathlete_femme_interview.png')"></div>
+        <div class="vrl__top"><span class="vrl__views"><svg viewBox="0 0 24 16" aria-hidden="true"><path d="M12 0C7 0 2.7 3 1 8c1.7 5 6 8 11 8s9.3-3 11-8c-1.7-5-6-8-11-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-3a2 2 0 100-4 2 2 0 000 4z"/></svg>47 112</span></div>
+        <div class="vrl__play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="vrl__bottom"><p class="vrl__title">Analyse de son dernier pas de tir, parfait 20/20</p><div class="vrl__tags"><span class="vrl__tag">Biathlon</span><span class="vrl__tag">@Lou_JEANMONNOT</span></div></div>
+      </a>
+      <a class="vrl" href="#"><div class="vrl__bg" style="background-image:url('photo/patinage_vitesse_short_track_chine.jpg')"></div>
+        <div class="vrl__top"><span class="vrl__views"><svg viewBox="0 0 24 16" aria-hidden="true"><path d="M12 0C7 0 2.7 3 1 8c1.7 5 6 8 11 8s9.3-3 11-8c-1.7-5-6-8-11-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-3a2 2 0 100-4 2 2 0 000 4z"/></svg>63 778</span></div>
+        <div class="vrl__play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="vrl__bottom"><p class="vrl__title">La pression du short track raconté de l'intérieur</p><div class="vrl__tags"><span class="vrl__tag">Short Track</span><span class="vrl__tag">@Steven_DUBOIS</span></div></div>
+      </a>
+      <a class="vrl" href="#"><div class="vrl__bg" style="background-image:url('photo/luge_descente_milano_cortina.jpg')"></div>
+        <div class="vrl__top"><span class="vrl__views"><svg viewBox="0 0 24 16" aria-hidden="true"><path d="M12 0C7 0 2.7 3 1 8c1.7 5 6 8 11 8s9.3-3 11-8c-1.7-5-6-8-11-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-3a2 2 0 100-4 2 2 0 000 4z"/></svg>12 413</span></div>
+        <div class="vrl__play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="vrl__bottom"><p class="vrl__title">Les écarts les plus serrés de la descente</p><div class="vrl__tags"><span class="vrl__tag">Luge</span><span class="vrl__tag">@Natalie_G</span></div></div>
+      </a>
+      <a class="vrl" href="#"><div class="vrl__bg" style="background-image:url('photo/athlete_blonde_interview.png')"></div>
+        <div class="vrl__top"><span class="vrl__views"><svg viewBox="0 0 24 16" aria-hidden="true"><path d="M12 0C7 0 2.7 3 1 8c1.7 5 6 8 11 8s9.3-3 11-8c-1.7-5-6-8-11-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-3a2 2 0 100-4 2 2 0 000 4z"/></svg>92 549</span></div>
+        <div class="vrl__play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="vrl__bottom"><p class="vrl__title">Comment elle anticipe ses descentes en Ski Alpin</p><div class="vrl__tags"><span class="vrl__tag">Ski Alpin</span><span class="vrl__tag">@Mikaela_S</span></div></div>
+      </a>
     </div>
   </div>
 </section>
@@ -149,43 +407,141 @@
   <div class="wrap">
     <div class="sec-head"><h2>Découvre Milano Cortina 2026</h2></div>
     <div class="milano">
+
+      <!-- Carte interactive (Figma 2677:15941 + pins cliquables) -->
       <div class="map-panel">
-        <div class="shape"></div>
-        <div class="pin" style="top:34%;left:22%">Cortina d'Ampezzo</div>
-        <div class="pin" style="top:30%;left:50%">Anterselva</div>
-        <div class="pin" style="top:52%;left:30%">Livigno</div>
-        <div class="pin" style="top:48%;left:18%">Bormio</div>
-        <div class="pin" style="top:58%;left:55%">Predazzo</div>
-        <div class="pin" style="top:64%;left:40%">Tesero</div>
+        <img class="map-img" src="assets/img/map-cortina.png" alt="Carte des sites olympiques Milano Cortina 2026" />
+        <button class="map-pin" type="button" style="left:19.7%;top:63%"  aria-label="Milano"><span class="map-tip">Milano</span></button>
+        <button class="map-pin" type="button" style="left:50.3%;top:61.8%" aria-label="Verona"><span class="map-tip">Verona</span></button>
+        <button class="map-pin" type="button" style="left:52%;top:47.7%"  aria-label="Tesero"><span class="map-tip">Tesero</span></button>
+        <button class="map-pin" type="button" style="left:55.9%;top:47.7%" aria-label="Predazzo"><span class="map-tip">Predazzo</span></button>
+        <button class="map-pin" type="button" style="left:67.6%;top:41.1%" aria-label="Cortina d'Ampezzo"><span class="map-tip">Cortina d'Ampezzo</span></button>
+        <button class="map-pin" type="button" style="left:68.8%;top:33.6%" aria-label="Antholz-Anterselva"><span class="map-tip">Antholz-Anterselva</span></button>
+        <button class="map-pin" type="button" style="left:36.5%;top:40.5%" aria-label="Livigno"><span class="map-tip">Livigno</span></button>
+        <button class="map-pin" type="button" style="left:38.8%;top:43.8%" aria-label="Bormio"><span class="map-tip">Bormio</span></button>
       </div>
-      <div>
-        <div class="res-filters">
-          <div class="field">Ville <svg viewBox="0 0 24 24" width="14" height="14"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"/></svg></div>
-          <div class="field">Sport <svg viewBox="0 0 24 24" width="14" height="14"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"/></svg></div>
-          <div class="field">Rechercher <span>🔍</span></div>
+
+      <!-- Filtres + grille de résultats -->
+      <div class="milano-right">
+        <div class="milano-filters">
+          <button class="mfilter" type="button">Ville
+            <svg viewBox="0 0 30 15" fill="none" aria-hidden="true"><path d="M2 2l13 11L28 2" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button class="mfilter" type="button">Sport
+            <svg viewBox="0 0 30 15" fill="none" aria-hidden="true"><path d="M2 2l13 11L28 2" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button class="mfilter mfilter--search" type="button">Rechercher
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2.4"/><path d="M16.5 16.5L21 21" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+          </button>
         </div>
-        <div class="res-cards">
-          <article class="compcard"><div class="ph" style="background:linear-gradient(135deg,#0a6a8c,#16324a)"><span class="tag">⛷️ Ski</span></div><div class="body"><h4>Ski Alpin</h4><div class="meta"><span>Super-G hommes</span><span>📍 Cortina · ⏱ 14h</span></div><div class="foot"><span style="font-weight:700;color:var(--bleu-jo)">9 fév.</span><a class="mini" href="#">S'inscrire</a></div></div></article>
-          <article class="compcard"><div class="ph" style="background:linear-gradient(135deg,#0a6a8c,#0a1b3a)"><span class="tag">🎯 Biathlon</span></div><div class="body"><h4>Biathlon</h4><div class="meta"><span>Sprint 10km</span><span>📍 Anterselva · ⏱ 9h</span></div><div class="foot"><span style="font-weight:700;color:var(--bleu-jo)">9 fév.</span><a class="mini" href="#">S'inscrire</a></div></div></article>
-          <article class="compcard"><div class="ph" style="background:linear-gradient(135deg,#016381,#231c4a)"><span class="tag">⛸️ Patinage</span></div><div class="body"><h4>Patinage de V.</h4><div class="meta"><span>500 m hommes</span><span>📍 Milano · ⏱ 16h</span></div><div class="foot"><span style="font-weight:700;color:var(--bleu-jo)">9 fév.</span><a class="mini" href="#">S'inscrire</a></div></div></article>
-          <article class="compcard"><div class="ph" style="background:linear-gradient(135deg,#1d8a5a,#0a1b3a)"><span class="tag">🏂 Snow</span></div><div class="body"><h4>Snowboard</h4><div class="meta"><span>Big Air hommes</span><span>📍 Livigno · ⏱ 11h</span></div><div class="foot"><span style="font-weight:700;color:var(--bleu-jo)">10 fév.</span><a class="mini" href="#">S'inscrire</a></div></div></article>
-          <article class="compcard"><div class="ph" style="background:linear-gradient(135deg,#016381,#16324a)"><span class="tag">🛷 Luge</span></div><div class="body"><h4>Luge</h4><div class="meta"><span>Simple femmes</span><span>📍 Cortina · ⏱ 18h</span></div><div class="foot"><span style="font-weight:700;color:var(--bleu-jo)">10 fév.</span><a class="mini" href="#">S'inscrire</a></div></div></article>
-          <article class="compcard"><div class="ph" style="background:linear-gradient(135deg,#0a6a8c,#231c4a)"><span class="tag">⛸️ Patinage</span></div><div class="body"><h4>Patinage Art.</h4><div class="meta"><span>Couple libre</span><span>📍 Milano · ⏱ 20h</span></div><div class="foot"><span style="font-weight:700;color:var(--bleu-jo)">11 fév.</span><a class="mini" href="#">S'inscrire</a></div></div></article>
+
+        <div class="milano-grid">
+          <article class="agcard agcard--sm">
+            <div class="agcard__media" style="background-image:url('photo/athlete_france_combinaison_rouge.png')"></div>
+            <div class="agcard__body">
+              <div class="agcard__head">
+                <div class="agcard__row"><span class="agcard__title">Ski Alpin</span><span class="agcard__date">7 février</span></div>
+                <span class="agcard__sub">Super-G femmes</span>
+              </div>
+              <div class="agcard__info">
+                <span class="agcard__line"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 00-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 00-7-7zm0 9.5A2.5 2.5 0 1112 6.5a2.5 2.5 0 010 5z"/></svg>Valtellina</span>
+                <span class="agcard__line"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1010 10A10 10 0 0012 2zm1 10.6l4 2.3-.8 1.4L11 13V6h2z"/></svg>11h30</span>
+              </div>
+              <a class="agcard__btn" href="#">Billeterie<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5 3l5 5-5 5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            </div>
+          </article>
+
+          <article class="agcard agcard--sm">
+            <div class="agcard__media" style="background-image:url('photo/biathlon_course_2.png')"></div>
+            <div class="agcard__body">
+              <div class="agcard__head">
+                <div class="agcard__row"><span class="agcard__title">Biathlon</span><span class="agcard__date">10 février</span></div>
+                <span class="agcard__sub">Sprint 10km</span>
+              </div>
+              <div class="agcard__info">
+                <span class="agcard__line"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 00-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 00-7-7zm0 9.5A2.5 2.5 0 1112 6.5a2.5 2.5 0 010 5z"/></svg>Anterselva</span>
+                <span class="agcard__line"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1010 10A10 10 0 0012 2zm1 10.6l4 2.3-.8 1.4L11 13V6h2z"/></svg>9h00</span>
+              </div>
+              <a class="agcard__btn" href="#">Billeterie<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5 3l5 5-5 5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            </div>
+          </article>
+
+          <article class="agcard agcard--sm">
+            <div class="agcard__media" style="background-image:url('photo/patinage_vitesse_short_track_chine.jpg')"></div>
+            <div class="agcard__body">
+              <div class="agcard__head">
+                <div class="agcard__row"><span class="agcard__title">Patinage de V</span><span class="agcard__date">10 février</span></div>
+                <span class="agcard__sub">500 m hommes</span>
+              </div>
+              <div class="agcard__info">
+                <span class="agcard__line"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 00-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 00-7-7zm0 9.5A2.5 2.5 0 1112 6.5a2.5 2.5 0 010 5z"/></svg>Milano</span>
+                <span class="agcard__line"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1010 10A10 10 0 0012 2zm1 10.6l4 2.3-.8 1.4L11 13V6h2z"/></svg>16h00</span>
+              </div>
+              <a class="agcard__btn" href="#">Billeterie<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5 3l5 5-5 5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            </div>
+          </article>
+
+          <article class="agcard agcard--sm">
+            <div class="agcard__media" style="background-image:url('photo/snowboard_cross.png')"></div>
+            <div class="agcard__body">
+              <div class="agcard__head">
+                <div class="agcard__row"><span class="agcard__title">Snowboard</span><span class="agcard__date">10 février</span></div>
+                <span class="agcard__sub">Big Air hommes</span>
+              </div>
+              <div class="agcard__info">
+                <span class="agcard__line"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 00-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 00-7-7zm0 9.5A2.5 2.5 0 1112 6.5a2.5 2.5 0 010 5z"/></svg>Livigno</span>
+                <span class="agcard__line"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1010 10A10 10 0 0012 2zm1 10.6l4 2.3-.8 1.4L11 13V6h2z"/></svg>11h00</span>
+              </div>
+              <a class="agcard__btn" href="#">Billeterie<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5 3l5 5-5 5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            </div>
+          </article>
+
+          <article class="agcard agcard--sm">
+            <div class="agcard__media" style="background-image:url('photo/luge_italie_descente.avif')"></div>
+            <div class="agcard__body">
+              <div class="agcard__head">
+                <div class="agcard__row"><span class="agcard__title">Luge</span><span class="agcard__date">10 février</span></div>
+                <span class="agcard__sub">Simple femmes</span>
+              </div>
+              <div class="agcard__info">
+                <span class="agcard__line"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 00-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 00-7-7zm0 9.5A2.5 2.5 0 1112 6.5a2.5 2.5 0 010 5z"/></svg>Cortina</span>
+                <span class="agcard__line"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1010 10A10 10 0 0012 2zm1 10.6l4 2.3-.8 1.4L11 13V6h2z"/></svg>18h00</span>
+              </div>
+              <a class="agcard__btn" href="#">Billeterie<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5 3l5 5-5 5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            </div>
+          </article>
+
+          <article class="agcard agcard--sm">
+            <div class="agcard__media" style="background-image:url('photo/patinage_artistique_couple_2.webp')"></div>
+            <div class="agcard__body">
+              <div class="agcard__head">
+                <div class="agcard__row"><span class="agcard__title">Patinage Art</span><span class="agcard__date">11 février</span></div>
+                <span class="agcard__sub">Finale couple libre</span>
+              </div>
+              <div class="agcard__info">
+                <span class="agcard__line"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 00-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 00-7-7zm0 9.5A2.5 2.5 0 1112 6.5a2.5 2.5 0 010 5z"/></svg>Milano</span>
+                <span class="agcard__line"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1010 10A10 10 0 0012 2zm1 10.6l4 2.3-.8 1.4L11 13V6h2z"/></svg>20h00</span>
+              </div>
+              <a class="agcard__btn" href="#">Billeterie<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5 3l5 5-5 5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            </div>
+          </article>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- BILLETERIE BANNER -->
+<!-- BILLETERIE BANNER (Figma 2570:15642) -->
 <section class="section" id="billeterie" style="padding-top:0">
   <div class="wrap">
-    <div class="banner">
-      <div class="img"></div>
+    <div class="banner tickets">
+      <div class="img has-img" style="background-image:url('photo/ski_de_fond_stade.png')"></div>
       <div class="txt">
         <h3>Billeterie</h3>
-        <p>Il reste encore des places pour certaines épreuves des JO ! Réservez dès maintenant vos billets et venez ressentir l'ambiance unique des compétitions au plus près des athlètes.</p>
-        <a class="btn btn-green" href="#">Réserver mes billets ↗</a>
+        <p>Il reste encore des places pour certaines épreuves des JO !<br><br>Réservez dès maintenant vos billets et venez ressentir l'ambiance unique des compétitions au plus près des athlètes.</p>
+        <a class="btn-ticket" href="#">Acheter mes places
+          <svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12h13M12 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
       </div>
     </div>
   </div>
@@ -194,30 +550,93 @@
 <!-- DISCIPLINES -->
 <section class="section" style="padding-top:0">
   <div class="wrap">
-    <div class="sec-head"><h2>Découvre les disciplines</h2><a class="link" href="#">Voir toutes les disciplines →</a></div>
-    <div class="disc-grid">
-      <div class="disc"><div class="ph">🎯</div><div class="name">Biathlon</div></div>
-      <div class="disc"><div class="ph">🛷</div><div class="name">Bobsleigh</div></div>
-      <div class="disc"><div class="ph">⛷️</div><div class="name">Combiné nordique</div></div>
-      <div class="disc"><div class="ph">🥌</div><div class="name">Curling</div></div>
-      <div class="disc"><div class="ph">🏒</div><div class="name">Hockey sur glace</div></div>
-      <div class="disc"><div class="ph">🛷</div><div class="name">Luge</div></div>
+    <div class="sec-head"><h2>Découvrir les disciplines</h2>
+      <a class="pill-link pill-link--jo" href="#">Découvrir toutes les disciplines
+        <svg viewBox="0 0 20 16" fill="none" aria-hidden="true"><path d="M2 8h15M12 3l5 5-5 5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
     </div>
-    <div class="rings">⬤⬤⬤⬤⬤</div>
+    <div class="disc-rail" id="discRail">
+      <a class="disc" href="#"><div class="disc__img" style="background-image:url('photo/sport/biathlon.png')"></div><div class="disc__name">Biathlon</div></a>
+      <a class="disc" href="#"><div class="disc__img" style="background-image:url('photo/sport/bobsleigh.png')"></div><div class="disc__name">Bobsleigh</div></a>
+      <a class="disc" href="#"><div class="disc__img" style="background-image:url('photo/sport/combine_nordique.png')"></div><div class="disc__name">Combiné nordique</div></a>
+      <a class="disc" href="#"><div class="disc__img" style="background-image:url('photo/sport/curling.png')"></div><div class="disc__name">Curling</div></a>
+      <a class="disc" href="#"><div class="disc__img" style="background-image:url('photo/sport/hockey_sur_glace.png')"></div><div class="disc__name">Hockey sur glace</div></a>
+      <a class="disc" href="#"><div class="disc__img" style="background-image:url('photo/sport/luge.png')"></div><div class="disc__name">Luge</div></a>
+      <a class="disc" href="#"><div class="disc__img" style="background-image:url('photo/sport/patinage_artistique.png')"></div><div class="disc__name">Patinage artistique</div></a>
+      <a class="disc" href="#"><div class="disc__img" style="background-image:url('photo/sport/patinage_de_vitesse.png')"></div><div class="disc__name">Patinage de vitesse</div></a>
+      <a class="disc" href="#"><div class="disc__img" style="background-image:url('photo/sport/ski_alpin.png')"></div><div class="disc__name">Ski alpin</div></a>
+      <a class="disc" href="#"><div class="disc__img" style="background-image:url('photo/sport/ski_alpinisme.png')"></div><div class="disc__name">Ski alpinisme</div></a>
+      <a class="disc" href="#"><div class="disc__img" style="background-image:url('photo/sport/ski_de_fond.png')"></div><div class="disc__name">Ski de fond</div></a>
+      <a class="disc" href="#"><div class="disc__img" style="background-image:url('photo/sport/snowboard.png')"></div><div class="disc__name">Snowboard</div></a>
+    </div>
+    <div class="disc-nav">
+      <div class="disc-dots" id="discDots" aria-hidden="true"></div>
+      <div class="disc-arrows">
+        <button class="disc-arrow" type="button" data-dir="prev" aria-label="Disciplines précédentes"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <button class="disc-arrow" type="button" data-dir="next" aria-label="Disciplines suivantes"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- SHOP -->
+<!-- SHOP (Figma 2570:15699) -->
 <section class="section" id="shop" style="padding-top:0">
   <div class="wrap">
-    <div class="sec-head"><h2>La boutique officielle</h2><a class="link" href="#">Accéder à la boutique →</a></div>
+    <div class="sec-head">
+      <h2>Un petit souvenir ?</h2>
+      <a class="pill-link pill-link--jo" href="#">Accéder à la boutique
+        <svg viewBox="0 0 24 24" width="16" height="14"><path d="M5 12h12M12 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
     <div class="shop-grid">
-      <div class="prod"><div class="ph">🧣</div><div class="body"><div class="n">Écharpe officielle</div><div class="p">29 €</div></div></div>
-      <div class="prod"><div class="ph">🧢</div><div class="body"><div class="n">Casquette Milano</div><div class="p">25 €</div></div></div>
-      <div class="prod"><div class="ph">👕</div><div class="body"><div class="n">T-shirt Team FR</div><div class="p">35 €</div></div></div>
-      <div class="prod"><div class="ph">🧤</div><div class="body"><div class="n">Gants supporters</div><div class="p">19 €</div></div></div>
-      <div class="prod"><div class="ph">🐻‍❄️</div><div class="body"><div class="n">Mascotte peluche</div><div class="p">24 €</div></div></div>
-      <div class="prod"><div class="ph">🎽</div><div class="body"><div class="n">Maillot collector</div><div class="p">59 €</div></div></div>
+      <article class="prod">
+        <div class="prod-img"><img src="photo/shop/veste_laine.png" alt="Veste en laine"></div>
+        <div class="prod-body">
+          <h4 class="prod-name">Veste en laine</h4>
+          <p class="prod-desc">Doté des anneaux emblématique des Jeux...</p>
+          <div class="prod-foot"><span class="prod-price">114,99€</span><a class="prod-buy" href="#">Acheter</a></div>
+        </div>
+      </article>
+      <article class="prod">
+        <div class="prod-img"><img src="photo/shop/tasse_oc.png" alt="Tasse Olympic Connect"></div>
+        <div class="prod-body">
+          <h4 class="prod-name">Tasse Olympic Connect</h4>
+          <p class="prod-desc">Un mug moderne et élégant inspiré de l'univers des...</p>
+          <div class="prod-foot"><span class="prod-price">14,99€</span><a class="prod-buy" href="#">Acheter</a></div>
+        </div>
+      </article>
+      <article class="prod">
+        <div class="prod-img"><img src="photo/shop/haut_technique.png" alt="Haut intermédiaire technique"></div>
+        <div class="prod-body">
+          <h4 class="prod-name">Haut intermédiaire technique</h4>
+          <p class="prod-desc">Détendez-vous avec style et confort. Doté du blason...</p>
+          <div class="prod-foot"><span class="prod-price">54,99€</span><a class="prod-buy" href="#">Acheter</a></div>
+        </div>
+      </article>
+      <article class="prod">
+        <div class="prod-img"><img src="photo/shop/sweat_capuche.png" alt="Sweat à capuche"></div>
+        <div class="prod-body">
+          <h4 class="prod-name">Sweat à capuche</h4>
+          <p class="prod-desc">Doté du blason emblématique des Jeux olympiques...</p>
+          <div class="prod-foot"><span class="prod-price">74,99€</span><a class="prod-buy" href="#">Acheter</a></div>
+        </div>
+      </article>
+      <article class="prod">
+        <div class="prod-img"><img src="photo/shop/casquette_jo.png" alt="Casquette anneaux JO"></div>
+        <div class="prod-body">
+          <h4 class="prod-name">Casquette anneaux JO</h4>
+          <p class="prod-desc">Gardez la tête haute ! Parfaite à porter en toute....</p>
+          <div class="prod-foot"><span class="prod-price">24,99€</span><a class="prod-buy" href="#">Acheter</a></div>
+        </div>
+      </article>
+      <article class="prod">
+        <div class="prod-img"><img src="photo/shop/tshirt_large.png" alt="Tee-shirt large"></div>
+        <div class="prod-body">
+          <h4 class="prod-name">Tee-shirt large</h4>
+          <p class="prod-desc">Montrez l'amour pour vos Jeux olympiques. Doté de...</p>
+          <div class="prod-foot"><span class="prod-price">74,99€</span><a class="prod-buy" href="#">Acheter</a></div>
+        </div>
+      </article>
     </div>
   </div>
 </section>
@@ -226,11 +645,13 @@
 <section class="section" style="padding-top:0">
   <div class="wrap">
     <div class="banner resp">
-      <div class="img"></div>
+      <div class="img has-img" style="background-image:url('assets/img/jo-resp-banner.png')"></div>
       <div class="txt">
         <h3>Des Jeux Olympiques responsables</h3>
-        <p>Une plateforme pensée pour limiter son impact ! De l'accessibilité à l'hébergement, chaque choix vise des Jeux plus durables.</p>
-        <a class="btn btn-green" href="#">Voir la charte d'engagement ↗</a>
+        <p>Une plateforme pensée pour limiter son impact !<br><br>De l'accessibilité à l'hébergement, chaque choix vise des Jeux plus durables.</p>
+        <a class="btn-ticket" href="#">Voir la charte d'engagement
+          <svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12h13M12 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
       </div>
     </div>
   </div>
@@ -244,27 +665,27 @@
 
     <div class="footJO-sponsors">
       <div class="footJO-row">
-        <img class="spon" style="--h:65px" src="assets/logos/airbnb.svg" alt="Airbnb">
-        <img class="spon" style="--h:35px" src="assets/logos/alibaba.svg" alt="Alibaba">
-        <img class="spon" style="--h:60px" src="assets/logos/allianz.svg" alt="Allianz">
-        <img class="spon" style="--h:56px" src="assets/logos/cocacola.svg" alt="Coca-Cola">
+        <a class="footJO-spon" href="https://www.airbnb.com" target="_blank" rel="noopener"><img class="spon" style="--h:65px" src="assets/logos/airbnb.svg" alt="Airbnb"></a>
+        <a class="footJO-spon" href="https://www.alibabagroup.com" target="_blank" rel="noopener"><img class="spon" style="--h:35px" src="assets/logos/alibaba.svg" alt="Alibaba"></a>
+        <a class="footJO-spon" href="https://www.allianz.com" target="_blank" rel="noopener"><img class="spon" style="--h:60px" src="assets/logos/allianz.svg" alt="Allianz"></a>
+        <a class="footJO-spon" href="https://www.coca-cola.com" target="_blank" rel="noopener"><img class="spon" style="--h:56px" src="assets/logos/cocacola.svg" alt="Coca-Cola"></a>
       </div>
       <div class="footJO-row">
-        <img class="spon" style="--h:42px" src="assets/logos/deloitte.svg" alt="Deloitte">
-        <img class="spon" style="--h:77px" src="assets/logos/omega.svg" alt="Omega">
-        <img class="spon" style="--h:50px" src="assets/logos/pg.svg" alt="P&amp;G">
-        <img class="spon" style="--h:72px" src="assets/logos/logo-corona-cero.png" alt="Corona Cero">
+        <a class="footJO-spon" href="https://www.deloitte.com" target="_blank" rel="noopener"><img class="spon" style="--h:42px" src="assets/logos/deloitte.svg" alt="Deloitte"></a>
+        <a class="footJO-spon" href="https://www.omegawatches.com" target="_blank" rel="noopener"><img class="spon" style="--h:77px" src="assets/logos/omega.svg" alt="Omega"></a>
+        <a class="footJO-spon" href="https://www.pg.com" target="_blank" rel="noopener"><img class="spon" style="--h:50px" src="assets/logos/pg.svg" alt="P&amp;G"></a>
+        <a class="footJO-spon" href="https://www.corona.com" target="_blank" rel="noopener"><img class="spon" style="--h:72px" src="assets/logos/logo-corona-cero.png" alt="Corona Cero"></a>
       </div>
       <div class="footJO-row">
-        <img class="spon" style="--h:46px" src="assets/logos/visa.svg" alt="Visa">
-        <img class="spon" style="--h:31px" src="assets/logos/samsung.svg" alt="Samsung">
-        <img class="spon" style="--h:40px" src="assets/logos/tcl.svg" alt="TCL">
+        <a class="footJO-spon" href="https://www.visa.com" target="_blank" rel="noopener"><img class="spon" style="--h:46px" src="assets/logos/visa.svg" alt="Visa"></a>
+        <a class="footJO-spon" href="https://www.samsung.com" target="_blank" rel="noopener"><img class="spon" style="--h:31px" src="assets/logos/samsung.svg" alt="Samsung"></a>
+        <a class="footJO-spon" href="https://www.tcl.com" target="_blank" rel="noopener"><img class="spon" style="--h:40px" src="assets/logos/tcl.svg" alt="TCL"></a>
       </div>
     </div>
 
     <div class="footJO-cols">
       <div class="footJO-brand">
-        <a class="footJO-logo" href="#"><img src="assets/logos/logo_olympic_cool.svg" alt="Olympic Connect 2026"></a>
+        <a class="footJO-logo" href="homeJO.html"><img src="assets/logos/logo_olympic_cool.svg" alt="Olympic Connect 2026"></a>
         <div class="footJO-social">
           <a href="#" aria-label="Facebook"><img src="assets/logos/facebook.svg" alt=""></a>
           <a href="#" aria-label="Instagram"><img src="assets/logos/instagram.svg" alt=""></a>
@@ -295,7 +716,7 @@
           <ul>
             <li><a href="#">Shop</a></li>
             <li><a href="#">Aide</a></li>
-            <li><a href="#">SOS</a></li>
+            <li><a href="sos.html">SOS</a></li>
             <li><a href="#">Engagement</a></li>
           </ul>
         </div>
@@ -309,6 +730,113 @@
   </div>
   <div class="footJO-deco" aria-hidden="true"></div>
 </footer>
+
+<script>
+  // Burger menu mobile (< 1080px)
+  (function () {
+    var burger = document.querySelector('.jh-burger');
+    var menu = document.getElementById('jhMenuM');
+    if (!burger || !menu) return;
+    function setOpen(open) {
+      burger.setAttribute('aria-expanded', String(open));
+      burger.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+      menu.classList.toggle('is-open', open);
+      document.body.classList.toggle('jh-menu-open', open);
+    }
+    burger.addEventListener('click', function () {
+      setOpen(burger.getAttribute('aria-expanded') !== 'true');
+    });
+    menu.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () { setOpen(false); });
+    });
+  })();
+
+  // Medal-table filter dropdowns
+  document.querySelectorAll('.medals-filters .mf-dd').forEach(function (dd) {
+    var btn = dd.querySelector('.mf');
+    btn.addEventListener('click', function () {
+      var open = !dd.classList.contains('open');
+      document.querySelectorAll('.medals-filters .mf-dd.open').forEach(function (o) {
+        o.classList.remove('open');
+        o.querySelector('.mf').setAttribute('aria-expanded', 'false');
+      });
+      dd.classList.toggle('open', open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    dd.querySelectorAll('.mf-opt').forEach(function (opt) {
+      opt.addEventListener('click', function () {
+        dd.querySelector('.mf-label').textContent = opt.textContent;
+        dd.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      });
+    });
+  });
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('.medals-filters')) {
+      document.querySelectorAll('.medals-filters .mf-dd.open').forEach(function (o) {
+        o.classList.remove('open');
+        o.querySelector('.mf').setAttribute('aria-expanded', 'false');
+      });
+    }
+  });
+
+  // Carrousel des disciplines (flèches + dots)
+  (function () {
+    var rail = document.getElementById('discRail');
+    var dotsBox = document.getElementById('discDots');
+    if (!rail) return;
+    var cards = rail.querySelectorAll('.disc');
+
+    // Cœur favori sur chaque carte (visible en mobile — Figma 2903:25071)
+    cards.forEach(function (card) {
+      var img = card.querySelector('.disc__img');
+      if (!img || img.querySelector('.disc-fav')) return;
+      var fav = document.createElement('span');
+      fav.className = 'disc-fav';
+      fav.setAttribute('role', 'button');
+      fav.setAttribute('tabindex', '0');
+      fav.setAttribute('aria-label', 'Ajouter aux favoris');
+      fav.innerHTML = '<svg viewBox="0 0 24 22" aria-hidden="true"><path d="M12 20.5S2.8 14 2.8 7.7A4.6 4.6 0 0 1 12 4.9a4.6 4.6 0 0 1 9.2 2.8C21.2 14 12 20.5 12 20.5z"/></svg>';
+      function toggle(e) { e.preventDefault(); e.stopPropagation(); fav.classList.toggle('is-fav'); }
+      fav.addEventListener('click', toggle);
+      fav.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') toggle(e); });
+      img.appendChild(fav);
+    });
+
+    function perView() {
+      var cw = cards[0] ? cards[0].getBoundingClientRect().width + 22 : 233;
+      return Math.max(1, Math.round(rail.clientWidth / cw));
+    }
+    function pages() { return Math.max(1, Math.ceil(cards.length / perView())); }
+    function curPage() { return rail.clientWidth ? Math.round(rail.scrollLeft / rail.clientWidth) : 0; }
+    function update() {
+      if (!dotsBox) return;
+      var p = curPage();
+      dotsBox.querySelectorAll('i').forEach(function (d, i) { d.classList.toggle('on', i === p); });
+    }
+    function buildDots() {
+      if (!dotsBox) return;
+      dotsBox.innerHTML = '';
+      for (var i = 0; i < pages(); i++) {
+        var d = document.createElement('i'); d.dataset.page = i; dotsBox.appendChild(d);
+      }
+      update();
+    }
+    rail.addEventListener('scroll', function () { window.requestAnimationFrame(update); });
+    document.querySelectorAll('.disc-arrow').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var dir = b.dataset.dir === 'next' ? 1 : -1;
+        rail.scrollBy({ left: dir * rail.clientWidth * 0.9, behavior: 'smooth' });
+      });
+    });
+    if (dotsBox) dotsBox.addEventListener('click', function (e) {
+      var d = e.target.closest('i'); if (!d) return;
+      rail.scrollTo({ left: d.dataset.page * rail.clientWidth, behavior: 'smooth' });
+    });
+    buildDots();
+    window.addEventListener('resize', buildDots);
+  })();
+</script>
 
 </body>
 </html>

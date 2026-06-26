@@ -117,8 +117,10 @@
             </div>
             <div class="vid-petit__body">
               <p class="vid-petit__title">${esc(titre)}</p>
-              <p class="vid-petit__sub">${esc(sub)}</p>
-              <p class="vid-petit__meta">${esc(duree)}</p>
+              <div class="vid-petit__foot">
+                <span class="vid-petit__handle">${esc(sub)}</span>
+                <span class="vid-petit__date">${esc(jour)}</span>
+              </div>
             </div>`;
           break;
         }
@@ -128,12 +130,14 @@
           const bg = photo ? ` style="background-image:url('${photo}')"` : '';
           html = `
             <div class="vid-offline__tile"${bg}>
-              <span class="vid-offline__badge">${esc(duree)}</span>
+              <span class="vid-offline__badge">${esc(vues)}</span>
             </div>
             <div class="vid-offline__body">
               <p class="vid-offline__title">${esc(titre)}</p>
-              <p class="vid-offline__sub">${esc(sub)}</p>
-              <p class="vid-offline__meta">${meta(jour, vues)} ${EYE}</p>
+              <div class="vid-offline__foot">
+                <span class="vid-offline__handle">${esc(sub)}</span>
+                <span class="vid-offline__date">${esc(jour)}</span>
+              </div>
             </div>`;
           break;
         }

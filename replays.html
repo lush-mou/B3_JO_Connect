@@ -6,6 +6,7 @@
   <title>Olympic Connect 2026 — Replays et Temps forts</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="pages.css" />
+  <link rel="stylesheet" href="replays.css" />
 </head>
 <body>
 
@@ -18,7 +19,7 @@
         <a class="header-logo-link" href="index.html" aria-label="Olympic Connect 2026 — accueil">
           <img class="header-logo" src="assets/img/logo-oc-baniere.svg" alt="Olympic Connect 2026" />
         </a>
-        <span class="header-badge">JO 2026</span>
+        <a class="header-badge" href="homeJO.html">JO 2026</a>
       </div>
 
       <div class="header-nav">
@@ -103,8 +104,214 @@
 </script>
 
   <div class="page">
-    <main class="page-hero">
-      <h1 class="page-title">Replays et Temps forts</h1>
+    <main class="rep">
+
+      <!-- Fil d'ariane -->
+      <p class="rep-crumb"><a href="index.html">Olympic connect</a> &lt; Replays et temps forts</p>
+
+      <!-- Titre -->
+      <h1 class="rep-title">Replays et temps forts des épreuves</h1>
+
+      <!-- Sélecteur de dates -->
+      <div class="rep-dates">
+        <button class="rep-date-arrow" type="button" aria-label="Jours précédents">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="rep-date-rail">
+          <button class="rep-date" type="button">04 Fev</button>
+          <button class="rep-date" type="button">05 Fev</button>
+          <button class="rep-date" type="button">06 Fev</button>
+          <button class="rep-date" type="button">07 Fev</button>
+          <button class="rep-date" type="button">08 Fev</button>
+          <button class="rep-date is-future" type="button">09 Fev</button>
+        </div>
+        <button class="rep-date-arrow" type="button" aria-label="Jours suivants">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+
+      <!-- Filtres -->
+      <div class="rep-filters">
+        <div class="rep-filters-row">
+          <button class="rep-dd" type="button">Tous les sports
+            <svg viewBox="0 0 30 15" fill="none" aria-hidden="true"><path d="M2 2l13 11L28 2" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button class="rep-dd" type="button">Tous les NOC
+            <svg viewBox="0 0 30 15" fill="none" aria-hidden="true"><path d="M2 2l13 11L28 2" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+        <div class="rep-filters-row rep-filters-row--2">
+          <div class="rep-toggles">
+            <button class="rep-toggle is-active" type="button">Tout</button>
+            <button class="rep-toggle" type="button">Epreuves entières</button>
+            <button class="rep-toggle" type="button">Temps forts</button>
+          </div>
+          <div class="rep-search">
+            <input type="text" placeholder="Rechercher un(e) athlète" aria-label="Rechercher un(e) athlète" />
+            <svg viewBox="0 0 26 26" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2.5"/><path d="M17 17l6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grille 3×3 — grandes cartes replay -->
+      <div class="rep-grid">
+
+        <article class="rcard">
+          <div class="rcard__media" style="background-image:url('photo/couple_athletes_interview.png')">
+            <span class="rcard__badge">Épreuve entière</span><span class="rcard__dur">03:12:59</span>
+          </div>
+          <div class="rcard__body">
+            <p class="rcard__title">Figure Skating | Pairs Free Skate | Milano Cortina 2026 | Full Replays</p>
+            <div class="rcard__foot"><span class="rcard__time">Il y a 4h</span><span class="rcard__chip">Patinage Artistique</span><button class="rcard__play" type="button" aria-label="Lire"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button></div>
+          </div>
+        </article>
+
+        <article class="rcard">
+          <div class="rcard__media" style="background-image:url('photo/ski_de_fond_stade.png')">
+            <span class="rcard__badge">Temps fort</span><span class="rcard__dur">03:31</span>
+          </div>
+          <div class="rcard__body">
+            <p class="rcard__title">Men's 50km Mass Start Classic | Milano Cortina 2026 | Best Time</p>
+            <div class="rcard__foot"><span class="rcard__time">Il y a 30min</span><span class="rcard__chip">Ski de fond</span><button class="rcard__play" type="button" aria-label="Lire"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button></div>
+          </div>
+        </article>
+
+        <article class="rcard">
+          <div class="rcard__media" style="background-image:url('photo/biathlon_course_2.png')">
+            <span class="rcard__badge">Temps fort</span><span class="rcard__dur">05:43</span>
+          </div>
+          <div class="rcard__body">
+            <p class="rcard__title">50 km en groupe féminin | Milano Cortina 2026 | Best Time</p>
+            <div class="rcard__foot"><span class="rcard__time">Il y a 2h</span><span class="rcard__chip">Ski de fond</span><button class="rcard__play" type="button" aria-label="Lire"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button></div>
+          </div>
+        </article>
+
+        <article class="rcard">
+          <div class="rcard__media" style="background-image:url('photo/snowboard_cross.png')">
+            <span class="rcard__badge">Épreuve entière</span><span class="rcard__dur">04:55</span>
+          </div>
+          <div class="rcard__body">
+            <p class="rcard__title">Finale Big Air | Ski Acrobatique | Milano Cortina 2026 | Full Replay</p>
+            <div class="rcard__foot"><span class="rcard__time">Il y a 5h</span><span class="rcard__chip">Ski Acrobatique</span><button class="rcard__play" type="button" aria-label="Lire"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button></div>
+          </div>
+        </article>
+
+        <article class="rcard">
+          <div class="rcard__media" style="background-image:url('photo/patinage_vitesse_short_track_chine.jpg')">
+            <span class="rcard__badge">Épreuve entière</span><span class="rcard__dur">02:48</span>
+          </div>
+          <div class="rcard__body">
+            <p class="rcard__title">Men's Free Skate | Figure Skating | Milano Cortina 2026 | Full Replay</p>
+            <div class="rcard__foot"><span class="rcard__time">Il y a 6h</span><span class="rcard__chip">Patinage Artistique</span><button class="rcard__play" type="button" aria-label="Lire"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button></div>
+          </div>
+        </article>
+
+        <article class="rcard">
+          <div class="rcard__media" style="background-image:url('photo/biathlon_course_3.png')">
+            <span class="rcard__badge">Temps fort</span><span class="rcard__dur">04:12</span>
+          </div>
+          <div class="rcard__body">
+            <p class="rcard__title">Mixed Relay | Biathlon | Milano Cortina 2026 | Best Time</p>
+            <div class="rcard__foot"><span class="rcard__time">Il y a 3h</span><span class="rcard__chip">Biathlon</span><button class="rcard__play" type="button" aria-label="Lire"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button></div>
+          </div>
+        </article>
+
+        <article class="rcard">
+          <div class="rcard__media" style="background-image:url('photo/luge_descente_milano_cortina.jpg')">
+            <span class="rcard__badge">Épreuve entière</span><span class="rcard__dur">03:40</span>
+          </div>
+          <div class="rcard__body">
+            <p class="rcard__title">Doubles luges | Milano Cortina 2026 | Full Replay</p>
+            <div class="rcard__foot"><span class="rcard__time">Il y a 7h</span><span class="rcard__chip">Luge</span><button class="rcard__play" type="button" aria-label="Lire"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button></div>
+          </div>
+        </article>
+
+        <article class="rcard">
+          <div class="rcard__media" style="background-image:url('photo/athlete_france_combinaison_rouge.png')">
+            <span class="rcard__badge">Temps fort</span><span class="rcard__dur">02:30</span>
+          </div>
+          <div class="rcard__body">
+            <p class="rcard__title">Winning Run | Freeski Big Air | Milano Cortina 2026 | Best Time</p>
+            <div class="rcard__foot"><span class="rcard__time">Il y a 8h</span><span class="rcard__chip">Ski Acrobatique</span><button class="rcard__play" type="button" aria-label="Lire"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button></div>
+          </div>
+        </article>
+
+        <article class="rcard">
+          <div class="rcard__media" style="background-image:url('photo/biathlon_course_4.png')">
+            <span class="rcard__badge">Temps fort</span><span class="rcard__dur">03:05</span>
+          </div>
+          <div class="rcard__body">
+            <p class="rcard__title">Faster Finish | Men's Sprint Final | Milano Cortina 2026 | Best Time</p>
+            <div class="rcard__foot"><span class="rcard__time">Il y a 9h</span><span class="rcard__chip">Biathlon</span><button class="rcard__play" type="button" aria-label="Lire"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button></div>
+          </div>
+        </article>
+
+      </div>
+
+      <a class="rep-more" href="#">Voir plus</a>
+
+      <!-- Section : Athlete Talks -->
+      <section class="rep-talks">
+        <div class="rep-talks-head">
+          <h2 class="rep-h2">Athlete Talks : Ressentez les jeux</h2>
+          <a class="rep-link" href="athlete-talks.html">Voir tous les athlete talks
+            <svg viewBox="0 0 24 24" width="16" height="14" aria-hidden="true"><path d="M5 12h12M12 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+
+        <!-- 2 cartes vedette « prochain live » -->
+        <div class="rep-feat">
+          <a class="rvid rvid--next" href="#">
+            <div class="rvid__bg" style="background-image:url('photo/athlete_france_interview.png')"></div>
+            <div class="rvid__next"><span class="rvid__handle">@Justine_GAILLARD</span><span class="rvid__when">Prochain live<br>06 Fev - 14h</span></div>
+          </a>
+          <a class="rvid rvid--next" href="#">
+            <div class="rvid__bg" style="background-image:url('photo/athlete_femme_bonnet_interview.png')"></div>
+            <div class="rvid__next"><span class="rvid__handle">@Audrey_McMANIMAN</span><span class="rvid__when">Prochain live<br>06 Fev - 19h</span></div>
+          </a>
+        </div>
+
+        <!-- Grille de petites cartes (Figma 3192:22782) -->
+        <div class="rep-rail">
+          <a class="rvid" href="#">
+            <div class="rvid__bg" style="background-image:url('photo/philipp_nawrath_interview.jpg')"></div>
+            <div class="rvid__top"><span class="rvid__views"><svg viewBox="0 0 24 16" aria-hidden="true"><path d="M12 0C7 0 2.7 3 1 8c1.7 5 6 8 11 8s9.3-3 11-8c-1.7-5-6-8-11-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-3a2 2 0 100-4 2 2 0 000 4z"/></svg>1 253</span></div>
+            <button class="rvid__play" type="button" aria-label="Lire"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+            <div class="rvid__bottom"><p class="rvid__desc">Philipp Nawrath déçu par sa performance | Tour session 4</p><div class="rvid__tags"><span class="rvid__tag">Biathlon</span><span class="rvid__tag">@Philipp_Nawrath</span></div></div>
+          </a>
+          <a class="rvid" href="#">
+            <div class="rvid__bg" style="background-image:url('photo/athlete_homme_interview.png')"></div>
+            <div class="rvid__top"><span class="rvid__views"><svg viewBox="0 0 24 16" aria-hidden="true"><path d="M12 0C7 0 2.7 3 1 8c1.7 5 6 8 11 8s9.3-3 11-8c-1.7-5-6-8-11-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-3a2 2 0 100-4 2 2 0 000 4z"/></svg>34 870</span></div>
+            <button class="rvid__play" type="button" aria-label="Lire"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+            <div class="rvid__bottom"><p class="rvid__desc">Ilia Malinin décrypte le programme libre qui a conquis les juges.</p><div class="rvid__tags"><span class="rvid__tag">Patinage Artistique</span><span class="rvid__tag">@Ilias_MALINI</span></div></div>
+          </a>
+          <a class="rvid" href="#">
+            <div class="rvid__bg" style="background-image:url('photo/patineur_interview_cortina.png')"></div>
+            <div class="rvid__top"><span class="rvid__views"><svg viewBox="0 0 24 16" aria-hidden="true"><path d="M12 0C7 0 2.7 3 1 8c1.7 5 6 8 11 8s9.3-3 11-8c-1.7-5-6-8-11-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-3a2 2 0 100-4 2 2 0 000 4z"/></svg>62 014</span></div>
+            <button class="rvid__play" type="button" aria-label="Lire"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+            <div class="rvid__bottom"><p class="rvid__desc">Yuma Kagiyama décrypte les figures les plus impressionnantes du patinage.</p><div class="rvid__tags"><span class="rvid__tag">Patinage Artistique</span><span class="rvid__tag">@Yuma_KAGIYAMA</span></div></div>
+          </a>
+          <a class="rvid" href="#">
+            <div class="rvid__bg" style="background-image:url('photo/athlete_blonde_interview.png')"></div>
+            <div class="rvid__top"><span class="rvid__views"><svg viewBox="0 0 24 16" aria-hidden="true"><path d="M12 0C7 0 2.7 3 1 8c1.7 5 6 8 11 8s9.3-3 11-8c-1.7-5-6-8-11-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-3a2 2 0 100-4 2 2 0 000 4z"/></svg>88 902</span></div>
+            <button class="rvid__play" type="button" aria-label="Lire"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+            <div class="rvid__bottom"><p class="rvid__desc">Chloe Kim réagit aux figures les plus impressionnantes en halfpipe.</p><div class="rvid__tags"><span class="rvid__tag">Snowboard</span><span class="rvid__tag">@Chloe_KIM</span></div></div>
+          </a>
+          <a class="rvid" href="#">
+            <div class="rvid__bg" style="background-image:url('photo/athlete_veste_rouge_homme_interview.png')"></div>
+            <div class="rvid__top"><span class="rvid__views"><svg viewBox="0 0 24 16" aria-hidden="true"><path d="M12 0C7 0 2.7 3 1 8c1.7 5 6 8 11 8s9.3-3 11-8c-1.7-5-6-8-11-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-3a2 2 0 100-4 2 2 0 000 4z"/></svg>21 598</span></div>
+            <button class="rvid__play" type="button" aria-label="Lire"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+            <div class="rvid__bottom"><p class="rvid__desc">Loïc Meillard répond à vos questions sur la dernière épreuve de slalom.</p><div class="rvid__tags"><span class="rvid__tag">Ski Alpin</span><span class="rvid__tag">@Loic_MEILLARD</span></div></div>
+          </a>
+          <a class="rvid" href="#">
+            <div class="rvid__bg" style="background-image:url('photo/patinage_vitesse_short_track_chine.jpg')"></div>
+            <div class="rvid__top"><span class="rvid__views"><svg viewBox="0 0 24 16" aria-hidden="true"><path d="M12 0C7 0 2.7 3 1 8c1.7 5 6 8 11 8s9.3-3 11-8c-1.7-5-6-8-11-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-3a2 2 0 100-4 2 2 0 000 4z"/></svg>11 935</span></div>
+            <button class="rvid__play" type="button" aria-label="Lire"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+            <div class="rvid__bottom"><p class="rvid__desc">Steven Dubois explique la pression ressentie pendant la compétition.</p><div class="rvid__tags"><span class="rvid__tag">Short Track</span><span class="rvid__tag">@Steven_DUBOIS</span></div></div>
+          </a>
+        </div>
+      </section>
+
     </main>
   </div>
 
@@ -185,6 +392,18 @@
 
   <img class="footer-deco" src="assets/img/footer-deco.png" alt="" />
 </footer>
+
+<script>
+  // Filtres « Tout / Epreuves entières / Temps forts » : un seul actif (états actif/inactif)
+  document.querySelectorAll('.rep-toggles').forEach(function (group) {
+    group.addEventListener('click', function (e) {
+      var btn = e.target.closest('.rep-toggle');
+      if (!btn) return;
+      group.querySelectorAll('.rep-toggle').forEach(function (b) { b.classList.remove('is-active'); });
+      btn.classList.add('is-active');
+    });
+  });
+</script>
 
 </body>
 </html>
