@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="auth.css" />
 </head>
-<body>
+<body class="signup-page">
 
   <main class="auth">
     <section class="auth-form">
@@ -15,7 +15,7 @@
 
         <div class="auth-head">
           <h1 class="auth-title">Entrez dans le jeu !</h1>
-          <p class="auth-sub">Créez votre compte et réagissez aux contenus.</p>
+          <p class="auth-sub">Créez votre compte et réagissez aux contenus</p>
         </div>
 
         <form class="auth-fields" action="index.html" method="get">
@@ -53,14 +53,18 @@
             </div>
           </div>
 
+          <label class="auth-remember">
+            <input type="checkbox" name="remember" /> Se souvenir de moi
+          </label>
+
           <button type="submit" class="auth-submit">Créer mon compte</button>
         </form>
 
         <div class="auth-divider"><span>Ou</span></div>
 
         <div class="auth-social">
-          <a href="#"><img src="assets/img/icon-google.svg" alt="" /> M'inscrire avec Google</a>
-          <a href="#"><img src="assets/img/icon-apple.svg" alt="" /> M'inscrire avec Apple</a>
+          <a href="#"><img src="assets/img/icon-google.svg" alt="" /> Connexion avec Google</a>
+          <a href="#"><img src="assets/img/icon-apple.svg" alt="" /> Connexion avec Apple</a>
         </div>
 
         <p class="auth-switch">Vous avez déjà un compte ? <a href="connexion.html">Se connecter</a></p>

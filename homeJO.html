@@ -410,15 +410,17 @@
 
       <!-- Carte interactive (Figma 2677:15941 + pins cliquables) -->
       <div class="map-panel">
-        <img class="map-img" src="assets/img/map-cortina.png" alt="Carte des sites olympiques Milano Cortina 2026" />
-        <button class="map-pin" type="button" style="left:19.7%;top:63%"  aria-label="Milano"><span class="map-tip">Milano</span></button>
-        <button class="map-pin" type="button" style="left:50.3%;top:61.8%" aria-label="Verona"><span class="map-tip">Verona</span></button>
-        <button class="map-pin" type="button" style="left:52%;top:47.7%"  aria-label="Tesero"><span class="map-tip">Tesero</span></button>
-        <button class="map-pin" type="button" style="left:55.9%;top:47.7%" aria-label="Predazzo"><span class="map-tip">Predazzo</span></button>
-        <button class="map-pin" type="button" style="left:67.6%;top:41.1%" aria-label="Cortina d'Ampezzo"><span class="map-tip">Cortina d'Ampezzo</span></button>
-        <button class="map-pin" type="button" style="left:68.8%;top:33.6%" aria-label="Antholz-Anterselva"><span class="map-tip">Antholz-Anterselva</span></button>
-        <button class="map-pin" type="button" style="left:36.5%;top:40.5%" aria-label="Livigno"><span class="map-tip">Livigno</span></button>
-        <button class="map-pin" type="button" style="left:38.8%;top:43.8%" aria-label="Bormio"><span class="map-tip">Bormio</span></button>
+        <div class="map-zoom">
+          <img class="map-img" src="assets/img/map-cortina.png" alt="Carte des sites olympiques Milano Cortina 2026" />
+          <button class="map-pin" type="button" data-pin="Milano" style="left:19.7%;top:63%"  aria-label="Milano"><span class="map-tip">Milano</span></button>
+          <button class="map-pin" type="button" data-pin="Verona" style="left:50.3%;top:61.8%" aria-label="Verona"><span class="map-tip">Verona</span></button>
+          <button class="map-pin" type="button" data-pin="Tesero" style="left:52%;top:47.7%"  aria-label="Tesero"><span class="map-tip">Tesero</span></button>
+          <button class="map-pin" type="button" data-pin="Predazzo" style="left:55.9%;top:47.7%" aria-label="Predazzo"><span class="map-tip">Predazzo</span></button>
+          <button class="map-pin" type="button" data-pin="Cortina d'Ampezzo" style="left:67.6%;top:41.1%" aria-label="Cortina d'Ampezzo"><span class="map-tip">Cortina d'Ampezzo</span></button>
+          <button class="map-pin" type="button" data-pin="Antholz-Anterselva" style="left:68.8%;top:33.6%" aria-label="Antholz-Anterselva"><span class="map-tip">Antholz-Anterselva</span></button>
+          <button class="map-pin" type="button" data-pin="Livigno" style="left:36.5%;top:40.5%" aria-label="Livigno"><span class="map-tip">Livigno</span></button>
+          <button class="map-pin" type="button" data-pin="Bormio" style="left:38.8%;top:43.8%" aria-label="Bormio"><span class="map-tip">Bormio</span></button>
+        </div>
       </div>
 
       <!-- Filtres + grille de résultats -->
@@ -436,7 +438,7 @@
         </div>
 
         <div class="milano-grid">
-          <article class="agcard agcard--sm">
+          <article class="agcard agcard--sm" data-pin="Bormio">
             <div class="agcard__media" style="background-image:url('photo/athlete_france_combinaison_rouge.png')"></div>
             <div class="agcard__body">
               <div class="agcard__head">
@@ -451,7 +453,7 @@
             </div>
           </article>
 
-          <article class="agcard agcard--sm">
+          <article class="agcard agcard--sm" data-pin="Antholz-Anterselva">
             <div class="agcard__media" style="background-image:url('photo/biathlon_course_2.png')"></div>
             <div class="agcard__body">
               <div class="agcard__head">
@@ -466,7 +468,7 @@
             </div>
           </article>
 
-          <article class="agcard agcard--sm">
+          <article class="agcard agcard--sm" data-pin="Milano">
             <div class="agcard__media" style="background-image:url('photo/patinage_vitesse_short_track_chine.jpg')"></div>
             <div class="agcard__body">
               <div class="agcard__head">
@@ -481,7 +483,7 @@
             </div>
           </article>
 
-          <article class="agcard agcard--sm">
+          <article class="agcard agcard--sm" data-pin="Livigno">
             <div class="agcard__media" style="background-image:url('photo/snowboard_cross.png')"></div>
             <div class="agcard__body">
               <div class="agcard__head">
@@ -496,7 +498,7 @@
             </div>
           </article>
 
-          <article class="agcard agcard--sm">
+          <article class="agcard agcard--sm" data-pin="Cortina d'Ampezzo">
             <div class="agcard__media" style="background-image:url('photo/luge_italie_descente.avif')"></div>
             <div class="agcard__body">
               <div class="agcard__head">
@@ -511,7 +513,7 @@
             </div>
           </article>
 
-          <article class="agcard agcard--sm">
+          <article class="agcard agcard--sm" data-pin="Milano">
             <div class="agcard__media" style="background-image:url('photo/patinage_artistique_couple_2.webp')"></div>
             <div class="agcard__body">
               <div class="agcard__head">
@@ -835,6 +837,63 @@
     });
     buildDots();
     window.addEventListener('resize', buildDots);
+  })();
+</script>
+
+<!-- Zoom carte Milano Cortina au clic sur une carte billetterie -->
+<script>
+  (function () {
+    var panel = document.querySelector('.map-panel');
+    var zoom  = panel && panel.querySelector('.map-zoom');
+    if (!panel || !zoom) return;
+    var SCALE = 2.4;
+    var pins  = panel.querySelectorAll('.map-pin');
+    var cards = document.querySelectorAll('.agcard[data-pin]');
+    var current = null; // nom de la ville zoomée
+
+    function pinByName(name) {
+      for (var i = 0; i < pins.length; i++) {
+        if (pins[i].dataset.pin === name) return pins[i];
+      }
+      return null;
+    }
+    function reset() {
+      zoom.style.transform = '';
+      zoom.style.transformOrigin = '';
+      panel.classList.remove('is-zoomed');
+      pins.forEach(function (p) { p.classList.remove('is-active'); });
+      cards.forEach(function (c) { c.classList.remove('is-active'); });
+      current = null;
+    }
+    function zoomTo(name, card) {
+      var pin = pinByName(name);
+      if (!pin) return;
+      if (current === name) { reset(); return; } // re-clic = dézoome
+      zoom.style.transformOrigin = pin.style.left + ' ' + pin.style.top;
+      zoom.style.transform = 'scale(' + SCALE + ')';
+      panel.classList.add('is-zoomed');
+      pins.forEach(function (p) { p.classList.toggle('is-active', p === pin); });
+      cards.forEach(function (c) { c.classList.toggle('is-active', c === card); });
+      current = name;
+    }
+
+    cards.forEach(function (card) {
+      card.addEventListener('click', function (e) {
+        if (e.target.closest('.agcard__btn')) return; // laisse le lien Billeterie
+        zoomTo(card.dataset.pin, card);
+      });
+    });
+    pins.forEach(function (pin) {
+      pin.addEventListener('click', function (e) {
+        e.stopPropagation();
+        if (panel.classList.contains('is-zoomed')) { reset(); }
+        else { zoomTo(pin.dataset.pin, null); }
+      });
+    });
+    // clic sur la carte (hors pin) quand zoomée = dézoome
+    panel.addEventListener('click', function () {
+      if (panel.classList.contains('is-zoomed')) reset();
+    });
   })();
 </script>
 

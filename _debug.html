@@ -923,5 +923,12 @@
       });
     })();
   </script>
-</body>
+<script>window.addEventListener('load',function(){setTimeout(function(){
+var vw=document.documentElement.clientWidth;var bad=[];
+document.querySelectorAll('main *').forEach(function(el){
+ var r=el.getBoundingClientRect();
+ if(r.right>vw+1){bad.push((el.className||el.tagName)+'@'+Math.round(r.left)+'->'+Math.round(r.right))}
+});
+document.title='VW='+vw+' | '+bad.slice(0,12).join(' ; ');
+},300)});</script></body>
 </html>

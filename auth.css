@@ -11,6 +11,9 @@
   --ink:#121212;
   --indigo:#41348a;
   --rose:#e60949;
+  --blue:#1874ff;
+  --blue-light:#3585ff;
+  --blue-50:#f0f6ff;
   --neutral-100:#f5f5f5;
   --neutral-300:#cccccc;
   --neutral-500:#858585;
@@ -41,7 +44,7 @@
 
 /* Titre + sous-titre */
 .auth-head{ display:flex; flex-direction:column; gap:6px; }
-.auth-title{ font-family:'Anton',sans-serif; font-weight:400; font-size:clamp(2rem,1.6rem+1.6vw,2.5rem); line-height:1.1; color:var(--navy); text-wrap:balance; }
+.auth-title{ font-family:'Anton',sans-serif; font-weight:400; font-size:clamp(2rem,1.6rem+1.6vw,2.5rem); line-height:1.1; color:var(--blue); text-wrap:balance; }
 .auth-sub{ font-family:'NewBlack',sans-serif; font-weight:500; font-size:16px; color:var(--ink); }
 
 /* Champs */
@@ -51,12 +54,12 @@
 .auth-input{ position:relative; display:flex; align-items:center; }
 .auth-input input{
   width:100%; font-family:'NewBlack',sans-serif; font-weight:500; font-size:14px; color:var(--ink);
-  background:#fff; border:1px solid var(--neutral-300); border-radius:var(--radius-14);
-  padding:13px 14px; transition:border-color .2s ease, box-shadow .2s ease;
+  background:#fff; border:1px solid var(--neutral-300); border-radius:999px;   /* pilule (Figma 2118:13867) */
+  padding:13px 20px; transition:border-color .2s ease, box-shadow .2s ease;
 }
 .auth-input--pw input{ padding-right:46px; }
 .auth-input input::placeholder{ color:var(--neutral-500); }
-.auth-input input:focus{ outline:none; border-color:var(--indigo); box-shadow:0 0 0 3px color-mix(in oklab,var(--indigo) 18%,transparent); }
+.auth-input input:focus{ outline:none; border-color:var(--blue); box-shadow:0 0 0 3px color-mix(in oklab,var(--blue) 18%,transparent); }
 .auth-pw-toggle{
   position:absolute; right:8px; display:flex; align-items:center; justify-content:center;
   width:32px; height:32px; background:none; border:none; cursor:pointer; color:var(--neutral-500);
@@ -64,26 +67,26 @@
 .auth-pw-toggle svg{ width:20px; height:20px; fill:currentColor; }
 .auth-pw-toggle:hover{ color:var(--ink); }
 
-.auth-forgot{ align-self:flex-end; font-family:'NewBlack',sans-serif; font-weight:600; font-size:12px; color:var(--indigo); margin-top:2px; text-decoration:none; }
+.auth-forgot{ align-self:flex-end; font-family:'NewBlack',sans-serif; font-weight:300; font-size:14px; color:var(--blue-light); margin-top:2px; text-decoration:none; }
 .auth-forgot:hover{ text-decoration:underline; }
-.auth-remember{ display:flex; align-items:center; gap:6px; font-family:'NewBlack',sans-serif; font-weight:500; font-size:12px; color:var(--ink); cursor:pointer; margin-top:2px; }
-.auth-remember input{ width:15px; height:15px; accent-color:var(--indigo); }
+.auth-remember{ display:flex; align-items:center; gap:6px; font-family:'NewBlack',sans-serif; font-weight:500; font-size:14px; color:var(--ink); cursor:pointer; margin-top:2px; }
+.auth-remember input{ width:15px; height:15px; accent-color:var(--blue); }
 
-/* Bouton principal (rose) */
+/* Bouton principal (bleu — Figma 1842:8513) */
 .auth-submit{
   width:100%; display:inline-flex; align-items:center; justify-content:center;
-  background:var(--rose); color:#fff; cursor:pointer; border:none;
-  font-family:'NewBlack',sans-serif; font-weight:600; font-size:18px;
+  background:var(--blue); color:var(--blue-50); cursor:pointer; border:none;
+  font-family:'NewBlack',sans-serif; font-weight:700; font-size:18px;   /* casse normale (Figma "Créer mon compte") */
   padding:16px 28px; border-radius:var(--radius-sm);
   transition:background-color .2s ease, transform .12s ease;
 }
-.auth-submit:hover{ background:color-mix(in oklab,var(--rose) 88%,black); }
+.auth-submit:hover{ background:color-mix(in oklab,var(--blue) 88%,black); }
 .auth-submit:active{ transform:translateY(1px); }
 
 /* Séparateur Or / Ou */
 .auth-divider{ display:flex; align-items:center; gap:12px; }
 .auth-divider::before, .auth-divider::after{ content:""; flex:1; height:1px; background:var(--neutral-300); }
-.auth-divider span{ font-family:'NewBlack',sans-serif; font-weight:500; font-size:11px; color:var(--ink); }
+.auth-divider span{ font-family:'NewBlack',sans-serif; font-weight:300; font-size:14px; color:var(--ink); }
 
 /* Boutons sociaux */
 .auth-social{ display:flex; gap:10px; }
@@ -101,12 +104,22 @@
 .auth-switch a{ color:var(--indigo); text-decoration:none; }
 .auth-switch a:hover{ text-decoration:underline; }
 
+/* Sign-up : « Se souvenir de moi » uniquement en mobile (node desktop 2118 ne l'a pas, mobile 2013 oui) */
+.signup-page .auth-remember{ display:none; }
+
+/* Connexion (Figma 1842:8513) : inputs arrondis 14px (≠ pilule du sign-up),
+   bouton « SE CONNECTER » en majuscules. Base auth.css = sign-up. */
+.login-page .auth-input input{ border-radius:var(--radius-14); padding:13px 14px; }
+.login-page .auth-input--pw input{ padding-right:46px; }
+.login-page .auth-submit{ text-transform:uppercase; }
+
 /* ---------- Mobile : photo en haut, formulaire dessous (Figma 2012/2013) ---------- */
 @media (max-width:900px){
   .auth{ flex-direction:column; min-height:auto; }
   .auth-image{ order:-1; flex:none; width:100%; min-height:0; height:clamp(220px,38vh,320px); border-radius:0 0 32px 32px; }
   .auth-form{ flex:none; padding:clamp(28px,6vw,40px) clamp(20px,6vw,32px) 48px; }
   .auth-form-inner{ max-width:460px; }
+  .signup-page .auth-remember{ display:flex; }
 }
 
 /* Entrée animée du formulaire */

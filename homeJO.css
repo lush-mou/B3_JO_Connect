@@ -362,6 +362,16 @@ body.jh-menu-open{overflow:hidden}
 
 /* Carte interactive */
 .map-panel{position:relative;border-radius:var(--radius);overflow:hidden;line-height:0}
+.map-zoom{position:relative;transform-origin:center;transition:transform .55s cubic-bezier(.4,0,.2,1)}
+.map-panel.is-zoomed{cursor:zoom-out}
+.map-panel.is-zoomed .map-pin{opacity:0;transition:opacity .25s} /* masque les autres pins */
+.map-panel.is-zoomed .map-pin.is-active{opacity:1}
+/* contre-scale du pin actif pour qu'il garde sa taille malgré le zoom */
+.map-panel.is-zoomed .map-pin.is-active{transform:translate(-50%,-50%) scale(.42)}
+.map-panel.is-zoomed .map-pin.is-active .map-tip{opacity:1;transform:translateX(-50%) translateY(0)}
+/* carte sélectionnée */
+.agcard{cursor:pointer}
+.agcard.is-active{outline:2px solid var(--blue);outline-offset:2px}
 .map-img{display:block;width:100%;height:auto}
 .map-pin{
   position:absolute;width:30px;height:30px;transform:translate(-50%,-50%);
