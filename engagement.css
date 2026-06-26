@@ -7,6 +7,9 @@
 
 .engagement{ padding-bottom:clamp(48px,6vw,96px); }
 
+/* homeJO.css force h1-h4 en majuscules/gras : on rétablit la casse réelle */
+.eng-hero__title, .eng-title, .eng-card__title{ text-transform:none; font-weight:400; }
+
 /* ---------- Hero bannière ---------- */
 .eng-hero{
   position:relative;

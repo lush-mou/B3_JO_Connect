@@ -6,97 +6,84 @@
   <title>Olympic Connect 2026 — Engagement</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="pages.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;700&family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="homeJO.css" />
   <link rel="stylesheet" href="engagement.css" />
 </head>
 <body>
 
-<header class="site-header">
-  <div class="header-content">
-
-    <!-- Barre de navigation -->
-    <nav class="header-bar">
-      <div class="header-left">
-        <a class="header-logo-link" href="index.html" aria-label="Olympic Connect 2026 — accueil">
-          <img class="header-logo" src="assets/img/logo-oc-baniere.svg" alt="Olympic Connect 2026" />
+<!-- NAV (header JO — Figma 509:1191) -->
+<header class="jo-header">
+  <div class="jh-bar">
+    <div class="jh-row">
+      <div class="jh-left">
+        <a class="jh-logo" href="homeJO.html" aria-label="Milano Cortina 2026 — accueil">
+          <img src="assets/img/jo-header-logo.png" alt="Milano Cortina 2026" />
         </a>
-        <a class="header-badge" href="homeJO.html">JO 2026</a>
+        <a class="jh-tab active" href="index.html">Olympic Connect</a>
       </div>
-
-      <div class="header-nav">
-        <a href="replays.html">Replays et Temps forts</a>
-        <a href="athlete-talks.html">Athletes Talks</a>
-        <a href="posts.html">Posts</a>
-        <a href="canaux.html">Canaux</a>
-      </div>
-
-      <div class="header-actions">
-        <a class="btn-sos" href="sos.html">SOS</a>
-        <button class="btn-flag" type="button" aria-label="Choisir la langue — Français">
+      <nav class="jh-menu">
+        <a href="#medailles">Résultats</a>
+        <a href="#">Les Sports</a>
+        <a href="#">Map et Agenda</a>
+        <a href="#billeterie">Billeterie</a>
+        <a href="#shop">Shop</a>
+      </nav>
+      <div class="jh-right">
+        <a class="jh-sos" href="sos.html">SOS</a>
+        <button class="jh-flag" type="button" aria-label="Choisir la langue — Français">
           <svg viewBox="0 0 26 24" aria-hidden="true">
-            <rect width="8.667" height="24" fill="#002395" />
-            <rect x="8.667" width="8.667" height="24" fill="#ffffff" />
-            <rect x="17.333" width="8.667" height="24" fill="#ED2939" />
+            <rect width="8.667" height="24" fill="#002395"/>
+            <rect x="8.667" width="8.667" height="24" fill="#ffffff"/>
+            <rect x="17.333" width="8.667" height="24" fill="#ED2939"/>
           </svg>
         </button>
-        <a class="btn-login" href="connexion.html">Se connecter</a>
-
-        <!-- Burger (visible < 1050px) -->
-        <button class="btn-burger" type="button" aria-label="Ouvrir le menu"
-                aria-expanded="false" aria-controls="headerMenu">
+        <!-- Burger (visible < 1080px) -->
+        <button class="jh-burger" type="button" aria-label="Ouvrir le menu"
+                aria-expanded="false" aria-controls="jhMenuM">
           <svg class="icon-open" viewBox="0 0 40 28" aria-hidden="true">
-            <line x1="2" y1="4"  x2="38" y2="4" />
-            <line x1="2" y1="14" x2="38" y2="14" />
-            <line x1="2" y1="24" x2="38" y2="24" />
+            <line x1="2" y1="4"  x2="38" y2="4"/>
+            <line x1="2" y1="14" x2="38" y2="14"/>
+            <line x1="2" y1="24" x2="38" y2="24"/>
           </svg>
           <svg class="icon-close" viewBox="0 0 28 28" aria-hidden="true">
-            <line x1="5" y1="5"  x2="23" y2="23" />
-            <line x1="23" y1="5" x2="5"  y2="23" />
+            <line x1="5" y1="5"  x2="23" y2="23"/>
+            <line x1="23" y1="5" x2="5"  y2="23"/>
           </svg>
         </button>
-      </div>
-    </nav>
-
-    <!-- Menu plein écran (visible < 1050px, ouvert via le burger) -->
-    <div class="header-menu" id="headerMenu">
-      <a href="replays.html">Replays et Temps forts</a>
-      <a href="athlete-talks.html">Athletes Talks</a>
-      <a href="posts.html">Posts</a>
-      <a href="canaux.html">Canaux</a>
-      <div class="header-menu-actions">
-        <button class="btn-flag" type="button" aria-label="Choisir la langue — Français">
-          <svg viewBox="0 0 26 24" aria-hidden="true">
-            <rect width="8.667" height="24" fill="#002395" />
-            <rect x="8.667" width="8.667" height="24" fill="#ffffff" />
-            <rect x="17.333" width="8.667" height="24" fill="#ED2939" />
-          </svg>
-        </button>
-        <a class="btn-login" href="connexion.html">Se connecter</a>
       </div>
     </div>
-
-    <!-- Bannière dégradée (image de fond, optionnelle) -->
-    <div class="header-banner" aria-hidden="true"></div>
-
   </div>
+
+  <!-- Menu plein écran mobile (ouvert via le burger, < 1080px) -->
+  <nav class="jh-menu-m" id="jhMenuM">
+    <a href="#medailles">Résultats</a>
+    <a href="#">Les Sports</a>
+    <a href="#">Map et Agenda</a>
+    <a href="#billeterie">Billeterie</a>
+    <a href="#shop">Shop</a>
+  </nav>
+
+  <img class="jh-banner" src="assets/img/jo-header-gradient.png" alt="" />
 </header>
 
-<!-- ▼▼▼ À coller avant </body> ▼▼▼ -->
 <script>
-  // Toggle du menu burger plein écran (< 1050px)
+  // Burger menu mobile (< 1080px)
   (function () {
-    var burger = document.querySelector('.btn-burger');
-    var menu = document.getElementById('headerMenu');
+    var burger = document.querySelector('.jh-burger');
+    var menu = document.getElementById('jhMenuM');
     if (!burger || !menu) return;
     function setOpen(open) {
       burger.setAttribute('aria-expanded', String(open));
       burger.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
       menu.classList.toggle('is-open', open);
-      document.body.classList.toggle('menu-open', open);
+      document.body.classList.toggle('jh-menu-open', open);
     }
     burger.addEventListener('click', function () {
       setOpen(burger.getAttribute('aria-expanded') !== 'true');
     });
-    // Fermer le menu au clic sur un lien
     menu.querySelectorAll('a').forEach(function (link) {
       link.addEventListener('click', function () { setOpen(false); });
     });
@@ -252,82 +239,77 @@
     </div>
   </main>
 
-<footer class="site-footer">
-  <div class="footer-inner">
+<footer class="footJO">
+  <div class="footJO-inner">
 
-    <h2 class="footer-partners-title">Partenaires Olympiques et Paralympiques Mondiaux</h2>
+    <h4 class="footJO-title">Partenaires Olympiques et Paralympiques Mondiaux</h4>
 
-    <!-- Logos sponsors (grille fluide : 4/row desktop, 3/row mobile) -->
-    <div class="sponsors">
-      <div class="sponsor-cell"><a href="https://www.airbnb.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/airbnb.svg" alt="Airbnb" /></a></div>
-      <div class="sponsor-cell"><a href="https://www.alibabagroup.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/alibaba.svg" alt="Alibaba" /></a></div>
-      <div class="sponsor-cell"><a href="https://www.allianz.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/allianz.svg" alt="Allianz" /></a></div>
-      <div class="sponsor-cell"><a href="https://www.coca-cola.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/cocacola.svg" alt="Coca-Cola" /></a></div>
-      <div class="sponsor-cell"><a href="https://www.deloitte.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/deloitte.svg" alt="Deloitte" /></a></div>
-      <div class="sponsor-cell"><a href="https://www.omegawatches.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/omega.svg" alt="Omega" /></a></div>
-      <div class="sponsor-cell"><a href="https://www.pg.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/pg.svg" alt="P&amp;G" /></a></div>
-      <div class="sponsor-cell"><a href="https://www.corona.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/logo-corona-cero.png" alt="Corona Cero" /></a></div>
-      <div class="sponsor-cell"><a href="https://www.visa.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/visa.svg" alt="Visa" /></a></div>
-      <div class="sponsor-cell"><a href="https://www.samsung.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/samsung.svg" alt="Samsung" /></a></div>
-      <div class="sponsor-cell"><a href="https://www.tcl.com" target="_blank" rel="noopener noreferrer"><img class="sponsor" src="assets/logos/tcl.svg" alt="TCL" /></a></div>
+    <div class="footJO-sponsors">
+      <div class="footJO-row">
+        <a class="footJO-spon" href="https://www.airbnb.com" target="_blank" rel="noopener"><img class="spon" style="--h:65px" src="assets/logos/airbnb.svg" alt="Airbnb"></a>
+        <a class="footJO-spon" href="https://www.alibabagroup.com" target="_blank" rel="noopener"><img class="spon" style="--h:35px" src="assets/logos/alibaba.svg" alt="Alibaba"></a>
+        <a class="footJO-spon" href="https://www.allianz.com" target="_blank" rel="noopener"><img class="spon" style="--h:60px" src="assets/logos/allianz.svg" alt="Allianz"></a>
+        <a class="footJO-spon" href="https://www.coca-cola.com" target="_blank" rel="noopener"><img class="spon" style="--h:56px" src="assets/logos/cocacola.svg" alt="Coca-Cola"></a>
+      </div>
+      <div class="footJO-row">
+        <a class="footJO-spon" href="https://www.deloitte.com" target="_blank" rel="noopener"><img class="spon" style="--h:42px" src="assets/logos/deloitte.svg" alt="Deloitte"></a>
+        <a class="footJO-spon" href="https://www.omegawatches.com" target="_blank" rel="noopener"><img class="spon" style="--h:77px" src="assets/logos/omega.svg" alt="Omega"></a>
+        <a class="footJO-spon" href="https://www.pg.com" target="_blank" rel="noopener"><img class="spon" style="--h:50px" src="assets/logos/pg.svg" alt="P&amp;G"></a>
+        <a class="footJO-spon" href="https://www.corona.com" target="_blank" rel="noopener"><img class="spon" style="--h:72px" src="assets/logos/logo-corona-cero.png" alt="Corona Cero"></a>
+      </div>
+      <div class="footJO-row">
+        <a class="footJO-spon" href="https://www.visa.com" target="_blank" rel="noopener"><img class="spon" style="--h:46px" src="assets/logos/visa.svg" alt="Visa"></a>
+        <a class="footJO-spon" href="https://www.samsung.com" target="_blank" rel="noopener"><img class="spon" style="--h:31px" src="assets/logos/samsung.svg" alt="Samsung"></a>
+        <a class="footJO-spon" href="https://www.tcl.com" target="_blank" rel="noopener"><img class="spon" style="--h:40px" src="assets/logos/tcl.svg" alt="TCL"></a>
+      </div>
     </div>
 
-    <!-- Raccourcis : marque + navigation -->
-    <div class="footer-shortcuts">
-      <div class="footer-brand">
-        <img class="footer-logo" src="assets/logos/logo_olympic_cool.svg" alt="Olympic Connect" />
-        <div class="footer-social">
-          <a href="#" aria-label="Facebook"><img src="assets/logos/facebook.svg" alt="" /></a>
-          <a href="#" aria-label="Instagram"><img src="assets/logos/instagram.svg" alt="" /></a>
-          <a href="#" aria-label="YouTube"><img src="assets/logos/youtube.svg" alt="" /></a>
+    <div class="footJO-cols">
+      <div class="footJO-brand">
+        <a class="footJO-logo" href="homeJO.html"><img src="assets/logos/logo_olympic_cool.svg" alt="Olympic Connect 2026"></a>
+        <div class="footJO-social">
+          <a href="#" aria-label="Facebook"><img src="assets/logos/facebook.svg" alt=""></a>
+          <a href="#" aria-label="Instagram"><img src="assets/logos/instagram.svg" alt=""></a>
+          <a href="#" aria-label="YouTube"><img src="assets/logos/youtube.svg" alt=""></a>
         </div>
       </div>
-
-      <nav class="footer-nav">
-        <div class="footer-col">
-          <a class="footer-col-title">Découvrir</a>
+      <nav class="footJO-nav">
+        <div class="footJO-col">
+          <h5>Compétition</h5>
           <ul>
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="replays.html">Replays et Temps forts</a></li>
-            <li><a href="live.html">Live</a></li>
-            <li><a href="athlete-talks.html">Athletes Talks</a></li>
+            <li><a href="#">Résultats</a></li>
+            <li><a href="#">Médailles</a></li>
+            <li><a href="#">Disciplines</a></li>
+            <li><a href="#">Athlètes</a></li>
           </ul>
         </div>
-        <div class="footer-col">
-          <a class="footer-col-title">Social</a>
+        <div class="footJO-col">
+          <h5>L'évènement</h5>
           <ul>
-            <li><a href="posts.html">Posts</a></li>
-            <li><a href="communaute.html">Communauté</a></li>
-            <li><a href="athletes.html">Athlètes</a></li>
-            <li><a href="messages.html">Messages</a></li>
+            <li><a href="#">Actualités</a></li>
+            <li><a href="#">Map et Agenda</a></li>
+            <li><a href="#">Calendrier</a></li>
+            <li><a href="#">Billeterie</a></li>
           </ul>
         </div>
-        <div class="footer-col footer-col--account">
-          <a class="footer-col-title">Compte &amp; aide</a>
-          <div class="footer-account-links">
-            <ul>
-              <li><a href="inscription.html">S'inscrire</a></li>
-              <li><a href="connexion.html">Se connecter</a></li>
-            </ul>
-            <ul>
-              <li><a href="sos.html">SOS</a></li>
-              <li><a href="engagement.html">Engagement</a></li>
-            </ul>
-          </div>
+        <div class="footJO-col">
+          <h5>Services</h5>
+          <ul>
+            <li><a href="#">Shop</a></li>
+            <li><a href="#">Aide</a></li>
+            <li><a href="sos.html">SOS</a></li>
+            <li><a href="engagement.html">Engagement</a></li>
+          </ul>
         </div>
       </nav>
     </div>
 
-    <div class="footer-divider"></div>
+    <div class="footJO-divider"></div>
 
-    <p class="footer-copyright">
-      Copyright © 2026 | All Rights Reserved |
-      <a href="#">Terms and Conditions</a> |
-      <a href="#">Privacy Policy</a>
-    </p>
+    <p class="footJO-copy">Copyright © 2026 | All Rights Reserved | <a href="#">Terms and Conditions</a> | <a href="#">Privacy Policy</a></p>
+
   </div>
-
-  <img class="footer-deco" src="assets/img/footer-deco.png" alt="" />
+  <div class="footJO-deco" aria-hidden="true"></div>
 </footer>
 
 </body>
