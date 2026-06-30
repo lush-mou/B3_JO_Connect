@@ -1,0 +1,51 @@
+/* ===========================================================
+   CANAL — overrides responsive (page "Dans un canal")
+   Loaded LAST, after style.css + canal.css, so it can override.
+   Figma desktop 3639:61851 / mobile 3639:64376.
+   canal.css already aligns this page closely to Figma on both
+   breakpoints; the rules here are guards/polish only and must
+   NOT regress the existing desktop layout.
+   =========================================================== */
+
+/* ---- Global anti-overflow guards (no horizontal scroll) ---- */
+html, body{ overflow-x:hidden; }
+
+.cnl-feed,
+.cnl-body,
+.cnl-id,
+.cnl-id-text{ min-width:0; }
+
+/* long words / handles must wrap instead of pushing layout wide */
+.cnl-text,
+.cnl-sub,
+.cnl-video-title{ overflow-wrap:anywhere; word-break:break-word; }
+
+/* ===========================================================
+   MOBILE polish — aligns to Figma mobile frame (390px)
+   canal.css switches to the chat layout at <=768px; these
+   tweaks fine-tune small-phone widths without altering desktop.
+   =========================================================== */
+@media (max-width:768px){
+  /* keep the message column from ever overflowing the viewport */
+  .wrap{ padding-left:16px; padding-right:16px; }
+
+  /* the topbar acts as the app header — never let it scroll wider */
+  .cnl-topbar-inner{ max-width:100%; }
+
+  /* grey bubble: cap width like the Figma frame, allow wrap */
+  .cnl-text{ max-width:100%; }
+
+  /* reaction pills wrap cleanly on very narrow screens */
+  .cnl-reacts{ flex-wrap:wrap; }
+}
+
+/* very small phones (<=420px) — match Figma 390 spacing */
+@media (max-width:420px){
+  .cnl-id{ gap:10px; }
+  .cnl-id-avatar{ width:40px; height:40px; }
+  .cnl-name{ font-size:17px; }
+
+  /* bottom reaction bar: keep all emojis on one row, evenly spread */
+  .cnl-reactbar-row{ gap:6px; }
+  .cnl-reactbar-row button{ font-size:20px; height:38px; }
+}

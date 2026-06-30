@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Olympic Connect 2026 — Billeterie</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="pages.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;700&family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="homeJO.css" />
+  <link rel="stylesheet" href="billeterie.css" />
+</head>
+<body>
+
+<!-- NAV (header JO — Figma 509:1191) -->
+<header class="jo-header">
+  <div class="jh-bar">
+    <div class="jh-row">
+      <div class="jh-left">
+        <a class="jh-logo" href="homeJO.html" aria-label="Milano Cortina 2026 — accueil">
+          <img src="assets/img/jo-header-logo.png" alt="Milano Cortina 2026" />
+        </a>
+        <a class="jh-tab" href="index.html">Olympic Connect</a>
+      </div>
+      <nav class="jh-menu">
+        <a href="#medailles">Résultats</a>
+        <a href="#">Les Sports</a>
+        <a href="#">Map et Agenda</a>
+        <a class="active" href="billeterie.html">Billeterie</a>
+        <a href="shop.html">Shop</a>
+      </nav>
+      <div class="jh-right">
+        <a class="jh-sos" href="sos.html">SOS</a>
+        <button class="jh-flag" type="button" aria-label="Choisir la langue — Français">
+          <svg viewBox="0 0 26 24" aria-hidden="true">
+            <rect width="8.667" height="24" fill="#002395"/>
+            <rect x="8.667" width="8.667" height="24" fill="#ffffff"/>
+            <rect x="17.333" width="8.667" height="24" fill="#ED2939"/>
+          </svg>
+        </button>
+        <button class="jh-burger" type="button" aria-label="Ouvrir le menu"
+                aria-expanded="false" aria-controls="jhMenuM">
+          <svg class="icon-open" viewBox="0 0 40 28" aria-hidden="true">
+            <line x1="2" y1="4"  x2="38" y2="4"/>
+            <line x1="2" y1="14" x2="38" y2="14"/>
+            <line x1="2" y1="24" x2="38" y2="24"/>
+          </svg>
+          <svg class="icon-close" viewBox="0 0 28 28" aria-hidden="true">
+            <line x1="5" y1="5"  x2="23" y2="23"/>
+            <line x1="23" y1="5" x2="5"  y2="23"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <nav class="jh-menu-m" id="jhMenuM">
+    <a href="#medailles">Résultats</a>
+    <a href="#">Les Sports</a>
+    <a href="#">Map et Agenda</a>
+    <a class="active" href="billeterie.html">Billeterie</a>
+    <a href="shop.html">Shop</a>
+  </nav>
+
+</header>
+
+<script>
+  (function () {
+    var burger = document.querySelector('.jh-burger');
+    var menu = document.getElementById('jhMenuM');
+    if (!burger || !menu) return;
+    function setOpen(open) {
+      burger.setAttribute('aria-expanded', String(open));
+      burger.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+      menu.classList.toggle('is-open', open);
+      document.body.classList.toggle('jh-menu-open', open);
+    }
+    burger.addEventListener('click', function () {
+      setOpen(burger.getAttribute('aria-expanded') !== 'true');
+    });
+    menu.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () { setOpen(false); });
+    });
+  })();
+</script>
+
+<main class="bill">
+
+  <!-- maquette billeterie estompée (sous le chargement) -->
+  <div class="bill__mock" aria-hidden="true">
+
+    <!-- hero -->
+    <section class="bill__hero">
+      <img class="bill__hero-bg" src="assets/billeterie/hero.png" alt="" />
+      <div class="bill__hero-text">
+        <h1 class="bill__hero-title">Vivez l’expérience en direct !</h1>
+        <p class="bill__hero-sub">Faites l'expérience de spectacles mémorables dans notre salle de 12&nbsp;000 places&nbsp;!</p>
+        <span class="bill__hero-btn">Découvrir</span>
+      </div>
+    </section>
+
+    <!-- cartes sports -->
+    <div class="bill__sports">
+      <article class="bill__sport">
+        <div class="bill__sport-img">
+          <img src="assets/billeterie/sport_biathlon.png" alt="">
+          <span class="bill__heart" aria-hidden="true">♡</span>
+        </div>
+        <div class="bill__sport-label">Biathlon</div>
+      </article>
+      <article class="bill__sport">
+        <div class="bill__sport-img">
+          <img src="assets/billeterie/sport_bobsleigh.png" alt="">
+          <span class="bill__heart" aria-hidden="true">♡</span>
+        </div>
+        <div class="bill__sport-label">Bobsleigh</div>
+      </article>
+      <article class="bill__sport">
+        <div class="bill__sport-img">
+          <img src="assets/billeterie/sport_combine.png" alt="">
+          <span class="bill__heart" aria-hidden="true">♡</span>
+        </div>
+        <div class="bill__sport-label">Combiné nordique</div>
+      </article>
+      <article class="bill__sport">
+        <div class="bill__sport-img">
+          <img src="assets/billeterie/sport_curling.png" alt="">
+          <span class="bill__heart" aria-hidden="true">♡</span>
+        </div>
+        <div class="bill__sport-label">Curling</div>
+      </article>
+    </div>
+
+    <!-- les plus attendus -->
+    <h2 class="bill__heading">Les plus attendus</h2>
+    <div class="bill__events">
+      <article class="bill__event">
+        <div class="bill__event-img"><img src="assets/billeterie/event_biathlon.png" alt=""></div>
+        <h3 class="bill__event-name">Biathlon 500m</h3>
+        <p class="bill__event-meta">11 Fev <span class="bill__event-bar"></span> Cortina</p>
+        <a class="bill__details" href="#">Détails <span aria-hidden="true">↗</span></a>
+      </article>
+      <article class="bill__event">
+        <div class="bill__event-img"><img src="assets/billeterie/event_slopestyle.png" alt=""></div>
+        <h3 class="bill__event-name">Ski Acro Slopestyle</h3>
+        <p class="bill__event-meta">12 Fev <span class="bill__event-bar"></span> Livigno</p>
+        <a class="bill__details" href="#">Détails <span aria-hidden="true">↗</span></a>
+      </article>
+      <article class="bill__event">
+        <div class="bill__event-img"><img src="assets/billeterie/event_skialpin.png" alt=""></div>
+        <h3 class="bill__event-name">Ski Alpin</h3>
+        <p class="bill__event-meta">12 Fev <span class="bill__event-bar"></span> Milano</p>
+        <a class="bill__details" href="#">Détails <span aria-hidden="true">↗</span></a>
+      </article>
+      <article class="bill__event">
+        <div class="bill__event-img"><img src="assets/billeterie/event_halfpipe.png" alt=""></div>
+        <h3 class="bill__event-name">Snwboard Halfpipe</h3>
+        <p class="bill__event-meta">13 Fev <span class="bill__event-bar"></span> Livigno</p>
+        <a class="bill__details" href="#">Détails <span aria-hidden="true">↗</span></a>
+      </article>
+    </div>
+
+  </div>
+
+  <!-- overlay : chargement / redirection vers la billetterie officielle -->
+  <div class="bill__loader">
+    <div class="bill__spinner" aria-hidden="true">
+      <span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span>
+    </div>
+    <h2>Chargement de la billetterie</h2>
+    <p>(Lien extérieur au site)</p>
+    <a class="bill__cta" href="https://tickets.milanocortina2026.org" target="_blank" rel="noopener">
+      Accéder à la billetterie <span aria-hidden="true">↗</span>
+    </a>
+  </div>
+
+</main>
+
+<footer class="footJO">
+  <div class="footJO-inner">
+
+    <h4 class="footJO-title">Partenaires Olympiques et Paralympiques Mondiaux</h4>
+
+    <div class="footJO-sponsors">
+      <div class="footJO-row">
+        <a class="footJO-spon" href="https://www.airbnb.com" target="_blank" rel="noopener"><img class="spon" style="--h:65px" src="assets/logos/airbnb.svg" alt="Airbnb"></a>
+        <a class="footJO-spon" href="https://www.alibabagroup.com" target="_blank" rel="noopener"><img class="spon" style="--h:35px" src="assets/logos/alibaba.svg" alt="Alibaba"></a>
+        <a class="footJO-spon" href="https://www.allianz.com" target="_blank" rel="noopener"><img class="spon" style="--h:60px" src="assets/logos/allianz.svg" alt="Allianz"></a>
+        <a class="footJO-spon" href="https://www.coca-cola.com" target="_blank" rel="noopener"><img class="spon" style="--h:56px" src="assets/logos/cocacola.svg" alt="Coca-Cola"></a>
+      </div>
+      <div class="footJO-row">
+        <a class="footJO-spon" href="https://www.deloitte.com" target="_blank" rel="noopener"><img class="spon" style="--h:42px" src="assets/logos/deloitte.svg" alt="Deloitte"></a>
+        <a class="footJO-spon" href="https://www.omegawatches.com" target="_blank" rel="noopener"><img class="spon" style="--h:77px" src="assets/logos/omega.svg" alt="Omega"></a>
+        <a class="footJO-spon" href="https://www.pg.com" target="_blank" rel="noopener"><img class="spon" style="--h:50px" src="assets/logos/pg.svg" alt="P&amp;G"></a>
+        <a class="footJO-spon" href="https://www.corona.com" target="_blank" rel="noopener"><img class="spon" style="--h:72px" src="assets/logos/logo-corona-cero.png" alt="Corona Cero"></a>
+      </div>
+      <div class="footJO-row">
+        <a class="footJO-spon" href="https://www.visa.com" target="_blank" rel="noopener"><img class="spon" style="--h:46px" src="assets/logos/visa.svg" alt="Visa"></a>
+        <a class="footJO-spon" href="https://www.samsung.com" target="_blank" rel="noopener"><img class="spon" style="--h:31px" src="assets/logos/samsung.svg" alt="Samsung"></a>
+        <a class="footJO-spon" href="https://www.tcl.com" target="_blank" rel="noopener"><img class="spon" style="--h:40px" src="assets/logos/tcl.svg" alt="TCL"></a>
+      </div>
+    </div>
+
+    <div class="footJO-cols">
+      <div class="footJO-brand">
+        <a class="footJO-logo" href="homeJO.html"><img src="assets/logos/logo_olympic_cool.svg" alt="Olympic Connect 2026"></a>
+        <div class="footJO-social">
+          <a href="#" aria-label="Facebook"><img src="assets/logos/facebook.svg" alt=""></a>
+          <a href="#" aria-label="Instagram"><img src="assets/logos/instagram.svg" alt=""></a>
+          <a href="#" aria-label="YouTube"><img src="assets/logos/youtube.svg" alt=""></a>
+        </div>
+      </div>
+      <nav class="footJO-nav">
+        <div class="footJO-col">
+          <h5>Compétition</h5>
+          <ul>
+            <li><a href="#">Résultats</a></li>
+            <li><a href="#">Médailles</a></li>
+            <li><a href="#">Disciplines</a></li>
+            <li><a href="#">Athlètes</a></li>
+          </ul>
+        </div>
+        <div class="footJO-col">
+          <h5>L'évènement</h5>
+          <ul>
+            <li><a href="#">Actualités</a></li>
+            <li><a href="#">Map et Agenda</a></li>
+            <li><a href="#">Calendrier</a></li>
+            <li><a href="billeterie.html">Billeterie</a></li>
+          </ul>
+        </div>
+        <div class="footJO-col">
+          <h5>Services</h5>
+          <ul>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="#">Aide</a></li>
+            <li><a href="sos.html">SOS</a></li>
+            <li><a href="engagement.html">Engagement</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="footJO-divider"></div>
+
+    <p class="footJO-copy">Copyright © 2026 | All Rights Reserved | <a href="#">Terms and Conditions</a> | <a href="#">Privacy Policy</a></p>
+
+  </div>
+  <div class="footJO-deco" aria-hidden="true"></div>
+</footer>
+
+</body>
+</html>

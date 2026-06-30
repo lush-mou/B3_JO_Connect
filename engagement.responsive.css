@@ -1,0 +1,75 @@
+/* ===========================================================
+   ENGAGEMENT — responsive overrides
+   Figma desktop 3639:60276 / mobile 3639:62682
+   Loaded LAST (after engagement.css) so it can override.
+   Do NOT edit shared CSS — all page-specific fixes live here.
+   =========================================================== */
+
+/* ---------- Desktop alignment fix (match Figma) ----------
+   Figma: section H2 left-aligned, intro body block stays
+   horizontally centered (max-width 1042) but with left-aligned
+   text. engagement.css centers everything — realign to left. */
+.eng-intro{ text-align:left; }
+.eng-intro__txt{ text-align:left; }
+
+/* Tighten the gap above the hero card on desktop (Figma sits it
+   right under a short header gradient band). The shared 355px
+   header banner + the hero's own gradient stacked to a huge gap;
+   shrink the banner ON THIS PAGE only and drop the hero top pad. */
+@media (min-width:761px){
+  .jo-header .jh-banner{ height:120px; }
+  .eng-hero{ padding-top:0; }
+}
+
+/* Safety: never let grid children force horizontal overflow */
+.eng-cards{ min-width:0; }
+.eng-card{ min-width:0; }
+.eng-card__list li{ overflow-wrap:break-word; }
+.eng-card__title{ overflow-wrap:break-word; }
+
+/* ============================================================
+   MOBILE  (Figma mobile frame 390 — node 3639:62682)
+   - hero mountain card is omitted on mobile
+   - title left-aligned
+   - full-width single-column cards (image top, then body)
+   ============================================================ */
+@media (max-width:760px){
+  /* Figma mobile starts straight at the intro: hide the hero card */
+  .eng-hero{ display:none; }
+
+  /* tighter top now that the hero is gone */
+  .engagement{ padding-bottom:48px; }
+  .eng-intro{ padding-top:24px; }
+
+  /* titles */
+  .eng-title{
+    font-size:clamp(28px,8.5vw,36px);
+    line-height:1.04;
+  }
+  .eng-intro__txt{
+    margin-top:20px;
+    font-size:16px; line-height:1.5;
+    max-width:none;
+  }
+
+  /* pillar sections */
+  .eng-pillar{ padding-top:32px; }
+  .eng-pillar > .eng-title{ margin-bottom:16px; }
+
+  /* cards: full width, single column (Figma: 374 of 390) */
+  .eng-cards{ grid-template-columns:1fr; gap:20px; }
+  .eng-card{
+    max-width:none; width:100%; margin:0;
+  }
+  .eng-card__img{ height:200px; }
+  /* Figma: ~20px gap below image, 8px side padding */
+  .eng-card__body{ padding:18px 12px 18px; gap:12px; }
+  .eng-card__title{ font-size:22px; line-height:1.12; }
+  .eng-card__list li{ font-size:15px; line-height:1.45; }
+}
+
+/* very small phones */
+@media (max-width:420px){
+  .eng-title{ font-size:clamp(26px,8.5vw,32px); }
+  .eng-card__body{ padding:16px 10px; }
+}

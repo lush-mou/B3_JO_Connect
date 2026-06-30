@@ -1,0 +1,55 @@
+/* ============================================================
+   athlete-talks.responsive.css
+   Mobile alignment to Figma mobile frame 3639:63430.
+   Loaded LAST in <head> — overrides only. Does NOT touch
+   shared stylesheets. Desktop is left untouched (rules live
+   inside mobile @media queries).
+   ============================================================ */
+
+/* ---------- MOBILE (<=760px) : single-column / stacked ---------- */
+@media (max-width:760px){
+
+  /* Tighter page gutters to match the Figma mobile frame */
+  .at .wrap{ padding-left:16px; padding-right:16px; }
+
+  /* Titles scaled down to the mobile type scale */
+  .at-pagetitle{ font-size:32px; margin-bottom:16px; }
+  .at-sub{ margin-bottom:12px; }
+
+  /* Search fields go full width */
+  .at-search,
+  .at-search--lg{ max-width:none; }
+
+  /* Mes favoris : horizontal scroll row of cards (Figma) */
+  .fav-row{
+    flex-wrap:nowrap;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+    gap:14px;
+    margin-bottom:28px;
+    padding-bottom:4px;
+  }
+  .fav-row::-webkit-scrollbar{ display:none; }
+  .fav-card{ width:176px; height:166px; flex:0 0 auto; }
+
+  /* Two top live cards : stack full width */
+  .at-lives2{ grid-template-columns:1fr; gap:16px; }
+
+  /* Redifusions : single-column vertical stack (Figma mobile) */
+  .vgrid{ grid-template-columns:minmax(0,1fr); gap:16px; }
+
+  /* Filter chips : wrap without overflowing */
+  .at-chips{ gap:10px; }
+
+  /* "Athletes Talks à venir" carousel : ~1 card + peek per view */
+  .talk-card{ flex:0 0 86%; }
+}
+
+/* ---------- SMALL PHONES (<=420px) ---------- */
+@media (max-width:420px){
+  /* Override athlete-talks.css (which sets vgrid to 2 cols here) */
+  .vgrid{ grid-template-columns:minmax(0,1fr); }
+  .fav-card{ width:160px; height:150px; }
+  .at-pagetitle{ font-size:28px; }
+}

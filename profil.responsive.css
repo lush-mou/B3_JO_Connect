@@ -1,0 +1,41 @@
+/* ===========================================================
+   profil.responsive.css
+   Overrides spécifiques à la page « Mon profil OC ».
+   Chargé EN DERNIER (après style.css + profil.css) afin de
+   pouvoir surcharger sans toucher aux feuilles partagées.
+   Objectif : aligner le rendu mobile sur la frame Figma
+   (3639:62884) sans régression desktop.
+   =========================================================== */
+
+/* ---------- Mobile (≤680) ---------- */
+@media (max-width: 680px) {
+
+  /* Posts de vos favoris : la frame Figma mobile affiche les posts
+     en GRILLE 2 colonnes (et non en carrousel horizontal partagé).
+     On surcharge donc le track, uniquement sur cette page. */
+  .profil-page .posts-mobile-track {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    overflow: visible;              /* plus de scroll horizontal */
+    scroll-snap-type: none;
+  }
+  .profil-page .posts-mobile-track .post-m {
+    flex: initial;                  /* annule le flex:0 0 175px partagé */
+    width: auto;
+    height: auto;
+    aspect-ratio: 175 / 252;        /* conserve le ratio des vignettes */
+  }
+
+  /* Sécurité anti-débordement horizontal global sur la page */
+  .profil-page .wrap { overflow-x: clip; }
+  .profil-page .channel-card,
+  .profil-page .vcard2,
+  .profil-page .tvrow { min-width: 0; }
+}
+
+/* ---------- Petit mobile (≤420) ---------- */
+@media (max-width: 420px) {
+  /* Cartes posts un poil plus serrées pour rester confortables */
+  .profil-page .posts-mobile-track { gap: 10px; }
+}

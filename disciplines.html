@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Olympic Connect 2026 — Les Sports</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="pages.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;700&family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="homeJO.css" />
+  <link rel="stylesheet" href="disciplines.css" />
+</head>
+<body>
+
+<!-- NAV (header JO — Figma 509:1191) -->
+<header class="jo-header">
+  <div class="jh-bar">
+    <div class="jh-row">
+      <div class="jh-left">
+        <a class="jh-logo" href="homeJO.html" aria-label="Milano Cortina 2026 — accueil">
+          <img src="assets/img/jo-header-logo.png" alt="Milano Cortina 2026" />
+        </a>
+        <a class="jh-tab" href="index.html">Olympic Connect</a>
+      </div>
+      <nav class="jh-menu">
+        <a href="#medailles">Résultats</a>
+        <a class="active" href="disciplines.html">Les Sports</a>
+        <a href="#">Map et Agenda</a>
+        <a href="#billeterie">Billeterie</a>
+        <a href="shop.html">Shop</a>
+      </nav>
+      <div class="jh-right">
+        <a class="jh-sos" href="sos.html">SOS</a>
+        <button class="jh-flag" type="button" aria-label="Choisir la langue — Français">
+          <svg viewBox="0 0 26 24" aria-hidden="true">
+            <rect width="8.667" height="24" fill="#002395"/>
+            <rect x="8.667" width="8.667" height="24" fill="#ffffff"/>
+            <rect x="17.333" width="8.667" height="24" fill="#ED2939"/>
+          </svg>
+        </button>
+        <button class="jh-burger" type="button" aria-label="Ouvrir le menu"
+                aria-expanded="false" aria-controls="jhMenuM">
+          <svg class="icon-open" viewBox="0 0 40 28" aria-hidden="true">
+            <line x1="2" y1="4"  x2="38" y2="4"/>
+            <line x1="2" y1="14" x2="38" y2="14"/>
+            <line x1="2" y1="24" x2="38" y2="24"/>
+          </svg>
+          <svg class="icon-close" viewBox="0 0 28 28" aria-hidden="true">
+            <line x1="5" y1="5"  x2="23" y2="23"/>
+            <line x1="23" y1="5" x2="5"  y2="23"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <nav class="jh-menu-m" id="jhMenuM">
+    <a href="#medailles">Résultats</a>
+    <a class="active" href="disciplines.html">Les Sports</a>
+    <a href="#">Map et Agenda</a>
+    <a href="#billeterie">Billeterie</a>
+    <a href="shop.html">Shop</a>
+  </nav>
+
+</header>
+
+<script>
+  (function () {
+    var burger = document.querySelector('.jh-burger');
+    var menu = document.getElementById('jhMenuM');
+    if (!burger || !menu) return;
+    function setOpen(open) {
+      burger.setAttribute('aria-expanded', String(open));
+      burger.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+      menu.classList.toggle('is-open', open);
+      document.body.classList.toggle('jh-menu-open', open);
+    }
+    burger.addEventListener('click', function () {
+      setOpen(burger.getAttribute('aria-expanded') !== 'true');
+    });
+    menu.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () { setOpen(false); });
+    });
+  })();
+</script>
+
+<main class="dp">
+
+  <!-- ============ 1. GRILLE DES DISCIPLINES ============ -->
+  <section class="section dp-grid-sec">
+    <div class="wrap">
+      <div class="dp-head">
+        <h1 class="dp-title">Découvrir les disciplines</h1>
+        <p class="dp-sub">Total 16 disciplines</p>
+      </div>
+
+      <div class="dp-grid">
+        <a class="dp-card" href="#"><div class="dp-card__img" style="background-image:url('assets/disciplines/biathlon.png')"><span class="dp-card__fav" role="button" tabindex="0" aria-label="Ajouter aux favoris"><svg viewBox="0 0 24 22" aria-hidden="true"><path d="M12 20.5S2.8 14 2.8 7.7A4.6 4.6 0 0 1 12 4.9a4.6 4.6 0 0 1 9.2 2.8C21.2 14 12 20.5 12 20.5z"/></svg></span></div><span class="dp-card__name">Biathlon</span></a>
+        <a class="dp-card" href="#"><div class="dp-card__img" style="background-image:url('assets/disciplines/bobsleigh.png')"><span class="dp-card__fav" role="button" tabindex="0" aria-label="Ajouter aux favoris"><svg viewBox="0 0 24 22" aria-hidden="true"><path d="M12 20.5S2.8 14 2.8 7.7A4.6 4.6 0 0 1 12 4.9a4.6 4.6 0 0 1 9.2 2.8C21.2 14 12 20.5 12 20.5z"/></svg></span></div><span class="dp-card__name">Bobsleigh</span></a>
+        <a class="dp-card" href="#"><div class="dp-card__img" style="background-image:url('assets/disciplines/combine_nordique.png')"><span class="dp-card__fav" role="button" tabindex="0" aria-label="Ajouter aux favoris"><svg viewBox="0 0 24 22" aria-hidden="true"><path d="M12 20.5S2.8 14 2.8 7.7A4.6 4.6 0 0 1 12 4.9a4.6 4.6 0 0 1 9.2 2.8C21.2 14 12 20.5 12 20.5z"/></svg></span></div><span class="dp-card__name">Combiné nordique</span></a>
+        <a class="dp-card" href="#"><div class="dp-card__img" style="background-image:url('assets/disciplines/curling.png')"><span class="dp-card__fav" role="button" tabindex="0" aria-label="Ajouter aux favoris"><svg viewBox="0 0 24 22" aria-hidden="true"><path d="M12 20.5S2.8 14 2.8 7.7A4.6 4.6 0 0 1 12 4.9a4.6 4.6 0 0 1 9.2 2.8C21.2 14 12 20.5 12 20.5z"/></svg></span></div><span class="dp-card__name">Curling</span></a>
+        <a class="dp-card" href="#"><div class="dp-card__img" style="background-image:url('assets/disciplines/hockey.png')"><span class="dp-card__fav" role="button" tabindex="0" aria-label="Ajouter aux favoris"><svg viewBox="0 0 24 22" aria-hidden="true"><path d="M12 20.5S2.8 14 2.8 7.7A4.6 4.6 0 0 1 12 4.9a4.6 4.6 0 0 1 9.2 2.8C21.2 14 12 20.5 12 20.5z"/></svg></span></div><span class="dp-card__name">Hockey sur glace</span></a>
+        <a class="dp-card" href="#"><div class="dp-card__img" style="background-image:url('assets/disciplines/luge.png')"><span class="dp-card__fav" role="button" tabindex="0" aria-label="Ajouter aux favoris"><svg viewBox="0 0 24 22" aria-hidden="true"><path d="M12 20.5S2.8 14 2.8 7.7A4.6 4.6 0 0 1 12 4.9a4.6 4.6 0 0 1 9.2 2.8C21.2 14 12 20.5 12 20.5z"/></svg></span></div><span class="dp-card__name">Luge</span></a>
+        <a class="dp-card" href="#"><div class="dp-card__img" style="background-image:url('assets/disciplines/patinage_artistique.png')"><span class="dp-card__fav" role="button" tabindex="0" aria-label="Ajouter aux favoris"><svg viewBox="0 0 24 22" aria-hidden="true"><path d="M12 20.5S2.8 14 2.8 7.7A4.6 4.6 0 0 1 12 4.9a4.6 4.6 0 0 1 9.2 2.8C21.2 14 12 20.5 12 20.5z"/></svg></span></div><span class="dp-card__name">Patinage artistique</span></a>
+        <a class="dp-card" href="#"><div class="dp-card__img" style="background-image:url('assets/disciplines/patinage_vitesse.png')"><span class="dp-card__fav" role="button" tabindex="0" aria-label="Ajouter aux favoris"><svg viewBox="0 0 24 22" aria-hidden="true"><path d="M12 20.5S2.8 14 2.8 7.7A4.6 4.6 0 0 1 12 4.9a4.6 4.6 0 0 1 9.2 2.8C21.2 14 12 20.5 12 20.5z"/></svg></span></div><span class="dp-card__name">Patinage de vitesse</span></a>
+        <a class="dp-card" href="#"><div class="dp-card__img" style="background-image:url('assets/disciplines/saut_a_ski.png')"><span class="dp-card__fav" role="button" tabindex="0" aria-label="Ajouter aux favoris"><svg viewBox="0 0 24 22" aria-hidden="true"><path d="M12 20.5S2.8 14 2.8 7.7A4.6 4.6 0 0 1 12 4.9a4.6 4.6 0 0 1 9.2 2.8C21.2 14 12 20.5 12 20.5z"/></svg></span></div><span class="dp-card__name">Saut à ski</span></a>
+        <a class="dp-card" href="#"><div class="dp-card__img" style="background-image:url('assets/disciplines/short_track.png')"><span class="dp-card__fav" role="button" tabindex="0" aria-label="Ajouter aux favoris"><svg viewBox="0 0 24 22" aria-hidden="true"><path d="M12 20.5S2.8 14 2.8 7.7A4.6 4.6 0 0 1 12 4.9a4.6 4.6 0 0 1 9.2 2.8C21.2 14 12 20.5 12 20.5z"/></svg></span></div><span class="dp-card__name">Short track</span></a>
+        <a class="dp-card" href="#"><div class="dp-card__img" style="background-image:url('assets/disciplines/skeleton.png')"><span class="dp-card__fav" role="button" tabindex="0" aria-label="Ajouter aux favoris"><svg viewBox="0 0 24 22" aria-hidden="true"><path d="M12 20.5S2.8 14 2.8 7.7A4.6 4.6 0 0 1 12 4.9a4.6 4.6 0 0 1 9.2 2.8C21.2 14 12 20.5 12 20.5z"/></svg></span></div><span class="dp-card__name">Skeleton</span></a>
+        <a class="dp-card" href="#"><div class="dp-card__img" style="background-image:url('assets/disciplines/ski_acrobatique.png')"><span class="dp-card__fav" role="button" tabindex="0" aria-label="Ajouter aux favoris"><svg viewBox="0 0 24 22" aria-hidden="true"><path d="M12 20.5S2.8 14 2.8 7.7A4.6 4.6 0 0 1 12 4.9a4.6 4.6 0 0 1 9.2 2.8C21.2 14 12 20.5 12 20.5z"/></svg></span></div><span class="dp-card__name">Ski acrobatique</span></a>
+        <a class="dp-card" href="#"><div class="dp-card__img" style="background-image:url('assets/disciplines/ski_alpin.png')"><span class="dp-card__fav" role="button" tabindex="0" aria-label="Ajouter aux favoris"><svg viewBox="0 0 24 22" aria-hidden="true"><path d="M12 20.5S2.8 14 2.8 7.7A4.6 4.6 0 0 1 12 4.9a4.6 4.6 0 0 1 9.2 2.8C21.2 14 12 20.5 12 20.5z"/></svg></span></div><span class="dp-card__name">Ski alpin</span></a>
+        <a class="dp-card" href="#"><div class="dp-card__img" style="background-image:url('assets/disciplines/ski_de_fond.png')"><span class="dp-card__fav" role="button" tabindex="0" aria-label="Ajouter aux favoris"><svg viewBox="0 0 24 22" aria-hidden="true"><path d="M12 20.5S2.8 14 2.8 7.7A4.6 4.6 0 0 1 12 4.9a4.6 4.6 0 0 1 9.2 2.8C21.2 14 12 20.5 12 20.5z"/></svg></span></div><span class="dp-card__name">Ski de fond</span></a>
+        <a class="dp-card" href="#"><div class="dp-card__img" style="background-image:url('assets/disciplines/ski_alpinisme.png')"><span class="dp-card__fav" role="button" tabindex="0" aria-label="Ajouter aux favoris"><svg viewBox="0 0 24 22" aria-hidden="true"><path d="M12 20.5S2.8 14 2.8 7.7A4.6 4.6 0 0 1 12 4.9a4.6 4.6 0 0 1 9.2 2.8C21.2 14 12 20.5 12 20.5z"/></svg></span></div><span class="dp-card__name">Ski-alpinisme</span></a>
+        <a class="dp-card" href="#"><div class="dp-card__img" style="background-image:url('assets/disciplines/snowboard.png')"><span class="dp-card__fav" role="button" tabindex="0" aria-label="Ajouter aux favoris"><svg viewBox="0 0 24 22" aria-hidden="true"><path d="M12 20.5S2.8 14 2.8 7.7A4.6 4.6 0 0 1 12 4.9a4.6 4.6 0 0 1 9.2 2.8C21.2 14 12 20.5 12 20.5z"/></svg></span></div><span class="dp-card__name">Snowboard</span></a>
+      </div>
+
+      <div class="dp-para-wrap">
+        <a class="dp-para" href="#">Découvrir les disciplines paralympiques</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 2. BANNIÈRE DISCIPLINE ============ -->
+  <section class="dp-banner-sec">
+    <div class="wrap">
+      <img class="dp-banner" src="assets/disciplines/hero_banner.png" alt="Ski Acrobatique" />
+    </div>
+  </section>
+
+  <!-- ============ 3. À PROPOS + VIDÉO ============ -->
+  <section class="section dp-pt0">
+    <div class="wrap">
+      <h2 class="dp-h2 dp-h2--sm">À propos du Ski acrobatique</h2>
+      <div class="dp-about">
+        <a class="dp-about__video" href="#">
+          <img src="assets/disciplines/about_video.png" alt="Vidéo explicative du ski acrobatique" />
+        </a>
+        <div class="dp-about__text">
+          <h3>Vidéo explicative de la discipline !</h3>
+          <p>Cette jeune discipline de ski a fait ses débuts olympiques en tant que sport de démonstration lors des Jeux olympiques d’hiver de Calgary 1988. Alors que l’on se tourne vers la compétition de Milano Cortina 2026, voici tout ce que vous devez savoir sur le ski acrobatique.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 4. L'HISTOIRE OLYMPIQUE ============ -->
+  <section class="section dp-pt0">
+    <div class="wrap">
+      <h2 class="dp-h2">L’histoire olympique</h2>
+      <div class="dp-prose">
+        <p>Le ski acrobatique est né dans les années 1960, à une époque de changements sociaux et d’un désir croissant de liberté d’expression, y compris dans le sport. Cela a conduit au développement de techniques de ski nouvelles et spectaculaires. Au départ, le ski acrobatique était appelé « hotdogging », car il mêlait figures acrobatiques, sauts aériens et adrénaline. La Fédération internationale de ski et de snowboard (FIS) a reconnu cette discipline en 1979. Elle a ensuite introduit de nouvelles règles pour améliorer la sécurité, et l’année suivante a eu lieu la première Coupe du monde de la FIS.</p>
+        <p>Le ski acrobatique a fait ses débuts olympiques lors des Jeux olympiques d’hiver de Calgary 1988, avec des épreuves de bosses, de sauts (aerials) et de ballet pour les hommes et les femmes. Quatre ans plus tard, les bosses sont devenues une épreuve médaillée aux Jeux olympiques d’hiver d’Albertville 1992, suivies des sauts aux Jeux olympiques d’hiver de Lillehammer 1994.</p>
+        <p>Le ski cross a fait son entrée aux Jeux olympiques d’hiver de Vancouver 2010. Le slopestyle et le halfpipe ont été ajoutés au programme des Jeux olympiques d’hiver de Sotchi 2014, tandis que le Big Air et les sauts acrobatiques par équipes mixtes sont les épreuves les plus récentes, introduites aux Jeux olympiques d’hiver de Pékin 2022. Lors des Jeux olympiques d’hiver de Milan-Cortina 2026, les bosses en duel masculines et féminines feront pour la première fois partie du programme olympique.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 5. LES RÈGLES ============ -->
+  <section class="section dp-pt0">
+    <div class="wrap">
+      <h2 class="dp-h2">Les règles du Ski Acrobatique</h2>
+      <div class="dp-prose">
+        <p>En bosses, les athlètes descendent une piste raide remplie de bosses, en combinant virages techniques, sauts, figures aériennes et vitesse. En bosses en duel, qui feront leurs débuts à Milano Cortina 2026, deux athlètes s’affrontent sur la même piste. En sauts acrobatiques (aerials), les skieurs s’élancent depuis un tremplin pour effectuer des figures en l’air avant d’atterrir sur une pente inclinée entre 34° et 39°, d’environ 30 mètres de long. Le ski cross comprend une phase de qualification, où les athlètes doivent descendre une piste avec des éléments artificiels (sauts, bosses, virages relevés) le plus rapidement possible, puis une phase à élimination directe où quatre concurrents s’affrontent en même temps. En slopestyle, les athlètes parcourent une piste composée de divers obstacles (rails et différents sauts) et sont jugés sur la variété, l’originalité et la qualité de leurs figures. En halfpipe, les concurrents réalisent une série de figures en descendant une structure en forme de demi-tube. En Big Air, les athlètes prennent de la vitesse sur une pente avant de s’élancer sur un énorme tremplin pour réaliser des figures aériennes, puis réussir leur réception.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 6. TEMPS FORTS DE LA DISCIPLINE ============ -->
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Temps forts de la discipline</h2>
+        <a class="pill-link pill-link--jo" href="#">voir plus
+          <svg viewBox="0 0 20 16" fill="none" aria-hidden="true"><path d="M2 8h15M12 3l5 5-5 5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div class="dp-tf">
+        <article class="rep-big">
+          <div class="rep-big__media" style="background-image:url('photo/ski_freestyle_big_air_saut.avif')">
+            <span class="rep-badge">Temps fort</span>
+            <span class="dp-dur">04:23</span>
+          </div>
+          <div class="rep-big__body">
+            <p class="rep-big__title">Big Air | Les figures décisives pour le podium | Best Time</p>
+            <div class="rep-big__meta">
+              <div class="rep-big__metaL">
+                <span class="rep-time">Il y a 5h</span>
+                <span class="rep-chip">Ski Acrobatique</span>
+              </div>
+              <button class="rep-play" type="button" aria-label="Lire"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+            </div>
+          </div>
+        </article>
+
+        <article class="rep-big">
+          <div class="rep-big__media" style="background-image:url('photo/snowboard_slopestyle.png')">
+            <span class="rep-badge">Temps fort</span>
+            <span class="dp-dur">03:31</span>
+          </div>
+          <div class="rep-big__body">
+            <p class="rep-big__title">Slopestyle | La performance qui a marqué la finale olympique | Best Time</p>
+            <div class="rep-big__meta">
+              <div class="rep-big__metaL">
+                <span class="rep-time">Il y a 12 min</span>
+                <span class="rep-chip">Ski Acrobatique</span>
+              </div>
+              <button class="rep-play" type="button" aria-label="Lire"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+            </div>
+          </div>
+        </article>
+
+        <article class="rep-big">
+          <div class="rep-big__media" style="background-image:url('photo/ski_freestyle_nuit.avif')">
+            <span class="rep-badge">Temps fort</span>
+            <span class="dp-dur">06:34</span>
+          </div>
+          <div class="rep-big__body">
+            <p class="rep-big__title">Ski Cross | Le duel pour la médaille de Youri Duplessis | Best Time</p>
+            <div class="rep-big__meta">
+              <div class="rep-big__metaL">
+                <span class="rep-time">Il y a 5h</span>
+                <span class="rep-chip">Ski Acrobatique</span>
+              </div>
+              <button class="rep-play" type="button" aria-label="Lire"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 7. REPLAY DE LA DISCIPLINE ============ -->
+  <section class="section dp-pt0">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Replay de la discipline</h2>
+        <a class="pill-link pill-link--jo" href="#">voir plus
+          <svg viewBox="0 0 20 16" fill="none" aria-hidden="true"><path d="M2 8h15M12 3l5 5-5 5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div class="dp-rep">
+        <article class="rep-big">
+          <div class="rep-big__media" style="background-image:url('photo/ski_freestyle_big_air.avif')">
+            <span class="rep-badge">Temps forts</span>
+            <span class="dp-dur">03:53:21</span>
+          </div>
+          <div class="rep-big__body">
+            <p class="rep-big__title">Ski acrobatique - Skicross (F) / Halfpipe (H) - Qualifications | Full replay</p>
+            <div class="rep-big__meta">
+              <div class="rep-big__metaL">
+                <span class="rep-time">Il y a 4h</span>
+                <span class="rep-chip">Ski Acrobatique</span>
+              </div>
+              <button class="rep-play" type="button" aria-label="Lire"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+            </div>
+          </div>
+        </article>
+
+        <article class="rep-big">
+          <div class="rep-big__media" style="background-image:url('photo/ski_freestyle_big_air_saut.avif')">
+            <span class="rep-badge">Épreuve entière</span>
+            <span class="dp-dur">03:32:21</span>
+          </div>
+          <div class="rep-big__body">
+            <p class="rep-big__title">Ski acrobatique (H) - Finales bosses duo | Full replay</p>
+            <div class="rep-big__meta">
+              <div class="rep-big__metaL">
+                <span class="rep-time">Il y a 30 min</span>
+                <span class="rep-chip">Ski Acrobatique</span>
+              </div>
+              <button class="rep-play" type="button" aria-label="Lire"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 8. DÉCOUVRIR LES DISCIPLINES (carrousel) ============ -->
+  <section class="section dp-pt0">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Découvrir les disciplines</h2>
+        <a class="pill-link pill-link--jo" href="#">Découvrir toutes les disciplines
+          <svg viewBox="0 0 20 16" fill="none" aria-hidden="true"><path d="M2 8h15M12 3l5 5-5 5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div class="disc-rail" id="discRail">
+        <a class="disc" href="#"><div class="disc__img" style="background-image:url('photo/sport/biathlon.png')"></div><div class="disc__name">Biathlon</div></a>
+        <a class="disc" href="#"><div class="disc__img" style="background-image:url('photo/sport/bobsleigh.png')"></div><div class="disc__name">Bobsleigh</div></a>
+        <a class="disc" href="#"><div class="disc__img" style="background-image:url('photo/sport/combine_nordique.png')"></div><div class="disc__name">Combiné nordique</div></a>
+        <a class="disc" href="#"><div class="disc__img" style="background-image:url('photo/sport/curling.png')"></div><div class="disc__name">Curling</div></a>
+        <a class="disc" href="#"><div class="disc__img" style="background-image:url('photo/sport/hockey_sur_glace.png')"></div><div class="disc__name">Hockey sur glace</div></a>
+        <a class="disc" href="#"><div class="disc__img" style="background-image:url('photo/sport/luge.png')"></div><div class="disc__name">Luge</div></a>
+        <a class="disc" href="#"><div class="disc__img" style="background-image:url('photo/sport/patinage_artistique.png')"></div><div class="disc__name">Patinage artistique</div></a>
+        <a class="disc" href="#"><div class="disc__img" style="background-image:url('photo/sport/patinage_de_vitesse.png')"></div><div class="disc__name">Patinage de vitesse</div></a>
+        <a class="disc" href="#"><div class="disc__img" style="background-image:url('photo/sport/ski_alpin.png')"></div><div class="disc__name">Ski alpin</div></a>
+        <a class="disc" href="#"><div class="disc__img" style="background-image:url('photo/sport/ski_alpinisme.png')"></div><div class="disc__name">Ski alpinisme</div></a>
+        <a class="disc" href="#"><div class="disc__img" style="background-image:url('photo/sport/ski_de_fond.png')"></div><div class="disc__name">Ski de fond</div></a>
+        <a class="disc" href="#"><div class="disc__img" style="background-image:url('photo/sport/snowboard.png')"></div><div class="disc__name">Snowboard</div></a>
+      </div>
+      <div class="disc-nav">
+        <div class="disc-dots" id="discDots" aria-hidden="true"></div>
+        <div class="disc-arrows">
+          <button class="disc-arrow" type="button" data-dir="prev" aria-label="Disciplines précédentes"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <button class="disc-arrow" type="button" data-dir="next" aria-label="Disciplines suivantes"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footJO">
+  <div class="footJO-inner">
+
+    <h4 class="footJO-title">Partenaires Olympiques et Paralympiques Mondiaux</h4>
+
+    <div class="footJO-sponsors">
+      <div class="footJO-row">
+        <a class="footJO-spon" href="https://www.airbnb.com" target="_blank" rel="noopener"><img class="spon" style="--h:65px" src="assets/logos/airbnb.svg" alt="Airbnb"></a>
+        <a class="footJO-spon" href="https://www.alibabagroup.com" target="_blank" rel="noopener"><img class="spon" style="--h:35px" src="assets/logos/alibaba.svg" alt="Alibaba"></a>
+        <a class="footJO-spon" href="https://www.allianz.com" target="_blank" rel="noopener"><img class="spon" style="--h:60px" src="assets/logos/allianz.svg" alt="Allianz"></a>
+        <a class="footJO-spon" href="https://www.coca-cola.com" target="_blank" rel="noopener"><img class="spon" style="--h:56px" src="assets/logos/cocacola.svg" alt="Coca-Cola"></a>
+      </div>
+      <div class="footJO-row">
+        <a class="footJO-spon" href="https://www.deloitte.com" target="_blank" rel="noopener"><img class="spon" style="--h:42px" src="assets/logos/deloitte.svg" alt="Deloitte"></a>
+        <a class="footJO-spon" href="https://www.omegawatches.com" target="_blank" rel="noopener"><img class="spon" style="--h:77px" src="assets/logos/omega.svg" alt="Omega"></a>
+        <a class="footJO-spon" href="https://www.pg.com" target="_blank" rel="noopener"><img class="spon" style="--h:50px" src="assets/logos/pg.svg" alt="P&amp;G"></a>
+        <a class="footJO-spon" href="https://www.corona.com" target="_blank" rel="noopener"><img class="spon" style="--h:72px" src="assets/logos/logo-corona-cero.png" alt="Corona Cero"></a>
+      </div>
+      <div class="footJO-row">
+        <a class="footJO-spon" href="https://www.visa.com" target="_blank" rel="noopener"><img class="spon" style="--h:46px" src="assets/logos/visa.svg" alt="Visa"></a>
+        <a class="footJO-spon" href="https://www.samsung.com" target="_blank" rel="noopener"><img class="spon" style="--h:31px" src="assets/logos/samsung.svg" alt="Samsung"></a>
+        <a class="footJO-spon" href="https://www.tcl.com" target="_blank" rel="noopener"><img class="spon" style="--h:40px" src="assets/logos/tcl.svg" alt="TCL"></a>
+      </div>
+    </div>
+
+    <div class="footJO-cols">
+      <div class="footJO-brand">
+        <a class="footJO-logo" href="homeJO.html"><img src="assets/logos/logo_olympic_cool.svg" alt="Olympic Connect 2026"></a>
+        <div class="footJO-social">
+          <a href="#" aria-label="Facebook"><img src="assets/logos/facebook.svg" alt=""></a>
+          <a href="#" aria-label="Instagram"><img src="assets/logos/instagram.svg" alt=""></a>
+          <a href="#" aria-label="YouTube"><img src="assets/logos/youtube.svg" alt=""></a>
+        </div>
+      </div>
+      <nav class="footJO-nav">
+        <div class="footJO-col">
+          <h5>Compétition</h5>
+          <ul>
+            <li><a href="#">Résultats</a></li>
+            <li><a href="#">Médailles</a></li>
+            <li><a href="disciplines.html">Disciplines</a></li>
+            <li><a href="#">Athlètes</a></li>
+          </ul>
+        </div>
+        <div class="footJO-col">
+          <h5>L'évènement</h5>
+          <ul>
+            <li><a href="#">Actualités</a></li>
+            <li><a href="#">Map et Agenda</a></li>
+            <li><a href="#">Calendrier</a></li>
+            <li><a href="#">Billeterie</a></li>
+          </ul>
+        </div>
+        <div class="footJO-col">
+          <h5>Services</h5>
+          <ul>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="#">Aide</a></li>
+            <li><a href="sos.html">SOS</a></li>
+            <li><a href="engagement.html">Engagement</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="footJO-divider"></div>
+
+    <p class="footJO-copy">Copyright © 2026 | All Rights Reserved | <a href="#">Terms and Conditions</a> | <a href="#">Privacy Policy</a></p>
+
+  </div>
+  <div class="footJO-deco" aria-hidden="true"></div>
+</footer>
+
+<script>
+  // Favori sur les cartes de la grille
+  (function () {
+    document.querySelectorAll('.dp-card__fav').forEach(function (fav) {
+      function toggle(e) { e.preventDefault(); e.stopPropagation(); fav.classList.toggle('is-fav'); }
+      fav.addEventListener('click', toggle);
+      fav.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') toggle(e); });
+    });
+  })();
+
+  // Carrousel des disciplines (flèches + dots + favori mobile)
+  (function () {
+    var rail = document.getElementById('discRail');
+    var dotsBox = document.getElementById('discDots');
+    if (!rail) return;
+    var cards = rail.querySelectorAll('.disc');
+
+    cards.forEach(function (card) {
+      var img = card.querySelector('.disc__img');
+      if (!img || img.querySelector('.disc-fav')) return;
+      var fav = document.createElement('span');
+      fav.className = 'disc-fav';
+      fav.setAttribute('role', 'button');
+      fav.setAttribute('tabindex', '0');
+      fav.setAttribute('aria-label', 'Ajouter aux favoris');
+      fav.innerHTML = '<svg viewBox="0 0 24 22" aria-hidden="true"><path d="M12 20.5S2.8 14 2.8 7.7A4.6 4.6 0 0 1 12 4.9a4.6 4.6 0 0 1 9.2 2.8C21.2 14 12 20.5 12 20.5z"/></svg>';
+      function toggle(e) { e.preventDefault(); e.stopPropagation(); fav.classList.toggle('is-fav'); }
+      fav.addEventListener('click', toggle);
+      fav.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') toggle(e); });
+      img.appendChild(fav);
+    });
+
+    function perView() {
+      var cw = cards[0] ? cards[0].getBoundingClientRect().width + 22 : 233;
+      return Math.max(1, Math.round(rail.clientWidth / cw));
+    }
+    function pages() { return Math.max(1, Math.ceil(cards.length / perView())); }
+    function curPage() { return rail.clientWidth ? Math.round(rail.scrollLeft / rail.clientWidth) : 0; }
+    function update() {
+      if (!dotsBox) return;
+      var p = curPage();
+      dotsBox.querySelectorAll('i').forEach(function (d, i) { d.classList.toggle('on', i === p); });
+    }
+    function buildDots() {
+      if (!dotsBox) return;
+      dotsBox.innerHTML = '';
+      for (var i = 0; i < pages(); i++) {
+        var d = document.createElement('i'); d.dataset.page = i; dotsBox.appendChild(d);
+      }
+      update();
+    }
+    rail.addEventListener('scroll', function () { window.requestAnimationFrame(update); });
+    document.querySelectorAll('.disc-arrow').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var dir = b.dataset.dir === 'next' ? 1 : -1;
+        rail.scrollBy({ left: dir * rail.clientWidth * 0.9, behavior: 'smooth' });
+      });
+    });
+    if (dotsBox) dotsBox.addEventListener('click', function (e) {
+      var d = e.target.closest('i'); if (!d) return;
+      rail.scrollTo({ left: d.dataset.page * rail.clientWidth, behavior: 'smooth' });
+    });
+    buildDots();
+    window.addEventListener('resize', buildDots);
+  })();
+</script>
+
+</body>
+</html>

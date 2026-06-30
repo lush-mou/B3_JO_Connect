@@ -368,6 +368,7 @@ main{ padding-bottom:8px; }
   .disc-card .ph{ height:150px; }
 }
 </style>
+<link rel="stylesheet" href="map-desktop.responsive.css" />
 </head>
 <body>
 <div class="page">
@@ -386,7 +387,7 @@ main{ padding-bottom:8px; }
         </svg>
       </a>
 
-      <nav class="main-nav">
+      <nav class="main-nav" id="mapNav">
         <a class="active" href="index.html">Olympic Connect</a>
         <a href="#">Résultats</a>
         <a href="#">Map et Agenda</a>
@@ -397,6 +398,9 @@ main{ padding-bottom:8px; }
       <div class="header-actions">
         <a class="sos-btn" href="#">SOS</a>
         <span class="flag" aria-label="Français"><span class="fr-b"></span><span class="fr-w"></span><span class="fr-r"></span></span>
+        <button class="burger" id="mapBurger" aria-label="Menu" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
       </div>
     </div>
   </header>
@@ -735,5 +739,14 @@ main{ padding-bottom:8px; }
   </footer>
 
 </div>
+<script>
+  (function(){
+    var b=document.getElementById('mapBurger'), n=document.getElementById('mapNav');
+    if(b&&n){ b.addEventListener('click',function(){
+      var open=n.classList.toggle('open');
+      b.setAttribute('aria-expanded',open?'true':'false');
+    }); }
+  })();
+</script>
 </body>
 </html>

@@ -1,0 +1,66 @@
+/* ===========================================================
+   CANAUX — responsive / alignment overrides (page-scoped)
+   Linked LAST in canaux.html so it can override shared sheets.
+   NE PAS éditer les feuilles partagées : tout vit ici.
+   Cible : aligner sur Figma desktop 3639:64590 + mobile 3639:63658
+   =========================================================== */
+
+/* ---------- Garde anti-débordement horizontal ---------- */
+html, body{ max-width:100%; overflow-x:hidden; }
+.page, main{ min-width:0; }
+
+/* ---------- HERO desktop : titre sur une seule ligne (Figma) ----------
+   Le partagé .page-title monte ~78px à 1440px et passe sur 2 lignes,
+   chevauchant le sous-titre. Figma : titre sur 1 ligne (~64px de haut). */
+.ch-desktop .page-title{
+  font-size:clamp(34px, 3.9vw, 56px);
+  line-height:1.04;
+  text-wrap:balance;
+}
+.ch-desktop .ch-sub{ margin-top:6px; }
+
+/* ===========================================================
+   TABLETTE (768–1024px) : le bloc desktop reste affiché jusqu'à
+   767px ; on évite que la grille « Trouver des canaux » et les
+   grandes vidéos ne débordent dans cette zone intermédiaire.
+   =========================================================== */
+@media (max-width:1024px) and (min-width:768px){
+  .ch-grid{ grid-template-columns:repeat(2, minmax(0,1fr)); }
+  .vthumb-grid{ grid-template-columns:repeat(2, minmax(0,1fr)); }
+}
+
+@media (max-width:880px) and (min-width:768px){
+  .ch-grid{ grid-template-columns:minmax(0,1fr); }
+}
+
+/* ===========================================================
+   MOBILE (<768px) : la version .ch-mobile (.cc-feed) est déjà
+   construite et fidèle à Figma. On verrouille juste l'absence
+   de débordement et le confort sur petits écrans (<=430px).
+   =========================================================== */
+@media (max-width:767px){
+  /* le conteneur feed ne doit jamais dépasser la fenêtre */
+  .cc-feed{ width:100%; max-width:600px; box-sizing:border-box; }
+
+  /* cartes pleine largeur, contenu qui peut rétrécir */
+  .cc-card{ width:100%; box-sizing:border-box; min-width:0; }
+  .cc-top, .cc-main, .cc-row{ min-width:0; }
+  .ch-handle{ min-width:0; overflow-wrap:anywhere; }
+
+  /* réactions : autoriser le retour à la ligne plutôt que déborder */
+  .ch-reacts{ flex-wrap:wrap; }
+  .ch-msg-bottom{ gap:8px; }
+
+  /* grande carte talk : image responsive sans débordement */
+  .cc-talk-big{ width:100%; box-sizing:border-box; }
+  .cc-talk-item{ width:100%; box-sizing:border-box; min-width:0; }
+  .cc-talk-thumb{ flex-shrink:0; }
+  .vthumb-title{ overflow-wrap:anywhere; }
+}
+
+/* Très petits téléphones (<=380px) : un cran plus serré */
+@media (max-width:380px){
+  .cc-feed{ padding-inline:12px; }
+  .cc-avatar{ width:56px; height:56px; }
+  .ch-react .n{ font-size:12px; }
+}

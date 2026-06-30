@@ -1,0 +1,36 @@
+/* ============================================================
+   HOME OLYMPIC CONNECT — Figma desktop 3639:64799 / mobile 3639:63342
+   La page réutilise les composants déjà stylés (et responsives) de
+   style.css : .featured / .replay-card / .promo / .talk-card /
+   .redif-card / .rday / .post-card / .search.
+   Ce fichier ne fait que :
+     1. corriger les collisions avec homeJO.css (chargé après style.css) ;
+     2. quelques retouches d'espacement propres à la page.
+   Header (.jo-header) + footer (.footJO) = composants partagés du site.
+   ============================================================ */
+
+/* 1) RYTHME VERTICAL ----------------------------------------------------
+   homeJO.css applique .section{padding:54px 0} EN PLUS du
+   .section{margin-top:64px} de style.css → on restaure le rythme d'origine
+   (les sections de cette page sont calées sur margin-top, sans padding). */
+.home-oc .section{ padding:0; margin-top:64px; }
+.home-oc > .section:first-child{ margin-top:40px; }
+.home-oc{ padding-bottom:64px; }
+
+/* 2) CASSE DES TITRES ---------------------------------------------------
+   homeJO.css force h2/h3/h4{text-transform:uppercase}. Les titres réutilisés
+   ici doivent rester en casse normale, conformément au Figma
+   (« Actualités », « Athlete Talks à venir », titres de replays…). */
+.home-oc .section-title,
+.home-oc .rday-title,
+.home-oc .rday--big .rday-title,
+.home-oc .replay-card-title,
+.home-oc .redif-title{ text-transform:none; }
+
+/* 3) RETOUCHES MOBILE ---------------------------------------------------
+   (la bascule desktop→mobile des composants est déjà gérée par style.css
+   au breakpoint 680px ; on n'ajuste ici que l'espacement inter-sections). */
+@media (max-width:680px){
+  .home-oc .section{ margin-top:40px; }
+  .home-oc > .section:first-child{ margin-top:28px; }
+}

@@ -1,0 +1,155 @@
+/* ============================================================
+   RÉSULTATS — page Classement / Résultats quotidiens / Replays
+   Figma : desktop 3639:61995 / mobile 3639:62511
+   Réutilise les composants partagés de homeJO.css :
+   .medals / .medals-table / .medals-filters (tableau + filtres),
+   .rep-top / .rep-big, .rep-rail / .vrl, .banner.community.
+   Styles propres ci-dessous = titre page + section "Résultats quotidiens".
+   ============================================================ */
+
+:root{ --res-teal:#016381; }
+
+.resultats{ background:#fff; }
+
+/* ---- Titre de page "Classement" (Anton, teal JO) ---- */
+.rq-page-title{
+  font-family:"Anton","Archivo",sans-serif; font-weight:400;
+  font-size:clamp(2.5rem, 1.7rem + 3.2vw, 4rem);   /* ~40 → 64px */
+  line-height:1; letter-spacing:-.01em;
+  color:var(--res-teal); margin:0 0 30px;
+}
+
+/* ============================================================
+   RÉSULTATS QUOTIDIENS
+   ============================================================ */
+.rq{ display:flex; gap:50px; align-items:flex-start; }
+.rq-main{ flex:1 1 auto; min-width:0; }
+
+/* --- sélecteur de dates --- */
+.rq-dates{ display:flex; align-items:center; gap:14px; }
+.rq-arrow{
+  flex:0 0 auto; width:43px; height:43px; border:none; background:none;
+  cursor:pointer; color:var(--res-teal); display:grid; place-items:center;
+}
+.rq-arrow svg{ width:26px; height:26px; }
+.rq-arrow:hover{ opacity:.7; }
+.rq-chips{ display:flex; gap:34px; flex-wrap:wrap; flex:1 1 auto; }
+.rq-chip{
+  font-family:"NewBlack Typeface","Archivo",sans-serif; font-weight:500;
+  font-size:24px; line-height:1; color:var(--res-teal);
+  background:#fff; border:1.5px solid var(--res-teal); border-radius:8px;
+  padding:13px 22px; cursor:pointer; transition:.15s; white-space:nowrap;
+}
+.rq-chip:hover{ background:#eef6f8; }
+.rq-chip.is-active{ background:var(--res-teal); color:var(--blanc,#fbfbfb); }
+
+/* --- titre du jour --- */
+.rq-day{
+  font-family:"Anton","Archivo",sans-serif; font-weight:400;
+  font-size:34px; line-height:1; letter-spacing:-.01em;
+  color:var(--res-teal); margin:38px 0 22px; text-transform:capitalize;
+}
+
+/* --- liste des cartes résultat --- */
+.rq-list{ display:flex; flex-direction:column; gap:17px; }
+.rqc{
+  display:flex; align-items:flex-start; gap:6px;
+  background:#fbfbfb; border:1px solid var(--res-teal); border-radius:16px;
+  padding:18px 24px; transition:.15s;
+}
+.rqc:hover{ box-shadow:0 10px 26px rgba(1,99,129,.12); }
+
+.rqc__time{
+  flex:0 0 auto; display:flex; flex-direction:column; align-items:center;
+  gap:9px; width:64px; color:var(--res-teal);
+}
+.rqc__h{
+  font-family:"NewBlack Typeface","Archivo",sans-serif; font-weight:700;
+  font-size:20px; line-height:1;
+}
+.rqc__check{ width:22px; height:22px; color:var(--res-teal); }
+
+.rqc__main{ flex:1 1 auto; min-width:0; }
+.rqc__head{ display:flex; flex-direction:column; gap:8px; margin-bottom:14px; }
+.rqc__sport{
+  font-family:"NewBlack Typeface","Archivo",sans-serif; font-weight:700;
+  font-size:20px; line-height:1; color:var(--res-teal);
+}
+.rqc__sub{
+  font-family:"NewBlack Typeface","Archivo",sans-serif; font-weight:400;
+  font-size:20px; line-height:1; color:var(--res-teal);
+}
+
+.rqc__scores{ display:flex; flex-direction:column; gap:9px; }
+.rqc__team{ display:flex; align-items:center; gap:10px; }
+.rqc__flag{
+  flex:0 0 auto; width:26px; height:20px; object-fit:cover;
+  border-radius:2px; box-shadow:0 0 0 1px rgba(1,99,129,.12);
+}
+.rqc__country{
+  flex:1 1 auto; min-width:0;
+  font-family:"NewBlack Typeface","Archivo",sans-serif; font-weight:400;
+  font-size:20px; line-height:1; color:var(--res-teal);
+}
+.rqc__score{
+  flex:0 0 auto; text-align:right; min-width:24px;
+  font-family:"NewBlack Typeface","Archivo",sans-serif; font-weight:400;
+  font-size:20px; line-height:1; color:var(--res-teal);
+}
+/* équipe gagnante en gras */
+.rqc__team--win .rqc__country,
+.rqc__team--win .rqc__score{ font-weight:700; }
+
+/* --- bouton "voir plus" (mobile surtout) --- */
+.rq-more{
+  display:none; align-items:center; justify-content:center; gap:8px;
+  margin:22px auto 0; padding:11px 26px;
+  font-family:"NewBlack Typeface","Archivo",sans-serif; font-weight:700;
+  font-size:16px; color:var(--res-teal);
+  background:#fff; border:1.5px solid var(--res-teal); border-radius:8px;
+  cursor:pointer; transition:.15s;
+}
+.rq-more svg{ width:14px; height:14px; }
+.rq-more:hover{ background:#eef6f8; }
+
+/* la 2e aside filtres réutilise .medals-filters ; on la cale en haut */
+.rq .medals-filters{ flex:0 0 287px; align-self:flex-start; }
+
+/* espace au-dessus de la bannière communauté */
+.rq-banner{ margin-top:34px; }
+
+/* ============================================================
+   RESPONSIVE — calé sur les breakpoints du site (1080 / 760 / 420)
+   Cible : maquette mobile Figma 3639:62511 (~390px, colonne unique)
+   ============================================================ */
+@media(max-width:1080px){
+  .rq{ flex-direction:column; gap:24px; }
+  .rq .medals-divider{ display:none; }
+  .rq .medals-filters{ order:-1; flex:1 1 auto; width:100%; align-self:stretch; }
+  .rq-more{ display:inline-flex; }
+}
+
+@media(max-width:760px){
+  .rq-page-title{ color:#1874ff; }
+  .rq-day{ color:#1874ff; font-size:26px; margin-top:30px; }
+  .rq-chips{ gap:10px; }
+  .rq-chip{ font-size:18px; padding:10px 16px; }
+  .rq-arrow{ width:34px; height:34px; }
+  .rq-arrow svg{ width:20px; height:20px; }
+  .rqc{ padding:14px 16px; }
+  .rqc__time{ width:54px; }
+  .rqc__h,.rqc__sport,.rqc__sub,.rqc__country,.rqc__score{ font-size:17px; }
+  .rq-banner{ margin-top:24px; }
+}
+
+/* le composant médailles affiche son propre titre "Classement" (.medals-m-title)
+   sous 680px → on masque le titre de page dupliqué à partir de là */
+@media(max-width:680px){
+  .rq-page-title{ display:none; }
+}
+
+@media(max-width:420px){
+  .rq-chips{ gap:8px; }
+  .rq-chip{ font-size:16px; padding:9px 13px; }
+  .rqc__sub{ font-size:15px; line-height:1.2; }
+}

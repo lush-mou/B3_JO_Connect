@@ -1,0 +1,91 @@
+/* ============================================================
+   athletes.responsive.css — overrides RESPONSIVE pour athletes.html
+   Chargé EN DERNIER. N'édite aucun CSS partagé.
+   Cible : faire correspondre la frame mobile Figma (node 3639:63002)
+   sans régresser le desktop (node 3639:60353).
+   Breakpoints alignés au site : 1080 / 760 / 420.
+   ============================================================ */
+
+/* Garde-fou global : aucun débordement horizontal sur petits écrans */
+@media (max-width:760px){
+  html, body{ overflow-x:hidden; }
+  .page, .ath, .wrap{ min-width:0; }
+}
+
+/* ------------------------------------------------------------
+   MOSAÏQUE DE POSTS — sur desktop c'est une mosaïque flex
+   (posts-left / posts-right / post-pair / post-col) qui déborde
+   à l'étroit. On l'aplatit en une grille 2 colonnes propre via
+   display:contents, puis on uniformise les cartes.
+   ------------------------------------------------------------ */
+@media (max-width:760px){
+  .ath-feed .posts-grid{
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0,1fr));
+    gap:14px;
+    align-items:start;
+  }
+  /* aplatit les conteneurs intermédiaires : leurs enfants .post-card
+     deviennent des items directs de la grille */
+  .ath-feed .posts-left,
+  .ath-feed .posts-right,
+  .ath-feed .post-pair,
+  .ath-feed .post-col{ display:contents; }
+
+  /* uniformise toutes les cartes (annule les ratios wide/tall desktop) */
+  .ath-feed .post-card,
+  .ath-feed .post-pair .post-card,
+  .ath-feed .post-col .post-card,
+  .ath-feed .post-card--wide,
+  .ath-feed .post-card--tall{
+    width:auto;
+    max-width:none;
+    min-width:0;
+    flex:initial;
+    align-self:auto;
+    aspect-ratio:165/210;
+  }
+
+  /* la grande citation "wide" repasse en pied vertical (comme les autres) */
+  .ath-feed .post-card--wide .apost-foot{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:6px;
+  }
+  /* réactions : autorise le retour à la ligne pour ne jamais déborder */
+  .ath-feed .apost-reacts{ flex-wrap:wrap; }
+  .ath-feed .apost-quote{ font-size:15px; }
+  /* les SVG play ont preserveAspectRatio="none" : on force une boîte carrée
+     pour garder un rond (sinon ils s'étirent en ovale dans une carte portrait) */
+  .ath-feed .apost-play{ width:clamp(40px,12vw,52px); height:auto; aspect-ratio:1; }
+  .ath-feed .apost-play--big{ width:clamp(48px,15vw,64px); aspect-ratio:1; }
+}
+
+/* Téléphones étroits : gouttière plus serrée */
+@media (max-width:420px){
+  .ath-feed .posts-grid{ gap:10px; }
+  .ath-feed .apost-cap{ padding:8px 10px; }
+  .ath-feed .apost-react{ font-size:12px; }
+  .ath-feed .apost-time{ font-size:12px; }
+}
+
+/* ------------------------------------------------------------
+   EN-TÊTE ATHLÈTE — la photo reste à gauche, on évite qu'elle
+   prenne toute la largeur sur mobile (cf. Figma : ~150px).
+   ------------------------------------------------------------ */
+@media (max-width:520px){
+  .ath-id .ath-photo{ width:150px; }
+  .ath-name{ font-size:clamp(28px, 9vw, 40px); }
+}
+
+/* ------------------------------------------------------------
+   REPLAYS / TALKS — déjà en pile pleine largeur grâce au
+   flex-wrap (min-width:280px). On garantit juste min-width:0
+   pour éviter tout dépassement de texte long.
+   ------------------------------------------------------------ */
+@media (max-width:760px){
+  .rcard{ min-width:0; }
+  .tcard-row .vid-card{ min-width:0; }
+  .rcard-title,
+  .vid-card__desc{ overflow-wrap:anywhere; }
+}

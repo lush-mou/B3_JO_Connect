@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Olympic Connect 2026 — Résultats</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="pages.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;700&family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="homeJO.css" />
+  <link rel="stylesheet" href="resultats.css" />
+</head>
+<body>
+
+<!-- NAV (header JO — Figma 509:1191) -->
+<header class="jo-header">
+  <div class="jh-bar">
+    <div class="jh-row">
+      <div class="jh-left">
+        <a class="jh-logo" href="homeJO.html" aria-label="Milano Cortina 2026 — accueil">
+          <img src="assets/img/jo-header-logo.png" alt="Milano Cortina 2026" />
+        </a>
+        <a class="jh-tab" href="index.html">Olympic Connect</a>
+      </div>
+      <nav class="jh-menu">
+        <a class="active" href="resultats.html">Résultats</a>
+        <a href="#">Les Sports</a>
+        <a href="#">Map et Agenda</a>
+        <a href="#billeterie">Billeterie</a>
+        <a href="shop.html">Shop</a>
+      </nav>
+      <div class="jh-right">
+        <a class="jh-sos" href="sos.html">SOS</a>
+        <button class="jh-flag" type="button" aria-label="Choisir la langue — Français">
+          <svg viewBox="0 0 26 24" aria-hidden="true">
+            <rect width="8.667" height="24" fill="#002395"/>
+            <rect x="8.667" width="8.667" height="24" fill="#ffffff"/>
+            <rect x="17.333" width="8.667" height="24" fill="#ED2939"/>
+          </svg>
+        </button>
+        <!-- Burger (visible < 1080px) -->
+        <button class="jh-burger" type="button" aria-label="Ouvrir le menu"
+                aria-expanded="false" aria-controls="jhMenuM">
+          <svg class="icon-open" viewBox="0 0 40 28" aria-hidden="true">
+            <line x1="2" y1="4"  x2="38" y2="4"/>
+            <line x1="2" y1="14" x2="38" y2="14"/>
+            <line x1="2" y1="24" x2="38" y2="24"/>
+          </svg>
+          <svg class="icon-close" viewBox="0 0 28 28" aria-hidden="true">
+            <line x1="5" y1="5"  x2="23" y2="23"/>
+            <line x1="23" y1="5" x2="5"  y2="23"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Menu plein écran mobile (ouvert via le burger, < 1080px) -->
+  <nav class="jh-menu-m" id="jhMenuM">
+    <a href="resultats.html">Résultats</a>
+    <a href="#">Les Sports</a>
+    <a href="#">Map et Agenda</a>
+    <a href="#billeterie">Billeterie</a>
+    <a href="shop.html">Shop</a>
+  </nav>
+
+  <img class="jh-banner" src="assets/img/jo-header-gradient.png" alt="" />
+</header>
+
+<script>
+  // Burger menu mobile (< 1080px)
+  (function () {
+    var burger = document.querySelector('.jh-burger');
+    var menu = document.getElementById('jhMenuM');
+    if (!burger || !menu) return;
+    function setOpen(open) {
+      burger.setAttribute('aria-expanded', String(open));
+      burger.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+      menu.classList.toggle('is-open', open);
+      document.body.classList.toggle('jh-menu-open', open);
+    }
+    burger.addEventListener('click', function () {
+      setOpen(burger.getAttribute('aria-expanded') !== 'true');
+    });
+    menu.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () { setOpen(false); });
+    });
+  })();
+</script>
+
+<main class="resultats">
+
+  <!-- ============ CLASSEMENT — TABLEAU DES MÉDAILLES ============ -->
+  <section class="section" style="padding-top:40px">
+    <div class="wrap">
+      <h1 class="rq-page-title">Classement</h1>
+
+      <div class="medals">
+        <!-- Mobile : titre + filtres (Figma 3513:25488), masqués en desktop -->
+        <h2 class="medals-m-title">Classement</h2>
+        <div class="medals-filters-m">
+          <div class="mfm-row">
+            <button class="mfm" type="button">Tous les NOC
+              <svg class="chev" viewBox="0 0 30 15" fill="none"><path d="M2 2l13 11L28 2" stroke="#fbfbfb" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <button class="mfm" type="button">Médailles par sportif
+              <svg class="chev" viewBox="0 0 30 15" fill="none"><path d="M2 2l13 11L28 2" stroke="#fbfbfb" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </div>
+          <button class="mfm mfm-full" type="button">Médailles par sportif
+            <svg class="chev" viewBox="0 0 30 15" fill="none"><path d="M2 2l13 11L28 2" stroke="#fbfbfb" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <button class="mfm mfm-full" type="button">Rechercher par Athlète
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none"><circle cx="11" cy="11" r="7" stroke="#fbfbfb" stroke-width="2"/><path d="M20 20l-3.5-3.5" stroke="#fbfbfb" stroke-width="2" stroke-linecap="round"/></svg></button>
+        </div>
+        <div class="medals-table">
+          <div class="mt-head">
+            <div class="mt-title"><h3>Tableau des médailles</h3><span>Sport</span></div>
+            <div class="mt-cols">
+              <div class="mt-left">
+                <span class="mt-pos">Pos.</span>
+                <span class="mt-flag-col">Pays</span>
+                <span class="mt-name">Nom Pays</span>
+              </div>
+              <div class="mt-right">
+                <span class="mt-cell">🥇</span>
+                <span class="mt-cell">🥈</span>
+                <span class="mt-cell">🥉</span>
+                <span class="mt-cell">Total</span>
+              </div>
+            </div>
+          </div>
+          <div class="mt-body">
+            <div class="mt-row">
+              <div class="mt-left"><span class="mt-pos">1</span><span class="mt-flag-col"><img class="cflag" src="photo/drapeau/drapeau_france.svg" alt="Drapeau France"></span><span class="mt-name">France</span></div>
+              <div class="mt-right"><span class="mt-cell">18</span><span class="mt-cell">12</span><span class="mt-cell">11</span><span class="mt-cell">41</span></div>
+            </div>
+            <div class="mt-row">
+              <div class="mt-left"><span class="mt-pos">2</span><span class="mt-flag-col"><img class="cflag" src="photo/drapeau/drapeau_suisse.svg" alt="Drapeau Suisse"></span><span class="mt-name">Suisse</span></div>
+              <div class="mt-right"><span class="mt-cell">12</span><span class="mt-cell">12</span><span class="mt-cell">9</span><span class="mt-cell">33</span></div>
+            </div>
+            <div class="mt-row">
+              <div class="mt-left"><span class="mt-pos">3</span><span class="mt-flag-col"><img class="cflag" src="photo/drapeau/drapeau_norvege.svg" alt="Drapeau Norvège"></span><span class="mt-name">Norvège</span></div>
+              <div class="mt-right"><span class="mt-cell">10</span><span class="mt-cell">7</span><span class="mt-cell">3</span><span class="mt-cell">20</span></div>
+            </div>
+            <div class="mt-row">
+              <div class="mt-left"><span class="mt-pos">4</span><span class="mt-flag-col"><img class="cflag" src="photo/drapeau/drapeau_allemagne.svg" alt="Drapeau Allemagne"></span><span class="mt-name">Allemagne</span></div>
+              <div class="mt-right"><span class="mt-cell">10</span><span class="mt-cell">6</span><span class="mt-cell">14</span><span class="mt-cell">30</span></div>
+            </div>
+            <div class="mt-row">
+              <div class="mt-left"><span class="mt-pos">5</span><span class="mt-flag-col"><img class="cflag" src="photo/drapeau/drapeau_chine.svg" alt="Drapeau Chine"></span><span class="mt-name">Chine</span></div>
+              <div class="mt-right"><span class="mt-cell">8</span><span class="mt-cell">10</span><span class="mt-cell">8</span><span class="mt-cell">26</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="medals-divider" aria-hidden="true"></div>
+        <aside class="medals-filters">
+          <h3>Filtres</h3>
+          <div class="mf-dd">
+            <button class="mf" type="button" aria-expanded="false"><span class="mf-label">Date</span>
+              <svg class="chev" viewBox="0 0 30 15" fill="none"><path d="M2 2l13 11L28 2" stroke="#fbfbfb" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="mf-opts">
+              <button class="mf-opt" type="button">04 fev</button>
+              <button class="mf-opt" type="button">05 fev</button>
+              <button class="mf-opt" type="button">06 fev</button>
+              <button class="mf-opt" type="button">07 fev</button>
+              <button class="mf-opt" type="button">08 fev</button>
+            </div>
+          </div>
+          <div class="mf-dd">
+            <button class="mf" type="button" aria-expanded="false"><span class="mf-label">Tous les sports</span>
+              <svg class="chev" viewBox="0 0 30 15" fill="none"><path d="M2 2l13 11L28 2" stroke="#fbfbfb" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="mf-opts">
+              <button class="mf-opt" type="button">Biathlon</button>
+              <button class="mf-opt" type="button">Curling</button>
+              <button class="mf-opt" type="button">Hockey sur glace</button>
+              <button class="mf-opt" type="button">Patinage artistique</button>
+              <button class="mf-opt" type="button">Short track</button>
+            </div>
+          </div>
+          <div class="mf-dd">
+            <button class="mf" type="button" aria-expanded="false"><span class="mf-label">Tous les NOC</span>
+              <svg class="chev" viewBox="0 0 30 15" fill="none"><path d="M2 2l13 11L28 2" stroke="#fbfbfb" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="mf-opts">
+              <button class="mf-opt" type="button">France</button>
+              <button class="mf-opt" type="button">Suisse</button>
+              <button class="mf-opt" type="button">Norvège</button>
+              <button class="mf-opt" type="button">Allemagne</button>
+              <button class="mf-opt" type="button">Chine</button>
+            </div>
+          </div>
+          <div class="mf-search">
+            <input class="mf-input" type="text" placeholder="Athlète" aria-label="Rechercher un athlète">
+            <svg viewBox="0 0 26 26" fill="none"><circle cx="11" cy="11" r="8" stroke="#fbfbfb" stroke-width="2.5"/><path d="M17 17l6 6" stroke="#fbfbfb" stroke-width="2.5" stroke-linecap="round"/></svg>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RÉSULTATS QUOTIDIENS ============ -->
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head"><h2>Résultats quotidiens</h2></div>
+
+      <div class="rq">
+        <div class="rq-main">
+          <!-- sélecteur de dates -->
+          <div class="rq-dates">
+            <button class="rq-arrow" type="button" aria-label="Jours précédents"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="rq-chips">
+              <button class="rq-chip" type="button">04 Fev</button>
+              <button class="rq-chip" type="button">05 Fev</button>
+              <button class="rq-chip" type="button">06 Fev</button>
+              <button class="rq-chip" type="button">07 Fev</button>
+              <button class="rq-chip is-active" type="button">08 Fev</button>
+              <button class="rq-chip" type="button">09 Fev</button>
+            </div>
+            <button class="rq-arrow" type="button" aria-label="Jours suivants"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </div>
+
+          <h3 class="rq-day">8 février Dimanche</h3>
+
+          <div class="rq-list">
+            <!-- carte résultat -->
+            <article class="rqc">
+              <div class="rqc__time">
+                <span class="rqc__h">10:05</span>
+                <svg class="rqc__check" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M7 12.5l3.2 3.2L17 8.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div class="rqc__main">
+                <div class="rqc__head">
+                  <span class="rqc__sport">Curling</span>
+                  <span class="rqc__sub">Double mixte, 10e tour, session - Court A</span>
+                </div>
+                <div class="rqc__scores">
+                  <div class="rqc__team"><img class="rqc__flag" src="photo/drapeau/drapeau_norvege.svg" alt="Norvège"><span class="rqc__country">Norvège</span><span class="rqc__score">3</span></div>
+                  <div class="rqc__team rqc__team--win"><img class="rqc__flag" src="photo/drapeau/drapeau_republique_tcheque.svg" alt="Tchéquie"><span class="rqc__country">Tchéquie</span><span class="rqc__score">6</span></div>
+                </div>
+              </div>
+            </article>
+
+            <article class="rqc">
+              <div class="rqc__time">
+                <span class="rqc__h">10:05</span>
+                <svg class="rqc__check" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M7 12.5l3.2 3.2L17 8.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div class="rqc__main">
+                <div class="rqc__head">
+                  <span class="rqc__sport">Curling</span>
+                  <span class="rqc__sub">Double mixte, 10e tour - Court B</span>
+                </div>
+                <div class="rqc__scores">
+                  <div class="rqc__team"><img class="rqc__flag" src="photo/drapeau/drapeau_estonie.svg" alt="Estonie"><span class="rqc__country">Estonie</span><span class="rqc__score">3</span></div>
+                  <div class="rqc__team rqc__team--win"><img class="rqc__flag" src="photo/drapeau/drapeau_chine.svg" alt="Chine"><span class="rqc__country">Chine</span><span class="rqc__score">5</span></div>
+                </div>
+              </div>
+            </article>
+
+            <article class="rqc">
+              <div class="rqc__time">
+                <span class="rqc__h">11:20</span>
+                <svg class="rqc__check" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M7 12.5l3.2 3.2L17 8.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div class="rqc__main">
+                <div class="rqc__head">
+                  <span class="rqc__sport">Hockey sur glace</span>
+                  <span class="rqc__sub">Tournois officiel hommes</span>
+                </div>
+                <div class="rqc__scores">
+                  <div class="rqc__team rqc__team--win"><img class="rqc__flag" src="photo/drapeau/drapeau_suede.svg" alt="Suède"><span class="rqc__country">Suède</span><span class="rqc__score">5</span></div>
+                  <div class="rqc__team"><img class="rqc__flag" src="photo/drapeau/drapeau_italie.svg" alt="Italie"><span class="rqc__country">Italie</span><span class="rqc__score">2</span></div>
+                </div>
+              </div>
+            </article>
+
+            <article class="rqc">
+              <div class="rqc__time">
+                <span class="rqc__h">11:40</span>
+                <svg class="rqc__check" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M7 12.5l3.2 3.2L17 8.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div class="rqc__main">
+                <div class="rqc__head">
+                  <span class="rqc__sport">Hockey sur glace</span>
+                  <span class="rqc__sub">Tournois officiel femmes</span>
+                </div>
+                <div class="rqc__scores">
+                  <div class="rqc__team rqc__team--win"><img class="rqc__flag" src="photo/drapeau/drapeau_etats_unis.svg" alt="États-Unis"><span class="rqc__country">États-Unis</span><span class="rqc__score">6</span></div>
+                  <div class="rqc__team"><img class="rqc__flag" src="photo/drapeau/drapeau_danemark.svg" alt="Danemark"><span class="rqc__country">Danemark</span><span class="rqc__score">3</span></div>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <button class="rq-more" type="button">voir plus
+            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5 3l5 5-5 5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+
+        <div class="medals-divider" aria-hidden="true"></div>
+
+        <aside class="medals-filters">
+          <h3>Filtres</h3>
+          <div class="mf-dd">
+            <button class="mf" type="button" aria-expanded="false"><span class="mf-label">Date</span>
+              <svg class="chev" viewBox="0 0 30 15" fill="none"><path d="M2 2l13 11L28 2" stroke="#fbfbfb" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="mf-opts">
+              <button class="mf-opt" type="button">04 fev</button>
+              <button class="mf-opt" type="button">05 fev</button>
+              <button class="mf-opt" type="button">06 fev</button>
+              <button class="mf-opt" type="button">07 fev</button>
+              <button class="mf-opt" type="button">08 fev</button>
+            </div>
+          </div>
+          <div class="mf-dd">
+            <button class="mf" type="button" aria-expanded="false"><span class="mf-label">Tous les sports</span>
+              <svg class="chev" viewBox="0 0 30 15" fill="none"><path d="M2 2l13 11L28 2" stroke="#fbfbfb" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="mf-opts">
+              <button class="mf-opt" type="button">Biathlon</button>
+              <button class="mf-opt" type="button">Curling</button>
+              <button class="mf-opt" type="button">Hockey sur glace</button>
+              <button class="mf-opt" type="button">Patinage artistique</button>
+              <button class="mf-opt" type="button">Short track</button>
+            </div>
+          </div>
+          <div class="mf-dd">
+            <button class="mf" type="button" aria-expanded="false"><span class="mf-label">Tous les NOC</span>
+              <svg class="chev" viewBox="0 0 30 15" fill="none"><path d="M2 2l13 11L28 2" stroke="#fbfbfb" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="mf-opts">
+              <button class="mf-opt" type="button">France</button>
+              <button class="mf-opt" type="button">Suisse</button>
+              <button class="mf-opt" type="button">Norvège</button>
+              <button class="mf-opt" type="button">Allemagne</button>
+              <button class="mf-opt" type="button">Chine</button>
+            </div>
+          </div>
+          <div class="mf-search">
+            <input class="mf-input" type="text" placeholder="Athlète" aria-label="Rechercher un athlète">
+            <svg viewBox="0 0 26 26" fill="none"><circle cx="11" cy="11" r="8" stroke="#fbfbfb" stroke-width="2.5"/><path d="M17 17l6 6" stroke="#fbfbfb" stroke-width="2.5" stroke-linecap="round"/></svg>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ATHLETE TALKS ET REPLAYS ============ -->
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head community-head">
+        <h2>Athlete Talks et replays</h2>
+        <a class="pill-link" href="#">voir tous les replays
+          <svg viewBox="0 0 24 24" width="16" height="14"><path d="M5 12h12M12 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+
+      <!-- 2 grandes cartes -->
+      <div class="rep-top">
+        <article class="rep-big">
+          <div class="rep-big__media" style="background-image:url('photo/hockey_sur_glace_suede.png')">
+            <span class="rep-badge">Temps fort</span>
+          </div>
+          <div class="rep-big__body">
+            <p class="rep-big__title">SWE-ITA - Men's Preliminary Round - Ice Hockey | Milano Cortina 2026</p>
+            <div class="rep-big__meta">
+              <div class="rep-big__metaL">
+                <span class="rep-time">Il y a 2h</span>
+                <span class="rep-chip">Ice Hockey</span>
+              </div>
+              <button class="rep-play" type="button" aria-label="Lire"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+            </div>
+          </div>
+        </article>
+
+        <article class="rep-big">
+          <div class="rep-big__media" style="background-image:url('photo/equipe_hockey_france.png')">
+            <span class="rep-badge">Épreuve entière</span>
+          </div>
+          <div class="rep-big__body">
+            <p class="rep-big__title">GER-FRA - Men's Preliminary Round - Ice Hockey | Milano Cortina 2026</p>
+            <div class="rep-big__meta">
+              <div class="rep-big__metaL">
+                <span class="rep-time">Il y a 3h</span>
+                <span class="rep-chip">Ice Hockey</span>
+              </div>
+              <button class="rep-play" type="button" aria-label="Lire"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Bannière communauté -->
+      <div class="banner community rq-banner">
+        <div class="img has-img" style="background-image:url('photo/biathletes_femmes_selfie.png')"></div>
+        <div class="txt">
+          <h3>Rejoignez la communauté</h3>
+          <p>Découvrez Olympic Connect, notre extension communautaire, réagissez aux posts de vos athlètes favoris..</p>
+          <p>Connectez-vous et posez vos questions aux athlètes durant les lives !</p>
+          <a class="btn-community" href="#">Découvrir Olympic Connect
+            <svg viewBox="0 0 24 24" width="18" height="18"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Carrousel de petites vidéos -->
+      <div class="rep-rail">
+        <a class="vrl" href="#"><div class="vrl__bg" style="background-image:url('photo/patineuse_interview_cortina.png')"></div>
+          <div class="vrl__top"><span class="vrl__views"><svg viewBox="0 0 24 16" aria-hidden="true"><path d="M12 0C7 0 2.7 3 1 8c1.7 5 6 8 11 8s9.3-3 11-8c-1.7-5-6-8-11-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-3a2 2 0 100-4 2 2 0 000 4z"/></svg>89 401</span></div>
+          <div class="vrl__play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div>
+          <div class="vrl__bottom"><p class="vrl__title">Yuma Kagiyama décrypte les figures les plus impressionnantes du patinage</p><div class="vrl__tags"><span class="vrl__tag">Patinage Artistique</span><span class="vrl__tag">@Yuma_KAGIYAMA</span></div></div>
+        </a>
+        <a class="vrl" href="#"><div class="vrl__bg" style="background-image:url('photo/gu_ailing_conference_presse.jpg')"></div>
+          <div class="vrl__top"><span class="vrl__views"><svg viewBox="0 0 24 16" aria-hidden="true"><path d="M12 0C7 0 2.7 3 1 8c1.7 5 6 8 11 8s9.3-3 11-8c-1.7-5-6-8-11-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-3a2 2 0 100-4 2 2 0 000 4z"/></svg>44 434</span></div>
+          <div class="vrl__play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div>
+          <div class="vrl__bottom"><p class="vrl__title">Chloé Kim réagit aux figures impressionnantes en halfpipe</p><div class="vrl__tags"><span class="vrl__tag">Ski</span><span class="vrl__tag">@Chloe_KIM</span></div></div>
+        </a>
+        <a class="vrl" href="#"><div class="vrl__bg" style="background-image:url('photo/curling_interview.png')"></div>
+          <div class="vrl__top"><span class="vrl__views"><svg viewBox="0 0 24 16" aria-hidden="true"><path d="M12 0C7 0 2.7 3 1 8c1.7 5 6 8 11 8s9.3-3 11-8c-1.7-5-6-8-11-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-3a2 2 0 100-4 2 2 0 000 4z"/></svg>52 637</span></div>
+          <div class="vrl__play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div>
+          <div class="vrl__bottom"><p class="vrl__title">Steven Dubois explique la pression ressentie pendant la compétition</p><div class="vrl__tags"><span class="vrl__tag">Short Track</span><span class="vrl__tag">@Steven_DUBOIS</span></div></div>
+        </a>
+        <a class="vrl" href="#"><div class="vrl__bg" style="background-image:url('photo/snowboardeuse_burton_interview.png')"></div>
+          <div class="vrl__top"><span class="vrl__views"><svg viewBox="0 0 24 16" aria-hidden="true"><path d="M12 0C7 0 2.7 3 1 8c1.7 5 6 8 11 8s9.3-3 11-8c-1.7-5-6-8-11-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-3a2 2 0 100-4 2 2 0 000 4z"/></svg>21 905</span></div>
+          <div class="vrl__play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div>
+          <div class="vrl__bottom"><p class="vrl__title">Run final en slopestyle : les coulisses</p><div class="vrl__tags"><span class="vrl__tag">Snowboard</span><span class="vrl__tag">@Zoi_SADOWSKI</span></div></div>
+        </a>
+        <a class="vrl" href="#"><div class="vrl__bg" style="background-image:url('photo/biathlete_femme_interview.png')"></div>
+          <div class="vrl__top"><span class="vrl__views"><svg viewBox="0 0 24 16" aria-hidden="true"><path d="M12 0C7 0 2.7 3 1 8c1.7 5 6 8 11 8s9.3-3 11-8c-1.7-5-6-8-11-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-3a2 2 0 100-4 2 2 0 000 4z"/></svg>47 112</span></div>
+          <div class="vrl__play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div>
+          <div class="vrl__bottom"><p class="vrl__title">Analyse de son dernier pas de tir, parfait 20/20</p><div class="vrl__tags"><span class="vrl__tag">Biathlon</span><span class="vrl__tag">@Lou_JEANMONNOT</span></div></div>
+        </a>
+        <a class="vrl" href="#"><div class="vrl__bg" style="background-image:url('photo/patinage_vitesse_short_track_chine.jpg')"></div>
+          <div class="vrl__top"><span class="vrl__views"><svg viewBox="0 0 24 16" aria-hidden="true"><path d="M12 0C7 0 2.7 3 1 8c1.7 5 6 8 11 8s9.3-3 11-8c-1.7-5-6-8-11-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-3a2 2 0 100-4 2 2 0 000 4z"/></svg>63 778</span></div>
+          <div class="vrl__play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div>
+          <div class="vrl__bottom"><p class="vrl__title">La pression du short track raconté de l'intérieur</p><div class="vrl__tags"><span class="vrl__tag">Short Track</span><span class="vrl__tag">@Steven_DUBOIS</span></div></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footJO">
+  <div class="footJO-inner">
+
+    <h4 class="footJO-title">Partenaires Olympiques et Paralympiques Mondiaux</h4>
+
+    <div class="footJO-sponsors">
+      <div class="footJO-row">
+        <a class="footJO-spon" href="https://www.airbnb.com" target="_blank" rel="noopener"><img class="spon" style="--h:65px" src="assets/logos/airbnb.svg" alt="Airbnb"></a>
+        <a class="footJO-spon" href="https://www.alibabagroup.com" target="_blank" rel="noopener"><img class="spon" style="--h:35px" src="assets/logos/alibaba.svg" alt="Alibaba"></a>
+        <a class="footJO-spon" href="https://www.allianz.com" target="_blank" rel="noopener"><img class="spon" style="--h:60px" src="assets/logos/allianz.svg" alt="Allianz"></a>
+        <a class="footJO-spon" href="https://www.coca-cola.com" target="_blank" rel="noopener"><img class="spon" style="--h:56px" src="assets/logos/cocacola.svg" alt="Coca-Cola"></a>
+      </div>
+      <div class="footJO-row">
+        <a class="footJO-spon" href="https://www.deloitte.com" target="_blank" rel="noopener"><img class="spon" style="--h:42px" src="assets/logos/deloitte.svg" alt="Deloitte"></a>
+        <a class="footJO-spon" href="https://www.omegawatches.com" target="_blank" rel="noopener"><img class="spon" style="--h:77px" src="assets/logos/omega.svg" alt="Omega"></a>
+        <a class="footJO-spon" href="https://www.pg.com" target="_blank" rel="noopener"><img class="spon" style="--h:50px" src="assets/logos/pg.svg" alt="P&amp;G"></a>
+        <a class="footJO-spon" href="https://www.corona.com" target="_blank" rel="noopener"><img class="spon" style="--h:72px" src="assets/logos/logo-corona-cero.png" alt="Corona Cero"></a>
+      </div>
+      <div class="footJO-row">
+        <a class="footJO-spon" href="https://www.visa.com" target="_blank" rel="noopener"><img class="spon" style="--h:46px" src="assets/logos/visa.svg" alt="Visa"></a>
+        <a class="footJO-spon" href="https://www.samsung.com" target="_blank" rel="noopener"><img class="spon" style="--h:31px" src="assets/logos/samsung.svg" alt="Samsung"></a>
+        <a class="footJO-spon" href="https://www.tcl.com" target="_blank" rel="noopener"><img class="spon" style="--h:40px" src="assets/logos/tcl.svg" alt="TCL"></a>
+      </div>
+    </div>
+
+    <div class="footJO-cols">
+      <div class="footJO-brand">
+        <a class="footJO-logo" href="homeJO.html"><img src="assets/logos/logo_olympic_cool.svg" alt="Olympic Connect 2026"></a>
+        <div class="footJO-social">
+          <a href="#" aria-label="Facebook"><img src="assets/logos/facebook.svg" alt=""></a>
+          <a href="#" aria-label="Instagram"><img src="assets/logos/instagram.svg" alt=""></a>
+          <a href="#" aria-label="YouTube"><img src="assets/logos/youtube.svg" alt=""></a>
+        </div>
+      </div>
+      <nav class="footJO-nav">
+        <div class="footJO-col">
+          <h5>Compétition</h5>
+          <ul>
+            <li><a href="resultats.html">Résultats</a></li>
+            <li><a href="resultats.html">Médailles</a></li>
+            <li><a href="#">Disciplines</a></li>
+            <li><a href="#">Athlètes</a></li>
+          </ul>
+        </div>
+        <div class="footJO-col">
+          <h5>L'évènement</h5>
+          <ul>
+            <li><a href="#">Actualités</a></li>
+            <li><a href="#">Map et Agenda</a></li>
+            <li><a href="#">Calendrier</a></li>
+            <li><a href="#">Billeterie</a></li>
+          </ul>
+        </div>
+        <div class="footJO-col">
+          <h5>Services</h5>
+          <ul>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="#">Aide</a></li>
+            <li><a href="sos.html">SOS</a></li>
+            <li><a href="engagement.html">Engagement</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="footJO-divider"></div>
+
+    <p class="footJO-copy">Copyright © 2026 | All Rights Reserved | <a href="#">Terms and Conditions</a> | <a href="#">Privacy Policy</a></p>
+
+  </div>
+  <div class="footJO-deco" aria-hidden="true"></div>
+</footer>
+
+<script>
+  // Dropdowns de filtres (Date / Sports / NOC) — réutilise le motif .mf-dd
+  (function () {
+    document.querySelectorAll('.mf-dd .mf').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var dd = btn.closest('.mf-dd');
+        var open = dd.classList.toggle('open');
+        btn.setAttribute('aria-expanded', String(open));
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>

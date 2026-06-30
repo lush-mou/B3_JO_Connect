@@ -1,0 +1,150 @@
+/* ============================================================
+   DISCIPLINES / LES SPORTS
+   Figma : desktop 3639:65204 / mobile 3639:62774
+   JO teal = #00627c (header/footer) ; #016381 (var --bleu-jo) = cartes
+   Réutilise les composants partagés : .section .wrap .sec-head
+   .pill-link--jo .rep-big (Temps forts / Replay) .disc-rail (carrousel)
+   ============================================================ */
+
+.dp{ background:#fff; }
+.dp-pt0{ padding-top:0; }
+
+/* ---------- Titre de page + sous-titre ---------- */
+.dp-head{ margin-bottom:40px; }
+.dp-title{
+  font-family:"Anton","Archivo",sans-serif; font-weight:400;
+  font-size:64px; line-height:1; letter-spacing:-.64px;
+  color:var(--bleu-jo); margin:0;
+}
+.dp-sub{
+  font-family:"Archivo",sans-serif; font-weight:500; font-size:18px;
+  line-height:1; color:#5e5e5e; margin:18px 0 0;
+}
+
+/* ---------- Grille des 16 disciplines ---------- */
+.dp-grid{
+  display:grid; grid-template-columns:repeat(4,1fr); gap:22px;
+}
+.dp-card{
+  display:flex; flex-direction:column;
+  background:var(--bleu-jo); border-radius:8px; overflow:hidden;
+  transition:transform .2s, box-shadow .2s;
+}
+.dp-card:hover{ transform:translateY(-4px); box-shadow:0 18px 38px rgba(1,99,129,.28); }
+.dp-card__img{
+  position:relative; aspect-ratio:327/228; width:100%;
+  background-size:cover; background-position:center; background-repeat:no-repeat;
+}
+.dp-card__fav{
+  position:absolute; top:8px; right:8px; padding:0;
+  cursor:pointer; z-index:2; line-height:0;
+}
+.dp-card__fav svg{
+  width:30px; height:26px; fill:none; stroke:#fff; stroke-width:2;
+  filter:drop-shadow(0 1px 3px rgba(0,0,0,.45)); transition:.15s;
+}
+.dp-card__fav:hover svg{ stroke:#cdeaf2; }
+.dp-card__fav.is-fav svg{ fill:#fff; }
+.dp-card__name{
+  padding:10px 8px; text-align:center;
+  font-family:"Archivo",sans-serif; font-weight:600; font-size:18px;
+  line-height:1.1; color:var(--blue-50);
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+
+/* ---------- Bouton "disciplines paralympiques" ---------- */
+.dp-para-wrap{ display:flex; justify-content:center; margin-top:40px; }
+.dp-para{
+  display:inline-flex; align-items:center; justify-content:center;
+  background:var(--bleu-jo); color:#fff;
+  font-family:"Archivo",sans-serif; font-weight:600; font-size:18px; line-height:1;
+  padding:12px 26px; border-radius:8px; transition:background .15s ease, transform .15s ease;
+}
+.dp-para:hover{ background:#02738f; transform:translateY(-2px); }
+
+/* ---------- Bannière de la discipline ---------- */
+.dp-banner-sec{ padding:0; margin:8px 0 10px; }
+.dp-banner{
+  display:block; width:100%; height:auto; aspect-ratio:1376/691;
+  object-fit:cover; border-radius:16px;
+}
+
+/* ---------- Sous-titres de section (Anton teal) ---------- */
+.dp-h2{
+  font-family:"Anton","Archivo",sans-serif; font-weight:400;
+  font-size:40px; line-height:1.05; letter-spacing:-.4px;
+  color:var(--bleu-jo); margin:0 0 22px;
+}
+.dp-h2--sm{ font-size:32px; margin-bottom:24px; }
+
+/* ---------- À propos : vidéo + panneau teal ---------- */
+.dp-about{
+  display:grid; grid-template-columns:674px 1fr;
+  border-radius:16px; overflow:hidden;
+}
+.dp-about__video{ display:block; position:relative; line-height:0; }
+.dp-about__video img{ display:block; width:100%; height:100%; object-fit:cover; }
+.dp-about__text{
+  background:var(--bleu-jo); color:#fff;
+  padding:28px 34px; display:flex; flex-direction:column; justify-content:center; gap:14px;
+}
+.dp-about__text h3{
+  font-family:"Archivo",sans-serif; font-weight:700; font-size:22px; line-height:1.2;
+  margin:0; color:#fff;
+}
+.dp-about__text p{
+  font-family:"DM Sans","Archivo",sans-serif; font-weight:400; font-size:17px;
+  line-height:1.5; margin:0; color:#eaf4f7;
+}
+
+/* ---------- Blocs de texte (histoire / règles) ---------- */
+.dp-prose{ display:flex; flex-direction:column; gap:16px; max-width:1376px; }
+.dp-prose p{
+  font-family:"DM Sans","Archivo",sans-serif; font-weight:400;
+  font-size:17px; line-height:1.6; color:#1a1a1a; margin:0;
+}
+
+/* ---------- Grilles de cartes vidéo (réutilise .rep-big) ---------- */
+.dp-tf{ display:grid; grid-template-columns:repeat(3,1fr); gap:30px; }
+.dp-rep{ display:grid; grid-template-columns:repeat(2,1fr); gap:31px; }
+
+/* Durée superposée en bas à gauche du média */
+.dp-dur{
+  position:absolute; left:0; bottom:8px;
+  background:rgba(217,217,217,.85); color:#1a1a1a;
+  font-family:"Archivo",sans-serif; font-weight:500; font-size:14px; line-height:1;
+  padding:5px 9px; border-radius:0 6px 6px 0;
+}
+
+/* ============================================================
+   RESPONSIVE — cible mobile Figma 3639:62774 (~390px)
+   ============================================================ */
+@media(max-width:1080px){
+  .dp-grid{ grid-template-columns:repeat(3,1fr); }
+  .dp-tf{ grid-template-columns:1fr; gap:24px; }
+  .dp-rep{ grid-template-columns:1fr; gap:24px; }
+  .dp-about{ grid-template-columns:1fr; }
+  .dp-about__text{ padding:24px; }
+  .dp-title{ font-size:48px; }
+}
+
+@media(max-width:760px){
+  .dp-grid{ grid-template-columns:repeat(2,1fr); gap:14px; }
+  .dp-card__name{ font-size:16px; }
+  .dp-card__fav svg{ width:26px; height:22px; }
+  .dp-title{ font-size:34px; }
+  .dp-sub{ font-size:16px; margin-top:12px; }
+  .dp-h2{ font-size:30px; }
+  .dp-h2--sm{ font-size:26px; }
+  .dp-head{ margin-bottom:28px; }
+  .dp-para{ width:100%; }
+  .dp-para-wrap{ margin-top:28px; }
+  .dp-banner{ border-radius:12px; }
+  .dp-about__text h3{ font-size:19px; }
+  .dp-about__text p,.dp-prose p{ font-size:16px; }
+}
+
+@media(max-width:420px){
+  .dp-grid{ gap:12px; }
+  .dp-card__name{ font-size:14px; }
+}

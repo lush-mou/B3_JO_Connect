@@ -1,0 +1,39 @@
+/* ============================================================
+   homeJO.responsive.css
+   Overrides for the Home page (Olympic Connect 2026).
+   Loaded LAST so it can override homeJO.css / shared CSS.
+   Goal: align the MOBILE rendering to the Figma mobile frame
+   (3639:62247) without touching any shared/owned stylesheet.
+   ============================================================ */
+
+/* ---------- Disciplines : grille 2 colonnes en mobile ----------
+   La maquette mobile Figma montre les disciplines empilées sur 2
+   colonnes (Biathlon/Bobsleigh, Combiné/Curling, Hockey/Luge…),
+   et non un carrousel horizontal d'une seule rangée. On laisse donc
+   le rail se replier en grille et on masque les flèches/points qui
+   ne servent plus quand toutes les cartes sont visibles. */
+@media (max-width: 680px) {
+  .disc-rail {
+    flex-wrap: wrap;
+    overflow-x: visible;
+    overflow-y: visible;
+    scroll-snap-type: none;
+    gap: 14px;
+    padding-bottom: 0;
+  }
+  .disc {
+    flex: 0 0 calc(50% - 7px);
+    min-width: 0;            /* évite tout débordement horizontal */
+    scroll-snap-align: none;
+  }
+  .disc-nav { display: none; }   /* flèches + points inutiles en grille */
+}
+
+/* ---------- Garde-fous anti-débordement horizontal ----------
+   Sécurise les grilles multi-colonnes sur les très petits écrans
+   (<=420px / téléphones ~374-390px) sans changer le rendu desktop. */
+@media (max-width: 420px) {
+  .milano-grid { min-width: 0; }
+  .milano-grid > * { min-width: 0; }
+  .disc__name { font-size: 16px; }
+}

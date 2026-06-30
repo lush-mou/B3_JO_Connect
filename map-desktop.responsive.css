@@ -1,0 +1,134 @@
+/* ===========================================================
+   Map et Agenda — overrides responsive (chargé EN DERNIER)
+   Aligne le mobile sur le frame Figma 3639:62452.
+   N'altère PAS le desktop (tout est sous @media).
+   =========================================================== */
+
+/* Burger caché en desktop */
+.burger{ display:none; align-items:center; justify-content:center;
+  width:42px; height:42px; border-radius:10px; }
+.burger svg{ width:24px; height:24px; }
+
+/* ===========================================================
+   <= 1080px : grilles intermédiaires
+   =========================================================== */
+@media (max-width:1080px){
+  .map-section{ grid-template-columns:1fr; }
+  .map-panel{ min-height:340px; }
+  .disc-grid{ grid-template-columns:repeat(3,minmax(0,1fr)); }
+  .replay-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .sports-row{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+
+/* ===========================================================
+   <= 760px : layout mobile (colonne unique)
+   =========================================================== */
+@media (max-width:760px){
+
+  /* ---------- HEADER : logo + SOS + burger sur une ligne ---------- */
+  .site-header{ position:relative; }
+  .header-inner{ flex-wrap:nowrap; gap:10px; padding:12px 18px; align-items:center; }
+  .brand{ flex:none; }
+  .header-actions{ margin-left:auto; gap:10px; }
+  .flag{ display:none; }
+  .burger{ display:flex; }
+
+  /* Nav cachée -> dropdown via burger */
+  .main-nav{
+    display:none; order:0; width:auto; margin-left:0;
+  }
+  .main-nav.open{
+    display:flex; flex-direction:column; align-items:stretch; gap:6px;
+    position:absolute; top:100%; left:0; right:0; z-index:60;
+    background:var(--header-bg); padding:14px 18px 18px;
+    box-shadow:0 14px 24px rgba(2,40,55,.28);
+  }
+  .main-nav.open a{ font-size:16px; padding:10px 4px; }
+  .main-nav.open a.active{ align-self:flex-start; padding:9px 18px; }
+
+  /* ---------- HERO : carte arrondie, insérée, plus courte ---------- */
+  .hero{
+    min-height:200px; margin:12px 8px 0; border-radius:16px; overflow:hidden;
+  }
+  .hero-inner{ padding:0 18px 18px; }
+  .hero .rings-badge{ width:54px; margin-bottom:10px; }
+  .hero h1{ font-size:clamp(26px,7vw,34px); }
+
+  /* ---------- SECTIONS ---------- */
+  .wrap{ padding:0 16px; }
+  .section{ margin-top:36px; }
+  .section-title{ font-size:clamp(26px,7vw,32px); margin-bottom:18px; }
+
+  /* ---------- CARTE DES DISCIPLINES ---------- */
+  .map-section{ grid-template-columns:1fr; gap:18px; }
+  .map-panel{ min-height:300px; border-radius:14px; }
+
+  /* Filtres : Ville + Sport côte à côte, recherche pleine largeur */
+  .filters{ flex-direction:row; flex-wrap:wrap; gap:12px; }
+  .chip{ justify-content:center; }
+  .chip--ville, .chip--sport{ flex:1 1 0; min-width:0; }
+  .chip--search{ flex:1 1 100%; order:3; justify-content:space-between; }
+
+  /* 2 cartes par ligne (comme le frame mobile) */
+  .disc-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+  .disc-card .ph{ height:104px; }
+  .disc-card .title{ font-size:13px; }
+  .disc-card .date{ font-size:12px; }
+
+  /* ---------- AGENDA ---------- */
+  /* Barre de dates : scroll horizontal au lieu de déborder */
+  .date-bar{ gap:8px; }
+  .date-track{ overflow-x:auto; scrollbar-width:none; gap:8px; }
+  .date-track::-webkit-scrollbar{ display:none; }
+  .date-pill{ flex:0 0 auto; min-width:74px; padding:10px 8px; font-size:14px; }
+  .date-pill:nth-child(n+4){ display:block; } /* annule le masquage inline */
+
+  .sport-search{ width:100%; min-width:0; margin-bottom:18px; }
+
+  /* Cartes agenda : pile, bouton Billeterie pleine largeur en bas */
+  .agenda-grid{ grid-template-columns:1fr; gap:14px; }
+  .agenda-card{ flex-wrap:wrap; padding:14px; gap:14px; }
+  .agenda-card .info{ flex:1 1 0; min-width:0; }
+  .agenda-card .info .title{ font-size:15px; }
+  .agenda-card .ticket-btn{
+    flex:1 1 100%; justify-content:center; align-self:stretch;
+    margin-top:2px; padding:10px 12px;
+  }
+
+  /* ---------- DÉCOUVRIR LES DISCIPLINES ---------- */
+  .sports-row{ grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+  .sport-card .name{ font-size:16px; }
+  .disc-cta{ flex-direction:column; gap:16px; margin-top:22px; }
+  .disc-cta .carousel-arrows{ display:none; }
+  .disc-cta .dots{ display:none; }
+  .pill-btn{ width:auto; }
+
+  /* ---------- REPLAYS : colonne unique ---------- */
+  .replay-grid{ grid-template-columns:1fr; gap:18px; }
+  .replay .thumb img{ height:200px; }
+  .replay-title{ min-height:0; }
+  .btn-row{ justify-content:center; }
+}
+
+/* ===========================================================
+   <= 420px : téléphone étroit
+   =========================================================== */
+@media (max-width:420px){
+  .wrap{ padding:0 14px; }
+  .header-inner{ padding:10px 14px; }
+  .brand .brand-num{ font-size:26px; }
+  .hero{ min-height:180px; margin:10px 8px 0; }
+  .hero h1{ font-size:clamp(22px,8vw,30px); }
+
+  .map-panel{ min-height:260px; }
+
+  /* Une carte discipline par ligne en très petit écran */
+  .disc-grid{ grid-template-columns:1fr; }
+  .disc-card .ph{ height:150px; }
+
+  .filters{ gap:10px; }
+  .date-pill{ min-width:68px; font-size:13px; }
+
+  .sports-row{ gap:12px; }
+  .sport-card{ aspect-ratio:1/.82; padding:12px; }
+}
